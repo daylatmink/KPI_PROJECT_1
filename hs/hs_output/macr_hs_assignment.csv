@@ -1,0 +1,52 @@
+﻿Task_ID,Summary,Task_Tag,Priority,Assigned_To
+MACR-53,Reproducible Builds: make entries in output jar files reproducible (order + timestamp),Build & Release Engineering,Major,A-1661
+MACR-52,make build Reproducible,Build & Release Engineering,Major,A-2967
+MACR-51,Add GitHub Informations,Feature / Improvement Implementation,Minor,A-7670
+MACR-50,Upgrade Maven Archive 3.5.0,Other,Minor,A-1661
+MACR-49,Upgrade plexus-archiver/maven-archiver/plexus-utils,Other,Minor,A-2967
+MACR-48,Upgrade maven-plugins parent to version 32,Other,Minor,A-1661
+MACR-47,TLS v1.2. configuration for maven-invoker-plugin in JDK 7,Build & Release Engineering,Blocker,A-7670
+MACR-46,Upgrade plexus-interpolation to 1.25,Other,Minor,A-1662
+MACR-45,Upgrade plexus-archiver to 3.6.0,Other,Blocker,A-1662
+MACR-44,Upgrade mave-surefire/failsafe-plugin 2.21.0,Bug fixing / Maintenance,Blocker,A-7674
+MACR-43,Upgrade plexus-utils 3.1.0 / maven-archiver / plexus-achiver,Other,Minor,A-1661
+MACR-42,Upgrade parent to 31,Other,Minor,A-1662
+MACR-41,Upgrade of plexus-interpolation 1.24 to correct escaping issue.,Bug fixing / Maintenance,Major,A-1661
+MACR-40,Upgrade of maven-archiver to 3.1.1.,Other,Trivial,A-7670
+MACR-39,Upgrade of plexus-archiver to 3.4.,Other,Major,A-1661
+MACR-38,Upgrade maven-archiver to 3.1.0,Other,Minor,A-7670
+MACR-37,Upgrade plexus-interpolation to 1.22,Other,Minor,A-1662
+MACR-36,Upgrade maven-filtering to 3.1.1,Other,Minor,A-7674
+MACR-35,Upgrade maven-archiver to 3.1.0,Other,Minor,A-1659
+MACR-34,Upgrade of 'plexus-archiver' to version 3.3.,Other,Trivial,A-1662
+MACR-33,Upgrade to maven-plugins version 30,Other,Minor,A-1662
+MACR-32,Dependency updates.,Other,Trivial,A-1662
+MACR-31,Upgrade plexus-archiver from 3.1 to 3.1.1 / maven-archiver from 3.0.0 to 3.0.2,Other,Minor,A-1662
+MACR-30,Add LifecycleMapping and ArtifactHandler from maven-core to target packaging plugin,Build & Release Engineering,Major,A-2967
+MACR-29,Upgrade plexus-archiver from 3.0.3 to 3.1,Other,Minor,A-1662
+MACR-28,Upgrade plexus-archiver from 3.0.1 to 3.0.3,Other,Critical,A-1661
+MACR-27,Bump version to 3.0.0-SNAPSHOT,Feature / Improvement Implementation,Minor,A-7670
+MACR-26,Update lifecycle mapping to newest plugin version.,Feature / Improvement Implementation,Minor,A-2967
+MACR-25,Rename properties according to the plugin name,Feature / Improvement Implementation,Minor,A-1661
+MACR-24,Change package to org.apache.maven.plugins to prevent conflict with Maven Core,Build & Release Engineering,Major,A-1659
+MACR-23,Upgrade Maven 3.X Only JDK 1.6,Build & Release Engineering,Critical,A-7674
+MACR-22,Remove unnecessary exclusions of org.codehaus.plexus:plexus-component-api,Design & API Evolution,Minor,A-1662
+MACR-21,Upgrade from plexus-archiver 2.4.4 to 2.9,Feature / Improvement Implementation,Major,A-1659
+MACR-20,Upgrade maven-plugin-testing-harness to 1.3,Testing & Verification,Minor,A-7674
+MACR-19,Upgrade to maven-plugins parent version 27,Build & Release Engineering,Minor,A-1661
+MACR-18,Upgrade to maven-plugins version 25 to 26,Build & Release Engineering,Minor,A-7674
+MACR-17,Upgrade plexus-archiver 2.7.1 to 2.8.2,Feature / Improvement Implementation,Minor,A-1661
+MACR-16,Upgrade maven-archiver to 2.6,Build & Release Engineering,Minor,A-1661
+MACR-15,Upgrade maven-filtering to 1.3,Build & Release Engineering,Minor,A-2967
+MACR-14,Upgrade plexus-interpolation to 1.21,Feature / Improvement Implementation,Minor,A-2967
+MACR-13,Update version of plexus-archiver to 2.7.1,Feature / Improvement Implementation,Minor,A-2967
+MACR-12,Update version of plexus-archiver to 2.5,Feature / Improvement Implementation,Minor,A-7674
+MACR-11,Using maven-plugins parent version 25.,Build & Release Engineering,Major,A-7670
+MACR-10,Upgrade maven-filtering to 1.2,Build & Release Engineering,Minor,A-1661
+MACR-9,Upgrade plexus-archiver to 2.4.4,Project / General Task,Minor,A-1659
+MACR-8,Get IT's working,Project / General Task,Major,A-2967
+MACR-7,Removed warnings during build,Build & Release Engineering,Critical,A-1661
+MACR-6,use maven-plugin-tools' java 5 annotations,Build & Release Engineering,Major,A-7674
+MACR-5,Usage page is wrong: Maven 3.0.4 does not include ACR plugin,Bug fixing / Maintenance,Minor,A-7670
+MACR-2,Initial documentation,Feature / Improvement Implementation,Major,A-1662
+MACR-1,Initial version of the plugin,Feature / Improvement Implementation,Major,A-7670
