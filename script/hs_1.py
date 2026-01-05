@@ -1,12 +1,3 @@
-"""
-Harmony Search – Version 2
-Tương thích 100% với dữ liệu mới:
-- macr_issues.csv
-- macr_skills.csv
-
-Không còn kiểm tra các cột SWE_Area / assignee_code sai nữa.
-"""
-
 import pandas as pd
 import numpy as np
 import os
@@ -75,6 +66,10 @@ class DataLoaderV2:
     def load(self):
         print("\n[DataLoader] Loading...")
 
+        # Alias Assignee -> Assignee_ID if missing
+        if ASSIGNEE_COL not in self.issues.columns and "Assignee" in self.issues.columns:
+            self.issues[ASSIGNEE_COL] = self.issues["Assignee"]
+
         # Validate minimal columns
         for col in [TASK_ID_COL, TASK_TAG_COL, PRIORITY_COL, ASSIGNEE_COL]:
             if col not in self.issues.columns:
@@ -87,8 +82,8 @@ class DataLoaderV2:
         self._parse_task_skill()
         self._parse_employee_skill()
 
-        print(f"  ✓ Tasks parsed: {len(self.task_skills)}")
-        print(f"  ✓ Employees parsed: {len(self.emp_skills)}")
+        print(f"  Tasks parsed: {len(self.task_skills)}")
+        print(f"  Employees parsed: {len(self.emp_skills)}")
 
     # -----------------------------
     def _priority_to_level(self, p: str) -> int:

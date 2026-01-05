@@ -1,0 +1,1970 @@
+from_issue_key,to_issue_key,link_type,raw_link_type,direction
+ZOOKEEPER-4434,ZOOKEEPER-3142,relates to,Reference,outward
+ZOOKEEPER-4433,ZOOKEEPER-2872,relates to,Reference,outward
+ZOOKEEPER-4427,ZOOKEEPER-2342,supercedes,Supercedes,outward
+ZOOKEEPER-2342,ZOOKEEPER-4423,is related to,Reference,inward
+ZOOKEEPER-4421,ZOOKEEPER-3781,relates to,Reference,outward
+ZOOKEEPER-4390,ZOOKEEPER-4337,relates to,Reference,outward
+ZOOKEEPER-4278,ZOOKEEPER-4385,is related to,Reference,inward
+ZOOKEEPER-2260,ZOOKEEPER-4383,is related to,Reference,inward
+ZOOKEEPER-4367,ZOOKEEPER-4235,duplicates,Duplicate,outward
+ZOOKEEPER-3807,ZOOKEEPER-4356,is duplicated by,Duplicate,inward
+ZOOKEEPER-4390,ZOOKEEPER-4337,is related to,Reference,inward
+ZOOKEEPER-4335,ZOOKEEPER-2937,is a clone of,Cloners,outward
+ZOOKEEPER-4332,ZOOKEEPER-1162,duplicates,Duplicate,outward
+ZOOKEEPER-4332,ZOOKEEPER-4314,relates to,Reference,outward
+ZOOKEEPER-4226,ZOOKEEPER-4327,is duplicated by,Duplicate,inward
+ZOOKEEPER-4274,ZOOKEEPER-4327,is duplicated by,Duplicate,inward
+ZOOKEEPER-4332,ZOOKEEPER-4314,is related to,Reference,inward
+ZOOKEEPER-1162,ZOOKEEPER-4314,is related to,Reference,inward
+ZOOKEEPER-4312,ZOOKEEPER-3874,Parent Feature,Parent Feature,outward
+ZOOKEEPER-4309,ARTEMIS-2716,blocks,Blocker,outward
+ZOOKEEPER-4305,ZOOKEEPER-3677,duplicates,Duplicate,outward
+SOLR-15415,ZOOKEEPER-4303,is required by,Required,inward
+ZOOKEEPER-4296,ZOOKEEPER-2966,duplicates,Duplicate,outward
+ZOOKEEPER-4278,ZOOKEEPER-4385,relates to,Reference,outward
+ZOOKEEPER-4274,ZOOKEEPER-4327,duplicates,Duplicate,outward
+ZOOKEEPER-4269,ZOOKEEPER-1653,relates to,Reference,outward
+ZOOKEEPER-3371,ZOOKEEPER-4259,is caused by,Problem/Incident,inward
+ZOOKEEPER-4256,ZOOKEEPER-4253,duplicates,Duplicate,outward
+ZOOKEEPER-4255,ZOOKEEPER-4253,duplicates,Duplicate,outward
+ZOOKEEPER-4254,ZOOKEEPER-4253,duplicates,Duplicate,outward
+ZOOKEEPER-4254,ZOOKEEPER-4253,is duplicated by,Duplicate,inward
+ZOOKEEPER-4255,ZOOKEEPER-4253,is duplicated by,Duplicate,inward
+ZOOKEEPER-4256,ZOOKEEPER-4253,is duplicated by,Duplicate,inward
+ZOOKEEPER-4243,ZOOKEEPER-4246,is duplicated by,Duplicate,inward
+ZOOKEEPER-4244,ZOOKEEPER-4246,is duplicated by,Duplicate,inward
+ZOOKEEPER-4245,ZOOKEEPER-4246,is duplicated by,Duplicate,inward
+ZOOKEEPER-4245,ZOOKEEPER-4246,duplicates,Duplicate,outward
+ZOOKEEPER-4244,ZOOKEEPER-4246,duplicates,Duplicate,outward
+ZOOKEEPER-4243,ZOOKEEPER-4246,duplicates,Duplicate,outward
+ZOOKEEPER-4367,ZOOKEEPER-4235,is duplicated by,Duplicate,inward
+ZOOKEEPER-4231,ZOOKEEPER-3179,relates to,Reference,outward
+ZOOKEEPER-4226,ZOOKEEPER-4327,duplicates,Duplicate,outward
+ZOOKEEPER-3642,ZOOKEEPER-4225,is part of,Incorporates,inward
+ZOOKEEPER-4222,ZOOKEEPER-2307,relates to,Reference,outward
+ZOOKEEPER-4221,ZOOKEEPER-4182,duplicates,Duplicate,outward
+ZOOKEEPER-4209,ZOOKEEPER-1715,is a clone of,Cloners,outward
+ZOOKEEPER-4207,ZOOKEEPER-4206,duplicates,Duplicate,outward
+ZOOKEEPER-4207,ZOOKEEPER-4206,is duplicated by,Duplicate,inward
+ZOOKEEPER-4203,ZOOKEEPER-2029,supercedes,Supercedes,outward
+ZOOKEEPER-4202,ZOOKEEPER-3037,relates to,Reference,outward
+ZOOKEEPER-4221,ZOOKEEPER-4182,is duplicated by,Duplicate,inward
+ZOOKEEPER-4074,ZOOKEEPER-3575,requires,Required,outward
+ZOOKEEPER-4074,ZOOKEEPER-3601,requires,Required,outward
+ZOOKEEPER-4055,ZOOKEEPER-3879,causes,Problem/Incident,outward
+ZOOKEEPER-4039,ZOOKEEPER-4040,is duplicated by,Duplicate,inward
+ZOOKEEPER-4039,ZOOKEEPER-4040,duplicates,Duplicate,outward
+ZOOKEEPER-4024,CURATOR-584,duplicates,Duplicate,outward
+ZOOKEEPER-4023,ZOOKEEPER-4017,is a clone of,Cloners,outward
+ZOOKEEPER-4023,ZOOKEEPER-4017,is cloned by,Cloners,inward
+ZOOKEEPER-4008,ZOOKEEPER-4011,is duplicated by,Duplicate,inward
+ZOOKEEPER-4008,ZOOKEEPER-4011,is related to,Reference,inward
+ZOOKEEPER-4008,ZOOKEEPER-4011,duplicates,Duplicate,outward
+ZOOKEEPER-4008,ZOOKEEPER-4011,relates to,Reference,outward
+ZOOKEEPER-3056,ZOOKEEPER-4005,is related to,Reference,inward
+ZOOKEEPER-3990,ZOOKEEPER-3677,duplicates,Duplicate,outward
+ZOOKEEPER-3976,ZOOKEEPER-3696,relates to,Reference,outward
+ZOOKEEPER-3783,ZOOKEEPER-3964,is related to,Reference,inward
+ZOOKEEPER-3952,ZOOKEEPER-3680,supercedes,Supercedes,outward
+ZOOKEEPER-3940,ZOOKEEPER-3920,relates to,Reference,outward
+ZOOKEEPER-3925,ZOOKEEPER-3924,is a clone of,Cloners,outward
+ZOOKEEPER-3925,ZOOKEEPER-3924,is cloned by,Cloners,inward
+ZOOKEEPER-3829,ZOOKEEPER-3920,is fixed by,Completes,inward
+ZOOKEEPER-3940,ZOOKEEPER-3920,is related to,Reference,inward
+ZOOKEEPER-3466,ZOOKEEPER-3920,is related to,Reference,inward
+ZOOKEEPER-3828,ZOOKEEPER-3920,is related to,Reference,inward
+ZOOKEEPER-3829,ZOOKEEPER-3920,is related to,Reference,inward
+ZOOKEEPER-3912,SOLR-14752,causes,Problem/Incident,outward
+ZOOKEEPER-2678,ZOOKEEPER-3911,is caused by,Problem/Incident,inward
+ZOOKEEPER-3128,ZOOKEEPER-3891,is related to,Reference,inward
+ZOOKEEPER-3886,ZOOKEEPER-3878,relates to,Reference,outward
+ZOOKEEPER-4055,ZOOKEEPER-3879,is caused by,Problem/Incident,inward
+ZOOKEEPER-3886,ZOOKEEPER-3878,is related to,Reference,inward
+ZOOKEEPER-2832,ZOOKEEPER-3875,is related to,Reference,inward
+ZOOKEEPER-4312,ZOOKEEPER-3874,Parent Feature,Parent Feature,inward
+SOLR-15636,ZOOKEEPER-3874,is depended upon by,dependent,inward
+ZOOKEEPER-3850,ZOOKEEPER-3862,is caused by,Problem/Incident,inward
+ZOOKEEPER-3850,ZOOKEEPER-3862,causes,Problem/Incident,outward
+ZOOKEEPER-3842,ZOOKEEPER-3829,duplicates,Duplicate,outward
+ZOOKEEPER-3756,ZOOKEEPER-3838,is related to,Reference,inward
+ZOOKEEPER-3835,ZOOKEEPER-3836,is related to,Reference,inward
+ZOOKEEPER-3835,ZOOKEEPER-3836,relates to,Reference,outward
+HTTPCLIENT-1906,ZOOKEEPER-3832,is related to,Reference,inward
+ZOOKEEPER-3830,ZOOKEEPER-3829,duplicates,Duplicate,outward
+ZOOKEEPER-3829,ZOOKEEPER-3920,fixes,Completes,outward
+ZOOKEEPER-3842,ZOOKEEPER-3829,is duplicated by,Duplicate,inward
+ZOOKEEPER-3814,ZOOKEEPER-3829,is duplicated by,Duplicate,inward
+ZOOKEEPER-3830,ZOOKEEPER-3829,is duplicated by,Duplicate,inward
+ZOOKEEPER-3829,ZOOKEEPER-3920,relates to,Reference,outward
+ZOOKEEPER-3828,ZOOKEEPER-3466,relates to,Reference,outward
+ZOOKEEPER-3828,ZOOKEEPER-3920,relates to,Reference,outward
+CURATOR-570,ZOOKEEPER-3825,is related to,Reference,inward
+ZOOKEEPER-3264,ZOOKEEPER-3823,is related to,Reference,inward
+ZOOKEEPER-2342,ZOOKEEPER-3817,is related to,Reference,inward
+ZOOKEEPER-3814,ZOOKEEPER-3829,duplicates,Duplicate,outward
+ZOOKEEPER-3807,ZOOKEEPER-4356,duplicates,Duplicate,outward
+CURATOR-575,ZOOKEEPER-3803,is superceded by,Supercedes,inward
+ZOOKEEPER-3797,ZOOKEEPER-3791,relates to,Reference,outward
+HBASE-24149,ZOOKEEPER-3794,is related to,Reference,inward
+ZOOKEEPER-3797,ZOOKEEPER-3791,is related to,Reference,inward
+ZOOKEEPER-3767,ZOOKEEPER-3789,is related to,Reference,inward
+ZOOKEEPER-3783,ZOOKEEPER-3964,relates to,Reference,outward
+ZOOKEEPER-3352,ZOOKEEPER-3783,is related to,Reference,inward
+ZOOKEEPER-1608,ZOOKEEPER-3783,is related to,Reference,inward
+ZOOKEEPER-4421,ZOOKEEPER-3781,is related to,Reference,inward
+ZOOKEEPER-3779,SPARK-34110,causes,Problem/Incident,outward
+ZOOKEEPER-3779,ORC-733,causes,Problem/Incident,outward
+ZOOKEEPER-3778,ZOOKEEPER-3758,duplicates,Duplicate,outward
+ZOOKEEPER-3776,ZOOKEEPER-3758,duplicates,Duplicate,outward
+ZOOKEEPER-3767,ZOOKEEPER-3789,relates to,Reference,outward
+ZOOKEEPER-3776,ZOOKEEPER-3758,is duplicated by,Duplicate,inward
+ZOOKEEPER-3778,ZOOKEEPER-3758,is duplicated by,Duplicate,inward
+ZOOKEEPER-3698,ZOOKEEPER-3758,is related to,Reference,inward
+ZOOKEEPER-3756,ZOOKEEPER-3838,relates to,Reference,outward
+ZOOKEEPER-2164,ZOOKEEPER-3756,is related to,Reference,inward
+ZOOKEEPER-3753,ZOOKEEPER-3749,duplicates,Duplicate,outward
+ZOOKEEPER-3752,ZOOKEEPER-3749,duplicates,Duplicate,outward
+ZOOKEEPER-3751,ZOOKEEPER-3750,fixes,Completes,outward
+ZOOKEEPER-3751,ZOOKEEPER-3750,supercedes,Supercedes,outward
+ZOOKEEPER-3751,ZOOKEEPER-3750,is fixed by,Completes,inward
+ZOOKEEPER-3751,ZOOKEEPER-3750,is superceded by,Supercedes,inward
+ZOOKEEPER-3753,ZOOKEEPER-3749,is duplicated by,Duplicate,inward
+ZOOKEEPER-3752,ZOOKEEPER-3749,is duplicated by,Duplicate,inward
+ZOOKEEPER-3293,ZOOKEEPER-3741,is related to,Reference,inward
+ZOOKEEPER-3719,ZOOKEEPER-3741,is related to,Reference,inward
+ZOOKEEPER-2342,ZOOKEEPER-3737,is blocked by,Blocker,inward
+ZOOKEEPER-1371,ZOOKEEPER-3737,is related to,Reference,inward
+ZOOKEEPER-850,ZOOKEEPER-3737,is related to,Reference,inward
+ZOOKEEPER-3732,CURATOR-582,relates to,Reference,outward
+ZOOKEEPER-3730,ZOOKEEPER-3729,relates to,Reference,outward
+ZOOKEEPER-3730,ZOOKEEPER-3729,is related to,Reference,inward
+ZOOKEEPER-3726,ZOOKEEPER-1677,fixes,Completes,outward
+ZOOKEEPER-3726,ZOOKEEPER-2490,fixes,Completes,outward
+ZOOKEEPER-3726,ZOOKEEPER-1677,relates to,Reference,outward
+ZOOKEEPER-3726,ZOOKEEPER-2490,relates to,Reference,outward
+ZOOKEEPER-3726,ZOOKEEPER-1355,relates to,Reference,outward
+ZOOKEEPER-3725,ZOOKEEPER-2164,duplicates,Duplicate,outward
+ZOOKEEPER-3719,ZOOKEEPER-3741,relates to,Reference,outward
+ZOOKEEPER-3698,ZOOKEEPER-3758,relates to,Reference,outward
+ZOOKEEPER-3976,ZOOKEEPER-3696,is related to,Reference,inward
+ZOOKEEPER-3693,ZOOKEEPER-3694,is duplicated by,Duplicate,inward
+ZOOKEEPER-3693,ZOOKEEPER-3694,duplicates,Duplicate,outward
+ZOOKEEPER-3952,ZOOKEEPER-3680,is superceded by,Supercedes,inward
+ZOOKEEPER-2342,ZOOKEEPER-3677,is fixed by,Completes,inward
+ZOOKEEPER-4305,ZOOKEEPER-3677,is duplicated by,Duplicate,inward
+ZOOKEEPER-3990,ZOOKEEPER-3677,is duplicated by,Duplicate,inward
+ZOOKEEPER-2111,ZOOKEEPER-3652,is related to,Reference,inward
+ZOOKEEPER-3253,ZOOKEEPER-3650,is related to,Reference,inward
+ZOOKEEPER-3645,ZOOKEEPER-1105,duplicates,Duplicate,outward
+ZOOKEEPER-3644,ZOOKEEPER-3056,relates to,Reference,outward
+ZOOKEEPER-3642,ZOOKEEPER-4225,incorporates,Incorporates,outward
+ZOOKEEPER-3630,ZOOKEEPER-3599,blocks,Blocker,outward
+ZOOKEEPER-3417,ZOOKEEPER-3615,is related to,Reference,inward
+ZOOKEEPER-3610,ZOOKEEPER-3612,is related to,Reference,inward
+ZOOKEEPER-3281,ZOOKEEPER-3611,is related to,Reference,inward
+ZOOKEEPER-1416,ZOOKEEPER-3611,is related to,Reference,inward
+ZOOKEEPER-3610,ZOOKEEPER-3612,relates to,Reference,outward
+ZOOKEEPER-335,ZOOKEEPER-3608,is related to,Reference,inward
+ZOOKEEPER-1364,ZOOKEEPER-3601,is related to,Reference,inward
+HDFS-435,ZOOKEEPER-3601,is related to,Reference,inward
+ZOOKEEPER-4074,ZOOKEEPER-3601,is required by,Required,inward
+ZOOKEEPER-1675,ZOOKEEPER-3600,is related to,Reference,inward
+ZOOKEEPER-3414,ZOOKEEPER-3600,is related to,Reference,inward
+ZOOKEEPER-3630,ZOOKEEPER-3599,is blocked by,Blocker,inward
+ZOOKEEPER-3594,ZOOKEEPER-3418,relates to,Reference,outward
+ZOOKEEPER-1295,ZOOKEEPER-3593,is related to,Reference,inward
+ZOOKEEPER-2139,ZOOKEEPER-3593,is related to,Reference,inward
+ZOOKEEPER-2024,ZOOKEEPER-3585,is related to,Reference,inward
+ZOOKEEPER-4074,ZOOKEEPER-3575,is required by,Required,inward
+ZOOKEEPER-2122,ZOOKEEPER-3567,is blocked by,Blocker,inward
+ZOOKEEPER-3561,ZOOKEEPER-3558,relates to,Reference,outward
+ZOOKEEPER-3561,ZOOKEEPER-1634,depends upon,dependent,outward
+ZOOKEEPER-3560,ZOOKEEPER-3180,relates to,Reference,outward
+ZOOKEEPER-3561,ZOOKEEPER-3558,is related to,Reference,inward
+CURATOR-545,ZOOKEEPER-3546,is related to,Reference,inward
+ZOOKEEPER-3534,ZOOKEEPER-3478,Blocked,Blocked,outward
+ZOOKEEPER-3436,ZOOKEEPER-3530,is blocked by,Blocker,inward
+ZOOKEEPER-1940,ZOOKEEPER-3527,is related to,Reference,inward
+ZOOKEEPER-2325,ZOOKEEPER-3513,is caused by,Problem/Incident,inward
+ZOOKEEPER-3513,ZOOKEEPER-3056,requires,Required,outward
+ZOOKEEPER-3511,SOLR-13672,relates to,Reference,outward
+ZOOKEEPER-3509,ZOOKEEPER-3431,relates to,Reference,outward
+ZOOKEEPER-3475,ZOOKEEPER-3508,is related to,Reference,inward
+ZOOKEEPER-3431,ZOOKEEPER-3508,is related to,Reference,inward
+ZOOKEEPER-3475,ZOOKEEPER-3507,is related to,Reference,inward
+ZOOKEEPER-3431,ZOOKEEPER-3507,is related to,Reference,inward
+ZOOKEEPER-3318,ZOOKEEPER-3499,is related to,Reference,inward
+ZOOKEEPER-3496,ZOOKEEPER-2101,duplicates,Duplicate,outward
+ZOOKEEPER-3494,SOLR-13665,relates to,Reference,outward
+ZOOKEEPER-3493,ZOOKEEPER-3480,duplicates,Duplicate,outward
+ZOOKEEPER-3482,SOLR-7893,relates to,Reference,outward
+ZOOKEEPER-3477,ZOOKEEPER-3480,is duplicated by,Duplicate,inward
+ZOOKEEPER-3493,ZOOKEEPER-3480,is duplicated by,Duplicate,inward
+ZOOKEEPER-3534,ZOOKEEPER-3478,Blocked,Blocked,inward
+ZOOKEEPER-3477,ZOOKEEPER-3480,duplicates,Duplicate,outward
+ZOOKEEPER-3475,ZOOKEEPER-3507,relates to,Reference,outward
+ZOOKEEPER-3475,ZOOKEEPER-3508,relates to,Reference,outward
+ZOOKEEPER-3475,ZOOKEEPER-3464,supercedes,Supercedes,outward
+ZOOKEEPER-3469,ZOOKEEPER-3431,relates to,Reference,outward
+ZOOKEEPER-3468,ZOOKEEPER-3465,depends upon,dependent,outward
+ZOOKEEPER-3466,ZOOKEEPER-3920,relates to,Reference,outward
+ZOOKEEPER-3828,ZOOKEEPER-3466,is related to,Reference,inward
+ZOOKEEPER-3464,ZOOKEEPER-3465,is depended upon by,dependent,inward
+ZOOKEEPER-3468,ZOOKEEPER-3465,is depended upon by,dependent,inward
+ZOOKEEPER-3475,ZOOKEEPER-3464,is superceded by,Supercedes,inward
+ZOOKEEPER-3464,ZOOKEEPER-3465,depends upon,dependent,outward
+ZOOKEEPER-3458,ZOOKEEPER-3166,duplicates,Duplicate,outward
+ZOOKEEPER-3431,ZOOKEEPER-3446,is superceded by,Supercedes,inward
+ZOOKEEPER-3436,ZOOKEEPER-3530,blocks,Blocker,outward
+ZOOKEEPER-3431,ZOOKEEPER-3434,is superceded by,Supercedes,inward
+ZOOKEEPER-3431,ZOOKEEPER-3507,relates to,Reference,outward
+ZOOKEEPER-3431,ZOOKEEPER-3508,relates to,Reference,outward
+ZOOKEEPER-3469,ZOOKEEPER-3431,is related to,Reference,inward
+ZOOKEEPER-3509,ZOOKEEPER-3431,is related to,Reference,inward
+ZOOKEEPER-3431,ZOOKEEPER-3446,supercedes,Supercedes,outward
+ZOOKEEPER-3431,ZOOKEEPER-3434,supercedes,Supercedes,outward
+ZOOKEEPER-3594,ZOOKEEPER-3418,is related to,Reference,inward
+ZOOKEEPER-3417,ZOOKEEPER-3615,relates to,Reference,outward
+ZOOKEEPER-3414,ZOOKEEPER-3600,relates to,Reference,outward
+ZOOKEEPER-3389,ZOOKEEPER-3403,is related to,Reference,inward
+ZOOKEEPER-3402,ZOOKEEPER-3374,blocks,Blocker,outward
+ZOOKEEPER-3402,ZOOKEEPER-3381,blocks,Blocker,outward
+ZOOKEEPER-3400,ZOOKEEPER-2084,contains,Container,outward
+ZOOKEEPER-3389,ZOOKEEPER-3403,relates to,Reference,outward
+ZOOKEEPER-2283,ZOOKEEPER-3382,is related to,Reference,inward
+ZOOKEEPER-3402,ZOOKEEPER-3381,is blocked by,Blocker,inward
+ZOOKEEPER-3402,ZOOKEEPER-3374,is blocked by,Blocker,inward
+ZOOKEEPER-3374,ZOOKEEPER-3361,Dependent,Dependent,outward
+ZOOKEEPER-3371,ZOOKEEPER-4259,causes,Problem/Incident,outward
+ZOOKEEPER-3363,ZOOKEEPER-3351,incorporates,Incorporates,outward
+ZOOKEEPER-3363,ZOOKEEPER-3362,incorporates,Incorporates,outward
+ZOOKEEPER-3363,ZOOKEEPER-3362,is part of,Incorporates,inward
+ZOOKEEPER-3351,ZOOKEEPER-3362,is related to,Reference,inward
+ZOOKEEPER-3374,ZOOKEEPER-3361,Dependent,Dependent,inward
+ZOOKEEPER-3352,ZOOKEEPER-3783,relates to,Reference,outward
+ZOOKEEPER-3363,ZOOKEEPER-3351,is part of,Incorporates,inward
+ZOOKEEPER-3351,ZOOKEEPER-3362,relates to,Reference,outward
+ZOOKEEPER-3331,ZOOKEEPER-2547,duplicates,Duplicate,outward
+ZOOKEEPER-3318,ZOOKEEPER-3499,relates to,Reference,outward
+ZOOKEEPER-3316,ZOOKEEPER-568,relates to,Reference,outward
+ZOOKEEPER-3303,ZOOKEEPER-3293,relates to,Reference,outward
+ZOOKEEPER-1383,ZOOKEEPER-3301,is related to,Reference,inward
+ZOOKEEPER-2593,ZOOKEEPER-3301,is related to,Reference,inward
+ZOOKEEPER-451,ZOOKEEPER-3301,is related to,Reference,inward
+ZOOKEEPER-3299,ZOOKEEPER-3297,relates to,Reference,outward
+ZOOKEEPER-3299,ZOOKEEPER-3297,is related to,Reference,inward
+ZOOKEEPER-3293,ZOOKEEPER-3741,relates to,Reference,outward
+ZOOKEEPER-3303,ZOOKEEPER-3293,is related to,Reference,inward
+ZOOKEEPER-3290,ZOOKEEPER-3289,relates to,Reference,outward
+ZOOKEEPER-3290,ZOOKEEPER-3289,is related to,Reference,inward
+ZOOKEEPER-3285,ZOOKEEPER-3028,is a clone of,Cloners,outward
+ZOOKEEPER-3259,ZOOKEEPER-3282,is related to,Reference,inward
+ZOOKEEPER-3281,ZOOKEEPER-3611,relates to,Reference,outward
+ZOOKEEPER-3280,ZOOKEEPER-3253,duplicates,Duplicate,outward
+ZOOKEEPER-3272,ZOOKEEPER-3152,relates to,Reference,outward
+ZOOKEEPER-3272,ZOOKEEPER-3204,relates to,Reference,outward
+ZOOKEEPER-3269,CURATOR-498,incorporates,Incorporates,outward
+ZOOKEEPER-3264,ZOOKEEPER-3823,relates to,Reference,outward
+ZOOKEEPER-3259,ZOOKEEPER-3282,relates to,Reference,outward
+ZOOKEEPER-3280,ZOOKEEPER-3253,is duplicated by,Duplicate,inward
+ZOOKEEPER-3253,ZOOKEEPER-3650,relates to,Reference,outward
+ZOOKEEPER-1277,ZOOKEEPER-3253,is related to,Reference,inward
+ZOOKEEPER-3242,ZOOKEEPER-2736,duplicates,Duplicate,outward
+ZOOKEEPER-3209,ZOOKEEPER-3241,is related to,Reference,inward
+ZOOKEEPER-3227,ZOOKEEPER-3223,relates to,Reference,outward
+ZOOKEEPER-3225,ZOOKEEPER-3029,is a clone of,Cloners,outward
+ZOOKEEPER-3224,ZOOKEEPER-3029,is a clone of,Cloners,outward
+ZOOKEEPER-3223,ZOOKEEPER-3029,is a clone of,Cloners,outward
+ZOOKEEPER-3227,ZOOKEEPER-3223,is related to,Reference,inward
+ZOOKEEPER-3221,ZOOKEEPER-645,Blocked,Blocked,outward
+ZOOKEEPER-3214,ZOOKEEPER-3141,duplicates,Duplicate,outward
+ZOOKEEPER-3209,ZOOKEEPER-3241,relates to,Reference,outward
+ZOOKEEPER-3152,ZOOKEEPER-3204,is related to,Reference,inward
+ZOOKEEPER-3272,ZOOKEEPER-3204,is related to,Reference,inward
+ZOOKEEPER-3188,ZOOKEEPER-3189,is blocked by,Blocker,inward
+ZOOKEEPER-3188,ZOOKEEPER-3189,blocks,Blocker,outward
+ZOOKEEPER-3182,ZOOKEEPER-2807,causes,Problem/Incident,outward
+ZOOKEEPER-2024,ZOOKEEPER-3182,is broken by,Regression,inward
+ZOOKEEPER-3181,CURATOR-409,relates to,Reference,outward
+KNOX-1599,ZOOKEEPER-3181,is related to,Reference,inward
+HADOOP-15974,ZOOKEEPER-3181,is related to,Reference,inward
+ZOOKEEPER-3560,ZOOKEEPER-3180,is related to,Reference,inward
+ZOOKEEPER-3179,ZOOKEEPER-1651,duplicates,Duplicate,outward
+ZOOKEEPER-4231,ZOOKEEPER-3179,is related to,Reference,inward
+ZOOKEEPER-3173,ZOOKEEPER-236,relates to,Reference,outward
+ZOOKEEPER-3171,ZOOKEEPER-3029,is a clone of,Cloners,outward
+ZOOKEEPER-3028,ZOOKEEPER-3171,is depended upon by,dependent,inward
+ZOOKEEPER-3458,ZOOKEEPER-3166,is duplicated by,Duplicate,inward
+ZOOKEEPER-3152,ZOOKEEPER-3204,relates to,Reference,outward
+ZOOKEEPER-3272,ZOOKEEPER-3152,is related to,Reference,inward
+ZOOKEEPER-3149,ZOOKEEPER-2930,duplicates,Duplicate,outward
+ZOOKEEPER-4434,ZOOKEEPER-3142,is related to,Reference,inward
+ZOOKEEPER-3214,ZOOKEEPER-3141,is duplicated by,Duplicate,inward
+ZOOKEEPER-3109,ZOOKEEPER-3141,is caused by,Problem/Incident,inward
+ZOOKEEPER-3128,ZOOKEEPER-3891,relates to,Reference,outward
+ZOOKEEPER-3122,ZOOKEEPER-3029,is a clone of,Cloners,outward
+ZOOKEEPER-3109,ZOOKEEPER-3141,causes,Problem/Incident,outward
+ZOOKEEPER-3093,ZOOKEEPER-3101,is related to,Reference,inward
+ZOOKEEPER-3093,ZOOKEEPER-3101,relates to,Reference,outward
+ZOOKEEPER-3091,ZOOKEEPER-3092,is related to,Reference,inward
+ZOOKEEPER-3091,ZOOKEEPER-3092,relates to,Reference,outward
+ZOOKEEPER-3080,ZOOKEEPER-3032,is a clone of,Cloners,outward
+ZOOKEEPER-3059,ZOOKEEPER-2407,duplicates,Duplicate,outward
+ZOOKEEPER-3056,ZOOKEEPER-4005,relates to,Reference,outward
+ZOOKEEPER-3644,ZOOKEEPER-3056,is related to,Reference,inward
+ZOOKEEPER-2325,ZOOKEEPER-3056,is required by,Required,inward
+ZOOKEEPER-3513,ZOOKEEPER-3056,is required by,Required,inward
+ZOOKEEPER-1919,ZOOKEEPER-3053,is related to,Reference,inward
+ZOOKEEPER-3053,ZOOKEEPER-442,depends upon,dependent,outward
+ZOOKEEPER-3047,ZOOKEEPER-2204,relates to,Reference,outward
+ZOOKEEPER-2355,ZOOKEEPER-3040,is caused by,Problem/Incident,inward
+ZOOKEEPER-4202,ZOOKEEPER-3037,is related to,Reference,inward
+ZOOKEEPER-3033,ZOOKEEPER-3022,is a clone of,Cloners,outward
+ZOOKEEPER-3032,ZOOKEEPER-3022,is a clone of,Cloners,outward
+ZOOKEEPER-3080,ZOOKEEPER-3032,is cloned by,Cloners,inward
+ZOOKEEPER-3031,ZOOKEEPER-3022,is a clone of,Cloners,outward
+ZOOKEEPER-3030,ZOOKEEPER-3022,is a clone of,Cloners,outward
+ZOOKEEPER-3029,ZOOKEEPER-3022,is a clone of,Cloners,outward
+ZOOKEEPER-3171,ZOOKEEPER-3029,is cloned by,Cloners,inward
+ZOOKEEPER-3223,ZOOKEEPER-3029,is cloned by,Cloners,inward
+ZOOKEEPER-3224,ZOOKEEPER-3029,is cloned by,Cloners,inward
+ZOOKEEPER-3225,ZOOKEEPER-3029,is cloned by,Cloners,inward
+ZOOKEEPER-3122,ZOOKEEPER-3029,is cloned by,Cloners,inward
+ZOOKEEPER-3028,ZOOKEEPER-3029,is depended upon by,dependent,inward
+ZOOKEEPER-3028,ZOOKEEPER-3022,is a clone of,Cloners,outward
+ZOOKEEPER-3285,ZOOKEEPER-3028,is cloned by,Cloners,inward
+ZOOKEEPER-3028,ZOOKEEPER-3022,Dependent,Dependent,outward
+ZOOKEEPER-3028,ZOOKEEPER-3029,depends upon,dependent,outward
+ZOOKEEPER-3028,ZOOKEEPER-3171,depends upon,dependent,outward
+ZOOKEEPER-3026,ZOOKEEPER-2415,relates to,Reference,outward
+ZOOKEEPER-3028,ZOOKEEPER-3022,is cloned by,Cloners,inward
+ZOOKEEPER-3029,ZOOKEEPER-3022,is cloned by,Cloners,inward
+ZOOKEEPER-3030,ZOOKEEPER-3022,is cloned by,Cloners,inward
+ZOOKEEPER-3031,ZOOKEEPER-3022,is cloned by,Cloners,inward
+ZOOKEEPER-3032,ZOOKEEPER-3022,is cloned by,Cloners,inward
+ZOOKEEPER-3033,ZOOKEEPER-3022,is cloned by,Cloners,inward
+ZOOKEEPER-3028,ZOOKEEPER-3022,Dependent,Dependent,inward
+ZOOKEEPER-1078,ZOOKEEPER-3021,is duplicated by,Duplicate,inward
+ZOOKEEPER-2158,ZOOKEEPER-3021,is duplicated by,Duplicate,inward
+ZOOKEEPER-3021,ZOOKEEPER-1078,relates to,Reference,outward
+ZOOKEEPER-95,ZOOKEEPER-3021,is depended upon by,dependent,inward
+ZOOKEEPER-98,ZOOKEEPER-3021,is depended upon by,dependent,inward
+ZOOKEEPER-2919,ZOOKEEPER-3018,is related to,Reference,inward
+ZOOKEEPER-3016,ZOOKEEPER-2186,Blocked,Blocked,outward
+ZOOKEEPER-3004,ZOOKEEPER-3003,relates to,Reference,outward
+ZOOKEEPER-3004,ZOOKEEPER-3003,is related to,Reference,inward
+ZOOKEEPER-2249,ZOOKEEPER-2994,is related to,Reference,inward
+ZOOKEEPER-2991,ZOOKEEPER-2795,contains,Container,outward
+ZOOKEEPER-2985,KAFKA-6584,relates to,Reference,outward
+ZOOKEEPER-2955,ZOOKEEPER-2983,is related to,Reference,inward
+ZOOKEEPER-2982,ZOOKEEPER-1506,relates to,Reference,outward
+ZOOKEEPER-2968,ZOOKEEPER-2955,is a clone of,Cloners,outward
+ZOOKEEPER-4296,ZOOKEEPER-2966,is duplicated by,Duplicate,inward
+ZOOKEEPER-2965,ZOOKEEPER-1998,duplicates,Duplicate,outward
+ZOOKEEPER-2968,ZOOKEEPER-2955,is cloned by,Cloners,inward
+ZOOKEEPER-2868,ZOOKEEPER-2955,is duplicated by,Duplicate,inward
+ZOOKEEPER-2955,ZOOKEEPER-2983,relates to,Reference,outward
+ZOOKEEPER-2944,ZOOKEEPER-2947,is related to,Reference,inward
+ZOOKEEPER-2944,ZOOKEEPER-2947,relates to,Reference,outward
+ZOOKEEPER-4335,ZOOKEEPER-2937,is cloned by,Cloners,inward
+ZOOKEEPER-3149,ZOOKEEPER-2930,is duplicated by,Duplicate,inward
+ZOOKEEPER-2919,ZOOKEEPER-3018,relates to,Reference,outward
+HADOOP-15291,ZOOKEEPER-2908,is related to,Reference,inward
+ZOOKEEPER-2901,ZOOKEEPER-2503,relates to,Reference,outward
+ZOOKEEPER-2901,ZOOKEEPER-2163,relates to,Reference,outward
+ZOOKEEPER-2901,ZOOKEEPER-2169,relates to,Reference,outward
+ZOOKEEPER-2135,ZOOKEEPER-2877,is related to,Reference,inward
+ZOOKEEPER-2872,ZOOKEEPER-2310,fixes,Completes,outward
+ZOOKEEPER-4433,ZOOKEEPER-2872,is related to,Reference,inward
+ZOOKEEPER-2471,ZOOKEEPER-2869,is related to,Reference,inward
+ZOOKEEPER-2868,ZOOKEEPER-2955,duplicates,Duplicate,outward
+ZOOKEEPER-82,ZOOKEEPER-2861,is related to,Reference,inward
+ZOOKEEPER-2855,ZOOKEEPER-2172,relates to,Reference,outward
+ZOOKEEPER-2678,ZOOKEEPER-2845,is broken by,Regression,inward
+ZOOKEEPER-2841,ZOOKEEPER-2491,supercedes,Supercedes,outward
+ZOOKEEPER-2841,ZOOKEEPER-2756,supercedes,Supercedes,outward
+ZOOKEEPER-2832,ZOOKEEPER-3875,relates to,Reference,outward
+ZOOKEEPER-2720,ZOOKEEPER-2807,is duplicated by,Duplicate,inward
+ZOOKEEPER-3182,ZOOKEEPER-2807,is caused by,Problem/Incident,inward
+ZOOKEEPER-2991,ZOOKEEPER-2795,Is contained by,Container,inward
+ZOOKEEPER-2791,ZOOKEEPER-2789,relates to,Reference,outward
+ZOOKEEPER-2789,ZOOKEEPER-1277,Blocked,Blocked,outward
+ZOOKEEPER-2791,ZOOKEEPER-2789,is related to,Reference,inward
+ZOOKEEPER-2787,ZOOKEEPER-1535,is a clone of,Cloners,outward
+ZOOKEEPER-2787,ZOOKEEPER-1897,relates to,Reference,outward
+ZOOKEEPER-2787,HBASE-10903,breaks,Regression,outward
+ZOOKEEPER-2080,ZOOKEEPER-2778,is related to,Reference,inward
+ZOOKEEPER-2080,ZOOKEEPER-2778,is broken by,Regression,inward
+ZOOKEEPER-2774,ZOOKEEPER-1366,requires,Required,outward
+ZOOKEEPER-2759,ZOOKEEPER-1045,relates to,Reference,outward
+ZOOKEEPER-2756,MESOS-7297,blocks,Blocker,outward
+ZOOKEEPER-2841,ZOOKEEPER-2756,is superceded by,Supercedes,inward
+ZOOKEEPER-2743,ZOOKEEPER-2751,is related to,Reference,inward
+ZOOKEEPER-2750,ZOOKEEPER-236,relates to,Reference,outward
+ZOOKEEPER-2135,ZOOKEEPER-2746,is related to,Reference,inward
+ZOOKEEPER-2743,ZOOKEEPER-2751,relates to,Reference,outward
+ZOOKEEPER-2743,ZOOKEEPER-2707,breaks,Regression,outward
+ZOOKEEPER-2739,ZOOKEEPER-2280,duplicates,Duplicate,outward
+ZOOKEEPER-733,ZOOKEEPER-2737,is related to,Reference,inward
+ZOOKEEPER-2737,ZOOKEEPER-2686,breaks,Regression,outward
+ZOOKEEPER-3242,ZOOKEEPER-2736,is duplicated by,Duplicate,inward
+ZOOKEEPER-2726,ZOOKEEPER-2693,relates to,Reference,outward
+ZOOKEEPER-2135,ZOOKEEPER-2722,is related to,Reference,inward
+ZOOKEEPER-2720,ZOOKEEPER-2807,duplicates,Duplicate,outward
+ZOOKEEPER-2135,ZOOKEEPER-2720,is related to,Reference,inward
+ZOOKEEPER-2135,ZOOKEEPER-2716,is related to,Reference,inward
+ZOOKEEPER-2693,ZOOKEEPER-2713,is related to,Reference,inward
+ZOOKEEPER-2712,ZOOKEEPER-1045,relates to,Reference,outward
+HBASE-17717,ZOOKEEPER-2709,is related to,Reference,inward
+ZOOKEEPER-2743,ZOOKEEPER-2707,is broken by,Regression,inward
+ZOOKEEPER-2705,ZOOKEEPER-2464,duplicates,Duplicate,outward
+ZOOKEEPER-2700,ZOOKEEPER-1729,duplicates,Duplicate,outward
+ZOOKEEPER-2698,ZOOKEEPER-236,duplicates,Duplicate,outward
+ZOOKEEPER-2697,ZOOKEEPER-1394,relates to,Reference,outward
+CURATOR-408,ZOOKEEPER-2697,is related to,Reference,inward
+ZOOKEEPER-2154,ZOOKEEPER-2695,is duplicated by,Duplicate,inward
+ZOOKEEPER-2693,ZOOKEEPER-2713,relates to,Reference,outward
+ZOOKEEPER-2726,ZOOKEEPER-2693,is related to,Reference,inward
+ZOOKEEPER-2689,ZOOKEEPER-1045,relates to,Reference,outward
+ZOOKEEPER-2686,ZOOKEEPER-1858,relates to,Reference,outward
+ZOOKEEPER-2686,ZOOKEEPER-2135,relates to,Reference,outward
+ZOOKEEPER-2737,ZOOKEEPER-2686,is broken by,Regression,inward
+ZOOKEEPER-2684,ZOOKEEPER-2024,Blocked,Blocked,outward
+ZOOKEEPER-2135,ZOOKEEPER-2683,is related to,Reference,inward
+ZOOKEEPER-2680,ZOOKEEPER-2464,contains,Container,outward
+ZOOKEEPER-2678,ZOOKEEPER-3911,causes,Problem/Incident,outward
+ZOOKEEPER-2678,ZOOKEEPER-1674,relates to,Reference,outward
+ZOOKEEPER-2678,ZOOKEEPER-2845,breaks,Regression,outward
+ZOOKEEPER-2677,ZOOKEEPER-2044,relates to,Reference,outward
+ZOOKEEPER-2671,ZOOKEEPER-2574,relates to,Reference,outward
+ZOOKEEPER-2670,ZOOKEEPER-2230,is a clone of,Cloners,outward
+ZOOKEEPER-2139,ZOOKEEPER-2667,is broken by,Regression,inward
+ZOOKEEPER-2664,ZOOKEEPER-2395,duplicates,Duplicate,outward
+ZOOKEEPER-2307,ZOOKEEPER-2660,is duplicated by,Duplicate,inward
+ZOOKEEPER-2659,ZOOKEEPER-2342,duplicates,Duplicate,outward
+ZOOKEEPER-2470,ZOOKEEPER-2656,is related to,Reference,inward
+ZOOKEEPER-2383,ZOOKEEPER-2655,is related to,Reference,inward
+BIGTOP-2642,ZOOKEEPER-2654,is related to,Reference,inward
+ZOOKEEPER-2650,ZOOKEEPER-1045,relates to,Reference,outward
+ZOOKEEPER-2642,ZOOKEEPER-2014,breaks,Regression,outward
+ZOOKEEPER-761,ZOOKEEPER-2640,is related to,Reference,inward
+ZOOKEEPER-1045,ZOOKEEPER-2639,is related to,Reference,inward
+ZOOKEEPER-2628,ZOOKEEPER-2636,is broken by,Regression,inward
+ZOOKEEPER-2624,ZOOKEEPER-2629,is related to,Reference,inward
+ZOOKEEPER-2628,ZOOKEEPER-2636,breaks,Regression,outward
+ZOOKEEPER-2624,ZOOKEEPER-2629,relates to,Reference,outward
+ZOOKEEPER-1394,ZOOKEEPER-2618,is duplicated by,Duplicate,inward
+ZOOKEEPER-2611,ZOOKEEPER-1887,relates to,Reference,outward
+ZOOKEEPER-2610,ZOOKEEPER-2135,relates to,Reference,outward
+ZOOKEEPER-2609,ZOOKEEPER-2543,duplicates,Duplicate,outward
+ZOOKEEPER-2609,ZOOKEEPER-2168,depends upon,dependent,outward
+ZOOKEEPER-2593,ZOOKEEPER-451,duplicates,Duplicate,outward
+ZOOKEEPER-2593,ZOOKEEPER-3301,relates to,Reference,outward
+ZOOKEEPER-2587,ZOOKEEPER-2467,duplicates,Duplicate,outward
+ZOOKEEPER-2586,ZOOKEEPER-1910,relates to,Reference,outward
+ZOOKEEPER-2577,ZOOKEEPER-2135,relates to,Reference,outward
+ZOOKEEPER-2574,ZOOKEEPER-2420,duplicates,Duplicate,outward
+ZOOKEEPER-2671,ZOOKEEPER-2574,is related to,Reference,inward
+ZOOKEEPER-1797,ZOOKEEPER-2574,is broken by,Regression,inward
+ZOOKEEPER-2566,ZOOKEEPER-2521,is a clone of,Cloners,outward
+ZOOKEEPER-2561,ZOOKEEPER-2560,is a clone of,Cloners,outward
+ZOOKEEPER-2561,ZOOKEEPER-2560,is cloned by,Cloners,inward
+INFRA-12573,ZOOKEEPER-2557,is related to,Reference,inward
+ZOOKEEPER-1364,ZOOKEEPER-2549,is related to,Reference,inward
+ZOOKEEPER-3331,ZOOKEEPER-2547,is duplicated by,Duplicate,inward
+ZOOKEEPER-2609,ZOOKEEPER-2543,is duplicated by,Duplicate,inward
+ZOOKEEPER-2543,ZOOKEEPER-2168,requires,Required,outward
+ZOOKEEPER-2538,ZOOKEEPER-2135,relates to,Reference,outward
+ZOOKEEPER-1798,ZOOKEEPER-2538,is related to,Reference,inward
+ZOOKEEPER-2537,ZOOKEEPER-2536,duplicates,Duplicate,outward
+ZOOKEEPER-2537,ZOOKEEPER-2536,is duplicated by,Duplicate,inward
+ZOOKEEPER-2358,ZOOKEEPER-2530,is duplicated by,Duplicate,inward
+ZOOKEEPER-2529,ZOOKEEPER-2135,relates to,Reference,outward
+ZOOKEEPER-2247,ZOOKEEPER-2529,is related to,Reference,inward
+ZOOKEEPER-2358,ZOOKEEPER-2527,is duplicated by,Duplicate,inward
+ZOOKEEPER-2462,ZOOKEEPER-2526,is related to,Reference,inward
+ZOOKEEPER-1634,ZOOKEEPER-2526,is related to,Reference,inward
+ZOOKEEPER-2566,ZOOKEEPER-2521,is cloned by,Cloners,inward
+ZOOKEEPER-2505,ZOOKEEPER-2518,is related to,Reference,inward
+ZOOKEEPER-2139,ZOOKEEPER-2517,is broken by,Regression,inward
+ZOOKEEPER-1626,ZOOKEEPER-2516,is related to,Reference,inward
+ZOOKEEPER-2364,ZOOKEEPER-2514,is related to,Reference,inward
+ZOOKEEPER-2513,ZOOKEEPER-2172,depends upon,dependent,outward
+ZOOKEEPER-2512,ZOOKEEPER-2489,depends upon,dependent,outward
+ZOOKEEPER-2358,ZOOKEEPER-2509,is duplicated by,Duplicate,inward
+ZOOKEEPER-2508,ZOOKEEPER-2135,relates to,Reference,outward
+ZOOKEEPER-2505,ZOOKEEPER-2518,relates to,Reference,outward
+ZOOKEEPER-1742,ZOOKEEPER-2505,is required by,Required,inward
+ZOOKEEPER-2503,ZOOKEEPER-2504,is related to,Reference,inward
+ZOOKEEPER-2503,ZOOKEEPER-2504,relates to,Reference,outward
+ZOOKEEPER-2901,ZOOKEEPER-2503,is related to,Reference,inward
+ZOOKEEPER-260,ZOOKEEPER-2503,is related to,Reference,inward
+ZOOKEEPER-2502,ZOOKEEPER-2135,relates to,Reference,outward
+ZOOKEEPER-2497,ZOOKEEPER-2135,relates to,Reference,outward
+ZOOKEEPER-2477,ZOOKEEPER-2494,is related to,Reference,inward
+ZOOKEEPER-2493,ZOOKEEPER-2135,relates to,Reference,outward
+ZOOKEEPER-2841,ZOOKEEPER-2491,is superceded by,Supercedes,inward
+ZOOKEEPER-3726,ZOOKEEPER-2490,is fixed by,Completes,inward
+ZOOKEEPER-3726,ZOOKEEPER-2490,is related to,Reference,inward
+ZOOKEEPER-2512,ZOOKEEPER-2489,is depended upon by,dependent,inward
+ZOOKEEPER-2487,ZOOKEEPER-2135,relates to,Reference,outward
+ZOOKEEPER-2486,ZOOKEEPER-2135,relates to,Reference,outward
+ZOOKEEPER-2485,ZOOKEEPER-2135,relates to,Reference,outward
+ZOOKEEPER-2484,ZOOKEEPER-2135,relates to,Reference,outward
+ZOOKEEPER-2483,ZOOKEEPER-1932,duplicates,Duplicate,outward
+ZOOKEEPER-2483,ZOOKEEPER-2135,relates to,Reference,outward
+ZOOKEEPER-2482,ZOOKEEPER-2135,relates to,Reference,outward
+ZOOKEEPER-1256,ZOOKEEPER-2482,is related to,Reference,inward
+ZOOKEEPER-2481,ZOOKEEPER-2135,relates to,Reference,outward
+ZOOKEEPER-2479,ZOOKEEPER-1045,relates to,Reference,outward
+ZOOKEEPER-2477,ZOOKEEPER-2494,relates to,Reference,outward
+ZOOKEEPER-2471,ZOOKEEPER-2869,relates to,Reference,outward
+ZOOKEEPER-2470,ZOOKEEPER-2656,relates to,Reference,outward
+ZOOKEEPER-2587,ZOOKEEPER-2467,is duplicated by,Duplicate,inward
+ZOOKEEPER-1856,ZOOKEEPER-2466,is related to,Reference,inward
+ZOOKEEPER-2680,ZOOKEEPER-2464,Is contained by,Container,inward
+ZOOKEEPER-2705,ZOOKEEPER-2464,is duplicated by,Duplicate,inward
+ZOOKEEPER-2462,ZOOKEEPER-2526,relates to,Reference,outward
+ZOOKEEPER-1634,ZOOKEEPER-2462,is related to,Reference,inward
+BOOKKEEPER-970,ZOOKEEPER-2460,is related to,Reference,inward
+ZOOKEEPER-1078,ZOOKEEPER-2460,is related to,Reference,inward
+ZOOKEEPER-2457,ZOOKEEPER-2458,is duplicated by,Duplicate,inward
+ZOOKEEPER-2457,ZOOKEEPER-2458,duplicates,Duplicate,outward
+ZOOKEEPER-2454,ZOOKEEPER-2280,depends upon,dependent,outward
+ZOOKEEPER-1374,ZOOKEEPER-2453,is related to,Reference,inward
+ZOOKEEPER-2247,ZOOKEEPER-2452,is related to,Reference,inward
+ZOOKEEPER-1460,ZOOKEEPER-2452,is related to,Reference,inward
+ZOOKEEPER-2451,ZOOKEEPER-2139,duplicates,Duplicate,outward
+ZOOKEEPER-2447,ZOOKEEPER-2449,is related to,Reference,inward
+ZOOKEEPER-2447,ZOOKEEPER-2449,relates to,Reference,outward
+ZOOKEEPER-2446,ZOOKEEPER-2373,duplicates,Duplicate,outward
+ZOOKEEPER-1029,ZOOKEEPER-2443,is broken by,Regression,inward
+ZOOKEEPER-1045,ZOOKEEPER-2433,Is contained by,Container,inward
+ZOOKEEPER-2433,ZOOKEEPER-1467,relates to,Reference,outward
+ZOOKEEPER-2433,HADOOP-10183,relates to,Reference,outward
+ZOOKEEPER-2432,ZOOKEEPER-1676,relates to,Reference,outward
+ZOOKEEPER-1676,ZOOKEEPER-2432,is related to,Reference,inward
+ZOOKEEPER-2090,ZOOKEEPER-2431,is part of,Incorporates,inward
+ZOOKEEPER-111,ZOOKEEPER-2421,is caused by,Problem/Incident,inward
+ZOOKEEPER-2574,ZOOKEEPER-2420,is duplicated by,Duplicate,inward
+ZOOKEEPER-2139,ZOOKEEPER-2416,is related to,Reference,inward
+ZOOKEEPER-3026,ZOOKEEPER-2415,is related to,Reference,inward
+ZOOKEEPER-2414,ZOOKEEPER-2267,incorporates,Incorporates,outward
+ZOOKEEPER-2413,ZOOKEEPER-2163,relates to,Reference,outward
+ZOOKEEPER-3059,ZOOKEEPER-2407,is duplicated by,Duplicate,inward
+ZOOKEEPER-2402,ZOOKEEPER-1295,contains,Container,outward
+ZOOKEEPER-2402,ZOOKEEPER-2397,relates to,Reference,outward
+ZOOKEEPER-2394,ZOOKEEPER-2398,Is contained by,Container,inward
+ZOOKEEPER-2402,ZOOKEEPER-2397,is related to,Reference,inward
+ZOOKEEPER-2139,ZOOKEEPER-2396,Is contained by,Container,inward
+ZOOKEEPER-2330,ZOOKEEPER-2396,is depended upon by,dependent,inward
+ZOOKEEPER-2664,ZOOKEEPER-2395,is duplicated by,Duplicate,inward
+ZOOKEEPER-2394,ZOOKEEPER-2398,contains,Container,outward
+ZOOKEEPER-2195,ZOOKEEPER-2394,is related to,Reference,inward
+ZOOKEEPER-2342,ZOOKEEPER-2393,is related to,Reference,inward
+ZOOKEEPER-1371,ZOOKEEPER-2393,is related to,Reference,inward
+HADOOP-12927,ZOOKEEPER-2392,is related to,Reference,inward
+HADOOP-12928,ZOOKEEPER-2392,is related to,Reference,inward
+ZOOKEEPER-2390,ZOOKEEPER-2373,duplicates,Duplicate,outward
+ZOOKEEPER-2378,ZOOKEEPER-2385,is broken by,Regression,inward
+ZOOKEEPER-2383,SOLR-8724,relates to,Reference,outward
+ZOOKEEPER-2383,ZOOKEEPER-2655,relates to,Reference,outward
+ARIES-1684,ZOOKEEPER-2383,is related to,Reference,inward
+SOLR-9386,ZOOKEEPER-2383,is related to,Reference,inward
+ZOOKEEPER-2381,ZOOKEEPER-2137,duplicates,Duplicate,outward
+ZOOKEEPER-2375,ZOOKEEPER-2379,is broken by,Regression,inward
+ZOOKEEPER-2378,ZOOKEEPER-2385,breaks,Regression,outward
+ZOOKEEPER-2373,ZOOKEEPER-2378,is required by,Required,inward
+ZOOKEEPER-2376,ZOOKEEPER-2332,duplicates,Duplicate,outward
+ZOOKEEPER-2375,ZOOKEEPER-2379,breaks,Regression,outward
+ZOOKEEPER-2446,ZOOKEEPER-2373,is duplicated by,Duplicate,inward
+ZOOKEEPER-2390,ZOOKEEPER-2373,is duplicated by,Duplicate,inward
+ZOOKEEPER-2373,ZOOKEEPER-2378,requires,Required,outward
+ZOOKEEPER-2368,CURATOR-377,supercedes,Supercedes,outward
+ZOOKEEPER-2367,ZOOKEEPER-2171,duplicates,Duplicate,outward
+ZOOKEEPER-2345,ZOOKEEPER-2365,is related to,Reference,inward
+ZOOKEEPER-2364,ZOOKEEPER-2514,relates to,Reference,outward
+ZOOKEEPER-2358,ZOOKEEPER-2527,duplicates,Duplicate,outward
+ZOOKEEPER-2358,ZOOKEEPER-2530,duplicates,Duplicate,outward
+ZOOKEEPER-2358,ZOOKEEPER-2509,duplicates,Duplicate,outward
+ZOOKEEPER-2355,ZOOKEEPER-3040,causes,Problem/Incident,outward
+KNOX-1599,ZOOKEEPER-2355,is related to,Reference,inward
+ZOOKEEPER-2348,ZOOKEEPER-2355,is related to,Reference,inward
+CURATOR-409,ZOOKEEPER-2355,is related to,Reference,inward
+ZOOKEEPER-2351,ZOOKEEPER-2281,duplicates,Duplicate,outward
+ZOOKEEPER-2348,ZOOKEEPER-2355,relates to,Reference,outward
+ZOOKEEPER-2344,ZOOKEEPER-2346,is related to,Reference,inward
+ZOOKEEPER-2345,ZOOKEEPER-2365,relates to,Reference,outward
+ZOOKEEPER-2344,ZOOKEEPER-2035,relates to,Reference,outward
+ZOOKEEPER-2344,ZOOKEEPER-2346,relates to,Reference,outward
+HADOOP-12649,ZOOKEEPER-2344,is related to,Reference,inward
+ZOOKEEPER-2342,ZOOKEEPER-3737,blocks,Blocker,outward
+ZOOKEEPER-2342,ZOOKEEPER-3677,fixes,Completes,outward
+ZOOKEEPER-2659,ZOOKEEPER-2342,is duplicated by,Duplicate,inward
+ZOOKEEPER-2342,ZOOKEEPER-2393,relates to,Reference,outward
+ZOOKEEPER-2342,LOG4J2-63,relates to,Reference,outward
+ZOOKEEPER-2342,ZOOKEEPER-4423,relates to,Reference,outward
+ZOOKEEPER-2342,ZOOKEEPER-3817,relates to,Reference,outward
+SPARK-6305,ZOOKEEPER-2342,is related to,Reference,inward
+OAK-9024,ZOOKEEPER-2342,is related to,Reference,inward
+HADOOP-12956,ZOOKEEPER-2342,is related to,Reference,inward
+ZOOKEEPER-1371,ZOOKEEPER-2342,is broken by,Regression,inward
+ZOOKEEPER-4427,ZOOKEEPER-2342,is superceded by,Supercedes,inward
+LOG4J2-1514,ZOOKEEPER-2342,is depended upon by,dependent,inward
+ZOOKEEPER-2341,ZOOKEEPER-2281,duplicates,Duplicate,outward
+MESOS-4065,ZOOKEEPER-2338,is related to,Reference,inward
+ZOOKEEPER-2252,ZOOKEEPER-2337,is duplicated by,Duplicate,inward
+INFRA-10919,ZOOKEEPER-2336,is blocked by,Blocker,inward
+ZOOKEEPER-2330,ZOOKEEPER-2335,is broken by,Regression,inward
+ZOOKEEPER-2376,ZOOKEEPER-2332,is duplicated by,Duplicate,inward
+ZOOKEEPER-2139,ZOOKEEPER-2331,is duplicated by,Duplicate,inward
+ZOOKEEPER-2330,ZOOKEEPER-2335,breaks,Regression,outward
+ZOOKEEPER-2330,ZOOKEEPER-2396,depends upon,dependent,outward
+ZOOKEEPER-2325,ZOOKEEPER-3513,causes,Problem/Incident,outward
+ZOOKEEPER-2325,ZOOKEEPER-3056,requires,Required,outward
+ZOOKEEPER-2139,ZOOKEEPER-2323,is related to,Reference,inward
+ZOOKEEPER-1919,ZOOKEEPER-2320,is related to,Reference,inward
+ZOOKEEPER-1506,ZOOKEEPER-2319,Is contained by,Container,inward
+ZOOKEEPER-2318,ZOOKEEPER-1485,duplicates,Duplicate,outward
+ZOOKEEPER-2872,ZOOKEEPER-2310,is fixed by,Completes,inward
+ZOOKEEPER-2307,ZOOKEEPER-2660,duplicates,Duplicate,outward
+ZOOKEEPER-4222,ZOOKEEPER-2307,is related to,Reference,inward
+ZOOKEEPER-2162,ZOOKEEPER-2307,is related to,Reference,inward
+ZOOKEEPER-2299,ZOOKEEPER-2301,is depended upon by,dependent,inward
+ZOOKEEPER-2299,ZOOKEEPER-2301,depends upon,dependent,outward
+ZOOKEEPER-2266,ZOOKEEPER-2294,is related to,Reference,inward
+ZOOKEEPER-2292,ZOOKEEPER-2177,duplicates,Duplicate,outward
+ZOOKEEPER-2288,CURATOR-268,relates to,Reference,outward
+ZOOKEEPER-1260,ZOOKEEPER-2287,is duplicated by,Duplicate,inward
+ZOOKEEPER-2283,ZOOKEEPER-3382,relates to,Reference,outward
+ZOOKEEPER-2282,ZOOKEEPER-1027,relates to,Reference,outward
+ZOOKEEPER-2351,ZOOKEEPER-2281,is duplicated by,Duplicate,inward
+ZOOKEEPER-2341,ZOOKEEPER-2281,is duplicated by,Duplicate,inward
+ZOOKEEPER-2280,ZOOKEEPER-2238,blocks,Blocker,outward
+ZOOKEEPER-2739,ZOOKEEPER-2280,is duplicated by,Duplicate,inward
+ZOOKEEPER-2454,ZOOKEEPER-2280,is depended upon by,dependent,inward
+ZOOKEEPER-2278,ZOOKEEPER-2227,duplicates,Duplicate,outward
+ZOOKEEPER-2275,ZOOKEEPER-2124,relates to,Reference,outward
+ZOOKEEPER-2275,ZOOKEEPER-1604,relates to,Reference,outward
+ZOOKEEPER-1604,ZOOKEEPER-2275,is superceded by,Supercedes,inward
+ZOOKEEPER-2414,ZOOKEEPER-2267,is part of,Incorporates,inward
+ZOOKEEPER-2266,ZOOKEEPER-2294,relates to,Reference,outward
+ZOOKEEPER-2260,HBASE-14938,blocks,Blocker,outward
+ZOOKEEPER-282,ZOOKEEPER-2260,is duplicated by,Duplicate,inward
+ZOOKEEPER-2260,ZOOKEEPER-4383,relates to,Reference,outward
+ZOOKEEPER-2260,ZOOKEEPER-1162,relates to,Reference,outward
+ZOOKEEPER-1467,ZOOKEEPER-2257,is required by,Required,inward
+ZOOKEEPER-2252,ZOOKEEPER-2337,duplicates,Duplicate,outward
+ZOOKEEPER-2249,ZOOKEEPER-2994,relates to,Reference,outward
+ZOOKEEPER-2247,ZOOKEEPER-2529,relates to,Reference,outward
+ZOOKEEPER-2247,ZOOKEEPER-2452,relates to,Reference,outward
+ZOOKEEPER-2247,ZOOKEEPER-1907,relates to,Reference,outward
+ZOOKEEPER-2246,ZOOKEEPER-2080,relates to,Reference,outward
+ZOOKEEPER-2244,ZOOKEEPER-2245,is required by,Required,inward
+ZOOKEEPER-2244,ZOOKEEPER-2245,requires,Required,outward
+ZOOKEEPER-1996,ZOOKEEPER-2243,is duplicated by,Duplicate,inward
+ZOOKEEPER-2243,INFRA-10116,relates to,Reference,outward
+ZOOKEEPER-2242,ZOOKEEPER-2056,duplicates,Duplicate,outward
+ZOOKEEPER-2280,ZOOKEEPER-2238,is blocked by,Blocker,inward
+ZOOKEEPER-2670,ZOOKEEPER-2230,is cloned by,Cloners,inward
+ZOOKEEPER-2229,ZOOKEEPER-2227,depends upon,dependent,outward
+ZOOKEEPER-2278,ZOOKEEPER-2227,is duplicated by,Duplicate,inward
+ZOOKEEPER-572,ZOOKEEPER-2227,is broken by,Regression,inward
+ZOOKEEPER-2229,ZOOKEEPER-2227,is depended upon by,dependent,inward
+YARN-3798,ZOOKEEPER-2219,is depended upon by,dependent,inward
+ZOOKEEPER-2208,ZOOKEEPER-2205,is a clone of,Cloners,outward
+ZOOKEEPER-2208,ZOOKEEPER-2205,is cloned by,Cloners,inward
+ZOOKEEPER-3047,ZOOKEEPER-2204,is related to,Reference,inward
+ZOOKEEPER-2195,ZOOKEEPER-2394,relates to,Reference,outward
+ZOOKEEPER-2191,ZOOKEEPER-2183,relates to,Reference,outward
+ZOOKEEPER-2189,ZOOKEEPER-2098,relates to,Reference,outward
+ZOOKEEPER-2163,ZOOKEEPER-2187,is related to,Reference,inward
+ZOOKEEPER-3016,ZOOKEEPER-2186,Blocked,Blocked,inward
+ZOOKEEPER-2184,SOLR-8868,fixes,Completes,outward
+ZOOKEEPER-2184,ZOOKEEPER-338,duplicates,Duplicate,outward
+ZOOKEEPER-2184,KAFKA-4041,causes,Problem/Incident,outward
+ZOOKEEPER-2184,MESOS-9113,relates to,Reference,outward
+ZOOKEEPER-2184,ZOOKEEPER-1506,relates to,Reference,outward
+ZOOKEEPER-1666,ZOOKEEPER-2184,is related to,Reference,inward
+ZOOKEEPER-2191,ZOOKEEPER-2183,is related to,Reference,inward
+ZOOKEEPER-1667,ZOOKEEPER-2182,is related to,Reference,inward
+ZOOKEEPER-2017,ZOOKEEPER-2182,is related to,Reference,inward
+SLIDER-862,ZOOKEEPER-2181,is related to,Reference,inward
+ZOOKEEPER-827,ZOOKEEPER-2178,is broken by,Regression,inward
+ZOOKEEPER-1626,ZOOKEEPER-2178,is broken by,Regression,inward
+ZOOKEEPER-2292,ZOOKEEPER-2177,is duplicated by,Duplicate,inward
+ZOOKEEPER-2175,HDFS-8161,relates to,Reference,outward
+ZOOKEEPER-2156,ZOOKEEPER-2173,is related to,Reference,inward
+ZOOKEEPER-2855,ZOOKEEPER-2172,is related to,Reference,inward
+ZOOKEEPER-2513,ZOOKEEPER-2172,is depended upon by,dependent,inward
+ZOOKEEPER-2367,ZOOKEEPER-2171,is duplicated by,Duplicate,inward
+ZOOKEEPER-2170,ZOOKEEPER-980,relates to,Reference,outward
+ZOOKEEPER-1925,ZOOKEEPER-2169,is duplicated by,Duplicate,inward
+ZOOKEEPER-2901,ZOOKEEPER-2169,is related to,Reference,inward
+ZOOKEEPER-2169,ZOOKEEPER-1925,supercedes,Supercedes,outward
+ZOOKEEPER-2543,ZOOKEEPER-2168,is required by,Required,inward
+ZOOKEEPER-2609,ZOOKEEPER-2168,is depended upon by,dependent,inward
+ZOOKEEPER-3725,ZOOKEEPER-2164,is duplicated by,Duplicate,inward
+ZOOKEEPER-2164,ZOOKEEPER-2080,relates to,Reference,outward
+ZOOKEEPER-2164,ZOOKEEPER-3756,relates to,Reference,outward
+ZOOKEEPER-2164,ZOOKEEPER-900,requires,Required,outward
+ZOOKEEPER-723,ZOOKEEPER-2163,is duplicated by,Duplicate,inward
+ZOOKEEPER-2163,ZOOKEEPER-2187,relates to,Reference,outward
+ZOOKEEPER-2901,ZOOKEEPER-2163,is related to,Reference,inward
+ZOOKEEPER-2413,ZOOKEEPER-2163,is related to,Reference,inward
+ZOOKEEPER-2163,ZOOKEEPER-723,supercedes,Supercedes,outward
+ZOOKEEPER-2163,ZOOKEEPER-834,supercedes,Supercedes,outward
+ZOOKEEPER-2162,ZOOKEEPER-2307,relates to,Reference,outward
+ZOOKEEPER-1653,ZOOKEEPER-2162,is related to,Reference,inward
+ZOOKEEPER-2158,ZOOKEEPER-83,is a clone of,Cloners,outward
+ZOOKEEPER-2158,ZOOKEEPER-83,duplicates,Duplicate,outward
+ZOOKEEPER-2158,ZOOKEEPER-3021,duplicates,Duplicate,outward
+ZOOKEEPER-1078,ZOOKEEPER-2158,is duplicated by,Duplicate,inward
+ZOOKEEPER-1193,ZOOKEEPER-2157,is related to,Reference,inward
+ZOOKEEPER-2156,ZOOKEEPER-2173,relates to,Reference,outward
+ZOOKEEPER-2154,ZOOKEEPER-2695,duplicates,Duplicate,outward
+ZOOKEEPER-1594,ZOOKEEPER-2152,is duplicated by,Duplicate,inward
+ZOOKEEPER-1594,ZOOKEEPER-2152,is related to,Reference,inward
+ZOOKEEPER-1712,ZOOKEEPER-2152,is related to,Reference,inward
+ZOOKEEPER-2151,ZOOKEEPER-1863,duplicates,Duplicate,outward
+ZOOKEEPER-2140,ZOOKEEPER-845,duplicates,Duplicate,outward
+ZOOKEEPER-2139,ZOOKEEPER-2396,contains,Container,outward
+ZOOKEEPER-2139,ZOOKEEPER-2103,duplicates,Duplicate,outward
+ZOOKEEPER-2139,ZOOKEEPER-2331,duplicates,Duplicate,outward
+ZOOKEEPER-2451,ZOOKEEPER-2139,is duplicated by,Duplicate,inward
+ZOOKEEPER-2139,ZOOKEEPER-2323,relates to,Reference,outward
+ZOOKEEPER-2139,ZOOKEEPER-2416,relates to,Reference,outward
+ZOOKEEPER-2139,ZOOKEEPER-3593,relates to,Reference,outward
+ZOOKEEPER-2139,ZOOKEEPER-1467,relates to,Reference,outward
+HBASE-14775,ZOOKEEPER-2139,is related to,Reference,inward
+ZOOKEEPER-2139,ZOOKEEPER-2667,breaks,Regression,outward
+ZOOKEEPER-2139,ZOOKEEPER-2517,breaks,Regression,outward
+KNOX-1133,ZOOKEEPER-2139,is depended upon by,dependent,inward
+ZOOKEEPER-2138,ZOOKEEPER-1893,depends upon,dependent,outward
+ZOOKEEPER-2381,ZOOKEEPER-2137,is duplicated by,Duplicate,inward
+ZOOKEEPER-2000,ZOOKEEPER-2137,is required by,Required,inward
+ZOOKEEPER-2137,ZOOKEEPER-2136,depends upon,dependent,outward
+ZOOKEEPER-2136,ZOOKEEPER-1675,relates to,Reference,outward
+ZOOKEEPER-2137,ZOOKEEPER-2136,is depended upon by,dependent,inward
+ZOOKEEPER-2135,ZOOKEEPER-2877,relates to,Reference,outward
+ZOOKEEPER-2135,ZOOKEEPER-2722,relates to,Reference,outward
+ZOOKEEPER-2135,ZOOKEEPER-2683,relates to,Reference,outward
+ZOOKEEPER-2135,ZOOKEEPER-2720,relates to,Reference,outward
+ZOOKEEPER-2135,ZOOKEEPER-2746,relates to,Reference,outward
+ZOOKEEPER-2135,ZOOKEEPER-2716,relates to,Reference,outward
+ZOOKEEPER-2493,ZOOKEEPER-2135,is related to,Reference,inward
+ZOOKEEPER-2486,ZOOKEEPER-2135,is related to,Reference,inward
+ZOOKEEPER-2529,ZOOKEEPER-2135,is related to,Reference,inward
+ZOOKEEPER-2610,ZOOKEEPER-2135,is related to,Reference,inward
+ZOOKEEPER-2481,ZOOKEEPER-2135,is related to,Reference,inward
+ZOOKEEPER-2485,ZOOKEEPER-2135,is related to,Reference,inward
+ZOOKEEPER-2497,ZOOKEEPER-2135,is related to,Reference,inward
+ZOOKEEPER-2538,ZOOKEEPER-2135,is related to,Reference,inward
+ZOOKEEPER-2487,ZOOKEEPER-2135,is related to,Reference,inward
+ZOOKEEPER-2577,ZOOKEEPER-2135,is related to,Reference,inward
+ZOOKEEPER-2686,ZOOKEEPER-2135,is related to,Reference,inward
+ZOOKEEPER-1441,ZOOKEEPER-2135,is related to,Reference,inward
+ZOOKEEPER-2482,ZOOKEEPER-2135,is related to,Reference,inward
+ZOOKEEPER-2483,ZOOKEEPER-2135,is related to,Reference,inward
+ZOOKEEPER-2484,ZOOKEEPER-2135,is related to,Reference,inward
+ZOOKEEPER-2502,ZOOKEEPER-2135,is related to,Reference,inward
+ZOOKEEPER-2508,ZOOKEEPER-2135,is related to,Reference,inward
+FLINK-13417,ZOOKEEPER-2125,is related to,Reference,inward
+SOLR-7893,ZOOKEEPER-2125,is depended upon by,dependent,inward
+ZOOKEEPER-2123,ZOOKEEPER-2125,is depended upon by,dependent,inward
+ZOOKEEPER-235,ZOOKEEPER-2125,is depended upon by,dependent,inward
+ZOOKEEPER-2124,ZOOKEEPER-1604,relates to,Reference,outward
+ZOOKEEPER-2275,ZOOKEEPER-2124,is related to,Reference,inward
+ZOOKEEPER-2123,ZOOKEEPER-2125,depends upon,dependent,outward
+ZOOKEEPER-2122,ZOOKEEPER-3567,blocks,Blocker,outward
+ZOOKEEPER-235,ZOOKEEPER-2122,is depended upon by,dependent,inward
+ZOOKEEPER-2120,ZOOKEEPER-2094,duplicates,Duplicate,outward
+ZOOKEEPER-2094,ZOOKEEPER-2120,is related to,Reference,inward
+ZOOKEEPER-2111,ZOOKEEPER-3652,relates to,Reference,outward
+ZOOKEEPER-2139,ZOOKEEPER-2103,is duplicated by,Duplicate,inward
+ZOOKEEPER-3496,ZOOKEEPER-2101,is duplicated by,Duplicate,inward
+SOLR-6915,ZOOKEEPER-2100,is related to,Reference,inward
+ZOOKEEPER-2189,ZOOKEEPER-2098,is related to,Reference,inward
+ZOOKEEPER-1604,ZOOKEEPER-2095,is superceded by,Supercedes,inward
+ZOOKEEPER-2120,ZOOKEEPER-2094,is duplicated by,Duplicate,inward
+ZOOKEEPER-2094,ZOOKEEPER-2120,relates to,Reference,outward
+ZOOKEEPER-2090,ZOOKEEPER-815,incorporates,Incorporates,outward
+ZOOKEEPER-2090,ZOOKEEPER-671,incorporates,Incorporates,outward
+ZOOKEEPER-2090,ZOOKEEPER-2431,incorporates,Incorporates,outward
+ZOOKEEPER-2085,ZOOKEEPER-1718,duplicates,Duplicate,outward
+ZOOKEEPER-2085,HIVE-8565,relates to,Reference,outward
+ZOOKEEPER-2085,YARN-2815,relates to,Reference,outward
+ZOOKEEPER-2085,HIVE-8609,relates to,Reference,outward
+ZOOKEEPER-3400,ZOOKEEPER-2084,Is contained by,Container,inward
+ZOOKEEPER-901,ZOOKEEPER-2080,is blocked by,Blocker,inward
+ZOOKEEPER-2080,ZOOKEEPER-2778,relates to,Reference,outward
+ZOOKEEPER-2246,ZOOKEEPER-2080,is related to,Reference,inward
+ZOOKEEPER-1807,ZOOKEEPER-2080,is related to,Reference,inward
+ZOOKEEPER-2164,ZOOKEEPER-2080,is related to,Reference,inward
+ZOOKEEPER-2080,ZOOKEEPER-2778,breaks,Regression,outward
+ZOOKEEPER-2080,ZOOKEEPER-1806,requires,Required,outward
+ZOOKEEPER-2078,ZOOKEEPER-1927,duplicates,Duplicate,outward
+ZOOKEEPER-1898,ZOOKEEPER-2074,is part of,Incorporates,inward
+ZOOKEEPER-2063,ZOOKEEPER-2072,is required by,Required,inward
+ZOOKEEPER-2068,ZOOKEEPER-2063,blocks,Blocker,outward
+ZOOKEEPER-1604,ZOOKEEPER-2065,is superceded by,Supercedes,inward
+ZOOKEEPER-2068,ZOOKEEPER-2063,is blocked by,Blocker,inward
+ZOOKEEPER-2063,ZOOKEEPER-2072,requires,Required,outward
+ZOOKEEPER-2062,ZOOKEEPER-1274,relates to,Reference,outward
+ZOOKEEPER-1604,ZOOKEEPER-2061,is superceded by,Supercedes,inward
+ZOOKEEPER-2056,ZOOKEEPER-1942,duplicates,Duplicate,outward
+ZOOKEEPER-2242,ZOOKEEPER-2056,is duplicated by,Duplicate,inward
+ZOOKEEPER-1334,ZOOKEEPER-2056,is related to,Reference,inward
+ZOOKEEPER-1424,ZOOKEEPER-2052,is related to,Reference,inward
+ZOOKEEPER-2046,ZOOKEEPER-1963,duplicates,Duplicate,outward
+ZOOKEEPER-1237,ZOOKEEPER-2044,is duplicated by,Duplicate,inward
+ZOOKEEPER-2677,ZOOKEEPER-2044,is related to,Reference,inward
+ZOOKEEPER-2042,ZOOKEEPER-1927,duplicates,Duplicate,outward
+ZOOKEEPER-2344,ZOOKEEPER-2035,is related to,Reference,inward
+ZOOKEEPER-602,ZOOKEEPER-2029,is related to,Reference,inward
+ZOOKEEPER-1907,ZOOKEEPER-2029,is related to,Reference,inward
+ZOOKEEPER-4203,ZOOKEEPER-2029,is superceded by,Supercedes,inward
+ZOOKEEPER-2684,ZOOKEEPER-2024,Blocked,Blocked,inward
+ZOOKEEPER-2024,ZOOKEEPER-3585,relates to,Reference,outward
+ZOOKEEPER-2024,ZOOKEEPER-3182,breaks,Regression,outward
+ZOOKEEPER-2024,ZOOKEEPER-1609,supercedes,Supercedes,outward
+ZOOKEEPER-2017,ZOOKEEPER-2182,relates to,Reference,outward
+ZOOKEEPER-1556,ZOOKEEPER-2015,is related to,Reference,inward
+ZOOKEEPER-107,ZOOKEEPER-2014,is related to,Reference,inward
+ZOOKEEPER-2642,ZOOKEEPER-2014,is broken by,Regression,inward
+ZOOKEEPER-2009,ZOOKEEPER-1897,duplicates,Duplicate,outward
+ZOOKEEPER-1604,ZOOKEEPER-2007,is superceded by,Supercedes,inward
+ZOOKEEPER-2006,ZOOKEEPER-1997,duplicates,Duplicate,outward
+ZOOKEEPER-2004,ZOOKEEPER-1897,duplicates,Duplicate,outward
+LOGGING-160,ZOOKEEPER-2000,is blocked by,Blocker,inward
+ZOOKEEPER-2000,ZOOKEEPER-2137,requires,Required,outward
+ZOOKEEPER-1992,ZOOKEEPER-1999,Is contained by,Container,inward
+ZOOKEEPER-1998,MESOS-2681,blocks,Blocker,outward
+ZOOKEEPER-2965,ZOOKEEPER-1998,is duplicated by,Duplicate,inward
+ZOOKEEPER-2006,ZOOKEEPER-1997,is duplicated by,Duplicate,inward
+ZOOKEEPER-1992,ZOOKEEPER-1997,is required by,Required,inward
+ZOOKEEPER-1996,ZOOKEEPER-2243,duplicates,Duplicate,outward
+ZOOKEEPER-1996,ZOOKEEPER-1509,duplicates,Duplicate,outward
+ZOOKEEPER-1992,ZOOKEEPER-1999,contains,Container,outward
+ZOOKEEPER-1992,ZOOKEEPER-1989,duplicates,Duplicate,outward
+ZOOKEEPER-1992,ZOOKEEPER-1997,requires,Required,outward
+ZOOKEEPER-1992,ZOOKEEPER-1989,is duplicated by,Duplicate,inward
+ZOOKEEPER-1987,ZOOKEEPER-1950,duplicates,Duplicate,outward
+ZOOKEEPER-1978,ZOOKEEPER-1982,is duplicated by,Duplicate,inward
+ZOOKEEPER-1978,ZOOKEEPER-1982,duplicates,Duplicate,outward
+ZOOKEEPER-1975,ZOOKEEPER-1976,is related to,Reference,inward
+ZOOKEEPER-1975,ZOOKEEPER-1976,relates to,Reference,outward
+ZOOKEEPER-1971,ZOOKEEPER-1948,relates to,Reference,outward
+ZOOKEEPER-1968,ZOOKEEPER-1346,relates to,Reference,outward
+ZOOKEEPER-1966,ZOOKEEPER-1953,relates to,Reference,outward
+ZOOKEEPER-2046,ZOOKEEPER-1963,is duplicated by,Duplicate,inward
+ZOOKEEPER-1954,ZOOKEEPER-1476,relates to,Reference,outward
+ZOOKEEPER-1954,ZOOKEEPER-1256,relates to,Reference,outward
+ZOOKEEPER-1966,ZOOKEEPER-1953,is related to,Reference,inward
+ZOOKEEPER-1987,ZOOKEEPER-1950,is duplicated by,Duplicate,inward
+ZOOKEEPER-1971,ZOOKEEPER-1948,is related to,Reference,inward
+ZOOKEEPER-2056,ZOOKEEPER-1942,is duplicated by,Duplicate,inward
+ZOOKEEPER-1940,ZOOKEEPER-3527,relates to,Reference,outward
+ZOOKEEPER-2483,ZOOKEEPER-1932,is duplicated by,Duplicate,inward
+ZOOKEEPER-2042,ZOOKEEPER-1927,is duplicated by,Duplicate,inward
+ZOOKEEPER-2078,ZOOKEEPER-1927,is duplicated by,Duplicate,inward
+ZOOKEEPER-1925,ZOOKEEPER-2169,duplicates,Duplicate,outward
+ZOOKEEPER-2169,ZOOKEEPER-1925,is superceded by,Supercedes,inward
+ZOOKEEPER-1920,ZOOKEEPER-938,relates to,Reference,outward
+ZOOKEEPER-1919,ZOOKEEPER-1914,relates to,Reference,outward
+ZOOKEEPER-1919,ZOOKEEPER-3053,relates to,Reference,outward
+ZOOKEEPER-1919,ZOOKEEPER-2320,relates to,Reference,outward
+ZOOKEEPER-1919,ZOOKEEPER-1887,relates to,Reference,outward
+ZOOKEEPER-442,ZOOKEEPER-1919,is related to,Reference,inward
+ZOOKEEPER-1910,ZOOKEEPER-1919,is related to,Reference,inward
+ZOOKEEPER-1919,ZOOKEEPER-1914,is related to,Reference,inward
+ZOOKEEPER-1910,ZOOKEEPER-1919,relates to,Reference,outward
+ZOOKEEPER-442,ZOOKEEPER-1910,is related to,Reference,inward
+ZOOKEEPER-2586,ZOOKEEPER-1910,is related to,Reference,inward
+ZOOKEEPER-1907,ZOOKEEPER-2029,relates to,Reference,outward
+ZOOKEEPER-602,ZOOKEEPER-1907,is related to,Reference,inward
+ZOOKEEPER-2247,ZOOKEEPER-1907,is related to,Reference,inward
+ZOOKEEPER-207,ZOOKEEPER-1907,is related to,Reference,inward
+ZOOKEEPER-1905,ZOOKEEPER-22,relates to,Reference,outward
+ZOOKEEPER-1898,ZOOKEEPER-2074,incorporates,Incorporates,outward
+ZOOKEEPER-2004,ZOOKEEPER-1897,is duplicated by,Duplicate,inward
+ZOOKEEPER-2009,ZOOKEEPER-1897,is duplicated by,Duplicate,inward
+ZOOKEEPER-1897,HBASE-10903,relates to,Reference,outward
+ZOOKEEPER-2787,ZOOKEEPER-1897,is related to,Reference,inward
+ZOOKEEPER-1535,ZOOKEEPER-1897,is related to,Reference,inward
+ZOOKEEPER-1810,ZOOKEEPER-1896,is part of,Incorporates,inward
+ZOOKEEPER-1893,ZOOKEEPER-1707,relates to,Reference,outward
+ZOOKEEPER-2138,ZOOKEEPER-1893,is depended upon by,dependent,inward
+ZOOKEEPER-1887,ZOOKEEPER-442,relates to,Reference,outward
+ZOOKEEPER-1919,ZOOKEEPER-1887,is related to,Reference,inward
+ZOOKEEPER-2611,ZOOKEEPER-1887,is related to,Reference,inward
+ZOOKEEPER-1829,ZOOKEEPER-1887,is related to,Reference,inward
+ZOOKEEPER-1573,ZOOKEEPER-1879,is related to,Reference,inward
+ZOOKEEPER-1875,NIFI-8394,relates to,Reference,outward
+ZOOKEEPER-1866,ZOOKEEPER-1872,is related to,Reference,inward
+ZOOKEEPER-1691,ZOOKEEPER-1870,is related to,Reference,inward
+ZOOKEEPER-1810,ZOOKEEPER-1870,is broken by,Regression,inward
+ZOOKEEPER-1805,ZOOKEEPER-1870,is broken by,Regression,inward
+ZOOKEEPER-1866,ZOOKEEPER-1872,relates to,Reference,outward
+ZOOKEEPER-2151,ZOOKEEPER-1863,is duplicated by,Duplicate,inward
+ZOOKEEPER-1650,ZOOKEEPER-1862,is duplicated by,Duplicate,inward
+ZOOKEEPER-2686,ZOOKEEPER-1858,is related to,Reference,inward
+ZOOKEEPER-1856,ZOOKEEPER-2466,relates to,Reference,outward
+ZOOKEEPER-1297,ZOOKEEPER-1851,is related to,Reference,inward
+ZOOKEEPER-1147,ZOOKEEPER-1851,is related to,Reference,inward
+ZOOKEEPER-1506,ZOOKEEPER-1846,is duplicated by,Duplicate,inward
+ZOOKEEPER-1845,ZOOKEEPER-1733,duplicates,Duplicate,outward
+ZOOKEEPER-1839,ZOOKEEPER-1179,relates to,Reference,outward
+ZOOKEEPER-1715,ZOOKEEPER-1838,is related to,Reference,inward
+ZOOKEEPER-1833,ZOOKEEPER-1179,relates to,Reference,outward
+ZOOKEEPER-1829,ZOOKEEPER-1887,relates to,Reference,outward
+ZOOKEEPER-1818,ZOOKEEPER-1810,requires,Required,outward
+ZOOKEEPER-1816,ACCUMULO-1858,relates to,Reference,outward
+ZOOKEEPER-1394,ZOOKEEPER-1816,is related to,Reference,inward
+ZOOKEEPER-1573,ZOOKEEPER-1813,is duplicated by,Duplicate,inward
+ZOOKEEPER-1811,AMBARI-12347,relates to,Reference,outward
+ZOOKEEPER-1810,ZOOKEEPER-1896,incorporates,Incorporates,outward
+ZOOKEEPER-1810,ZOOKEEPER-1870,breaks,Regression,outward
+ZOOKEEPER-1818,ZOOKEEPER-1810,is required by,Required,inward
+ZOOKEEPER-1740,ZOOKEEPER-1809,is related to,Reference,inward
+ZOOKEEPER-1807,ZOOKEEPER-2080,relates to,Reference,outward
+ZOOKEEPER-1807,ZOOKEEPER-1783,depends upon,dependent,outward
+ZOOKEEPER-2080,ZOOKEEPER-1806,is required by,Required,inward
+ZOOKEEPER-1732,ZOOKEEPER-1805,is related to,Reference,inward
+ZOOKEEPER-1805,ZOOKEEPER-1870,breaks,Regression,outward
+ZOOKEEPER-1798,ZOOKEEPER-2538,relates to,Reference,outward
+ZOOKEEPER-1798,ZOOKEEPER-1793,relates to,Reference,outward
+ZOOKEEPER-1797,ZOOKEEPER-2574,breaks,Regression,outward
+ZOOKEEPER-1795,ZOOKEEPER-1646,relates to,Reference,outward
+ZOOKEEPER-1742,ZOOKEEPER-1795,is related to,Reference,inward
+ZOOKEEPER-1798,ZOOKEEPER-1793,is related to,Reference,inward
+ZOOKEEPER-1787,ZOOKEEPER-1147,depends upon,dependent,outward
+ZOOKEEPER-1783,ZOOKEEPER-1785,is related to,Reference,inward
+ZOOKEEPER-1783,ZOOKEEPER-1785,relates to,Reference,outward
+ZOOKEEPER-1691,ZOOKEEPER-1783,is related to,Reference,inward
+ZOOKEEPER-1807,ZOOKEEPER-1783,is depended upon by,dependent,inward
+ZOOKEEPER-1777,ZOOKEEPER-832,relates to,Reference,outward
+ZOOKEEPER-1777,ZOOKEEPER-1449,relates to,Reference,outward
+ZOOKEEPER-866,ZOOKEEPER-1777,is related to,Reference,inward
+ZOOKEEPER-1777,ZOOKEEPER-1413,requires,Required,outward
+ZOOKEEPER-1718,ZOOKEEPER-1773,is broken by,Regression,inward
+ZOOKEEPER-1437,ZOOKEEPER-1764,is broken by,Regression,inward
+ZOOKEEPER-1657,ZOOKEEPER-1764,is superceded by,Supercedes,inward
+ZOOKEEPER-1764,ZOOKEEPER-1455,depends upon,dependent,outward
+ZOOKEEPER-1715,ZOOKEEPER-1763,is duplicated by,Duplicate,inward
+ZOOKEEPER-1763,ZOOKEEPER-1681,relates to,Reference,outward
+ZOOKEEPER-1758,ZOOKEEPER-1552,depends upon,dependent,outward
+HADOOP-9938,ZOOKEEPER-1749,is required by,Required,inward
+ZOOKEEPER-1604,ZOOKEEPER-1743,is superceded by,Supercedes,inward
+ZOOKEEPER-1742,ZOOKEEPER-1795,relates to,Reference,outward
+ZOOKEEPER-1742,ZOOKEEPER-1646,relates to,Reference,outward
+ZOOKEEPER-1742,ZOOKEEPER-1077,relates to,Reference,outward
+ZOOKEEPER-1742,ZOOKEEPER-2505,requires,Required,outward
+ZOOKEEPER-1740,ZOOKEEPER-1809,relates to,Reference,outward
+KAFKA-1387,ZOOKEEPER-1740,is depended upon by,dependent,inward
+ZOOKEEPER-1735,ZOOKEEPER-1730,depends upon,dependent,outward
+ZOOKEEPER-1576,ZOOKEEPER-1734,is related to,Reference,inward
+ZOOKEEPER-1845,ZOOKEEPER-1733,is duplicated by,Duplicate,inward
+ZOOKEEPER-1732,ZOOKEEPER-1805,relates to,Reference,outward
+ZOOKEEPER-1735,ZOOKEEPER-1730,is depended upon by,dependent,inward
+ZOOKEEPER-1346,ZOOKEEPER-1729,is blocked by,Blocker,inward
+ZOOKEEPER-2700,ZOOKEEPER-1729,is duplicated by,Duplicate,inward
+ZOOKEEPER-1660,ZOOKEEPER-1727,Is contained by,Container,inward
+ZOOKEEPER-2085,ZOOKEEPER-1718,is duplicated by,Duplicate,inward
+ZOOKEEPER-1718,YARN-2815,relates to,Reference,outward
+ZOOKEEPER-1655,ZOOKEEPER-1718,is related to,Reference,inward
+ZOOKEEPER-1718,ZOOKEEPER-1773,breaks,Regression,outward
+ACCUMULO-1510,ZOOKEEPER-1718,is depended upon by,dependent,inward
+ZOOKEEPER-4209,ZOOKEEPER-1715,is cloned by,Cloners,inward
+ZOOKEEPER-1715,ZOOKEEPER-1763,duplicates,Duplicate,outward
+ZOOKEEPER-1715,ZOOKEEPER-1838,relates to,Reference,outward
+ZOOKEEPER-1715,ZOOKEEPER-1681,relates to,Reference,outward
+ZOOKEEPER-1712,ZOOKEEPER-2152,relates to,Reference,outward
+ZOOKEEPER-1594,ZOOKEEPER-1712,is related to,Reference,inward
+ZOOKEEPER-1711,ZOOKEEPER-1096,duplicates,Duplicate,outward
+ZOOKEEPER-1710,ZOOKEEPER-1413,depends upon,dependent,outward
+ZOOKEEPER-1709,ZOOKEEPER-1413,depends upon,dependent,outward
+ZOOKEEPER-1604,ZOOKEEPER-1708,is superceded by,Supercedes,inward
+ZOOKEEPER-1893,ZOOKEEPER-1707,is related to,Reference,inward
+ZOOKEEPER-1604,ZOOKEEPER-1707,is superceded by,Supercedes,inward
+HADOOP-9556,ZOOKEEPER-1702,is related to,Reference,inward
+HADOOP-9555,ZOOKEEPER-1702,is required by,Required,inward
+ZOOKEEPER-1324,ZOOKEEPER-1697,is related to,Reference,inward
+ZOOKEEPER-1554,ZOOKEEPER-1696,is related to,Reference,inward
+ZOOKEEPER-1694,ZOOKEEPER-1324,duplicates,Duplicate,outward
+ZOOKEEPER-1691,ZOOKEEPER-1870,relates to,Reference,outward
+ZOOKEEPER-1691,ZOOKEEPER-1783,relates to,Reference,outward
+ZOOKEEPER-1686,HADOOP-8315,blocks,Blocker,outward
+ZOOKEEPER-1686,ZOOKEEPER-1430,relates to,Reference,outward
+ZOOKEEPER-1683,ZOOKEEPER-1684,is related to,Reference,inward
+CURATOR-7,ZOOKEEPER-1684,is related to,Reference,inward
+ZOOKEEPER-1683,ZOOKEEPER-1684,relates to,Reference,outward
+ZOOKEEPER-1683,ZOOKEEPER-1355,relates to,Reference,outward
+ZOOKEEPER-1683,CURATOR-7,relates to,Reference,outward
+CURATOR-15,ZOOKEEPER-1683,is related to,Reference,inward
+ZOOKEEPER-1682,ZOOKEEPER-107,duplicates,Duplicate,outward
+ZOOKEEPER-1681,ZOOKEEPER-823,relates to,Reference,outward
+ZOOKEEPER-1763,ZOOKEEPER-1681,is related to,Reference,inward
+ZOOKEEPER-1715,ZOOKEEPER-1681,is related to,Reference,inward
+ZOOKEEPER-1680,CURATOR-13,relates to,Reference,outward
+CURATOR-7,ZOOKEEPER-1680,is related to,Reference,inward
+ZOOKEEPER-1678,ZOOKEEPER-900,relates to,Reference,outward
+ZOOKEEPER-3726,ZOOKEEPER-1677,is fixed by,Completes,inward
+ZOOKEEPER-3726,ZOOKEEPER-1677,is related to,Reference,inward
+ZOOKEEPER-1676,ZOOKEEPER-2432,relates to,Reference,outward
+ZOOKEEPER-2432,ZOOKEEPER-1676,is related to,Reference,inward
+ZOOKEEPER-1675,ZOOKEEPER-3600,relates to,Reference,outward
+ZOOKEEPER-2136,ZOOKEEPER-1675,is related to,Reference,inward
+ZOOKEEPER-2678,ZOOKEEPER-1674,is related to,Reference,inward
+ZOOKEEPER-1667,ZOOKEEPER-2182,relates to,Reference,outward
+ZOOKEEPER-1666,ZOOKEEPER-1652,blocks,Blocker,outward
+ZOOKEEPER-1652,ZOOKEEPER-1666,is duplicated by,Duplicate,inward
+ZOOKEEPER-1666,ZOOKEEPER-2184,relates to,Reference,outward
+ZOOKEEPER-1666,OOZIE-1959,breaks,Regression,outward
+HBASE-7847,ZOOKEEPER-1665,is depended upon by,dependent,inward
+ZOOKEEPER-1661,ZOOKEEPER-1652,is a clone of,Cloners,outward
+ZOOKEEPER-1661,ZOOKEEPER-1476,relates to,Reference,outward
+ZOOKEEPER-1660,ZOOKEEPER-1727,contains,Container,outward
+ZOOKEEPER-1660,ZOOKEEPER-1411,depends upon,dependent,outward
+ZOOKEEPER-1660,ZOOKEEPER-1355,depends upon,dependent,outward
+ZOOKEEPER-1660,ZOOKEEPER-107,depends upon,dependent,outward
+ZOOKEEPER-1659,ZOOKEEPER-107,depends upon,dependent,outward
+ZOOKEEPER-1657,ZOOKEEPER-1512,contains,Container,outward
+ZOOKEEPER-1657,ZOOKEEPER-1623,contains,Container,outward
+ZOOKEEPER-1657,ZOOKEEPER-1764,supercedes,Supercedes,outward
+ZOOKEEPER-1249,ZOOKEEPER-1655,is duplicated by,Duplicate,inward
+ZOOKEEPER-1655,YARN-2815,relates to,Reference,outward
+ZOOKEEPER-1655,ZOOKEEPER-1718,relates to,Reference,outward
+HADOOP-9342,ZOOKEEPER-1655,is related to,Reference,inward
+ZOOKEEPER-1653,ZOOKEEPER-2162,relates to,Reference,outward
+ZOOKEEPER-4269,ZOOKEEPER-1653,is related to,Reference,inward
+ZOOKEEPER-1666,ZOOKEEPER-1652,is blocked by,Blocker,inward
+ZOOKEEPER-1661,ZOOKEEPER-1652,is cloned by,Cloners,inward
+ZOOKEEPER-1652,ZOOKEEPER-1666,duplicates,Duplicate,outward
+ZOOKEEPER-3179,ZOOKEEPER-1651,is duplicated by,Duplicate,inward
+ZOOKEEPER-1650,ZOOKEEPER-1862,duplicates,Duplicate,outward
+ZOOKEEPER-1648,ZOOKEEPER-1557,relates to,Reference,outward
+ZOOKEEPER-1147,ZOOKEEPER-1648,is depended upon by,dependent,inward
+ZOOKEEPER-1647,ZOOKEEPER-1334,relates to,Reference,outward
+ZOOKEEPER-1647,ZOOKEEPER-1645,relates to,Reference,outward
+ZOOKEEPER-1742,ZOOKEEPER-1646,is related to,Reference,inward
+ZOOKEEPER-1795,ZOOKEEPER-1646,is related to,Reference,inward
+ZOOKEEPER-1647,ZOOKEEPER-1645,is related to,Reference,inward
+ZOOKEEPER-1644,ZOOKEEPER-706,relates to,Reference,outward
+BIGTOP-2082,ZOOKEEPER-1643,Is contained by,Container,inward
+ZOOKEEPER-1634,ZOOKEEPER-2462,relates to,Reference,outward
+ZOOKEEPER-1634,ZOOKEEPER-2526,relates to,Reference,outward
+ZOOKEEPER-3561,ZOOKEEPER-1634,is depended upon by,dependent,inward
+ZOOKEEPER-107,ZOOKEEPER-1633,is required by,Required,inward
+ZOOKEEPER-1632,ZOOKEEPER-1556,relates to,Reference,outward
+ZOOKEEPER-1626,ZOOKEEPER-2516,relates to,Reference,outward
+ZOOKEEPER-1366,ZOOKEEPER-1626,is related to,Reference,inward
+ZOOKEEPER-1626,ZOOKEEPER-2178,breaks,Regression,outward
+ZOOKEEPER-1625,ZOOKEEPER-107,blocks,Blocker,outward
+ZOOKEEPER-1411,ZOOKEEPER-1625,is broken by,Regression,inward
+ZOOKEEPER-1657,ZOOKEEPER-1623,Is contained by,Container,inward
+ZOOKEEPER-1623,ZOOKEEPER-1512,relates to,Reference,outward
+ZOOKEEPER-1623,ZOOKEEPER-1550,relates to,Reference,outward
+ZOOKEEPER-1623,ZOOKEEPER-1510,relates to,Reference,outward
+ZOOKEEPER-1504,ZOOKEEPER-1620,is related to,Reference,inward
+ZOOKEEPER-107,ZOOKEEPER-1620,is depended upon by,dependent,inward
+ZOOKEEPER-1616,ZOOKEEPER-1366,duplicates,Duplicate,outward
+ZOOKEEPER-2024,ZOOKEEPER-1609,is superceded by,Supercedes,inward
+ZOOKEEPER-1608,ZOOKEEPER-3783,relates to,Reference,outward
+ZOOKEEPER-1607,ZOOKEEPER-1147,depends upon,dependent,outward
+ZOOKEEPER-2124,ZOOKEEPER-1604,is related to,Reference,inward
+ZOOKEEPER-2275,ZOOKEEPER-1604,is related to,Reference,inward
+ZOOKEEPER-1604,ZOOKEEPER-2007,supercedes,Supercedes,outward
+ZOOKEEPER-1604,ZOOKEEPER-2275,supercedes,Supercedes,outward
+ZOOKEEPER-1604,ZOOKEEPER-1707,supercedes,Supercedes,outward
+ZOOKEEPER-1604,ZOOKEEPER-1708,supercedes,Supercedes,outward
+ZOOKEEPER-1604,ZOOKEEPER-1743,supercedes,Supercedes,outward
+ZOOKEEPER-1604,ZOOKEEPER-2065,supercedes,Supercedes,outward
+ZOOKEEPER-1604,ZOOKEEPER-2095,supercedes,Supercedes,outward
+ZOOKEEPER-1604,ZOOKEEPER-2061,supercedes,Supercedes,outward
+ZOOKEEPER-1594,ZOOKEEPER-2152,duplicates,Duplicate,outward
+ZOOKEEPER-1594,ZOOKEEPER-2152,relates to,Reference,outward
+ZOOKEEPER-1594,ZOOKEEPER-1712,relates to,Reference,outward
+ZOOKEEPER-829,ZOOKEEPER-1587,is related to,Reference,inward
+ZOOKEEPER-1579,SOLR-4526,relates to,Reference,outward
+ZOOKEEPER-1576,ZOOKEEPER-1734,relates to,Reference,outward
+ZOOKEEPER-1576,YARN-9151,relates to,Reference,outward
+YARN-7550,ZOOKEEPER-1576,is related to,Reference,inward
+ZOOKEEPER-1573,ZOOKEEPER-1813,duplicates,Duplicate,outward
+ZOOKEEPER-1573,ZOOKEEPER-1879,relates to,Reference,outward
+ZOOKEEPER-1572,ZOOKEEPER-1066,relates to,Reference,outward
+ZOOKEEPER-1564,ZOOKEEPER-1571,is duplicated by,Duplicate,inward
+ZOOKEEPER-1571,ZOOKEEPER-1474,depends upon,dependent,outward
+ZOOKEEPER-1564,ZOOKEEPER-1570,is duplicated by,Duplicate,inward
+ZOOKEEPER-1570,ZOOKEEPER-1474,depends upon,dependent,outward
+HBASE-7022,ZOOKEEPER-1569,is depended upon by,dependent,inward
+HBASE-7022,ZOOKEEPER-1568,is depended upon by,dependent,inward
+ZOOKEEPER-1564,ZOOKEEPER-1565,is duplicated by,Duplicate,inward
+ZOOKEEPER-1565,ZOOKEEPER-1474,depends upon,dependent,outward
+ZOOKEEPER-1564,ZOOKEEPER-1565,duplicates,Duplicate,outward
+ZOOKEEPER-1564,ZOOKEEPER-1570,duplicates,Duplicate,outward
+ZOOKEEPER-1564,ZOOKEEPER-1571,duplicates,Duplicate,outward
+ZOOKEEPER-1564,ZOOKEEPER-1474,depends upon,dependent,outward
+ZOOKEEPER-1561,ZOOKEEPER-1437,relates to,Reference,outward
+ZOOKEEPER-1561,ZOOKEEPER-107,relates to,Reference,outward
+ZOOKEEPER-1560,ZOOKEEPER-1561,is related to,Reference,inward
+ZOOKEEPER-1560,ZOOKEEPER-1561,relates to,Reference,outward
+ZOOKEEPER-1550,ZOOKEEPER-1557,is related to,Reference,inward
+ZOOKEEPER-1648,ZOOKEEPER-1557,is related to,Reference,inward
+ZOOKEEPER-1556,ZOOKEEPER-2015,relates to,Reference,outward
+ZOOKEEPER-1632,ZOOKEEPER-1556,is related to,Reference,inward
+ZOOKEEPER-1554,ZOOKEEPER-1550,relates to,Reference,outward
+ZOOKEEPER-1554,ZOOKEEPER-1696,relates to,Reference,outward
+ZOOKEEPER-1552,ZOOKEEPER-1462,contains,Container,outward
+ZOOKEEPER-1551,ZOOKEEPER-1552,is depended upon by,dependent,inward
+ZOOKEEPER-1758,ZOOKEEPER-1552,is depended upon by,dependent,inward
+ZOOKEEPER-1551,ZOOKEEPER-1552,depends upon,dependent,outward
+ZOOKEEPER-1550,ZOOKEEPER-1557,relates to,Reference,outward
+ZOOKEEPER-1623,ZOOKEEPER-1550,is related to,Reference,inward
+ZOOKEEPER-1477,ZOOKEEPER-1550,is related to,Reference,inward
+ZOOKEEPER-1554,ZOOKEEPER-1550,is related to,Reference,inward
+ZOOKEEPER-107,ZOOKEEPER-1549,is related to,Reference,inward
+ZOOKEEPER-1115,ZOOKEEPER-1548,is related to,Reference,inward
+ZOOKEEPER-1547,ZOOKEEPER-1437,relates to,Reference,outward
+ZOOKEEPER-1411,ZOOKEEPER-1540,is broken by,Regression,inward
+ZOOKEEPER-2787,ZOOKEEPER-1535,is cloned by,Cloners,inward
+ZOOKEEPER-1535,ZOOKEEPER-1897,relates to,Reference,outward
+ZOOKEEPER-1535,HBASE-10903,breaks,Regression,outward
+ZOOKEEPER-1524,ZOOKEEPER-1503,relates to,Reference,outward
+ZOOKEEPER-1657,ZOOKEEPER-1512,Is contained by,Container,inward
+ZOOKEEPER-1512,ZOOKEEPER-1510,relates to,Reference,outward
+ZOOKEEPER-1623,ZOOKEEPER-1512,is related to,Reference,inward
+ZOOKEEPER-1512,ZOOKEEPER-1510,is related to,Reference,inward
+ZOOKEEPER-1623,ZOOKEEPER-1510,is related to,Reference,inward
+ZOOKEEPER-1996,ZOOKEEPER-1509,is duplicated by,Duplicate,inward
+ZOOKEEPER-1506,ZOOKEEPER-2319,contains,Container,outward
+ZOOKEEPER-1506,ZOOKEEPER-1846,duplicates,Duplicate,outward
+ZOOKEEPER-2982,ZOOKEEPER-1506,is related to,Reference,inward
+ZOOKEEPER-2184,ZOOKEEPER-1506,is related to,Reference,inward
+ZOOKEEPER-1504,ZOOKEEPER-1347,contains,Container,outward
+ZOOKEEPER-1504,ZOOKEEPER-1620,relates to,Reference,outward
+ZOOKEEPER-1524,ZOOKEEPER-1503,is related to,Reference,inward
+ZOOKEEPER-1497,ZOOKEEPER-1503,is related to,Reference,inward
+ZOOKEEPER-1497,ZOOKEEPER-1373,relates to,Reference,outward
+ZOOKEEPER-1497,ZOOKEEPER-1503,relates to,Reference,outward
+ZOOKEEPER-1455,ZOOKEEPER-1497,is related to,Reference,inward
+ZOOKEEPER-1495,ZOOKEEPER-1381,relates to,Reference,outward
+HBASE-5843,ZOOKEEPER-1495,is related to,Reference,inward
+ZOOKEEPER-2318,ZOOKEEPER-1485,is duplicated by,Duplicate,inward
+ZOOKEEPER-1483,ZOOKEEPER-1404,duplicates,Duplicate,outward
+ZOOKEEPER-1477,ZOOKEEPER-1550,relates to,Reference,outward
+GIRAPH-344,ZOOKEEPER-1477,is related to,Reference,inward
+ZOOKEEPER-1661,ZOOKEEPER-1476,is related to,Reference,inward
+ZOOKEEPER-1954,ZOOKEEPER-1476,is related to,Reference,inward
+ZOOKEEPER-1475,HBASE-6099,relates to,Reference,outward
+ZOOKEEPER-1474,ZOOKEEPER-1236,relates to,Reference,outward
+ZOOKEEPER-1565,ZOOKEEPER-1474,is depended upon by,dependent,inward
+ZOOKEEPER-1570,ZOOKEEPER-1474,is depended upon by,dependent,inward
+ZOOKEEPER-1571,ZOOKEEPER-1474,is depended upon by,dependent,inward
+ZOOKEEPER-1564,ZOOKEEPER-1474,is depended upon by,dependent,inward
+HBASE-6130,ZOOKEEPER-1469,is related to,Reference,inward
+ZOOKEEPER-1469,ZOOKEEPER-938,depends upon,dependent,outward
+ZOOKEEPER-1467,HBASE-1697,blocks,Blocker,outward
+ZOOKEEPER-1467,ZOOKEEPER-1373,relates to,Reference,outward
+ZOOKEEPER-1467,ZOOKEEPER-1420,relates to,Reference,outward
+ZOOKEEPER-2139,ZOOKEEPER-1467,is related to,Reference,inward
+HBASE-4791,ZOOKEEPER-1467,is related to,Reference,inward
+ZOOKEEPER-2433,ZOOKEEPER-1467,is related to,Reference,inward
+ZOOKEEPER-1467,ZOOKEEPER-2257,requires,Required,outward
+ZOOKEEPER-1552,ZOOKEEPER-1462,Is contained by,Container,inward
+ZOOKEEPER-1461,ZOOKEEPER-1305,duplicates,Duplicate,outward
+ZOOKEEPER-1460,ZOOKEEPER-2452,relates to,Reference,outward
+ZOOKEEPER-1455,ZOOKEEPER-1456,is related to,Reference,inward
+ZOOKEEPER-1455,ZOOKEEPER-1456,relates to,Reference,outward
+ZOOKEEPER-1455,ZOOKEEPER-1437,relates to,Reference,outward
+ZOOKEEPER-1455,ZOOKEEPER-1497,relates to,Reference,outward
+ZOOKEEPER-1455,HADOOP-8315,relates to,Reference,outward
+ZOOKEEPER-1381,ZOOKEEPER-1455,is related to,Reference,inward
+ZOOKEEPER-1764,ZOOKEEPER-1455,is depended upon by,dependent,inward
+ZOOKEEPER-1777,ZOOKEEPER-1449,is related to,Reference,inward
+ZOOKEEPER-1441,ZOOKEEPER-2135,relates to,Reference,outward
+ZOOKEEPER-1455,ZOOKEEPER-1437,is related to,Reference,inward
+ZOOKEEPER-1561,ZOOKEEPER-1437,is related to,Reference,inward
+HBASE-5780,ZOOKEEPER-1437,is related to,Reference,inward
+HBASE-7771,ZOOKEEPER-1437,is related to,Reference,inward
+ZOOKEEPER-938,ZOOKEEPER-1437,is related to,Reference,inward
+ZOOKEEPER-1547,ZOOKEEPER-1437,is related to,Reference,inward
+HADOOP-8315,ZOOKEEPER-1437,is related to,Reference,inward
+ZOOKEEPER-1437,ZOOKEEPER-1764,breaks,Regression,outward
+HADOOP-8149,ZOOKEEPER-1435,is related to,Reference,inward
+INFRA-4565,ZOOKEEPER-1430,is blocked by,Blocker,inward
+ZOOKEEPER-1686,ZOOKEEPER-1430,is related to,Reference,inward
+ZOOKEEPER-1424,ZOOKEEPER-2052,relates to,Reference,outward
+ZOOKEEPER-1422,ZOOKEEPER-938,relates to,Reference,outward
+ZOOKEEPER-1422,HBASE-4791,relates to,Reference,outward
+ZOOKEEPER-938,ZOOKEEPER-1420,is related to,Reference,inward
+ZOOKEEPER-1467,ZOOKEEPER-1420,is related to,Reference,inward
+ZOOKEEPER-1412,ZOOKEEPER-1417,is related to,Reference,inward
+ZOOKEEPER-1416,ZOOKEEPER-3611,relates to,Reference,outward
+ZOOKEEPER-1413,ZOOKEEPER-876,contains,Container,outward
+ZOOKEEPER-1777,ZOOKEEPER-1413,is required by,Required,inward
+ZOOKEEPER-1709,ZOOKEEPER-1413,is depended upon by,dependent,inward
+ZOOKEEPER-1710,ZOOKEEPER-1413,is depended upon by,dependent,inward
+ZOOKEEPER-1412,ZOOKEEPER-1417,relates to,Reference,outward
+ZOOKEEPER-1411,ZOOKEEPER-1540,breaks,Regression,outward
+ZOOKEEPER-1411,ZOOKEEPER-1625,breaks,Regression,outward
+ZOOKEEPER-1660,ZOOKEEPER-1411,is depended upon by,dependent,inward
+ZOOKEEPER-107,ZOOKEEPER-1411,is depended upon by,dependent,inward
+ZOOKEEPER-1408,ZOOKEEPER-1409,is part of,Incorporates,inward
+ZOOKEEPER-1409,ZOOKEEPER-271,depends upon,dependent,outward
+ZOOKEEPER-1408,ZOOKEEPER-1409,incorporates,Incorporates,outward
+ZOOKEEPER-1408,ZOOKEEPER-271,depends upon,dependent,outward
+ZOOKEEPER-1483,ZOOKEEPER-1404,is duplicated by,Duplicate,inward
+HIVE-2712,ZOOKEEPER-1401,is related to,Reference,inward
+ZOOKEEPER-1394,ZOOKEEPER-2618,duplicates,Duplicate,outward
+ZOOKEEPER-1394,ZOOKEEPER-1816,relates to,Reference,outward
+ZOOKEEPER-2697,ZOOKEEPER-1394,is related to,Reference,inward
+ZOOKEEPER-1391,ZOOKEEPER-1307,relates to,Reference,outward
+HADOOP-8019,ZOOKEEPER-1386,is related to,Reference,inward
+ZOOKEEPER-1383,ZOOKEEPER-3301,relates to,Reference,outward
+ZOOKEEPER-1381,ZOOKEEPER-1455,relates to,Reference,outward
+ZOOKEEPER-1495,ZOOKEEPER-1381,is related to,Reference,inward
+HBASE-6058,ZOOKEEPER-1381,is related to,Reference,inward
+ZOOKEEPER-1376,ZOOKEEPER-1012,depends upon,dependent,outward
+ZOOKEEPER-1374,ZOOKEEPER-2453,relates to,Reference,outward
+ZOOKEEPER-1373,HADOOP-7853,relates to,Reference,outward
+HADOOP-7853,ZOOKEEPER-1373,is related to,Reference,inward
+ZOOKEEPER-1497,ZOOKEEPER-1373,is related to,Reference,inward
+HBASE-4791,ZOOKEEPER-1373,is related to,Reference,inward
+ZOOKEEPER-1467,ZOOKEEPER-1373,is related to,Reference,inward
+ZOOKEEPER-1373,ZOOKEEPER-938,depends upon,dependent,outward
+HIVE-2712,ZOOKEEPER-1373,is depended upon by,dependent,inward
+ZOOKEEPER-1371,ZOOKEEPER-2393,relates to,Reference,outward
+ZOOKEEPER-1371,ZOOKEEPER-3737,relates to,Reference,outward
+ZOOKEEPER-850,ZOOKEEPER-1371,is related to,Reference,inward
+ZOOKEEPER-1371,ZOOKEEPER-2342,breaks,Regression,outward
+ZOOKEEPER-366,ZOOKEEPER-1366,is duplicated by,Duplicate,inward
+ZOOKEEPER-1616,ZOOKEEPER-1366,is duplicated by,Duplicate,inward
+ZOOKEEPER-1366,ZOOKEEPER-1626,relates to,Reference,outward
+ZOOKEEPER-2774,ZOOKEEPER-1366,is required by,Required,inward
+ZOOKEEPER-1364,ZOOKEEPER-2549,relates to,Reference,outward
+ZOOKEEPER-1364,ZOOKEEPER-3601,relates to,Reference,outward
+HDFS-435,ZOOKEEPER-1364,is related to,Reference,inward
+ZOOKEEPER-1355,ZOOKEEPER-762,relates to,Reference,outward
+ZOOKEEPER-1355,ZOOKEEPER-390,relates to,Reference,outward
+ZOOKEEPER-1355,ZOOKEEPER-107,relates to,Reference,outward
+ZOOKEEPER-1683,ZOOKEEPER-1355,is related to,Reference,inward
+ZOOKEEPER-3726,ZOOKEEPER-1355,is related to,Reference,inward
+ZOOKEEPER-1355,ZOOKEEPER-338,supercedes,Supercedes,outward
+ZOOKEEPER-1660,ZOOKEEPER-1355,is depended upon by,dependent,inward
+ZOOKEEPER-1349,ZOOKEEPER-784,duplicates,Duplicate,outward
+ZOOKEEPER-1504,ZOOKEEPER-1347,Is contained by,Container,inward
+ZOOKEEPER-1346,ZOOKEEPER-1729,blocks,Blocker,outward
+ZOOKEEPER-1197,ZOOKEEPER-1346,is related to,Reference,inward
+ZOOKEEPER-737,ZOOKEEPER-1346,is related to,Reference,inward
+ZOOKEEPER-1968,ZOOKEEPER-1346,is related to,Reference,inward
+ZOOKEEPER-1334,ZOOKEEPER-2056,relates to,Reference,outward
+ZOOKEEPER-1647,ZOOKEEPER-1334,is related to,Reference,inward
+ZOOKEEPER-1078,ZOOKEEPER-1334,is related to,Reference,inward
+CAMEL-4803,ZOOKEEPER-1334,is depended upon by,dependent,inward
+ZOOKEEPER-1326,ZOOKEEPER-729,supercedes,Supercedes,outward
+ZOOKEEPER-1694,ZOOKEEPER-1324,is duplicated by,Duplicate,inward
+ZOOKEEPER-1324,ZOOKEEPER-1697,relates to,Reference,outward
+ZOOKEEPER-1324,ZOOKEEPER-107,relates to,Reference,outward
+ZOOKEEPER-1391,ZOOKEEPER-1307,is related to,Reference,inward
+ZOOKEEPER-271,ZOOKEEPER-1307,is superceded by,Supercedes,inward
+ZOOKEEPER-1461,ZOOKEEPER-1305,is duplicated by,Duplicate,inward
+ZOOKEEPER-1297,ZOOKEEPER-1851,relates to,Reference,outward
+ZOOKEEPER-2402,ZOOKEEPER-1295,Is contained by,Container,inward
+ZOOKEEPER-1295,ZOOKEEPER-3593,relates to,Reference,outward
+ZOOKEEPER-1285,ZOOKEEPER-1092,supercedes,Supercedes,outward
+ZOOKEEPER-1285,ZOOKEEPER-1228,depends upon,dependent,outward
+ZOOKEEPER-1285,ZOOKEEPER-1230,depends upon,dependent,outward
+ZOOKEEPER-1285,ZOOKEEPER-1259,depends upon,dependent,outward
+ZOOKEEPER-1285,ZOOKEEPER-1255,depends upon,dependent,outward
+ZOOKEEPER-1285,ZOOKEEPER-1276,depends upon,dependent,outward
+ZOOKEEPER-1285,ZOOKEEPER-1279,depends upon,dependent,outward
+ZOOKEEPER-1285,ZOOKEEPER-1253,depends upon,dependent,outward
+ZOOKEEPER-1285,ZOOKEEPER-1258,depends upon,dependent,outward
+ZOOKEEPER-1264,ZOOKEEPER-1282,is part of,Incorporates,inward
+ZOOKEEPER-1285,ZOOKEEPER-1279,is depended upon by,dependent,inward
+ZOOKEEPER-1277,ZOOKEEPER-1278,is related to,Reference,inward
+ZOOKEEPER-335,ZOOKEEPER-1278,is broken by,Regression,inward
+ZOOKEEPER-2789,ZOOKEEPER-1277,Blocked,Blocked,inward
+ZOOKEEPER-1277,ZOOKEEPER-1278,relates to,Reference,outward
+ZOOKEEPER-1277,ZOOKEEPER-3253,relates to,Reference,outward
+ZOOKEEPER-1285,ZOOKEEPER-1276,is depended upon by,dependent,inward
+ZOOKEEPER-2062,ZOOKEEPER-1274,is related to,Reference,inward
+ZOOKEEPER-1174,ZOOKEEPER-1271,is broken by,Regression,inward
+ZOOKEEPER-1270,ZOOKEEPER-1194,incorporates,Incorporates,outward
+ZOOKEEPER-1264,ZOOKEEPER-1282,incorporates,Incorporates,outward
+SLIDER-862,ZOOKEEPER-1263,is related to,Reference,inward
+ZOOKEEPER-1260,ZOOKEEPER-2287,duplicates,Duplicate,outward
+ZOOKEEPER-1260,RANGER-924,relates to,Reference,outward
+ZOOKEEPER-1285,ZOOKEEPER-1259,is depended upon by,dependent,inward
+ZOOKEEPER-1285,ZOOKEEPER-1258,is depended upon by,dependent,inward
+ZOOKEEPER-1256,ZOOKEEPER-2482,relates to,Reference,outward
+ZOOKEEPER-1954,ZOOKEEPER-1256,is related to,Reference,inward
+ZOOKEEPER-1285,ZOOKEEPER-1255,is depended upon by,dependent,inward
+ZOOKEEPER-1285,ZOOKEEPER-1253,is depended upon by,dependent,inward
+ZOOKEEPER-1249,ZOOKEEPER-1655,duplicates,Duplicate,outward
+ZOOKEEPER-1049,ZOOKEEPER-1238,is related to,Reference,inward
+ZOOKEEPER-1237,ZOOKEEPER-2044,duplicates,Duplicate,outward
+ZOOKEEPER-1236,HADOOP-6941,relates to,Reference,outward
+ZOOKEEPER-1236,ZOOKEEPER-938,relates to,Reference,outward
+ZOOKEEPER-1474,ZOOKEEPER-1236,is related to,Reference,inward
+HADOOP-7211,ZOOKEEPER-1236,is related to,Reference,inward
+ZOOKEEPER-1285,ZOOKEEPER-1230,is depended upon by,dependent,inward
+ZOOKEEPER-1285,ZOOKEEPER-1228,is depended upon by,dependent,inward
+ZOOKEEPER-1227,ZOOKEEPER-1213,incorporates,Incorporates,outward
+ZOOKEEPER-1227,ZOOKEEPER-1213,is part of,Incorporates,inward
+ZOOKEEPER-1205,ZOOKEEPER-1174,relates to,Reference,outward
+ZOOKEEPER-1205,ZOOKEEPER-1181,relates to,Reference,outward
+ZOOKEEPER-1205,HADOOP-8078,relates to,Reference,outward
+ZOOKEEPER-1205,HDFS-3016,relates to,Reference,outward
+ZOOKEEPER-1202,ZOOKEEPER-126,incorporates,Incorporates,outward
+ZOOKEEPER-1201,ZOOKEEPER-1195,incorporates,Incorporates,outward
+ZOOKEEPER-1197,ZOOKEEPER-805,relates to,Reference,outward
+ZOOKEEPER-1197,ZOOKEEPER-1346,relates to,Reference,outward
+ZOOKEEPER-1195,ZOOKEEPER-1196,is related to,Reference,inward
+ZOOKEEPER-1201,ZOOKEEPER-1195,is part of,Incorporates,inward
+ZOOKEEPER-1195,ZOOKEEPER-1196,relates to,Reference,outward
+ZOOKEEPER-1195,ZOOKEEPER-938,depends upon,dependent,outward
+ZOOKEEPER-1270,ZOOKEEPER-1194,is part of,Incorporates,inward
+ZOOKEEPER-1193,ZOOKEEPER-2157,relates to,Reference,outward
+ZOOKEEPER-999,ZOOKEEPER-1190,is related to,Reference,inward
+ZOOKEEPER-1186,ZOOKEEPER-1100,duplicates,Duplicate,outward
+ZOOKEEPER-1185,ZOOKEEPER-938,depends upon,dependent,outward
+ZOOKEEPER-1205,ZOOKEEPER-1181,is related to,Reference,inward
+ZOOKEEPER-1181,ZOOKEEPER-938,depends upon,dependent,outward
+ZOOKEEPER-1833,ZOOKEEPER-1179,is related to,Reference,inward
+ZOOKEEPER-1839,ZOOKEEPER-1179,is related to,Reference,inward
+ZOOKEEPER-1178,HIVE-2739,relates to,Reference,outward
+ZOOKEEPER-1205,ZOOKEEPER-1174,is related to,Reference,inward
+ZOOKEEPER-1174,ZOOKEEPER-1271,breaks,Regression,outward
+ZOOKEEPER-1173,ZOOKEEPER-1035,relates to,Reference,outward
+ZOOKEEPER-1173,ZOOKEEPER-1055,relates to,Reference,outward
+ZOOKEEPER-1173,ZOOKEEPER-33,relates to,Reference,outward
+ZOOKEEPER-1164,ZOOKEEPER-823,depends upon,dependent,outward
+ZOOKEEPER-1162,HBASE-14938,blocks,Blocker,outward
+ZOOKEEPER-4332,ZOOKEEPER-1162,is duplicated by,Duplicate,inward
+ZOOKEEPER-1162,ZOOKEEPER-4314,relates to,Reference,outward
+ZOOKEEPER-2260,ZOOKEEPER-1162,is related to,Reference,inward
+ZOOKEEPER-1162,HBASE-4246,breaks,Regression,outward
+ZOOKEEPER-1162,ZOOKEEPER-706,breaks,Regression,outward
+ZOOKEEPER-1159,HBASE-4235,blocks,Blocker,outward
+ZOOKEEPER-1147,ZOOKEEPER-1851,relates to,Reference,outward
+ZOOKEEPER-1147,HBASE-5843,relates to,Reference,outward
+ZOOKEEPER-1147,ZOOKEEPER-1648,depends upon,dependent,outward
+ZOOKEEPER-1787,ZOOKEEPER-1147,is depended upon by,dependent,inward
+ZOOKEEPER-1607,ZOOKEEPER-1147,is depended upon by,dependent,inward
+ZOOKEEPER-1145,ZOOKEEPER-1144,relates to,Reference,outward
+ZOOKEEPER-1125,ZOOKEEPER-1144,is related to,Reference,inward
+ZOOKEEPER-1145,ZOOKEEPER-1144,is related to,Reference,inward
+ZOOKEEPER-1135,ZOOKEEPER-635,depends upon,dependent,outward
+ZOOKEEPER-1125,ZOOKEEPER-1055,blocks,Blocker,outward
+ZOOKEEPER-1125,ZOOKEEPER-1144,relates to,Reference,outward
+ZOOKEEPER-1124,ZOOKEEPER-965,relates to,Reference,outward
+ZOOKEEPER-1115,ZOOKEEPER-1548,relates to,Reference,outward
+ZOOKEEPER-107,ZOOKEEPER-1113,Is contained by,Container,inward
+ZOOKEEPER-938,ZOOKEEPER-1112,is blocked by,Blocker,inward
+ZOOKEEPER-1111,BOOKKEEPER-30,relates to,Reference,outward
+ZOOKEEPER-121,ZOOKEEPER-1109,is related to,Reference,inward
+ZOOKEEPER-323,ZOOKEEPER-1107,is superceded by,Supercedes,inward
+ZOOKEEPER-3645,ZOOKEEPER-1105,is duplicated by,Duplicate,inward
+ZOOKEEPER-1104,ZOOKEEPER-1103,is a clone of,Cloners,outward
+ZOOKEEPER-1104,ZOOKEEPER-1103,is cloned by,Cloners,inward
+ZOOKEEPER-1186,ZOOKEEPER-1100,is duplicated by,Duplicate,inward
+ZOOKEEPER-1711,ZOOKEEPER-1096,is duplicated by,Duplicate,inward
+ZOOKEEPER-1080,ZOOKEEPER-1095,is duplicated by,Duplicate,inward
+ZOOKEEPER-1095,HDFS-1973,relates to,Reference,outward
+ZOOKEEPER-1285,ZOOKEEPER-1092,is superceded by,Supercedes,inward
+ZOOKEEPER-1086,BOOKKEEPER-20,blocks,Blocker,outward
+ZOOKEEPER-1085,ZOOKEEPER-224,is a clone of,Cloners,outward
+ZOOKEEPER-1080,HIVE-2254,blocks,Blocker,outward
+ZOOKEEPER-1080,HDFS-2124,blocks,Blocker,outward
+ZOOKEEPER-1080,MAPREDUCE-2648,blocks,Blocker,outward
+ZOOKEEPER-1080,ZOOKEEPER-1095,duplicates,Duplicate,outward
+ZOOKEEPER-1080,HDFS-1973,relates to,Reference,outward
+ZOOKEEPER-1078,ZOOKEEPER-2158,duplicates,Duplicate,outward
+ZOOKEEPER-1078,ZOOKEEPER-3021,duplicates,Duplicate,outward
+ZOOKEEPER-1078,ZOOKEEPER-2460,relates to,Reference,outward
+ZOOKEEPER-1078,ZOOKEEPER-1334,relates to,Reference,outward
+ZOOKEEPER-1078,ZOOKEEPER-899,relates to,Reference,outward
+ZOOKEEPER-103,ZOOKEEPER-1078,is related to,Reference,inward
+ZOOKEEPER-3021,ZOOKEEPER-1078,is related to,Reference,inward
+ZOOKEEPER-96,ZOOKEEPER-1078,is broken by,Regression,inward
+ZOOKEEPER-1742,ZOOKEEPER-1077,is related to,Reference,inward
+ZOOKEEPER-1030,ZOOKEEPER-1073,is related to,Reference,inward
+ZOOKEEPER-1072,ZOOKEEPER-575,depends upon,dependent,outward
+ZOOKEEPER-1069,ZOOKEEPER-1060,duplicates,Duplicate,outward
+ZOOKEEPER-1572,ZOOKEEPER-1066,is related to,Reference,inward
+HBASE-7022,ZOOKEEPER-1066,is depended upon by,dependent,inward
+ZOOKEEPER-999,ZOOKEEPER-1064,is related to,Reference,inward
+ZOOKEEPER-1069,ZOOKEEPER-1060,is duplicated by,Duplicate,inward
+ZOOKEEPER-1125,ZOOKEEPER-1055,is blocked by,Blocker,inward
+ZOOKEEPER-1173,ZOOKEEPER-1055,is related to,Reference,inward
+ZOOKEEPER-1049,ZOOKEEPER-1238,relates to,Reference,outward
+ZOOKEEPER-938,ZOOKEEPER-1045,is blocked by,Blocker,inward
+ZOOKEEPER-1045,ZOOKEEPER-2433,contains,Container,outward
+ZOOKEEPER-1045,ZOOKEEPER-2639,relates to,Reference,outward
+ZOOKEEPER-2759,ZOOKEEPER-1045,is related to,Reference,inward
+ZOOKEEPER-2689,ZOOKEEPER-1045,is related to,Reference,inward
+ZOOKEEPER-2712,ZOOKEEPER-1045,is related to,Reference,inward
+ZOOKEEPER-107,ZOOKEEPER-1045,is related to,Reference,inward
+ZOOKEEPER-2479,ZOOKEEPER-1045,is related to,Reference,inward
+ZOOKEEPER-2650,ZOOKEEPER-1045,is related to,Reference,inward
+ZOOKEEPER-107,ZOOKEEPER-1044,Is contained by,Container,inward
+ZOOKEEPER-1173,ZOOKEEPER-1035,is related to,Reference,inward
+ZOOKEEPER-1033,ZOOKEEPER-494,duplicates,Duplicate,outward
+ZOOKEEPER-1030,ZOOKEEPER-1073,relates to,Reference,outward
+ZOOKEEPER-1029,ZOOKEEPER-2443,breaks,Regression,outward
+ZOOKEEPER-1027,ZOOKEEPER-995,duplicates,Duplicate,outward
+ZOOKEEPER-2282,ZOOKEEPER-1027,is related to,Reference,inward
+ZOOKEEPER-997,ZOOKEEPER-1025,is duplicated by,Duplicate,inward
+ZOOKEEPER-1022,ZOOKEEPER-423,relates to,Reference,outward
+ZOOKEEPER-989,ZOOKEEPER-1018,is related to,Reference,inward
+ZOOKEEPER-1014,ZOOKEEPER-1015,is duplicated by,Duplicate,inward
+ZOOKEEPER-1014,ZOOKEEPER-1015,duplicates,Duplicate,outward
+ZOOKEEPER-1376,ZOOKEEPER-1012,is depended upon by,dependent,inward
+ZOOKEEPER-1003,ZOOKEEPER-233,duplicates,Duplicate,outward
+ZOOKEEPER-1000,ZOOKEEPER-236,depends upon,dependent,outward
+ZOOKEEPER-999,ZOOKEEPER-1064,relates to,Reference,outward
+ZOOKEEPER-999,ZOOKEEPER-1190,relates to,Reference,outward
+HADOOP-6255,ZOOKEEPER-999,is related to,Reference,inward
+ZOOKEEPER-997,ZOOKEEPER-1025,duplicates,Duplicate,outward
+ZOOKEEPER-1027,ZOOKEEPER-995,is duplicated by,Duplicate,inward
+ZOOKEEPER-991,ZOOKEEPER-933,duplicates,Duplicate,outward
+ZOOKEEPER-989,ZOOKEEPER-1018,relates to,Reference,outward
+ZOOKEEPER-2170,ZOOKEEPER-980,is related to,Reference,inward
+HADOOP-7092,ZOOKEEPER-976,is related to,Reference,inward
+ZOOKEEPER-965,ZOOKEEPER-911,relates to,Reference,outward
+ZOOKEEPER-1124,ZOOKEEPER-965,is related to,Reference,inward
+ZOOKEEPER-963,ZOOKEEPER-925,relates to,Reference,outward
+ZOOKEEPER-919,ZOOKEEPER-962,is related to,Reference,inward
+ZOOKEEPER-961,ZOOKEEPER-838,relates to,Reference,outward
+ZOOKEEPER-954,ZOOKEEPER-794,relates to,Reference,outward
+ZOOKEEPER-953,ZOOKEEPER-941,relates to,Reference,outward
+ZOOKEEPER-953,ZOOKEEPER-941,is related to,Reference,inward
+ZOOKEEPER-880,ZOOKEEPER-939,is related to,Reference,inward
+ZOOKEEPER-938,ZOOKEEPER-1045,blocks,Blocker,outward
+ZOOKEEPER-938,ZOOKEEPER-1112,blocks,Blocker,outward
+ZOOKEEPER-938,ZOOKEEPER-1437,relates to,Reference,outward
+ZOOKEEPER-938,ZOOKEEPER-1420,relates to,Reference,outward
+ZOOKEEPER-938,HIVE-2467,relates to,Reference,outward
+ZOOKEEPER-938,ZOOKEEPER-896,relates to,Reference,outward
+ZOOKEEPER-1920,ZOOKEEPER-938,is related to,Reference,inward
+ZOOKEEPER-1236,ZOOKEEPER-938,is related to,Reference,inward
+HADOOP-4487,ZOOKEEPER-938,is related to,Reference,inward
+ZOOKEEPER-1422,ZOOKEEPER-938,is related to,Reference,inward
+HBASE-2418,ZOOKEEPER-938,is related to,Reference,inward
+ZOOKEEPER-938,ZOOKEEPER-329,requires,Required,outward
+HBASE-3025,ZOOKEEPER-938,is depended upon by,dependent,inward
+ZOOKEEPER-1373,ZOOKEEPER-938,is depended upon by,dependent,inward
+ZOOKEEPER-1181,ZOOKEEPER-938,is depended upon by,dependent,inward
+ZOOKEEPER-1185,ZOOKEEPER-938,is depended upon by,dependent,inward
+ZOOKEEPER-1195,ZOOKEEPER-938,is depended upon by,dependent,inward
+GIRAPH-265,ZOOKEEPER-938,is depended upon by,dependent,inward
+ZOOKEEPER-1469,ZOOKEEPER-938,is depended upon by,dependent,inward
+ZOOKEEPER-883,ZOOKEEPER-934,is related to,Reference,inward
+ZOOKEEPER-880,ZOOKEEPER-934,is related to,Reference,inward
+ZOOKEEPER-991,ZOOKEEPER-933,is duplicated by,Duplicate,inward
+ZOOKEEPER-925,BIGTOP-65,relates to,Reference,outward
+ZOOKEEPER-925,HADOOP-7069,relates to,Reference,outward
+ZOOKEEPER-963,ZOOKEEPER-925,is related to,Reference,inward
+AVRO-319,ZOOKEEPER-925,is related to,Reference,inward
+INFRA-3228,ZOOKEEPER-925,is related to,Reference,inward
+ZOOKEEPER-924,ZOOKEEPER-923,is a clone of,Cloners,outward
+ZOOKEEPER-924,ZOOKEEPER-923,is cloned by,Cloners,inward
+ZOOKEEPER-922,HBASE-5843,relates to,Reference,outward
+ZOOKEEPER-919,ZOOKEEPER-962,relates to,Reference,outward
+ZOOKEEPER-915,ZOOKEEPER-907,blocks,Blocker,outward
+ZOOKEEPER-965,ZOOKEEPER-911,is related to,Reference,inward
+ZOOKEEPER-911,ZOOKEEPER-837,depends upon,dependent,outward
+ZOOKEEPER-915,ZOOKEEPER-907,is blocked by,Blocker,inward
+ZOOKEEPER-900,ZOOKEEPER-902,is part of,Incorporates,inward
+ZOOKEEPER-901,ZOOKEEPER-2080,blocks,Blocker,outward
+ZOOKEEPER-901,ZOOKEEPER-900,relates to,Reference,outward
+ZOOKEEPER-900,ZOOKEEPER-902,incorporates,Incorporates,outward
+ZOOKEEPER-1678,ZOOKEEPER-900,is related to,Reference,inward
+ZOOKEEPER-901,ZOOKEEPER-900,is related to,Reference,inward
+ZOOKEEPER-2164,ZOOKEEPER-900,is required by,Required,inward
+ZOOKEEPER-1078,ZOOKEEPER-899,is related to,Reference,inward
+ZOOKEEPER-938,ZOOKEEPER-896,is related to,Reference,inward
+ZOOKEEPER-895,ZOOKEEPER-823,blocks,Blocker,outward
+ZOOKEEPER-427,ZOOKEEPER-893,is related to,Reference,inward
+ZOOKEEPER-890,ZOOKEEPER-888,duplicates,Duplicate,outward
+ZOOKEEPER-888,ZOOKEEPER-740,duplicates,Duplicate,outward
+ZOOKEEPER-890,ZOOKEEPER-888,is duplicated by,Duplicate,inward
+ZOOKEEPER-883,ZOOKEEPER-934,relates to,Reference,outward
+ZOOKEEPER-883,ZOOKEEPER-880,relates to,Reference,outward
+ZOOKEEPER-880,ZOOKEEPER-934,relates to,Reference,outward
+ZOOKEEPER-880,ZOOKEEPER-939,relates to,Reference,outward
+ZOOKEEPER-883,ZOOKEEPER-880,is related to,Reference,inward
+ZOOKEEPER-1413,ZOOKEEPER-876,Is contained by,Container,inward
+ZOOKEEPER-876,ZOOKEEPER-874,depends upon,dependent,outward
+ZOOKEEPER-876,ZOOKEEPER-874,is depended upon by,dependent,inward
+ZOOKEEPER-873,ZOOKEEPER-869,incorporates,Incorporates,outward
+ZOOKEEPER-873,ZOOKEEPER-869,is part of,Incorporates,inward
+ZOOKEEPER-866,ZOOKEEPER-1777,relates to,Reference,outward
+ZOOKEEPER-865,ZOOKEEPER-863,blocks,Blocker,outward
+ZOOKEEPER-865,ZOOKEEPER-863,is blocked by,Blocker,inward
+ZOOKEEPER-850,SOLR-2369,blocks,Blocker,outward
+ZOOKEEPER-850,ZOOKEEPER-1371,relates to,Reference,outward
+ZOOKEEPER-850,ZOOKEEPER-3737,relates to,Reference,outward
+ZOOKEEPER-616,ZOOKEEPER-849,is blocked by,Blocker,inward
+ZOOKEEPER-849,ZOOKEEPER-324,relates to,Reference,outward
+ZOOKEEPER-12,ZOOKEEPER-849,is depended upon by,dependent,inward
+ZOOKEEPER-846,ZOOKEEPER-126,relates to,Reference,outward
+HBASE-2966,ZOOKEEPER-846,is related to,Reference,inward
+ZOOKEEPER-2140,ZOOKEEPER-845,is duplicated by,Duplicate,inward
+ZOOKEEPER-733,ZOOKEEPER-845,is related to,Reference,inward
+ZOOKEEPER-14,ZOOKEEPER-843,is blocked by,Blocker,inward
+ZOOKEEPER-961,ZOOKEEPER-838,is related to,Reference,inward
+ZOOKEEPER-837,ZOOKEEPER-666,is a clone of,Cloners,outward
+ZOOKEEPER-911,ZOOKEEPER-837,is depended upon by,dependent,inward
+ZOOKEEPER-762,ZOOKEEPER-836,is blocked by,Blocker,inward
+ZOOKEEPER-338,ZOOKEEPER-836,is related to,Reference,inward
+ZOOKEEPER-781,ZOOKEEPER-836,is related to,Reference,inward
+ZOOKEEPER-146,ZOOKEEPER-836,is related to,Reference,inward
+ZOOKEEPER-277,ZOOKEEPER-835,is blocked by,Blocker,inward
+ZOOKEEPER-835,ZOOKEEPER-22,incorporates,Incorporates,outward
+ZOOKEEPER-835,ZOOKEEPER-666,relates to,Reference,outward
+ZOOKEEPER-835,ZOOKEEPER-794,relates to,Reference,outward
+ZOOKEEPER-835,ZOOKEEPER-823,relates to,Reference,outward
+ZOOKEEPER-723,ZOOKEEPER-834,is related to,Reference,inward
+ZOOKEEPER-2163,ZOOKEEPER-834,is superceded by,Supercedes,inward
+ZOOKEEPER-1777,ZOOKEEPER-832,is related to,Reference,inward
+BOOKKEEPER-4,ZOOKEEPER-831,is depended upon by,dependent,inward
+ZOOKEEPER-829,ZOOKEEPER-1587,relates to,Reference,outward
+HBASE-1316,ZOOKEEPER-829,is depended upon by,dependent,inward
+ZOOKEEPER-827,ZOOKEEPER-2178,breaks,Regression,outward
+ZOOKEEPER-895,ZOOKEEPER-823,is blocked by,Blocker,inward
+ZOOKEEPER-702,ZOOKEEPER-823,is blocked by,Blocker,inward
+ZOOKEEPER-835,ZOOKEEPER-823,is related to,Reference,inward
+GIRAPH-211,ZOOKEEPER-823,is related to,Reference,inward
+ZOOKEEPER-733,ZOOKEEPER-823,is related to,Reference,inward
+ZOOKEEPER-1681,ZOOKEEPER-823,is related to,Reference,inward
+ZOOKEEPER-1164,ZOOKEEPER-823,is depended upon by,dependent,inward
+ZOOKEEPER-2090,ZOOKEEPER-815,is part of,Incorporates,inward
+ZOOKEEPER-813,ZOOKEEPER-787,duplicates,Duplicate,outward
+ZOOKEEPER-808,ZOOKEEPER-809,is required by,Required,inward
+ZOOKEEPER-701,ZOOKEEPER-809,is required by,Required,inward
+ZOOKEEPER-808,ZOOKEEPER-809,requires,Required,outward
+ZOOKEEPER-701,ZOOKEEPER-808,is required by,Required,inward
+ZOOKEEPER-1197,ZOOKEEPER-805,is related to,Reference,inward
+ZOOKEEPER-737,ZOOKEEPER-805,is related to,Reference,inward
+ZOOKEEPER-707,ZOOKEEPER-804,is duplicated by,Duplicate,inward
+ZOOKEEPER-803,ZOOKEEPER-801,relates to,Reference,outward
+ZOOKEEPER-803,ZOOKEEPER-801,is related to,Reference,inward
+ZOOKEEPER-517,ZOOKEEPER-801,is related to,Reference,inward
+ZOOKEEPER-799,ZOOKEEPER-744,requires,Required,outward
+ZOOKEEPER-701,ZOOKEEPER-799,is required by,Required,inward
+DOSGI-191,ZOOKEEPER-795,is related to,Reference,inward
+ZOOKEEPER-954,ZOOKEEPER-794,is related to,Reference,inward
+ZOOKEEPER-835,ZOOKEEPER-794,is related to,Reference,inward
+ZOOKEEPER-790,ZOOKEEPER-335,relates to,Reference,outward
+ZOOKEEPER-813,ZOOKEEPER-787,is duplicated by,Duplicate,inward
+ZOOKEEPER-1349,ZOOKEEPER-784,is duplicated by,Duplicate,inward
+ZOOKEEPER-781,ZOOKEEPER-836,relates to,Reference,outward
+ZOOKEEPER-779,ZOOKEEPER-781,is related to,Reference,inward
+ZOOKEEPER-779,ZOOKEEPER-781,relates to,Reference,outward
+ZOOKEEPER-770,MESOS-4648,blocks,Blocker,outward
+MESOS-4157,ZOOKEEPER-770,is related to,Reference,inward
+ZOOKEEPER-769,ZOOKEEPER-704,relates to,Reference,outward
+ZOOKEEPER-707,ZOOKEEPER-768,is duplicated by,Duplicate,inward
+ZOOKEEPER-395,ZOOKEEPER-765,is related to,Reference,inward
+ZOOKEEPER-690,ZOOKEEPER-764,is related to,Reference,inward
+ZOOKEEPER-762,ZOOKEEPER-836,blocks,Blocker,outward
+ZOOKEEPER-1355,ZOOKEEPER-762,is related to,Reference,inward
+ZOOKEEPER-761,ZOOKEEPER-2640,relates to,Reference,outward
+ZOOKEEPER-751,ZOOKEEPER-752,is duplicated by,Duplicate,inward
+ZOOKEEPER-751,ZOOKEEPER-752,duplicates,Duplicate,outward
+ZOOKEEPER-749,ZOOKEEPER-750,is part of,Incorporates,inward
+ZOOKEEPER-749,ZOOKEEPER-750,incorporates,Incorporates,outward
+ZOOKEEPER-425,ZOOKEEPER-749,is related to,Reference,inward
+ZOOKEEPER-744,ZOOKEEPER-613,relates to,Reference,outward
+ZOOKEEPER-799,ZOOKEEPER-744,is required by,Required,inward
+ZOOKEEPER-701,ZOOKEEPER-744,is required by,Required,inward
+ZOOKEEPER-631,ZOOKEEPER-742,is blocked by,Blocker,inward
+ZOOKEEPER-740,ZOOKEEPER-670,duplicates,Duplicate,outward
+ZOOKEEPER-888,ZOOKEEPER-740,is duplicated by,Duplicate,inward
+ZOOKEEPER-740,ZOOKEEPER-631,relates to,Reference,outward
+ZOOKEEPER-737,ZOOKEEPER-805,relates to,Reference,outward
+ZOOKEEPER-737,ZOOKEEPER-1346,relates to,Reference,outward
+ZOOKEEPER-733,ZOOKEEPER-2737,relates to,Reference,outward
+ZOOKEEPER-733,ZOOKEEPER-823,relates to,Reference,outward
+ZOOKEEPER-733,ZOOKEEPER-845,relates to,Reference,outward
+AVRO-405,ZOOKEEPER-733,is related to,Reference,inward
+ZOOKEEPER-729,ZOOKEEPER-730,is related to,Reference,inward
+ZOOKEEPER-729,ZOOKEEPER-730,relates to,Reference,outward
+ZOOKEEPER-1326,ZOOKEEPER-729,is superceded by,Supercedes,inward
+ZOOKEEPER-724,ZOOKEEPER-725,is related to,Reference,inward
+ZOOKEEPER-724,HADOOP-6666,relates to,Reference,outward
+ZOOKEEPER-724,ZOOKEEPER-725,relates to,Reference,outward
+ZOOKEEPER-723,ZOOKEEPER-2163,duplicates,Duplicate,outward
+ZOOKEEPER-723,ZOOKEEPER-834,relates to,Reference,outward
+ZOOKEEPER-2163,ZOOKEEPER-723,is superceded by,Supercedes,inward
+ZOOKEEPER-715,ZOOKEEPER-713,relates to,Reference,outward
+ZOOKEEPER-714,ZOOKEEPER-713,relates to,Reference,outward
+ZOOKEEPER-714,ZOOKEEPER-713,is related to,Reference,inward
+ZOOKEEPER-715,ZOOKEEPER-713,is related to,Reference,inward
+BOOKKEEPER-2,ZOOKEEPER-712,is related to,Reference,inward
+ZOOKEEPER-707,ZOOKEEPER-768,duplicates,Duplicate,outward
+ZOOKEEPER-707,ZOOKEEPER-804,duplicates,Duplicate,outward
+ZOOKEEPER-1644,ZOOKEEPER-706,is related to,Reference,inward
+ZOOKEEPER-1162,ZOOKEEPER-706,is broken by,Regression,inward
+ZOOKEEPER-704,REEF-1291,Dependent,Dependent,outward
+ZOOKEEPER-704,SPARK-2876,Dependent,Dependent,outward
+ZOOKEEPER-704,HBASE-2531,Dependent,Dependent,outward
+ZOOKEEPER-704,DRILL-4387,Dependent,Dependent,outward
+ZOOKEEPER-704,QPID-6275,Dependent,Dependent,outward
+ZOOKEEPER-704,DRILL-4530,Dependent,Dependent,outward
+ZOOKEEPER-704,HADOOP-10561,Dependent,Dependent,outward
+ZOOKEEPER-704,HDFS-3259,Dependent,Dependent,outward
+ZOOKEEPER-769,ZOOKEEPER-704,is related to,Reference,inward
+ZOOKEEPER-702,ZOOKEEPER-823,blocks,Blocker,outward
+ZOOKEEPER-702,HDFS-779,relates to,Reference,outward
+ZOOKEEPER-702,HBASE-5843,relates to,Reference,outward
+ZOOKEEPER-701,ZOOKEEPER-744,requires,Required,outward
+ZOOKEEPER-701,ZOOKEEPER-799,requires,Required,outward
+ZOOKEEPER-701,ZOOKEEPER-808,requires,Required,outward
+ZOOKEEPER-701,ZOOKEEPER-809,requires,Required,outward
+ZOOKEEPER-695,ZOOKEEPER-684,relates to,Reference,outward
+ZOOKEEPER-690,ZOOKEEPER-764,relates to,Reference,outward
+ZOOKEEPER-685,ZOOKEEPER-622,relates to,Reference,outward
+ZOOKEEPER-695,ZOOKEEPER-684,is related to,Reference,inward
+ZOOKEEPER-418,ZOOKEEPER-678,is related to,Reference,inward
+ZOOKEEPER-677,ZOOKEEPER-676,blocks,Blocker,outward
+ZOOKEEPER-677,ZOOKEEPER-676,is blocked by,Blocker,inward
+ZOOKEEPER-674,ZOOKEEPER-586,relates to,Reference,outward
+ZOOKEEPER-2090,ZOOKEEPER-671,is part of,Incorporates,inward
+ZOOKEEPER-740,ZOOKEEPER-670,is duplicated by,Duplicate,inward
+ZOOKEEPER-635,ZOOKEEPER-667,is part of,Incorporates,inward
+ZOOKEEPER-837,ZOOKEEPER-666,is cloned by,Cloners,inward
+ZOOKEEPER-835,ZOOKEEPER-666,is related to,Reference,inward
+ZOOKEEPER-22,ZOOKEEPER-660,is required by,Required,inward
+ZOOKEEPER-658,ZOOKEEPER-152,relates to,Reference,outward
+ZOOKEEPER-569,ZOOKEEPER-653,is blocked by,Blocker,inward
+ZOOKEEPER-652,ZOOKEEPER-233,duplicates,Duplicate,outward
+ZOOKEEPER-3221,ZOOKEEPER-645,Blocked,Blocked,inward
+ZOOKEEPER-635,ZOOKEEPER-667,incorporates,Incorporates,outward
+ZOOKEEPER-1135,ZOOKEEPER-635,is depended upon by,dependent,inward
+ZOOKEEPER-631,ZOOKEEPER-742,blocks,Blocker,outward
+ZOOKEEPER-740,ZOOKEEPER-631,is related to,Reference,inward
+ZOOKEEPER-596,ZOOKEEPER-629,is depended upon by,dependent,inward
+ZOOKEEPER-534,ZOOKEEPER-623,is depended upon by,dependent,inward
+ZOOKEEPER-685,ZOOKEEPER-622,is related to,Reference,inward
+ZOOKEEPER-618,ZOOKEEPER-619,is related to,Reference,inward
+ZOOKEEPER-618,ZOOKEEPER-619,relates to,Reference,outward
+ZOOKEEPER-601,ZOOKEEPER-617,is part of,Incorporates,inward
+ZOOKEEPER-616,ZOOKEEPER-849,blocks,Blocker,outward
+ZOOKEEPER-744,ZOOKEEPER-613,is related to,Reference,inward
+ZOOKEEPER-607,ZOOKEEPER-507,relates to,Reference,outward
+ZOOKEEPER-606,ZOOKEEPER-426,relates to,Reference,outward
+ZOOKEEPER-604,ZOOKEEPER-295,relates to,Reference,outward
+ZOOKEEPER-602,ZOOKEEPER-2029,relates to,Reference,outward
+ZOOKEEPER-602,ZOOKEEPER-597,relates to,Reference,outward
+ZOOKEEPER-602,ZOOKEEPER-1907,relates to,Reference,outward
+ZOOKEEPER-601,ZOOKEEPER-617,incorporates,Incorporates,outward
+ZOOKEEPER-601,ZOOKEEPER-595,incorporates,Incorporates,outward
+ZOOKEEPER-599,ZOOKEEPER-506,incorporates,Incorporates,outward
+ZOOKEEPER-602,ZOOKEEPER-597,is related to,Reference,inward
+ZOOKEEPER-596,ZOOKEEPER-629,depends upon,dependent,outward
+ZOOKEEPER-601,ZOOKEEPER-595,is part of,Incorporates,inward
+ZOOKEEPER-593,ZOOKEEPER-587,relates to,Reference,outward
+ZOOKEEPER-593,ZOOKEEPER-587,is related to,Reference,inward
+ZOOKEEPER-674,ZOOKEEPER-586,is related to,Reference,inward
+ZOOKEEPER-584,ZOOKEEPER-425,depends upon,dependent,outward
+ZOOKEEPER-581,ZOOKEEPER-368,relates to,Reference,outward
+ZOOKEEPER-577,ZOOKEEPER-372,depends upon,dependent,outward
+ZOOKEEPER-1072,ZOOKEEPER-575,is depended upon by,dependent,inward
+ZOOKEEPER-566,ZOOKEEPER-573,is part of,Incorporates,inward
+ZOOKEEPER-572,ZOOKEEPER-573,is related to,Reference,inward
+ZOOKEEPER-572,ZOOKEEPER-573,relates to,Reference,outward
+ZOOKEEPER-572,ZOOKEEPER-2227,breaks,Regression,outward
+ZOOKEEPER-569,ZOOKEEPER-653,blocks,Blocker,outward
+ZOOKEEPER-3316,ZOOKEEPER-568,is related to,Reference,inward
+ZOOKEEPER-567,ZOOKEEPER-555,relates to,Reference,outward
+ZOOKEEPER-566,ZOOKEEPER-573,incorporates,Incorporates,outward
+ZOOKEEPER-558,ZOOKEEPER-565,is part of,Incorporates,inward
+ZOOKEEPER-558,ZOOKEEPER-564,is part of,Incorporates,inward
+ZOOKEEPER-558,ZOOKEEPER-560,is part of,Incorporates,inward
+ZOOKEEPER-558,ZOOKEEPER-560,incorporates,Incorporates,outward
+ZOOKEEPER-558,ZOOKEEPER-564,incorporates,Incorporates,outward
+ZOOKEEPER-558,ZOOKEEPER-565,incorporates,Incorporates,outward
+ZOOKEEPER-567,ZOOKEEPER-555,is related to,Reference,inward
+ZOOKEEPER-541,ZOOKEEPER-540,incorporates,Incorporates,outward
+ZOOKEEPER-541,ZOOKEEPER-540,is part of,Incorporates,inward
+ZOOKEEPER-537,ZOOKEEPER-224,blocks,Blocker,outward
+ZOOKEEPER-95,ZOOKEEPER-537,is related to,Reference,inward
+ZOOKEEPER-534,ZOOKEEPER-623,depends upon,dependent,outward
+ZOOKEEPER-529,ZOOKEEPER-224,relates to,Reference,outward
+ZOOKEEPER-517,ZOOKEEPER-801,relates to,Reference,outward
+ZOOKEEPER-508,ZOOKEEPER-509,is part of,Incorporates,inward
+ZOOKEEPER-483,ZOOKEEPER-509,is part of,Incorporates,inward
+ZOOKEEPER-508,ZOOKEEPER-509,incorporates,Incorporates,outward
+ZOOKEEPER-508,ZOOKEEPER-483,incorporates,Incorporates,outward
+ZOOKEEPER-507,ZOOKEEPER-505,incorporates,Incorporates,outward
+ZOOKEEPER-507,ZOOKEEPER-502,incorporates,Incorporates,outward
+ZOOKEEPER-507,ZOOKEEPER-503,incorporates,Incorporates,outward
+ZOOKEEPER-507,ZOOKEEPER-504,incorporates,Incorporates,outward
+ZOOKEEPER-507,ZOOKEEPER-461,incorporates,Incorporates,outward
+BOOKKEEPER-691,ZOOKEEPER-507,is related to,Reference,inward
+ZOOKEEPER-607,ZOOKEEPER-507,is related to,Reference,inward
+ZOOKEEPER-599,ZOOKEEPER-506,is part of,Incorporates,inward
+ZOOKEEPER-507,ZOOKEEPER-505,is part of,Incorporates,inward
+ZOOKEEPER-503,ZOOKEEPER-504,is part of,Incorporates,inward
+ZOOKEEPER-507,ZOOKEEPER-504,is part of,Incorporates,inward
+ZOOKEEPER-503,ZOOKEEPER-502,incorporates,Incorporates,outward
+ZOOKEEPER-503,ZOOKEEPER-504,incorporates,Incorporates,outward
+ZOOKEEPER-503,ZOOKEEPER-461,incorporates,Incorporates,outward
+ZOOKEEPER-507,ZOOKEEPER-503,is part of,Incorporates,inward
+ZOOKEEPER-503,ZOOKEEPER-461,depends upon,dependent,outward
+ZOOKEEPER-503,ZOOKEEPER-502,is part of,Incorporates,inward
+ZOOKEEPER-507,ZOOKEEPER-502,is part of,Incorporates,inward
+ZOOKEEPER-1033,ZOOKEEPER-494,is duplicated by,Duplicate,inward
+ZOOKEEPER-491,ZOOKEEPER-479,depends upon,dependent,outward
+ZOOKEEPER-491,ZOOKEEPER-481,depends upon,dependent,outward
+ZOOKEEPER-485,ZOOKEEPER-483,relates to,Reference,outward
+ZOOKEEPER-483,ZOOKEEPER-509,incorporates,Incorporates,outward
+ZOOKEEPER-508,ZOOKEEPER-483,is part of,Incorporates,inward
+ZOOKEEPER-485,ZOOKEEPER-483,is related to,Reference,inward
+ZOOKEEPER-475,ZOOKEEPER-481,is depended upon by,dependent,inward
+ZOOKEEPER-479,ZOOKEEPER-481,is depended upon by,dependent,inward
+ZOOKEEPER-491,ZOOKEEPER-481,is depended upon by,dependent,inward
+ZOOKEEPER-475,ZOOKEEPER-480,is depended upon by,dependent,inward
+ZOOKEEPER-479,ZOOKEEPER-481,depends upon,dependent,outward
+ZOOKEEPER-475,ZOOKEEPER-479,is depended upon by,dependent,inward
+ZOOKEEPER-491,ZOOKEEPER-479,is depended upon by,dependent,inward
+ZOOKEEPER-475,ZOOKEEPER-479,depends upon,dependent,outward
+ZOOKEEPER-475,ZOOKEEPER-480,depends upon,dependent,outward
+ZOOKEEPER-475,ZOOKEEPER-481,depends upon,dependent,outward
+ZOOKEEPER-474,ZOOKEEPER-466,depends upon,dependent,outward
+ZOOKEEPER-474,ZOOKEEPER-471,depends upon,dependent,outward
+ZOOKEEPER-473,ZOOKEEPER-460,relates to,Reference,outward
+ZOOKEEPER-474,ZOOKEEPER-471,is depended upon by,dependent,inward
+ZOOKEEPER-474,ZOOKEEPER-466,is depended upon by,dependent,inward
+ZOOKEEPER-503,ZOOKEEPER-461,is part of,Incorporates,inward
+ZOOKEEPER-507,ZOOKEEPER-461,is part of,Incorporates,inward
+ZOOKEEPER-503,ZOOKEEPER-461,is depended upon by,dependent,inward
+ZOOKEEPER-473,ZOOKEEPER-460,is related to,Reference,inward
+ZOOKEEPER-2593,ZOOKEEPER-451,is duplicated by,Duplicate,inward
+ZOOKEEPER-451,ZOOKEEPER-3301,relates to,Reference,outward
+ZOOKEEPER-442,ZOOKEEPER-1910,relates to,Reference,outward
+ZOOKEEPER-442,ZOOKEEPER-1919,relates to,Reference,outward
+ZOOKEEPER-1887,ZOOKEEPER-442,is related to,Reference,inward
+ZOOKEEPER-3053,ZOOKEEPER-442,is depended upon by,dependent,inward
+ZOOKEEPER-428,ZOOKEEPER-439,is related to,Reference,inward
+ZOOKEEPER-431,HBASE-1449,blocks,Blocker,outward
+ZOOKEEPER-428,ZOOKEEPER-439,relates to,Reference,outward
+ZOOKEEPER-427,ZOOKEEPER-287,relates to,Reference,outward
+ZOOKEEPER-427,ZOOKEEPER-893,relates to,Reference,outward
+DIRMINA-678,ZOOKEEPER-427,is related to,Reference,inward
+ZOOKEEPER-606,ZOOKEEPER-426,is related to,Reference,inward
+ZOOKEEPER-425,ZOOKEEPER-749,relates to,Reference,outward
+ZOOKEEPER-584,ZOOKEEPER-425,is depended upon by,dependent,inward
+ZOOKEEPER-424,ZOOKEEPER-237,relates to,Reference,outward
+ZOOKEEPER-1022,ZOOKEEPER-423,is related to,Reference,inward
+ZOOKEEPER-282,ZOOKEEPER-423,is related to,Reference,inward
+ZOOKEEPER-418,ZOOKEEPER-678,relates to,Reference,outward
+ZOOKEEPER-383,ZOOKEEPER-400,is depended upon by,dependent,inward
+ZOOKEEPER-395,ZOOKEEPER-765,relates to,Reference,outward
+ZOOKEEPER-390,ZOOKEEPER-237,relates to,Reference,outward
+ZOOKEEPER-390,ZOOKEEPER-146,relates to,Reference,outward
+ZOOKEEPER-1355,ZOOKEEPER-390,is related to,Reference,inward
+ZOOKEEPER-107,ZOOKEEPER-390,is related to,Reference,inward
+ZOOKEEPER-386,ZOOKEEPER-388,is related to,Reference,inward
+ZOOKEEPER-380,ZOOKEEPER-387,is part of,Incorporates,inward
+ZOOKEEPER-386,ZOOKEEPER-388,relates to,Reference,outward
+ZOOKEEPER-383,ZOOKEEPER-400,depends upon,dependent,outward
+ZOOKEEPER-380,ZOOKEEPER-387,incorporates,Incorporates,outward
+ZOOKEEPER-380,ZOOKEEPER-365,incorporates,Incorporates,outward
+ZOOKEEPER-577,ZOOKEEPER-372,is depended upon by,dependent,inward
+ZOOKEEPER-371,ZOOKEEPER-148,relates to,Reference,outward
+ZOOKEEPER-279,ZOOKEEPER-369,is related to,Reference,inward
+ZOOKEEPER-581,ZOOKEEPER-368,is related to,Reference,inward
+ZOOKEEPER-107,ZOOKEEPER-368,is related to,Reference,inward
+ZOOKEEPER-340,ZOOKEEPER-367,is blocked by,Blocker,inward
+ZOOKEEPER-366,ZOOKEEPER-1366,duplicates,Duplicate,outward
+ZOOKEEPER-380,ZOOKEEPER-365,is part of,Incorporates,inward
+ZOOKEEPER-364,HADOOP-6541,relates to,Reference,outward
+HADOOP-6541,ZOOKEEPER-364,is related to,Reference,inward
+ZOOKEEPER-325,ZOOKEEPER-362,is duplicated by,Duplicate,inward
+ZOOKEEPER-340,ZOOKEEPER-367,blocks,Blocker,outward
+ZOOKEEPER-2184,ZOOKEEPER-338,is duplicated by,Duplicate,inward
+ZOOKEEPER-338,ZOOKEEPER-836,relates to,Reference,outward
+ZOOKEEPER-338,ZOOKEEPER-328,relates to,Reference,outward
+ZOOKEEPER-1355,ZOOKEEPER-338,is superceded by,Supercedes,inward
+ZOOKEEPER-335,ZOOKEEPER-3608,relates to,Reference,outward
+ZOOKEEPER-790,ZOOKEEPER-335,is related to,Reference,inward
+ZOOKEEPER-335,ZOOKEEPER-1278,breaks,Regression,outward
+ZOOKEEPER-938,ZOOKEEPER-329,is required by,Required,inward
+ZOOKEEPER-338,ZOOKEEPER-328,is related to,Reference,inward
+ZOOKEEPER-325,ZOOKEEPER-362,duplicates,Duplicate,outward
+ZOOKEEPER-325,ZOOKEEPER-305,relates to,Reference,outward
+ZOOKEEPER-849,ZOOKEEPER-324,is related to,Reference,inward
+ZOOKEEPER-323,ZOOKEEPER-1107,supercedes,Supercedes,outward
+ZOOKEEPER-325,ZOOKEEPER-305,is related to,Reference,inward
+ZOOKEEPER-299,ZOOKEEPER-303,is duplicated by,Duplicate,inward
+ZOOKEEPER-303,HADOOP-7089,relates to,Reference,outward
+ZOOKEEPER-299,ZOOKEEPER-303,duplicates,Duplicate,outward
+ZOOKEEPER-604,ZOOKEEPER-295,is related to,Reference,inward
+ZOOKEEPER-292,ZOOKEEPER-281,relates to,Reference,outward
+ZOOKEEPER-246,ZOOKEEPER-291,is related to,Reference,inward
+ZOOKEEPER-427,ZOOKEEPER-287,is related to,Reference,inward
+ZOOKEEPER-286,ZOOKEEPER-284,blocks,Blocker,outward
+ZOOKEEPER-286,ZOOKEEPER-285,incorporates,Incorporates,outward
+ZOOKEEPER-286,ZOOKEEPER-285,is part of,Incorporates,inward
+ZOOKEEPER-286,ZOOKEEPER-284,is blocked by,Blocker,inward
+ZOOKEEPER-282,ZOOKEEPER-2260,duplicates,Duplicate,outward
+ZOOKEEPER-282,ZOOKEEPER-423,relates to,Reference,outward
+ZOOKEEPER-292,ZOOKEEPER-281,is related to,Reference,inward
+ZOOKEEPER-279,ZOOKEEPER-369,relates to,Reference,outward
+ZOOKEEPER-233,ZOOKEEPER-278,is related to,Reference,inward
+ZOOKEEPER-277,ZOOKEEPER-835,blocks,Blocker,outward
+ZOOKEEPER-271,ZOOKEEPER-1307,supercedes,Supercedes,outward
+ZOOKEEPER-1408,ZOOKEEPER-271,is depended upon by,dependent,inward
+ZOOKEEPER-1409,ZOOKEEPER-271,is depended upon by,dependent,inward
+ZOOKEEPER-40,ZOOKEEPER-270,is related to,Reference,inward
+ZOOKEEPER-269,ZOOKEEPER-264,relates to,Reference,outward
+ZOOKEEPER-269,ZOOKEEPER-264,is related to,Reference,inward
+ZOOKEEPER-260,ZOOKEEPER-2503,relates to,Reference,outward
+ZOOKEEPER-252,ZOOKEEPER-229,blocks,Blocker,outward
+ZOOKEEPER-246,ZOOKEEPER-291,relates to,Reference,outward
+ZOOKEEPER-205,ZOOKEEPER-241,is related to,Reference,inward
+ZOOKEEPER-239,ZOOKEEPER-215,duplicates,Duplicate,outward
+ZOOKEEPER-146,ZOOKEEPER-237,is related to,Reference,inward
+ZOOKEEPER-390,ZOOKEEPER-237,is related to,Reference,inward
+ZOOKEEPER-424,ZOOKEEPER-237,is related to,Reference,inward
+ZOOKEEPER-2698,ZOOKEEPER-236,is duplicated by,Duplicate,inward
+ZOOKEEPER-2750,ZOOKEEPER-236,is related to,Reference,inward
+ZOOKEEPER-3173,ZOOKEEPER-236,is related to,Reference,inward
+ZOOKEEPER-1000,ZOOKEEPER-236,is depended upon by,dependent,inward
+ZOOKEEPER-235,ZOOKEEPER-2125,depends upon,dependent,outward
+ZOOKEEPER-235,ZOOKEEPER-2122,depends upon,dependent,outward
+ZOOKEEPER-652,ZOOKEEPER-233,is duplicated by,Duplicate,inward
+ZOOKEEPER-1003,ZOOKEEPER-233,is duplicated by,Duplicate,inward
+ZOOKEEPER-233,ZOOKEEPER-278,relates to,Reference,outward
+ZOOKEEPER-119,ZOOKEEPER-231,is related to,Reference,inward
+ZOOKEEPER-252,ZOOKEEPER-229,is blocked by,Blocker,inward
+ZOOKEEPER-224,HIVE-1235,blocks,Blocker,outward
+ZOOKEEPER-537,ZOOKEEPER-224,is blocked by,Blocker,inward
+ZOOKEEPER-1085,ZOOKEEPER-224,is cloned by,Cloners,inward
+HBASE-1933,ZOOKEEPER-224,is related to,Reference,inward
+ZOOKEEPER-529,ZOOKEEPER-224,is related to,Reference,inward
+ZOOKEEPER-204,ZOOKEEPER-221,is part of,Incorporates,inward
+ZOOKEEPER-209,ZOOKEEPER-217,is depended upon by,dependent,inward
+ZOOKEEPER-215,ZOOKEEPER-149,blocks,Blocker,outward
+ZOOKEEPER-239,ZOOKEEPER-215,is duplicated by,Duplicate,inward
+ZOOKEEPER-209,ZOOKEEPER-217,depends upon,dependent,outward
+ZOOKEEPER-207,ZOOKEEPER-1907,relates to,Reference,outward
+ZOOKEEPER-205,ZOOKEEPER-241,relates to,Reference,outward
+ZOOKEEPER-204,ZOOKEEPER-221,incorporates,Incorporates,outward
+ZOOKEEPER-186,ZOOKEEPER-145,blocks,Blocker,outward
+ZOOKEEPER-181,ZOOKEEPER-73,blocks,Blocker,outward
+ZOOKEEPER-154,ZOOKEEPER-155,is blocked by,Blocker,inward
+ZOOKEEPER-154,ZOOKEEPER-155,blocks,Blocker,outward
+ZOOKEEPER-658,ZOOKEEPER-152,is related to,Reference,inward
+ZOOKEEPER-215,ZOOKEEPER-149,is blocked by,Blocker,inward
+ZOOKEEPER-23,ZOOKEEPER-149,is duplicated by,Duplicate,inward
+ZOOKEEPER-148,HADOOP-3532,relates to,Reference,outward
+ZOOKEEPER-148,HADOOP-2421,relates to,Reference,outward
+ZOOKEEPER-371,ZOOKEEPER-148,is related to,Reference,inward
+ZOOKEEPER-146,ZOOKEEPER-836,relates to,Reference,outward
+ZOOKEEPER-146,ZOOKEEPER-237,relates to,Reference,outward
+ZOOKEEPER-390,ZOOKEEPER-146,is related to,Reference,inward
+ZOOKEEPER-186,ZOOKEEPER-145,is blocked by,Blocker,inward
+ZOOKEEPER-144,ZOOKEEPER-114,blocks,Blocker,outward
+ZOOKEEPER-144,ZOOKEEPER-114,incorporates,Incorporates,outward
+ZOOKEEPER-139,ZOOKEEPER-144,is related to,Reference,inward
+ZOOKEEPER-142,ZOOKEEPER-143,is related to,Reference,inward
+ZOOKEEPER-142,ZOOKEEPER-143,relates to,Reference,outward
+ZOOKEEPER-127,ZOOKEEPER-141,is part of,Incorporates,inward
+ZOOKEEPER-140,ZOOKEEPER-127,blocks,Blocker,outward
+ZOOKEEPER-139,ZOOKEEPER-18,incorporates,Incorporates,outward
+ZOOKEEPER-139,ZOOKEEPER-144,relates to,Reference,outward
+ZOOKEEPER-138,ZOOKEEPER-23,depends upon,dependent,outward
+ZOOKEEPER-137,ZOOKEEPER-124,relates to,Reference,outward
+ZOOKEEPER-140,ZOOKEEPER-127,is blocked by,Blocker,inward
+ZOOKEEPER-127,ZOOKEEPER-141,incorporates,Incorporates,outward
+ZOOKEEPER-1202,ZOOKEEPER-126,is part of,Incorporates,inward
+ZOOKEEPER-846,ZOOKEEPER-126,is related to,Reference,inward
+ZOOKEEPER-63,ZOOKEEPER-126,is related to,Reference,inward
+ZOOKEEPER-137,ZOOKEEPER-124,is related to,Reference,inward
+ZOOKEEPER-121,ZOOKEEPER-1109,relates to,Reference,outward
+ZOOKEEPER-119,ZOOKEEPER-231,relates to,Reference,outward
+ZOOKEEPER-144,ZOOKEEPER-114,is blocked by,Blocker,inward
+ZOOKEEPER-144,ZOOKEEPER-114,is part of,Incorporates,inward
+ZOOKEEPER-111,ZOOKEEPER-54,blocks,Blocker,outward
+ZOOKEEPER-111,ZOOKEEPER-61,blocks,Blocker,outward
+ZOOKEEPER-111,ZOOKEEPER-2421,causes,Problem/Incident,outward
+ZOOKEEPER-86,ZOOKEEPER-111,is related to,Reference,inward
+ZOOKEEPER-1625,ZOOKEEPER-107,is blocked by,Blocker,inward
+ZOOKEEPER-107,ZOOKEEPER-1044,contains,Container,outward
+ZOOKEEPER-107,ZOOKEEPER-1113,contains,Container,outward
+ZOOKEEPER-1682,ZOOKEEPER-107,is duplicated by,Duplicate,inward
+ZOOKEEPER-107,ZOOKEEPER-1549,relates to,Reference,outward
+ZOOKEEPER-107,ZOOKEEPER-2014,relates to,Reference,outward
+ZOOKEEPER-107,ZOOKEEPER-1045,relates to,Reference,outward
+ZOOKEEPER-107,ZOOKEEPER-368,relates to,Reference,outward
+ZOOKEEPER-107,ZOOKEEPER-390,relates to,Reference,outward
+ZOOKEEPER-1561,ZOOKEEPER-107,is related to,Reference,inward
+ZOOKEEPER-1355,ZOOKEEPER-107,is related to,Reference,inward
+ZOOKEEPER-1324,ZOOKEEPER-107,is related to,Reference,inward
+ZOOKEEPER-107,ZOOKEEPER-1633,requires,Required,outward
+ZOOKEEPER-107,ZOOKEEPER-1411,depends upon,dependent,outward
+ZOOKEEPER-107,ZOOKEEPER-1620,depends upon,dependent,outward
+ZOOKEEPER-1660,ZOOKEEPER-107,is depended upon by,dependent,inward
+ZOOKEEPER-1659,ZOOKEEPER-107,is depended upon by,dependent,inward
+ZOOKEEPER-80,ZOOKEEPER-103,is blocked by,Blocker,inward
+ZOOKEEPER-103,ZOOKEEPER-1078,relates to,Reference,outward
+ZOOKEEPER-101,ZOOKEEPER-74,relates to,Reference,outward
+ZOOKEEPER-98,ZOOKEEPER-3021,depends upon,dependent,outward
+ZOOKEEPER-96,ZOOKEEPER-1078,breaks,Regression,outward
+ZOOKEEPER-95,ZOOKEEPER-537,relates to,Reference,outward
+ZOOKEEPER-95,ZOOKEEPER-3021,depends upon,dependent,outward
+ZOOKEEPER-94,ZOOKEEPER-82,relates to,Reference,outward
+ZOOKEEPER-86,ZOOKEEPER-63,relates to,Reference,outward
+ZOOKEEPER-86,ZOOKEEPER-111,relates to,Reference,outward
+ZOOKEEPER-2158,ZOOKEEPER-83,is cloned by,Cloners,inward
+ZOOKEEPER-2158,ZOOKEEPER-83,is duplicated by,Duplicate,inward
+ZOOKEEPER-82,ZOOKEEPER-2861,relates to,Reference,outward
+ZOOKEEPER-94,ZOOKEEPER-82,is related to,Reference,inward
+ZOOKEEPER-80,ZOOKEEPER-103,blocks,Blocker,outward
+ZOOKEEPER-79,ZOOKEEPER-80,is related to,Reference,inward
+ZOOKEEPER-79,ZOOKEEPER-78,blocks,Blocker,outward
+ZOOKEEPER-79,ZOOKEEPER-80,relates to,Reference,outward
+ZOOKEEPER-79,ZOOKEEPER-78,is blocked by,Blocker,inward
+ZOOKEEPER-16,ZOOKEEPER-77,is related to,Reference,inward
+ZOOKEEPER-101,ZOOKEEPER-74,is related to,Reference,inward
+ZOOKEEPER-181,ZOOKEEPER-73,is blocked by,Blocker,inward
+ZOOKEEPER-70,ZOOKEEPER-72,is blocked by,Blocker,inward
+ZOOKEEPER-70,ZOOKEEPER-72,blocks,Blocker,outward
+ZOOKEEPER-66,ZOOKEEPER-67,is related to,Reference,inward
+ZOOKEEPER-66,ZOOKEEPER-67,relates to,Reference,outward
+ZOOKEEPER-63,ZOOKEEPER-126,relates to,Reference,outward
+ZOOKEEPER-86,ZOOKEEPER-63,is related to,Reference,inward
+ZOOKEEPER-111,ZOOKEEPER-61,is blocked by,Blocker,inward
+ZOOKEEPER-61,ZOOKEEPER-54,duplicates,Duplicate,outward
+ZOOKEEPER-111,ZOOKEEPER-54,is blocked by,Blocker,inward
+ZOOKEEPER-61,ZOOKEEPER-54,is duplicated by,Duplicate,inward
+ZOOKEEPER-39,ZOOKEEPER-50,is related to,Reference,inward
+ZOOKEEPER-50,ZOOKEEPER-23,depends upon,dependent,outward
+ZOOKEEPER-49,ZOOKEEPER-48,depends upon,dependent,outward
+ZOOKEEPER-49,ZOOKEEPER-48,is depended upon by,dependent,inward
+ZOOKEEPER-40,ZOOKEEPER-270,relates to,Reference,outward
+ZOOKEEPER-39,ZOOKEEPER-50,relates to,Reference,outward
+ZOOKEEPER-38,ZOOKEEPER-27,incorporates,Incorporates,outward
+ZOOKEEPER-38,ZOOKEEPER-32,incorporates,Incorporates,outward
+ZOOKEEPER-1173,ZOOKEEPER-33,is related to,Reference,inward
+ZOOKEEPER-38,ZOOKEEPER-32,is part of,Incorporates,inward
+ZOOKEEPER-38,ZOOKEEPER-27,is part of,Incorporates,inward
+ZOOKEEPER-23,ZOOKEEPER-149,duplicates,Duplicate,outward
+ZOOKEEPER-50,ZOOKEEPER-23,is depended upon by,dependent,inward
+ZOOKEEPER-138,ZOOKEEPER-23,is depended upon by,dependent,inward
+ZOOKEEPER-835,ZOOKEEPER-22,is part of,Incorporates,inward
+ZOOKEEPER-1905,ZOOKEEPER-22,is related to,Reference,inward
+ZOOKEEPER-22,ZOOKEEPER-660,requires,Required,outward
+ZOOKEEPER-139,ZOOKEEPER-18,is part of,Incorporates,inward
+ZOOKEEPER-7,ZOOKEEPER-18,is part of,Incorporates,inward
+ZOOKEEPER-16,ZOOKEEPER-77,relates to,Reference,outward
+ZOOKEEPER-14,ZOOKEEPER-843,blocks,Blocker,outward
+ZOOKEEPER-12,ZOOKEEPER-849,depends upon,dependent,outward
+ZOOKEEPER-7,ZOOKEEPER-18,incorporates,Incorporates,outward

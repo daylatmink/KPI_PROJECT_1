@@ -1,5 +1,6 @@
 import pandas as pd
 import os
+import re
 
 # ============================
 # 0. CẤU HÌNH ĐƯỜNG DẪN (CHỈ SỬA Ở ĐÂY)
@@ -29,47 +30,75 @@ df = pd.read_csv(input_path)
 # 2. GÁN NHÃN LOẠI CÔNG VIỆC (Job_Label)
 # ============================
 
+LABEL_KEYWORDS = {
+    "Build & Release Engineering": [
+        "build", "release", "maven", "gradle", "pom.xml", "ci", "jenkins", "pipeline",
+        "artifact", "jar", "plugin", "upgrade", "bump", "dependency", "version",
+        "archiver", "plexus", "packaging", "invoker", "assembly"
+    ],
+    "Testing & Verification": [
+        "test", "tests", "junit", "integrationtest", "flaky", "failsafe", "surefire",
+        "coverage", "mock"
+    ],
+    "Documentation": ["doc", "docs", "documentation", "guide", "reference", "javadoc", "usage", "readme"],
+    "Code Refactoring & Cleanup": ["refactor", "cleanup", "re-factor", "rename", "restructure", "tidy", "warnings"],
+    "Design & API Evolution": ["api", "interface", "schema", "contract", "client", "server", "signature", "package"],
+    "Performance Optimization": ["performance", "latency", "throughput", "optimiz", "speed", "slow", "faster", "memory", "cpu"],
+}
+
 def infer_job_label(summary, issue_type):
-    text = str(summary).lower() if pd.notna(summary) else ""
-    itype = str(issue_type).lower() if pd.notna(issue_type) else ""
+    text_raw = "" if pd.isna(summary) else str(summary)
+    type_raw = "" if pd.isna(issue_type) else str(issue_type)
+    text = text_raw.lower()
+    itype = type_raw.lower()
+    tokens = set(re.findall(r"[a-z0-9]+", text))
 
-    # Ưu tiên TEST
-    if issue_type == "Test" or "test" in text:
-        return "Testing & Verification"
+    def has_any(keys):
+        return any(k in text for k in keys)
 
-    # BUG
-    if "bug" in itype:
-        if "test" in text or "flaky" in text:
-            return "Testing & Verification"
-        if any(k in text for k in ["doc", "javadoc", "documentation", "reference guide"]):
+    def has_token(keys):
+        return any(k in tokens for k in keys)
+
+    # Bug first
+    if "bug" in itype or "fix" in text:
+        if has_any(LABEL_KEYWORDS["Documentation"]):
             return "Documentation"
+        if has_any(LABEL_KEYWORDS["Testing & Verification"]):
+            return "Testing & Verification"
         return "Bug fixing / Maintenance"
 
-    # Improvement / New Feature / Wish / Brainstorming
-    if any(k in itype for k in ["improvement", "new feature", "wish", "brainstorming"]):
-        if any(k in text for k in ["design", "api", "interface", "schema", "client", "server"]):
-            return "Design & API Evolution"
-        if any(k in text for k in ["performance", "latency", "throughput", "optimiz"]):
-            return "Performance Optimization"
-        if any(k in text for k in ["test", "junit", "integrationtest", "flaky"]):
-            return "Testing & Verification"
-        if any(k in text for k in ["refactor", "cleanup", "re-factor"]):
-            return "Code Refactoring & Cleanup"
-        if any(k in text for k in ["release", "build", "maven", "jenkins", "pom.xml", "ci"]):
-            return "Build & Release Engineering"
-        return "Feature / Improvement Implementation"
+    # Docs
+    if has_any(LABEL_KEYWORDS["Documentation"]):
+        return "Documentation"
 
-    # Task chung
+    # Build/Release (includes upgrades)
+    if has_any(LABEL_KEYWORDS["Build & Release Engineering"]):
+        return "Build & Release Engineering"
+
+    # Testing
+    if has_any(LABEL_KEYWORDS["Testing & Verification"]) or has_token(["test", "tests"]):
+        return "Testing & Verification"
+
+    # Refactor/Cleanup
+    if has_any(LABEL_KEYWORDS["Code Refactoring & Cleanup"]):
+        return "Code Refactoring & Cleanup"
+
+    # Performance
+    if has_any(LABEL_KEYWORDS["Performance Optimization"]):
+        return "Performance Optimization"
+
+    # Design/API
+    if has_any(LABEL_KEYWORDS["Design & API Evolution"]):
+        return "Design & API Evolution"
+
+    # Issue-type based fallback
+    if any(k in itype for k in ["improvement", "new feature", "wish", "brainstorming"]):
+        return "Feature / Improvement Implementation"
     if itype == "task":
-        if any(k in text for k in ["doc", "documentation", "javadoc", "reference guide"]):
-            return "Documentation"
-        if any(k in text for k in ["release", "build", "maven", "jenkins", "pom.xml", "ci"]):
-            return "Build & Release Engineering"
-        if any(k in text for k in ["test", "junit", "integrationtest", "flaky"]):
-            return "Testing & Verification"
         return "Project / General Task"
 
     return "Other"
+
 
 
 df["Task_Tag"] = [
@@ -89,4 +118,4 @@ else:
 
 os.makedirs(os.path.dirname(out_path), exist_ok=True)
 df.to_csv(out_path, index=False, encoding="utf-8-sig")
-print("Đã lưu:", out_path)
+print("Saved:", out_path)

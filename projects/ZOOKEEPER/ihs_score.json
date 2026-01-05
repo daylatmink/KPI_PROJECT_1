@@ -1,0 +1,91 @@
+{
+  "total_tasks": 2749,
+  "levels": 2,
+  "batches": 8,
+  "makespan_hours": 29.6,
+  "total_work_hours": 6674.2,
+  "avg_task_duration_hours": 2.4278646780647506,
+  "p50_task_duration_hours": 2.2,
+  "p90_task_duration_hours": 3.0,
+  "avg_batch_duration_hours": 3.7,
+  "p90_batch_duration_hours": 6.059999999999998,
+  "total_idle_hours": 5757.8,
+  "idle_ratio": 0.4631435006435006,
+  "utilization": 0.5368564993564994,
+  "skill_match_rate": 0.6591487813750455,
+  "avg_total_score": 0.7506982535020588,
+  "batch_scores": [
+    {
+      "Topo_Level": 1,
+      "Batch_Index": 1,
+      "skill_matching": 0.8714285714285714,
+      "workload_balance": 1.0,
+      "priority_respect": 0.299999999999998,
+      "skill_development": 0.1,
+      "total": 0.7728571428571426
+    },
+    {
+      "Topo_Level": 1,
+      "Batch_Index": 2,
+      "skill_matching": 0.855952380952381,
+      "workload_balance": 1.0,
+      "priority_respect": 0.27895833333333153,
+      "skill_development": 0.1,
+      "total": 0.7604151785714283
+    },
+    {
+      "Topo_Level": 1,
+      "Batch_Index": 3,
+      "skill_matching": 0.8378571428571427,
+      "workload_balance": 1.0,
+      "priority_respect": 0.17194406651549524,
+      "skill_development": 0.1,
+      "total": 0.73350589569161
+    },
+    {
+      "Topo_Level": 1,
+      "Batch_Index": 4,
+      "skill_matching": 0.8257142857142857,
+      "workload_balance": 1.0,
+      "priority_respect": 0.17194406651549532,
+      "skill_development": 0.1,
+      "total": 0.7262201814058958
+    },
+    {
+      "Topo_Level": 1,
+      "Batch_Index": 5,
+      "skill_matching": 0.827619047619048,
+      "workload_balance": 1.0,
+      "priority_respect": 0.1719440665154953,
+      "skill_development": 0.1,
+      "total": 0.7273630385487532
+    },
+    {
+      "Topo_Level": 1,
+      "Batch_Index": 6,
+      "skill_matching": 0.7857142857142859,
+      "workload_balance": 1.0,
+      "priority_respect": 0.28339705215419514,
+      "skill_development": 0.1,
+      "total": 0.7189381292517008
+    },
+    {
+      "Topo_Level": 1,
+      "Batch_Index": 7,
+      "skill_matching": 0.8433333333333333,
+      "workload_balance": 1.0,
+      "priority_respect": 0.23660941043083925,
+      "skill_development": 0.1,
+      "total": 0.7464914115646258
+    },
+    {
+      "Topo_Level": 2,
+      "Batch_Index": 1,
+      "skill_matching": 0.9473684210526316,
+      "workload_balance": 1.0,
+      "priority_respect": 0.30915998329156225,
+      "skill_development": 0.1,
+      "total": 0.8197950501253133
+    }
+  ]
+}
