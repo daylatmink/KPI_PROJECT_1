@@ -1,0 +1,244 @@
+issue_key,summary,group_key,group_domain,group_release,group_worktype,group_priority,group_has_pr,dev_has_activity,indegree,outdegree,component_id,is_root,is_leaf
+WODEN-1,element attr of interface->input can contain a type and no validation error is reported,,,,,,,,0,0,231,1,1
+WODEN-10,Test Case Failure: test-suite/documents/good/SchemaId-1G/schemaIds.wsdl,,,,,,,,0,0,219,1,1
+WODEN-100,Resolve Errors in W3C Test Schema-1G,,,,,,,,0,0,228,1,1
+WODEN-101,Resolve Errors in W3C Test SparqlQuery-1G,,,,,,,,0,0,220,1,1
+WODEN-102,Resolve Errors in W3C Test SparqlQuerySimplified-1G,,,,,,,,0,0,3,1,1
+WODEN-103,Woden is failing several binding assertions in the WSDL validation report,,,,,,,,0,0,27,1,1
+WODEN-104,Woden is failing several import/include assertions in the WSDL validation report,,,,,,,,0,0,216,1,1
+WODEN-105,Woden is failing several interface assertions in the WSDL validation report,,,,,,,,0,0,127,1,1
+WODEN-106,Woden is failing several types/schema assertions in the WSDL validation report,,,,,,,,0,0,218,1,1
+WODEN-107,Woden is failing several qname assertions in the WSDL validation report,,,,,,,,0,0,121,1,1
+WODEN-108,Include README (including incubation disclaimer) in woden jars,,,,,,,,0,0,163,1,1
+WODEN-109,"Include ""incubating"" in the jar names",,,,,,,,0,0,227,1,1
+WODEN-11,Test Case Failure: test-suite/documents/good/SparqlQuery-1G/sparql-protocol-query.wsdl,,,,,,,,0,0,32,1,1
+WODEN-110,MessageTest-2G does not return httplocation correctly,,,,,,,,0,0,13,1,1
+WODEN-111,Technical documentation on Woden architecture and design,,,,,,,,0,0,183,1,1
+WODEN-112,Woden Use Cases,,,,,,,,0,0,41,1,1
+WODEN-113,ErrorInfo should show Line/Column nos.,,,,,,,,0,0,119,1,1
+WODEN-114,Handling non-W3C XML Schema type systems,,,,,,,,0,0,174,1,1
+WODEN-115,Support WSDL 2.0 <description> nested within other XML documents,,,,,,,,0,0,74,1,1
+WODEN-116,woden build.properties no longer reflects current ant version,,,,,,,,0,0,25,1,1
+WODEN-117,BindingFaultReferenceElement provides no Direction attribute,,,,,,,,0,0,240,1,1
+WODEN-118,NPE when <import> location does not resolve to a document,,,,,,,,0,0,190,1,1
+WODEN-119,readWSDL method args should be java.net.URI instead of String,,,,,,,,0,0,87,1,1
+WODEN-12,Test Case Failure: test-suite/documents/good/CreditCardFaults-1G/use-credit-card-faults.wsdl,,,,,,,,0,0,62,1,1
+WODEN-120,readWSDL methods should return Description not DescriptionElement,,,,,,,,0,0,109,1,1
+WODEN-121,Problem in Obtaining Mep (of operation Guaranteed Fault) in MessageTest-1G ,,,,,,,,0,0,122,1,1
+WODEN-122,Implement EBNFgrammar for {http location}  in HTTPLocation class,,,,,,,,0,0,94,1,1
+WODEN-123,Component model should contain ALL schema elements and types,,,,,,,,0,0,213,1,1
+WODEN-124,"Resolve wsdl:import by namespace, local cache first",,,,,,,,0,0,7,1,1
+WODEN-125,QName.valueOf behaviour does not match the Javadoc,,,,,,,,0,0,45,1,1
+WODEN-126,Underlying <xs:schema> element should be accessible from API,,,,,,,,0,0,50,1,1
+WODEN-127,Testcase HTTPBinding-2G fails,,,,,,,,0,0,221,1,1
+WODEN-128,"Testcases MessageTest-1G, 2G, 3G, 4G failing due to canonicalization error",,,,,,,,0,0,110,1,1
+WODEN-129,SOAP binding extention should support query separator and query separator default,,,,,,,,0,0,84,1,1
+WODEN-13,"Test Case Failures: documents/good/Chameleon-1G, 2G, 3G, 4G",,,,,,,,0,0,80,1,1
+WODEN-130,Implement the EBNF grammar for HTTP Location,,,,,,,,0,0,70,1,1
+WODEN-131,Parser shouldn't parse schema for schema to create schema type objects in the model,,,,,,,,0,0,113,1,1
+WODEN-132,Validation structure of interface methods should be cleaned up,,,,,,,,0,0,238,1,1
+WODEN-133,Interchange format results need HTTP query parameter properties,,,,,,,,0,0,106,1,1
+WODEN-134,DescriptionElement.toComponent() should check for changes to the infoset between invocations,,,,,,,,0,0,8,1,1
+WODEN-135,Change lookup strategy for interface and binding fault reference elements to check extended interfaces,,,,,,,,0,0,138,1,1
+WODEN-136,Message content model should not be represented in the Element API,,,,,,,,0,0,150,1,1
+WODEN-137,QNameTest.testGoodDeserializeQNameWithoutPrefix fails for Sun 1.5.0_07->_11 JREs,,,,,,,,0,0,58,1,1
+WODEN-138,XML Catalog Should Not Read Java System Properties,,,,,,,,0,0,40,1,1
+WODEN-139,W3C test suite should be runnable offline without the need to set vm args,,,,,,,,0,0,151,1,1
+WODEN-14,Use XML Catalog To Improve Performance and Enable Offline Work,,,,,,,,0,0,81,1,1
+WODEN-140,DescriptionElement.getNamespaces() should have a type-safe return type,,,,,,,,0,0,234,1,1
+WODEN-141,DescriptionElement.getTypesElement() should not be a factory method,,,,,,,,0,0,73,1,1
+WODEN-142,<documentation> element should not be wrapped as java.lang.Object,,,,,,,,0,0,176,1,1
+WODEN-143,Tests SparqlQuery-1G and SparqlQuerySimplified-1G are failing due to CR145,,,,,,,,0,0,166,1,1
+WODEN-144,Document the URI Resolver in the Woden userguide.,,,,,,,,0,0,69,1,1
+WODEN-145,CR138 adds {message content model} to InterfaceFault component,,,,,,,,0,0,6,1,1
+WODEN-146,CR143 renames Transfer Coding to Content Encoding,,,,,,,,0,0,202,1,1
+WODEN-147,Entity Resolver for Woden,,,,,,,,0,0,203,1,1
+WODEN-148,HTTPLocation not parsed correctly,,,,,,,,0,0,140,1,1
+WODEN-149,Update Woden  with New WSDL 2.0 Assertions Numbers for Proposed Recommendation,,,,,,,,0,0,16,1,1
+WODEN-15,Duplicate Validation feature constant,,,,,,,,0,0,18,1,1
+WODEN-150,schema.catalog fails to be correctly located ,,,,,,,,0,0,83,1,1
+WODEN-151,wsdl4j license not included,,,,,,,,0,0,124,1,1
+WODEN-152,Woden shouldn't be dependent on Xerces,,,,,,,,0,0,1,1,1
+WODEN-153,Use the new WSDL 2.0 namespaces,,,,,,,,0,0,155,1,1
+WODEN-154,"Resolver error - IllegalArgumentException ""URI is not hierarchical""",,,,,,,,0,0,206,1,1
+WODEN-155,HTTPLocation must support the EBNF grammar for parsing whttp:location,,,,,,,,0,0,169,1,1
+WODEN-156,Parser does not properly handle component extensions for interfaces,,,,,,,,0,0,188,1,1
+WODEN-157,SOAP binding reuses HTTP properties,,,,,,,,0,0,115,1,1
+WODEN-158,SOAPBindingOperationExtensions does not have isHttpLocationIgnoreUncited,,,,,,,,0,0,225,1,1
+WODEN-159,InterfaceImpl.getAllInterfaceOperations and getAllInterfaceFaults are not quite recursive,,,,,,,,0,0,136,1,1
+WODEN-16,"When message content model is #none, Woden emits an invalid <elementDeclaration ref=""id-null""/> reference.",,,,,,,,0,0,181,1,1
+WODEN-160,Woden doesn't specify the default MEP to use if none is specified,,,,,,,,0,0,63,1,1
+WODEN-161,style default from interface not applied to operations,,,,,,,,0,0,61,1,1
+WODEN-162,"parser does not handle faults with element=""#any"" etc.",,,,,,,,0,0,171,1,1
+WODEN-163,Provide a mechanism for registering extensions and their error message formats independently of the API.,,,,,,,,0,0,126,1,1
+WODEN-164,Verify the WSDL and XSD files in the test folder contain the correct licenses,,,,,,,,0,0,135,1,1
+WODEN-165,SAX attribution in NOTICE file is not required,,,,,,,,0,0,194,1,1
+WODEN-166,Use svn:eol-style=native,,,,,,,,0,0,92,1,1
+WODEN-167,OMWSDLReader mismatch with DOMWSDLFactory,,,,,,,,0,0,184,1,1
+WODEN-168,OMXMLElementTest class incorrectly returning the DOMXMLElementTest class as its test suit.,,,,,,,,0,0,38,1,1
+WODEN-169,Remove W3CFileRepository,,,,,,,,0,0,89,1,1
+WODEN-17,"When a binding doesn't specify an interface, Wodwn emits an invalid <interface ref=""id-null""/> reference.",,,,,,,,0,0,191,1,1
+WODEN-170,mvn pom.xml to download test-suite.zip from W3C,,,,,,,,0,0,198,1,1
+WODEN-171,Remove QNameUtils class,,,,,,,,0,0,149,1,1
+WODEN-172,FlickrHTTP-1G test fails due to NS prefix and interface extension errors,,,,,,,,0,0,47,1,1
+WODEN-173,Correct the WSDL object model implementation inheritance,,,,,,,,0,0,99,1,1
+WODEN-174,Include the prefix in QNames from the target namespace,,,,,,,,0,0,239,1,1
+WODEN-175,ImportElement and IncludeElement should extend NestedElement,,,,,,,,0,0,101,1,1
+WODEN-176,Remove the setParentElement method from the API,,,,,,,,0,0,141,1,1
+WODEN-177,Share client-configurable objects across the Woden implementation,,,,,,,,0,0,118,1,1
+WODEN-178,DescriptionImpl methods addElementDeclaration and addTypeDefinition should not be public,,,,,,,,0,0,148,1,1
+WODEN-179,Remove WSDLReader.readWSDL methods that take an ErrorHandler parameter,,,,,,,,0,0,11,1,1
+WODEN-18,"Woden often omits {soap underlying protocol}, though this is a REQUIRED property in the spec.",,,,,,,,0,0,197,1,1
+WODEN-180,XMLElement should provide a method to retrieve its text content.,,,,,,,,0,0,31,1,1
+WODEN-181,getInterfaceMessageReferenceElement() method required on BindingMessageReferenceElement,,,,,,,,0,0,29,1,1
+WODEN-182,Private QName class causes classloading issues,,,,,,,,0,0,60,1,1
+WODEN-183,Create page on the website linking to other useful WSDL 2.0 tools,,,,,,,,0,0,156,1,1
+WODEN-184,WSDL-viewer contribution,,,,,,,,0,0,233,1,1
+WODEN-185,WSDL spec should prohibit multiple types elements,,,,,,,,0,0,217,1,1
+WODEN-186,Various problems calling toString() on uninitialized *Impl classes,,,,,,,,0,0,68,1,1
+WODEN-187,Create a Test Suite for the WSDL Viewer,,,,,,,,0,0,66,1,1
+WODEN-188,WSDL Viewer Fails on W3C Test Suite,,,,,,,,0,0,147,1,1
+WODEN-189,NPE when interface extension used with Element API,,,,,,,,0,0,48,1,1
+WODEN-19,Service interface needs toElement() and ServiceElement interface needs toComponent(),,,,,,,,0,0,22,1,1
+WODEN-190,Create a Durable URL for WSDL Viewer Stylesheet and Autopublish from Build,,,,,,,,2,0,43,0,1
+WODEN-191,URISyntaxException in SimpleURIResolver when path contains spaces,,,,,,,,0,0,209,1,1
+WODEN-192,schemaLocation URI not resolved correctly using jar files,,,,,,,,0,0,72,1,1
+WODEN-193,Problem parsing a WSDL having XML as the documentation  ,,,,,,,,0,0,49,1,1
+WODEN-194,Change isSafety() method to isSafe(),,,,,,,,0,0,24,1,1
+WODEN-195,Improve formatting of messages with no message parameters,,,,,,,,0,0,131,1,1
+WODEN-196,WSDL-viewer: empty 'small' element,,,,,,,,0,0,17,1,1
+WODEN-197,WSDL-Viewer support for SOAP Headers,,,,,,,,0,0,23,1,1
+WODEN-198,Create Interface1009 Assertion Class,,,,,,,,0,0,97,1,1
+WODEN-199,Remove return type from validate method,,,,,,,,0,0,20,1,1
+WODEN-2,'element' attribute is not treated as OPTIONAL by validator,,,,,,,,0,0,241,1,1
+WODEN-20,Component model API needs modifiers,,,,,,,,0,0,160,1,1
+WODEN-200,Create Interface1010 Assertion Class,,,,,,,,0,0,59,1,1
+WODEN-201,Woden throws an error when the targetNamespace of the WSDL is urn:wsdlSamples,,,,,,,,0,0,167,1,1
+WODEN-202,W3 source directory must be in the classpath  of AllWodenJunitTests.,,,,,,,,0,0,226,1,1
+WODEN-203,WSDL 2.0 codegeration fails in Axis2 due to Woden assertion,,,,,,,,0,0,96,1,1
+WODEN-204,Schema resolving issue in Axis2,,,,,,,,0,0,137,1,1
+WODEN-205,Error message for invalid WSDL URI needs to be more descriptive,,,,,,,,0,0,103,1,1
+WODEN-206,"Provide a functions to disable ""dereferencing"" namespace URI",,,,,,,,0,0,26,1,1
+WODEN-207,Validation framework and assertions,,,,,,,,0,0,200,1,1
+WODEN-208,Provide simple error message if user tries to parse WSDL 1.1,,,,,,,,0,0,133,1,1
+WODEN-209,equals method should be implemented for the WSDL2.0 components,,,,,,,,0,0,158,1,1
+WODEN-21,Service should have getEndpoint() method for consistency,,,,,,,,0,0,111,1,1
+WODEN-210,OSGi bundles for woden-api and woden-impl-dom is provide errors,,,,,,,,0,0,76,1,1
+WODEN-211,Refactor directory layout to be more Maven compliant,,,,,,,,0,0,95,1,1
+WODEN-212,Calling getSource() method on XMLElement interface returns NullPointerException in OM implementation ,,,,,,,,0,0,164,1,1
+WODEN-213,Update Woden build documentation for maven and publishing,,,,,,,,0,0,208,1,1
+WODEN-214,WSDL-Viewer: Self-referencing element within a xsd:choice block circumvents anti-recursion,,,,,,,,0,0,177,1,1
+WODEN-215,Infinite loop with wsdl viewer,,,,,,,,0,2,43,1,0
+WODEN-216,WSDL-Viewer no longer able to resolve relative url for XSD's in certain situations,,,,,,,,0,0,14,1,1
+WODEN-217,Circular reference in referenced XSD causes infinite loop,,,,,,,,0,0,82,1,1
+WODEN-218,User Guide examples do not correspond with current API,,,,,,,,0,0,93,1,1
+WODEN-219,Code should use Java generics,,,,,,,,0,0,12,1,1
+WODEN-22,Component Model is Missing {http location uncited ignored},,,,,,,,0,0,154,1,1
+WODEN-220,OMWSDLReader should support to read from WSDLSource.,,,,,,,,0,0,165,1,1
+WODEN-221,Woden site required to have an online Javadoc.,,,,,,,,0,0,46,1,1
+WODEN-222,Maven plugin for Woden WSDL converter ,,,,,,,,0,0,153,1,1
+WODEN-223, Ant Task  for Woden WSDL converter,,,,,,,,0,0,75,1,1
+WODEN-224,Dependencies should refactor among modules.,,,,,,,,0,0,205,1,1
+WODEN-225,Exception when serializing empty Description.,,,,,,,,0,0,39,1,1
+WODEN-226,W3CC Tests are failing due to an error in W3C Test-suite Error ,,,,,,,,0,0,90,1,1
+WODEN-227,Some files missing licence details ,,,,,,,,0,0,201,1,1
+WODEN-228,Improve User Guide,,,,,,,,0,0,52,1,1
+WODEN-229,CLONE -schemaLocation URI not resolved correctly using jar files - xsd two deep?,,,,,,,,0,0,55,1,1
+WODEN-23,HTTP Extensions Fail To Parse SparqlQuery-1G Correctly,,,,,,,,0,0,132,1,1
+WODEN-230,"Error while converting wsdl 1.0 to wsdl 2.0 , when wsdl 1.0 has messages with more than 1 part",,,,,,,,0,0,112,1,1
+WODEN-231,Woden parsing error found when deploying service AAR in simple Axis2 server,,,,,,,,0,0,161,1,1
+WODEN-232,xml:lang attribute not written on the DocumentationElements,,,,,,,,0,0,67,1,1
+WODEN-233,wsdl-viewer does not generate request types if same request and response types are used in two different operations,,,,,,,,0,0,162,1,1
+WODEN-234,Upgrade  Woden trunk to use XmlSchema 2   ,,,,,,,,0,0,91,1,1
+WODEN-235,Failed to build Woden on Java 7 - unit test fails,,,,,,,,0,0,105,1,1
+WODEN-236,"Woden WSDLReader returns invalid WSDL Description when multiple ""style"" tags are present",,,,,,,,0,0,57,1,1
+WODEN-237,Syntax error in DOAP file release section,,,,,,,,0,0,196,1,1
+WODEN-238,wsdl-viewer schemaLocation with query params rendered without escaping,,,,,,,,0,0,187,1,1
+WODEN-239,wsdl-viewer nit: no space between words,,,,,,,,0,0,128,1,1
+WODEN-24,HTTP Endpoint Extensions are Missing,,,,,,,,0,0,236,1,1
+WODEN-240,wsdl-viewer nit: no space between words,,,,,,,,0,0,142,1,1
+WODEN-241,woden converter maven plugin does not work as CLI,,,,,,,,0,0,192,1,1
+WODEN-242,cannot compiler woden,,,,,,,,0,0,143,1,1
+WODEN-243,Code error in org.apache.woden.internal.DOMWSDLWriter,,,,,,,,0,0,71,1,1
+WODEN-244,"WSDL-viewer does not distinguish between nillable=""true"" and nillable=""false""",,,,,,,,0,0,56,1,1
+WODEN-25,DOMWSDLReader.parseBinding() check that we have a valid NCName before setting it on the new BindingImpl,,,,,,,,0,0,35,1,1
+WODEN-26,<types> is missing prefix declarations,,,,,,,,0,0,21,1,1
+WODEN-27,Parse a WSDL document from a DOM Element,,,,,,,,0,0,173,1,1
+WODEN-28,Un-necessary schema definition returned by Woden,,,,,,,,0,0,232,1,1
+WODEN-29,DescriptionElement.setTargetNamespace() should filter down to child elements,,,,,,,,0,0,86,1,1
+WODEN-3,Add the component name to the Schema-1066 assertion method,,,,,,,,0,0,64,1,1
+WODEN-30,Upgrade Ant Task to Write 2006-06-10 Version of Component Model Interchange Format,,,,,,,,0,0,178,1,1
+WODEN-31,Add Validation Report Output to Ant Task,,,,,,,,0,0,134,1,1
+WODEN-32,implement toString() methods to aid usability in debuggers,,,,,,,,0,0,5,1,1
+WODEN-33,DocumentationElement should extend NestedElement,,,,,,,,0,0,152,1,1
+WODEN-34,The SOAP Extensions are Missing the HTTP Properties,,,,,,,,0,0,19,1,1
+WODEN-35,WSDL Convertor drops the schema namespace during Conversion,,,,,,,,0,0,120,1,1
+WODEN-36,Maven build system for Woden,,,,,,,,0,0,100,1,1
+WODEN-37,StAX based parsing for Woden,,,,,,,,0,0,117,1,1
+WODEN-38,W3C test suite tests should be extracted as a whole,,,,,,,,0,0,237,1,1
+WODEN-39,W3C test suite should be updated to include validation of assertion failures,,,,,,,,0,0,44,1,1
+WODEN-4,Create an Ant Task to Validate a Set of WSDL 2.0 Files,,,,,,,,0,0,204,1,1
+WODEN-40,Use composition in the element model instead of aggregation,,,,,,,,0,0,33,1,1
+WODEN-41,Refactor Ant Task Implementation by Namespace,,,,,,,,0,0,235,1,1
+WODEN-42,Publish Results for W3C Test Suite,,,,,,,,0,0,54,1,1
+WODEN-43,Update Ant Task Validation Report to Latest W3C Schema - add <success> element,,,,,,,,0,0,130,1,1
+WODEN-44,Create ElementSource as an abstraction to eliminate DOM dependencies from the Woden API,,,,,,,,0,0,102,1,1
+WODEN-45,"Updates to conform to recent ""ASF Source Header and Copyright Notice Policy""",,,,,,,,0,0,104,1,1
+WODEN-46,Add more 'developers' info Site to share knowledge on how we develop Woden,,,,,,,,0,0,146,1,1
+WODEN-47,"Represent component extension properties with generic collections, rather than static subtyping of the ComponentExtensions interface",,,,,,,,0,0,214,1,1
+WODEN-48,Move trunk from .../woden/java to .../woden/trunk/java,,,,,,,,0,0,223,1,1
+WODEN-49,Unit tests for WSDL import and include,,,,,,,,0,0,107,1,1
+WODEN-5,"The WSDLReader should offer more methods to parse WSDL documents from dom, sax, etc...",,,,,,,,0,0,179,1,1
+WODEN-50,Unit tests for Service and Endpoint,,,,,,,,0,0,211,1,1
+WODEN-51,Unit tests for Description,,,,,,,,0,0,145,1,1
+WODEN-52,Unit tests for Feature and Property,,,,,,,,0,0,210,1,1
+WODEN-53,"Unit tests for TypesElement, ElementDeclaration, TypeDefinition",,,,,,,,0,0,180,1,1
+WODEN-54,Unit tests for Interface and its children,,,,,,,,0,0,224,1,1
+WODEN-55,Unit tests for Binding and its children,,,,,,,,0,0,242,1,1
+WODEN-56,Extensions' impl classes shouldn't have to use *internal* classes in their implementation,,,,,,,,0,0,77,1,1
+WODEN-57,Use ws-commons-java5 for QName class,,,,,,,,0,0,98,1,1
+WODEN-58,Regenerate W3C Test Results for M6,,,,,,,,0,0,108,1,1
+WODEN-59,NPE on W3C Test Case Storage-4G/storage.wsdl,,,,,,,,0,0,172,1,1
+WODEN-6,HTTP Binding Extensions,,,,,,,,0,0,230,1,1
+WODEN-60,NPE on W3C Test Case Binding-4B/Echo.wsdl,,,,,,,,0,0,36,1,1
+WODEN-61,Component Model Interchange Format Has Multiple Schema Validation Errors,,,,,,,,0,0,125,1,1
+WODEN-62,Adding a check for an Assertion should be simple,,,,,,,,0,0,65,1,1
+WODEN-63,Problem with Test Case: javax/xml/namespace/QNameTest/testGoodDeserializeQNameWithoutPrefix(),,,,,,,,0,0,199,1,1
+WODEN-64,Multiple wsdl*xsd files,,,,,,,,0,0,159,1,1
+WODEN-65,Woden elements must have serialize methods,,,,,,,,0,0,114,1,1
+WODEN-66,Underlying protocol property missing from SOAP Binding Extension in WSDL Component Model Output from Ant Task,,,,,,,,0,0,42,1,1
+WODEN-67,Modularize the build to separate API and implementations,,,,,,,,0,0,222,1,1
+WODEN-68,Remove Feature and Property Components,,,,,,,,0,0,186,1,1
+WODEN-69,Ant Tasks Throws NPE on W3C Test Case /desc/test-suite/documents/good/MessageTest-1G/SOAPservice.wsdl,,,,,,,,0,0,53,1,1
+WODEN-7,"Equivalence of components is not checked, so testImport2G testcase is failing",,,,,,,,0,0,37,1,1
+WODEN-70,Running Woden test suite in network isolation mode,,,,,,,,0,0,229,1,1
+WODEN-71,Logging Strategy and Implementation for Woden,,,,,,,,0,0,215,1,1
+WODEN-72,OASIS-style URI Resolver,,,,,,,,0,0,15,1,1
+WODEN-73,4 javadoc warnings (broken glass),,,,,,,,0,0,170,1,1
+WODEN-74,Validation does not report a QName resolution error for the {interface fault} property of InterfaceFaultReference,,,,,,,,0,0,193,1,1
+WODEN-75,Ant Task Throws NPE on documents/good/MessageTest-2G/HTTPservice.wsdl,,,,,,,,0,0,182,1,1
+WODEN-77,Ant Task Should Catch Runtime Errors and Report Them,,,,,,,,0,0,51,1,1
+WODEN-78,ant runTests creates a malformed html doc,,,,,,,,0,0,212,1,1
+WODEN-79,Project web site out of date,,,,,,,,0,0,207,1,1
+WODEN-8,MessageLabel Should be NCName,,,,,,,,0,0,123,1,1
+WODEN-80,WSDL 2.0 Component Model Interchange Format Fails to Schema Validate,,,,,,,,0,0,144,1,1
+WODEN-81,Update WSDL 2.0 Component Model to Current Version - Contains Corrected Element Spellings,,,,,,,,0,0,2,1,1
+WODEN-82,Ant Task Generates Duplicate Element ID's,,,,,,,,0,0,139,1,1
+WODEN-83,Woden Fails In Disconnected Mode - Unable to Retrieve W3C Schemas,,,,,,,,0,0,189,1,1
+WODEN-84,Some internally defined constants should be defined on the API,,,,,,,,0,0,195,1,1
+WODEN-85,XML Catalog common files should be downloaded/cached to a well known path,,,,,,,,0,0,10,1,1
+WODEN-86,"MessageTest-1G, Woden lacks support for IRI with variable substitution used by HTTP location",,,,,,,,0,0,34,1,1
+WODEN-87,Need convenience methods in Interface API to flatten interface inheritence,,,,,,,,0,0,168,1,1
+WODEN-88,{http cookies} is REQUIRED,,,,,,,,0,0,28,1,1
+WODEN-89,HTTP and SOAP Extensions are Mutually Exclusive,,,,,,,,0,0,175,1,1
+WODEN-9,Output W3C WSDL 2.0 Component Model Interchange Format for Interoperability Testing,,,,,,,,0,0,129,1,1
+WODEN-90,org.apache.woden.ant.validateWSDL20 mis-handles paths including whitespace,,,,,,,,0,0,78,1,1
+WODEN-91,SOAPHeader.getElementDeclaration is returning null,,,,,,,,0,0,9,1,1
+WODEN-92,SoapEndpointExtension Missing in Echo-1G,,,,,,,,0,0,85,1,1
+WODEN-93,Ant Task Throws NPE on MessageTest-4G,,,,,,,,0,0,30,1,1
+WODEN-94,HTTP attribute authenticationType changed to authenticationScheme,,,,,,,,0,0,4,1,1
+WODEN-95,W3C Validation Report Requires Assertions,,,,,,,,0,0,79,1,1
+WODEN-96,Create a DOAP file for Woden,,,,,,,,0,0,185,1,1
+WODEN-97,When a interface is not referenced from a binding component the getInterfaceFault() method returns null,,,,,,,,0,0,116,1,1
+WODEN-98,Generate and Resolve Results for W3C Test LocationTemplate-1G,,,,,,,,0,0,88,1,1
+WODEN-99,Resolve Errors in W3C Test MessageTest-2G,,,,,,,,0,0,157,1,1

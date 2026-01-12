@@ -1,0 +1,171 @@
+Task_ID,Topo_Level,Summary,Task_Tag,Priority,Duration_Hours,Assigned_To,Start_Hour,End_Hour,Skill_Match
+2075,1,Broken Link - Release Notes (PDF),Bug fixing / Maintenance,Trivial,1.6,A-343,0.0,13.2,1
+2207,1,"""NoAuth"" error message is ambiguous",Feature / Improvement Implementation,Trivial,1.6,A-296,0.0,13.2,0
+592,1,ResponderThread and udpSocket should be move from QuorumPeer to LeaderElection,Feature / Improvement Implementation,Trivial,1.6,A-73,0.0,13.2,1
+746,1,http://zookeeper.apache.org/doc/trunk/api/ missing,Documentation,Trivial,1.6,A-291,0.0,13.2,1
+97,1,Provide Javadoc as to the maximum size of the data byte array that may be stored within a znode,Documentation,Trivial,1.6,A-98,0.0,13.2,1
+1030,1,Method to request all zookeepers in cluster,Feature / Improvement Implementation,Minor,2.0,A-58,0.0,13.2,1
+1083,1,Consistent log severity level guards and statements,Feature / Improvement Implementation,Minor,2.0,A-276,0.0,13.2,1
+1084,1,ZooInspector can't display node data/metadata/ACLs,Bug fixing / Maintenance,Minor,2.0,A-5,0.0,13.2,1
+1097,1,Support clientID field on connection requests ,Design & API Evolution,Minor,2.0,A-58,0.0,13.2,1
+1103,1,SaslAuthFailDesignatedClientTest.testAuth fails frequently on SUSE,Testing & Verification,Minor,2.0,A-98,0.0,13.2,0
+1230,1,move legacy zookeeper jar to dist-maven,Build & Release Engineering,Minor,2.0,A-73,0.0,13.2,1
+129,1,CreateMode api docs missing,Documentation,Minor,2.0,A-198,0.0,13.2,1
+1454,1,/etc/zookeeper isn't used for ZOOCFGDIR,Bug fixing / Maintenance,Minor,2.0,A-343,0.0,13.2,1
+1464,1,Inconsistent truncation logic and out of sync logging and comments in recovery code,Bug fixing / Maintenance,Minor,2.0,A-296,0.0,13.2,1
+154,1,"handle errors when parsing config file, throw illegalargumentexception rather than exit()",Feature / Improvement Implementation,Minor,2.0,A-98,0.0,13.2,1
+1549,1,ErrorMessage is not correct when set IP acl and try to set again from another machine,Bug fixing / Maintenance,Minor,2.0,A-343,0.0,13.2,1
+1576,1,CheckVersion outside of Multi causes NullPointerException,Bug fixing / Maintenance,Minor,2.0,A-98,0.0,13.2,1
+163,1,gcc warning from recordio.h,Bug fixing / Maintenance,Minor,2.0,A-291,0.0,13.2,0
+1723,1,memory leak in zoo_amulti() function,Bug fixing / Maintenance,Minor,2.0,A-276,0.0,13.2,1
+1843,1,Add a config parameter to control transaction log size,Feature / Improvement Implementation,Minor,2.0,A-343,0.0,13.2,1
+1908,1,Custom User SSLContext,Feature / Improvement Implementation,Minor,2.0,A-198,0.0,13.2,1
+1914,1,add an API and the corresponding CLI to get total count of recursive sub nodes under a specific path,Build & Release Engineering,Minor,2.0,A-58,0.0,13.2,1
+1980,1,add a banner to make the startup of zk server more cool,Design & API Evolution,Minor,2.0,A-5,0.0,13.2,1
+2072,1,BufferedWriter -> FileWriter for reduced IO operations,Feature / Improvement Implementation,Minor,2.0,A-296,0.0,13.2,0
+2099,1,use the maven-like way to ignore the generated version java files and doc the cmd:'./zkServer.sh version',Documentation,Minor,2.0,A-276,0.0,13.2,1
+2120,1,missing 'SET' in zkCli on windows,Feature / Improvement Implementation,Minor,2.0,A-73,0.0,13.2,1
+2176,1,On Windows maven build generates corrupted tarball,Bug fixing / Maintenance,Minor,2.0,A-198,0.0,13.2,1
+2238,1,find back the missing configuration property in the zookeeperAdmin page when moving from xml to markdown,Feature / Improvement Implementation,Minor,2.0,A-198,0.0,13.2,1
+224,1,handle small path lengths in zoo_create(),Feature / Improvement Implementation,Minor,2.0,A-73,0.0,13.2,1
+2266,1,Use switch Statement in ClientCnxn SendThread,Design & API Evolution,Minor,2.0,A-159,0.0,13.2,0
+2268,1,Clean Up committedLog Interaction in ZKDatabase,Feature / Improvement Implementation,Minor,2.0,A-5,0.0,13.2,1
+2282,1,zoo_amulti can attempt to free invalid memory after marshalling errors.,Bug fixing / Maintenance,Minor,2.0,A-411,0.0,13.2,1
+2421,1,new UncaughtExceptionHandler object with lambda,Feature / Improvement Implementation,Minor,2.0,A-58,0.0,13.2,1
+2720,1,Namespace zookeeper prometheus metrics,Feature / Improvement Implementation,Minor,2.0,A-291,0.0,13.2,0
+2738,1,Load SSLOption from the configuration file as another option,Feature / Improvement Implementation,Minor,2.0,A-198,0.0,13.2,1
+46,1,Add a two argument constructor to ZooKeeper that uses a NullWatcher for the default Watcher,Feature / Improvement Implementation,Minor,2.0,A-58,0.0,13.2,1
+552,1,Fixup loggraph for FLE changes,Bug fixing / Maintenance,Minor,2.0,A-98,0.0,13.2,1
+644,1,ZooKeeper startup script doesn't use JAVA_HOME,Bug fixing / Maintenance,Minor,2.0,A-98,0.0,13.2,1
+646,1,UnknownHostException in QuorumCnxManager,Bug fixing / Maintenance,Minor,2.0,A-349,0.0,13.2,1
+754,1,Please add a few svn:ignore properties,Feature / Improvement Implementation,Minor,2.0,A-73,0.0,13.2,1
+845,1,Possible segfault in zookeeper_init,Bug fixing / Maintenance,Minor,2.0,A-276,0.0,13.2,1
+852,1,Log maxClientCnxn warning in INFO level,Design & API Evolution,Minor,2.0,A-198,0.0,13.2,1
+932,1,A couple of bugs in the tutorial code,Bug fixing / Maintenance,Minor,2.0,A-276,0.0,13.2,1
+1073,1,zookeeper_interest() in C client can return a timeval of 0,Bug fixing / Maintenance,Major,2.2,A-5,0.0,13.2,1
+1079,1,Implement 'check' version cli command,Build & Release Engineering,Major,2.2,A-296,0.0,13.2,0
+1116,1,"In ClientBase, if not set ""build.test.dir"" will throw IOException",Build & Release Engineering,Major,2.2,A-276,0.0,13.2,1
+116,1,"Content needed: ""Handling Watches""",Other,Major,2.2,A-343,0.0,13.2,0
+1164,1,30/6,Bug fixing / Maintenance,Major,2.2,A-296,0.0,13.2,1
+118,1,needed: docs for auth plugin developers ,Documentation,Major,2.2,A-296,0.0,13.2,0
+1201,1,"Eliminate the temp dynamic config file, find last proposed config in transaction log.",Feature / Improvement Implementation,Major,2.2,A-198,0.0,13.2,1
+1223,1,Converting CRLF to LF in DynamicConfigBackwardCompatibilityTest,Testing & Verification,Major,2.2,A-343,0.0,13.2,1
+1272,1,C client builds with incorrect error codes in VisualStudio 2010+,Bug fixing / Maintenance,Major,2.2,A-5,0.0,13.2,1
+1282,1,SSL support for ClientCnxnSocketNetty,Bug fixing / Maintenance,Major,2.2,A-159,0.0,13.2,1
+1314,1,Unclear error message should be info not error,Feature / Improvement Implementation,Major,2.2,A-291,0.0,13.2,0
+1372,1,NullPointerException  in RemotePeerBean,Bug fixing / Maintenance,Major,2.2,A-159,0.0,13.2,1
+1385,1,Sign the download package,Design & API Evolution,Major,2.2,A-98,0.0,13.2,1
+1395,1,JMX ClientPort from ZooKeeperServerBean incorrect,Bug fixing / Maintenance,Major,2.2,A-198,0.0,13.2,1
+1400,1,assert in setup_random,Bug fixing / Maintenance,Major,2.2,A-5,0.0,13.2,1
+1414,1,Document differences in ZooKeeper usage on Windows.,Documentation,Major,2.2,A-5,0.0,13.2,1
+1425,1,DatadirCleanupManager never created by ZookeeperServerMain,Bug fixing / Maintenance,Major,2.2,A-296,0.0,13.2,1
+1430,1,Can't access Znodes after adding ACL with SASL,Bug fixing / Maintenance,Major,2.2,A-198,0.0,13.2,1
+1436,1,Server fails to start if there is a zero-length TxnLog file present in the log directory,Bug fixing / Maintenance,Major,2.2,A-159,0.0,13.2,1
+1493,1,Add 'electionTimeTaken' value in LeaderMXBean and FollowerMXBean,Feature / Improvement Implementation,Major,2.2,A-276,0.0,13.2,1
+1504,1,Many ZooKeeper tests are flaky because they proceed with zk operation without connecting to ZooKeeper server.,Testing & Verification,Major,2.2,A-98,0.0,13.2,0
+1516,1,"Start zkServer in ssl mode, start zkCli in non-ssl mode but on ssl port then try to quit at client, it takes almost 30 seconds to quit ",Bug fixing / Maintenance,Major,2.2,A-349,0.0,13.2,1
+1520,1,Configuration for IP address (zookeeper.server.ip=) should be introduced and zookeeper server should bind to that particular IP only not to all IPs of the system,Bug fixing / Maintenance,Major,2.2,A-343,0.0,13.2,1
+1562,1,dangling ephemerals on overloaded server with local sessions,Bug fixing / Maintenance,Major,2.2,A-98,0.0,13.2,1
+1604,1,"Enable remote jmx, zkCli.sh start failed with jmx communication error",Bug fixing / Maintenance,Major,2.2,A-276,0.0,13.2,1
+168,1,Eliminate using statics to initialize the sever.  Should allow server to be more embeddable in OSGi enviorments.,Design & API Evolution,Major,2.2,A-411,0.0,13.2,1
+1696,1,Interface usability / compatibility improvements through Java annotation.,Design & API Evolution,Major,2.2,A-349,0.0,13.2,0
+1699,1,Keep the follower transaction up to date after the fix made in ZOOKEEPER-2355.,Bug fixing / Maintenance,Major,2.2,A-296,0.0,13.2,1
+1734,1,Zookeeper Management,Feature / Improvement Implementation,Major,2.2,A-296,0.0,13.2,0
+1774,1,Add check to validate dataDir and dataLogDir parameters at startup,Feature / Improvement Implementation,Major,2.2,A-291,0.0,13.2,0
+1815,1,Accidently removed public API of FileTxnLog.setPreallocSize(),Bug fixing / Maintenance,Major,2.2,A-171,0.0,13.2,1
+1920,1,Quorum TLS - add SSL config options,Other,Major,2.2,A-296,0.0,13.2,0
+1950,1,Flaky: multiple intermittent segfaults in C++ tests,Testing & Verification,Major,2.2,A-198,0.0,13.2,1
+1999,1,Maven sources are not buildable if not linked to a git respotiory,Bug fixing / Maintenance,Major,2.2,A-159,0.0,13.2,1
+2117,1,Zero Configuration Discovery of ZooKeeper Quorum,Feature / Improvement Implementation,Major,2.2,A-5,0.0,13.2,1
+213,1,adopt APR-style versioning and compatibility guidelines for C API,Documentation,Major,2.2,A-58,0.0,13.2,1
+22,1,Better ACL management,Feature / Improvement Implementation,Major,2.2,A-58,0.0,13.2,1
+2259,1,support the lz4 compress mode for snapshot,Feature / Improvement Implementation,Major,2.2,A-159,0.0,13.2,0
+2267,1,Getting a snapshot from leader cause Connection reset shutdown Follower and repeated forever,Bug fixing / Maintenance,Major,2.2,A-411,0.0,13.2,1
+2337,1,fast leader election does not end if leader is taken down,Bug fixing / Maintenance,Major,2.2,A-171,0.0,13.2,1
+2340,1,JettyAdminServer should not allow HTTP TRACE method,Bug fixing / Maintenance,Major,2.2,A-198,0.0,13.2,1
+2350,1,Simplify generation of VersionInfoMain and Info,Build & Release Engineering,Major,2.2,A-171,0.0,13.2,0
+2416,1,Sequential consistency violation,Bug fixing / Maintenance,Major,2.2,A-171,0.0,13.2,1
+2438,1,Data Inconsistency Between Zookeeper Leader and zookeeper Followers,Bug fixing / Maintenance,Major,2.2,A-5,0.0,13.2,1
+2447,1,add the notation,Feature / Improvement Implementation,Major,2.2,A-98,0.0,13.2,1
+2481,1,Add documentation for RocksDB Snap feature,Documentation,Major,2.2,A-276,0.0,13.2,1
+249,1,remove the kill command fro mthe client port.,Bug fixing / Maintenance,Major,2.2,A-343,0.0,13.2,1
+2494,1,C client test suite hangs forever 'sss' is configured in /etc/nsswitch.conf,Testing & Verification,Major,2.2,A-5,0.0,13.2,1
+2564,1,ZooInspector throws NullPointerExceptions to console when node data is null,Bug fixing / Maintenance,Major,2.2,A-159,0.0,13.2,1
+2567,1,Various tests fail on localhost.localdomain,Testing & Verification,Major,2.2,A-58,0.0,13.2,1
+257,1,to fix javadoc warning in the source files,Documentation,Major,2.2,A-343,0.0,13.2,0
+2571,1,Add JvmPauseMonitor to ZooKeeper on branch 3.5,Feature / Improvement Implementation,Major,2.2,A-349,0.0,13.2,1
+2573,1,CI executes tests on wrong branch for 3.5 PRs,Testing & Verification,Major,2.2,A-171,0.0,13.2,0
+2670,1,Avoid NoSunchMethodException caused by shaded zookeeper jar,Bug fixing / Maintenance,Major,2.2,A-291,0.0,13.2,0
+2725,1,Quorum TLS certificate validation uses wrong name,Bug fixing / Maintenance,Major,2.2,A-73,0.0,13.2,1
+2729,1,NullPointerException in SendAckRequestProcessor,Bug fixing / Maintenance,Major,2.2,A-349,0.0,13.2,1
+2739,1,Upgrade Log4j to 2.15.0 - CVE-2021-44228,Build & Release Engineering,Major,2.2,A-411,0.0,13.2,1
+279,1,zookeeper cpp tests fails on 64 bit machines with gcc 4.1.2,Testing & Verification,Major,2.2,A-171,0.0,13.2,0
+28,1,Change LE default to Fast TCP,Feature / Improvement Implementation,Major,2.2,A-159,0.0,13.2,0
+363,1,bookkeeper create calls completion too many times,Bug fixing / Maintenance,Major,2.2,A-159,0.0,13.2,1
+364,1,race condition in asynchronous create,Bug fixing / Maintenance,Major,2.2,A-276,0.0,13.2,1
+391,1,zkpython needs better tracking of handle validity,Bug fixing / Maintenance,Major,2.2,A-343,0.0,13.2,1
+463,1,configure.ac has instructions which override the contents of CFLAGS and CXXFLAGS.,Feature / Improvement Implementation,Major,2.2,A-5,0.0,13.2,1
+503,1,Add throttling to BookKeeper client,Bug fixing / Maintenance,Major,2.2,A-411,0.0,13.2,1
+526,1,zkpython acl/auth usage needs documentation + unit test,Documentation,Major,2.2,A-171,0.0,13.2,0
+55,1,Document jacob's leader election on the wiki recipes page,Documentation,Major,2.2,A-98,0.0,13.2,1
+559,1,Failure Detector Model: Refactor server to server monitoring,Code Refactoring & Cleanup,Major,2.2,A-349,0.0,13.2,0
+575,1,massive code duplication in zookeeper class,Other,Major,2.2,A-5,0.0,13.2,1
+597,1,Remove LedgerSequence references from BookKeeper documentation and comments in tests ,Documentation,Major,2.2,A-159,0.0,13.2,1
+629,1,move the wiki content to it's new home,Other,Major,2.2,A-5,0.0,13.2,1
+674,1,send UPTODATE to follower until a quorum of servers synced with leader,Bug fixing / Maintenance,Major,2.2,A-159,0.0,13.2,1
+677,1,create bookkeeper webpage,Other,Major,2.2,A-73,0.0,13.2,0
+688,1,Zookeeper stop fails if start called twice,Bug fixing / Maintenance,Major,2.2,A-291,0.0,13.2,0
+72,1,"Build script relies on svnant, which is not compatible with subversion 1.5 working copies",Bug fixing / Maintenance,Major,2.2,A-291,0.0,13.2,0
+800,1,fix compiler warnings in contrib loggraph,Bug fixing / Maintenance,Major,2.2,A-411,0.0,13.2,1
+822,1,"Add current epoch number and timestamp of when it began to 4 letter words (stat, srvr, mntr maybe?)",Feature / Improvement Implementation,Major,2.2,A-58,0.0,13.2,1
+827,1,Multi Op Watch Events,Feature / Improvement Implementation,Major,2.2,A-159,0.0,13.2,0
+851,1,c client doesn't compile on freebsd,Bug fixing / Maintenance,Major,2.2,A-343,0.0,13.2,1
+861,1,class cast exceptions may be thrown by multi ErrorResult class (invalid equals),Bug fixing / Maintenance,Major,2.2,A-411,0.0,13.2,1
+89,1,Old leader election can elect a dead leader over and over again,Bug fixing / Maintenance,Major,2.2,A-171,0.0,13.2,1
+90,1,Create Enum to replace CreateFlag in ZooKepper.create method,Other,Major,2.2,A-291,0.0,13.2,0
+910,1,c sdk: core in log_env for lack of checking the output argument *pwp* of getpwuid_r,Bug fixing / Maintenance,Major,2.2,A-349,0.0,13.2,1
+945,1,"review reading epoch files, improve logging",Feature / Improvement Implementation,Major,2.2,A-159,0.0,13.2,0
+952,1,Configurable finalizeWait for FastLeaderElection,Feature / Improvement Implementation,Major,2.2,A-291,0.0,13.2,0
+953,1,zookeeper follower closed,Bug fixing / Maintenance,Major,2.2,A-411,0.0,13.2,1
+954,1,Mailing List link is broken in the Zookeeper documentation,Documentation,Major,2.2,A-73,0.0,13.2,1
+964,1,zkServer.sh start fails but exit status 0,Bug fixing / Maintenance,Major,2.2,A-349,0.0,13.2,1
+977,1,JMX can't be disabled with zkEnv.sh,Bug fixing / Maintenance,Major,2.2,A-98,0.0,13.2,1
+1284,1,zkCli.sh doesn't honor host:port parameter,Bug fixing / Maintenance,Critical,2.6,A-171,0.0,13.2,1
+1507,1,Simplify releasenotes creation for 3.4 branch - consistent with newer branches.,Build & Release Engineering,Critical,2.6,A-349,0.0,13.2,1
+1633,1,MiniKdc test case intermittently failing due to principal not found in Kerberos database,Testing & Verification,Critical,2.6,A-349,0.0,13.2,1
+2106,1,Enhance Mavenized Make C client ,Build & Release Engineering,Critical,2.6,A-198,0.0,13.2,1
+2223,1,Potential data inconsistency due to the inconsistency between ZKDatabase.committedLog and dataTree in Trunc sync.,Bug fixing / Maintenance,Critical,2.6,A-58,0.0,13.2,1
+2378,1,Zookeeper 3.6.1 EndOfStreamException,Bug fixing / Maintenance,Critical,2.6,A-5,0.0,13.2,1
+2444,1,Kerberized Zookeeper doesn't drop connection for unauthenticated clients,Bug fixing / Maintenance,Critical,2.6,A-349,0.0,13.2,1
+290,1,race condition in zookeeper client library between zookeeper_close and zoo_synchronous api,Bug fixing / Maintenance,Critical,2.6,A-296,0.0,13.2,1
+305,1,Reference counting bug in Python bindings causes abort errors,Documentation,Critical,2.6,A-296,0.0,13.2,0
+322,1,trace logging in watch notification not wrapped with istraceneabled - inefficient,Build & Release Engineering,Critical,2.6,A-349,0.0,13.2,1
+616,1,Leader election selected incorrect leader,Bug fixing / Maintenance,Critical,2.6,A-343,0.0,13.2,1
+820,1,servers stop serving when lower 32bits of zxid roll over,Bug fixing / Maintenance,Critical,2.6,A-411,0.0,13.2,1
+865,1,getEpochToPropose should check if lastAcceptedEpoch is greater or equal than epoch,Bug fixing / Maintenance,Critical,2.6,A-73,0.0,13.2,1
+901,1,Writing to local files is done non-atomically,Bug fixing / Maintenance,Critical,2.6,A-198,0.0,13.2,1
+1135,1,Need to properly tear down tests in various cases,Testing & Verification,Blocker,3.0,A-291,0.0,13.2,0
+1216,1,unable to restart 3 node cluster,Bug fixing / Maintenance,Blocker,3.0,A-171,0.0,13.2,1
+1634,1,Zookeeper (standalone) failed to start up,Bug fixing / Maintenance,Blocker,3.0,A-73,0.0,13.2,1
+343,1,FLENewEpochTest failed on nightly builds.,Testing & Verification,Blocker,3.0,A-291,0.0,13.2,0
+362,1,electionAlg should default to FLE (3) - regression,Bug fixing / Maintenance,Blocker,3.0,A-171,0.0,13.2,1
+484,1,"Event is not processed when the watcher is set to watch ""/"" if chrooted",Bug fixing / Maintenance,Blocker,3.0,A-159,0.0,13.2,1
+739,1,incorrect stat output,Bug fixing / Maintenance,Blocker,3.0,A-198,0.0,13.2,1
+742,1,ObserverTest.testObserver fails at particular point after several runs of ant junt.run -Dtestcase=ObserverTest,Testing & Verification,Blocker,3.0,A-73,0.0,13.2,0
+847,1,Missing data after restarting+expanding a cluster,Bug fixing / Maintenance,Blocker,3.0,A-411,0.0,13.2,1
+2136,1,Flaky test:CommitProcessorMetricsTest.testConcurrentRequestProcessingInCommitProcessor,Testing & Verification,Minor,4.0,A-291,0.0,13.2,0
+1090,1,Ephemeral nodes not present in one of the members of the ensemble,Bug fixing / Maintenance,Major,4.4,A-98,0.0,13.2,1
+1522,1,"When provide path for ""dataDir"" with trailing space, it is taking correct path (by trucating space) for snapshot but creating temporary file with some junk folder name for zookeeper_server.pid",Bug fixing / Maintenance,Major,4.4,A-276,0.0,13.2,1
+1927,1,Apache Zookeeper 3.6.2 - slf4j 1.7.25 has security vulnerability CVE-2018-8088,Feature / Improvement Implementation,Major,4.4,A-171,0.0,13.2,0
+1987,1,Build failing on branch-3.4 with Java 8,Bug fixing / Maintenance,Major,4.4,A-198,0.0,13.2,1
+2404,1,Avoid reverse DNS lookup for hostname verification when hostnames are provided in the connection url,Bug fixing / Maintenance,Major,4.4,A-73,0.0,13.2,1
+2410,1,Vuln Reported - Apache Zookeeper Common/Default Nodes Accessible Without ACL,Project / General Task,Major,4.4,A-411,0.0,13.2,1
+2632,1,Zookeeper Upgrade failed when disabling Plain-text communication and ensemble failed to form,Bug fixing / Maintenance,Major,4.4,A-276,0.0,13.2,1
+475,1,Remove BookKeeper documentation links,Documentation,Major,4.4,A-58,0.0,13.2,1
+496,1,GSoC 2010: Monitoring Recipes and Web-based Administrative Interface,Build & Release Engineering,Major,4.4,A-343,0.0,13.2,0
+982,1,"Unable to read additional data from client, it probably closed the socket",Bug fixing / Maintenance,Blocker,6.0,A-411,0.0,13.2,1
+1918,1,Document ZOOKEEPER-3174 Quorum TLS - support reloading trust/key store,Other,Major,6.6000000000000005,A-171,0.0,13.2,0
+219,1,bin scripts don't work in cygwin (spaces in paths),Bug fixing / Maintenance,Major,6.6000000000000005,A-159,0.0,13.2,1
+2305,1,fix a typo about watchManagerName in the zookeeperAdmin.md,Bug fixing / Maintenance,Minor,8.0,A-58,0.0,13.2,1
+1845,1,DELETE - test hello,Testing & Verification,Major,8.8,A-73,0.0,13.2,0
+102,2,c interface is missing tests against java server (mock only),Testing & Verification,Major,2.2,A-198,13.2,15.8,1

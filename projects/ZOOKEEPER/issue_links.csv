@@ -1968,3 +1968,71 @@ ZOOKEEPER-16,ZOOKEEPER-77,relates to,Reference,outward
 ZOOKEEPER-14,ZOOKEEPER-843,blocks,Blocker,outward
 ZOOKEEPER-12,ZOOKEEPER-849,depends upon,dependent,outward
 ZOOKEEPER-7,ZOOKEEPER-18,incorporates,Incorporates,outward
+ZOOKEEPER-1576,YARN-9151,is related to,Reference,inward
+YARN-7550,ZOOKEEPER-1576,relates to,Reference,outward
+YARN-3798,ZOOKEEPER-2219,depends upon,dependent,outward
+ZOOKEEPER-1655,YARN-2815,is related to,Reference,inward
+ZOOKEEPER-2085,YARN-2815,is related to,Reference,inward
+ZOOKEEPER-1718,YARN-2815,is related to,Reference,inward
+ZOOKEEPER-3779,SPARK-34110,is caused by,Problem/Incident,inward
+SPARK-6305,ZOOKEEPER-2342,relates to,Reference,outward
+ZOOKEEPER-704,SPARK-2876,Dependent,Dependent,inward
+SOLR-15636,ZOOKEEPER-3874,depends upon,dependent,outward
+SOLR-15415,ZOOKEEPER-4303,requires,Required,outward
+ZOOKEEPER-3912,SOLR-14752,is caused by,Problem/Incident,inward
+ZOOKEEPER-3511,SOLR-13672,is related to,Reference,inward
+ZOOKEEPER-3494,SOLR-13665,is related to,Reference,inward
+SOLR-9386,ZOOKEEPER-2383,relates to,Reference,outward
+ZOOKEEPER-2184,SOLR-8868,is fixed by,Completes,inward
+ZOOKEEPER-2383,SOLR-8724,is related to,Reference,inward
+ZOOKEEPER-3482,SOLR-7893,is related to,Reference,inward
+SOLR-7893,ZOOKEEPER-2125,depends upon,dependent,outward
+SOLR-6915,ZOOKEEPER-2100,relates to,Reference,outward
+ZOOKEEPER-1579,SOLR-4526,is related to,Reference,inward
+ZOOKEEPER-850,SOLR-2369,is blocked by,Blocker,inward
+SLIDER-862,ZOOKEEPER-2181,relates to,Reference,outward
+SLIDER-862,ZOOKEEPER-1263,relates to,Reference,outward
+ZOOKEEPER-704,REEF-1291,Dependent,Dependent,inward
+ZOOKEEPER-1260,RANGER-924,is related to,Reference,inward
+ZOOKEEPER-704,QPID-6275,Dependent,Dependent,inward
+ZOOKEEPER-3779,ORC-733,is caused by,Problem/Incident,inward
+ZOOKEEPER-1666,OOZIE-1959,is broken by,Regression,inward
+OAK-9024,ZOOKEEPER-2342,relates to,Reference,outward
+ZOOKEEPER-1875,NIFI-8394,is related to,Reference,inward
+ZOOKEEPER-2184,MESOS-9113,is related to,Reference,inward
+ZOOKEEPER-2756,MESOS-7297,is blocked by,Blocker,inward
+ZOOKEEPER-770,MESOS-4648,is blocked by,Blocker,inward
+MESOS-4157,ZOOKEEPER-770,relates to,Reference,outward
+MESOS-4065,ZOOKEEPER-2338,relates to,Reference,outward
+ZOOKEEPER-1998,MESOS-2681,is blocked by,Blocker,inward
+ZOOKEEPER-1080,MAPREDUCE-2648,is blocked by,Blocker,inward
+LOGGING-160,ZOOKEEPER-2000,blocks,Blocker,outward
+LOG4J2-1514,ZOOKEEPER-2342,depends upon,dependent,outward
+ZOOKEEPER-2342,LOG4J2-63,is related to,Reference,inward
+KNOX-1599,ZOOKEEPER-2355,relates to,Reference,outward
+KNOX-1599,ZOOKEEPER-3181,relates to,Reference,outward
+KNOX-1133,ZOOKEEPER-2139,depends upon,dependent,outward
+ZOOKEEPER-2985,KAFKA-6584,is related to,Reference,inward
+ZOOKEEPER-2184,KAFKA-4041,is caused by,Problem/Incident,inward
+KAFKA-1387,ZOOKEEPER-1740,depends upon,dependent,outward
+INFRA-12573,ZOOKEEPER-2557,relates to,Reference,outward
+INFRA-10919,ZOOKEEPER-2336,blocks,Blocker,outward
+ZOOKEEPER-2243,INFRA-10116,is related to,Reference,inward
+HTTPCLIENT-1906,ZOOKEEPER-3832,relates to,Reference,outward
+ZOOKEEPER-2085,HIVE-8609,is related to,Reference,inward
+ZOOKEEPER-2085,HIVE-8565,is related to,Reference,inward
+ZOOKEEPER-1178,HIVE-2739,is related to,Reference,inward
+HIVE-2712,ZOOKEEPER-1401,relates to,Reference,outward
+HIVE-2712,ZOOKEEPER-1373,depends upon,dependent,outward
+ZOOKEEPER-938,HIVE-2467,is related to,Reference,inward
+ZOOKEEPER-1080,HIVE-2254,is blocked by,Blocker,inward
+ZOOKEEPER-224,HIVE-1235,is blocked by,Blocker,inward
+ZOOKEEPER-2175,HDFS-8161,is related to,Reference,inward
+ZOOKEEPER-704,HDFS-3259,Dependent,Dependent,inward
+ZOOKEEPER-1205,HDFS-3016,is related to,Reference,inward
+ZOOKEEPER-1080,HDFS-2124,is blocked by,Blocker,inward
+ZOOKEEPER-1080,HDFS-1973,is related to,Reference,inward
+ZOOKEEPER-1095,HDFS-1973,is related to,Reference,inward
+ZOOKEEPER-702,HDFS-779,is related to,Reference,inward
+HDFS-435,ZOOKEEPER-3601,relates to,Reference,outward
+HDFS-435,ZOOKEEPER-1364,relates to,Reference,outward

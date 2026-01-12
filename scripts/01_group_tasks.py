@@ -3,6 +3,7 @@ import re
 import argparse
 from collections import Counter
 from datetime import datetime
+from pathlib import Path
 
 # M ?Tt A-t stopword ti ??ng Anh c?? b ??n ?` ?? lA?m s ??ch summary
 STOPWORDS = {
@@ -225,8 +226,10 @@ def read_issues_csv(path, project_key=None):
     return issues
 
 
-def write_tasks(tasks, tasks_out, mapping_out):
-    # 1) B ??ng t ?ng h ??p logical_task
+def write_tasks(tasks, tasks_out, mapping_out):    # Tạo thư mục output nếu chưa tồn tại
+    Path(tasks_out).parent.mkdir(parents=True, exist_ok=True)
+    Path(mapping_out).parent.mkdir(parents=True, exist_ok=True)
+        # 1) B ??ng t ?ng h ??p logical_task
     with open(tasks_out, "w", newline="", encoding="utf-8") as f:
         fieldnames = [
             "task_id",

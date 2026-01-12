@@ -1,0 +1,131 @@
+from_issue_key,to_issue_key,link_type,raw_link_type,direction,from_summary,to_summary,same_group,same_component,same_release
+OFBIZ-12189,OFBIZ-12103,blocks,Blocker,outward,Exception error on ecommerce portal while trying to register new user,Unable to cancel item from ecommerce,0,0,0
+OFBIZ-12189,OFBIZ-12103,is blocked by,Blocker,inward,Exception error on ecommerce portal while trying to register new user,Unable to cancel item from ecommerce,0,0,0
+OFBIZ-11961,OFBIZ-7935,blocks,Blocker,outward,Refactor hardcoded shipping integration service references to make them configurable,Move 3rd party shipping integrations from product application to plugins,0,0,0
+OFBIZ-11671,OFBIZ-6110,blocks,Blocker,outward,Improve ecommerce component data set(s),Move as much as possible demo data from ecommerce to product or order components,0,0,0
+OFBIZ-11266,OFBIZ-11265,blocks,Blocker,outward,content/control/WebSiteCms?webSiteId=CmsSite fails,Getting policy error while editing html text data using cms,0,0,0
+OFBIZ-11266,OFBIZ-11265,is blocked by,Blocker,inward,content/control/WebSiteCms?webSiteId=CmsSite fails,Getting policy error while editing html text data using cms,0,0,0
+OFBIZ-11028,OFBIZ-10969,blocks,Blocker,outward,field emplFromDate is forgot in PayHistory entity,Unable to create Employments,0,0,0
+OFBIZ-11022,OFBIZ-11018,blocks,Blocker,outward,Edit WebSite Path Alias is not working,Redirection of pathAlias to aliasTo does not work properly,0,0,0
+OFBIZ-11022,OFBIZ-11018,is blocked by,Blocker,inward,Edit WebSite Path Alias is not working,Redirection of pathAlias to aliasTo does not work properly,0,0,0
+OFBIZ-11028,OFBIZ-10969,is blocked by,Blocker,inward,field emplFromDate is forgot in PayHistory entity,Unable to create Employments,0,0,0
+OFBIZ-10578,OFBIZ-10804,Blocked,Blocked,inward,MIsc UI improvements in pages of ecommerce component,Screen seems distorted while allowing split to Shipment,0,0,0
+OFBIZ-10691,OFBIZ-10604,Blocked,Blocked,outward,Refactoring ‘EntityCondition’,Isolate EntityOperator and EntityConditionValue from EntityConditionBase ,0,0,0
+OFBIZ-10691,OFBIZ-10604,Blocked,Blocked,inward,Refactoring ‘EntityCondition’,Isolate EntityOperator and EntityConditionValue from EntityConditionBase ,0,0,0
+OFBIZ-10593,OFBIZ-10579,blocks,Blocker,outward,‘EntityConditionVisitor’ is a confused visitor pattern,Date filtered queries with caching should be restricted to cache,0,0,0
+OFBIZ-10593,OFBIZ-10579,is blocked by,Blocker,inward,‘EntityConditionVisitor’ is a confused visitor pattern,Date filtered queries with caching should be restricted to cache,0,0,0
+OFBIZ-10578,OFBIZ-10804,Blocked,Blocked,outward,MIsc UI improvements in pages of ecommerce component,Screen seems distorted while allowing split to Shipment,0,0,0
+OFBIZ-9873,OFBIZ-10390,is blocked by,Blocker,inward,Create a PoC for a documentation system for OFBiz based on Asciidoc,New documentation for EntitySync,0,0,0
+OFBIZ-10277,OFBIZ-10307,is blocked by,Blocker,inward,The getJSONuiLabel javascript function is no longer working,Navigate from a domain to another with automated signed in authentication,0,0,0
+OFBIZ-10047,OFBIZ-10304,is blocked by,Blocker,inward,Tomcat SSO,"The ""request"" attribute type of the userLogin service is wrong",0,0,0
+OFBIZ-10277,OFBIZ-10307,blocks,Blocker,outward,The getJSONuiLabel javascript function is no longer working,Navigate from a domain to another with automated signed in authentication,0,0,0
+OFBIZ-10047,OFBIZ-10304,blocks,Blocker,outward,Tomcat SSO,"The ""request"" attribute type of the userLogin service is wrong",0,0,0
+OFBIZ-9873,OFBIZ-10390,blocks,Blocker,outward,Create a PoC for a documentation system for OFBiz based on Asciidoc,New documentation for EntitySync,0,0,0
+OFBIZ-9444,OFBIZ-9391,blocks,Blocker,outward,Dependency problem between Solr 6.6.0 and Guava,Update Apache Solr/Lucene to release 6.6.0,0,0,0
+OFBIZ-9444,OFBIZ-9391,is blocked by,Blocker,inward,Dependency problem between Solr 6.6.0 and Guava,Update Apache Solr/Lucene to release 6.6.0,0,0,0
+OFBIZ-11961,OFBIZ-7935,is blocked by,Blocker,inward,Refactor hardcoded shipping integration service references to make them configurable,Move 3rd party shipping integrations from product application to plugins,0,0,0
+OFBIZ-6728,OFBIZ-6730,is blocked by,Blocker,inward,Getting error when returning service (non-physical) product,Return shipment created for non-physical product,0,0,0
+OFBIZ-6728,OFBIZ-6729,is blocked by,Blocker,inward,Getting error when returning service (non-physical) product,Return invoice not generated for service (non-physical) product,0,0,0
+OFBIZ-6728,OFBIZ-6729,blocks,Blocker,outward,Getting error when returning service (non-physical) product,Return invoice not generated for service (non-physical) product,0,0,0
+OFBIZ-6728,OFBIZ-6730,blocks,Blocker,outward,Getting error when returning service (non-physical) product,Return shipment created for non-physical product,0,0,0
+OFBIZ-6418,OFBIZ-6420,is blocked by,Blocker,inward,Allow form widget find fields handle ignore-when to control hiding of result grid/form,Improve ModelFormField Code,0,0,0
+OFBIZ-6418,OFBIZ-6420,blocks,Blocker,outward,Allow form widget find fields handle ignore-when to control hiding of result grid/form,Improve ModelFormField Code,0,0,0
+OFBIZ-11671,OFBIZ-6110,is blocked by,Blocker,inward,Improve ecommerce component data set(s),Move as much as possible demo data from ecommerce to product or order components,0,0,0
+OFBIZ-6084,OFBIZ-5629,blocks,Blocker,outward,Find account doesn't return accounts anymore,Pagination at find WorkEffort screen does not work,0,0,0
+OFBIZ-5312,OFBIZ-5805,is blocked by,Blocker,inward,Proposal: URL-Generation Changes (mostly for SEO reasons but not only),robot-friendly category listing,0,0,0
+OFBIZ-5800,OFBIZ-5760,blocks,Blocker,outward,Manage multi pk with sub-sequence on entity-auto,Convert HR entites CRUD service from simple to entity-auto,0,0,0
+OFBIZ-5800,OFBIZ-5760,is blocked by,Blocker,inward,Manage multi pk with sub-sequence on entity-auto,Convert HR entites CRUD service from simple to entity-auto,0,0,0
+OFBIZ-6084,OFBIZ-5629,is blocked by,Blocker,inward,Find account doesn't return accounts anymore,Pagination at find WorkEffort screen does not work,0,0,0
+OFBIZ-5521,OFBIZ-5305,blocks,Blocker,outward,WebAppUtil.getWebappInfoFromWebsiteId throws IllegalArgumentException when web.xml not found,The path /content/images/ is used in some places (only for contentForum.css it seems) but no mount point is associated,0,0,0
+OFBIZ-5396,OFBIZ-5400,is blocked by,Blocker,inward,"Add ability to set <drop-down>, <radio>, <check> form widget field key values manually",Improve shopping cart to better handle a large number of ship groups and item associations,0,0,0
+OFBIZ-5396,OFBIZ-5400,blocks,Blocker,outward,"Add ability to set <drop-down>, <radio>, <check> form widget field key values manually",Improve shopping cart to better handle a large number of ship groups and item associations,0,0,0
+OFBIZ-5312,OFBIZ-5805,blocks,Blocker,outward,Proposal: URL-Generation Changes (mostly for SEO reasons but not only),robot-friendly category listing,0,0,0
+OFBIZ-5521,OFBIZ-5305,is blocked by,Blocker,inward,WebAppUtil.getWebappInfoFromWebsiteId throws IllegalArgumentException when web.xml not found,The path /content/images/ is used in some places (only for contentForum.css it seems) but no mount point is associated,0,0,0
+OFBIZ-5292,OFBIZ-5293,is blocked by,Blocker,inward,Data can not be added to the Component entity,Data can not be added to the TenantComponent entity,0,0,0
+OFBIZ-5292,OFBIZ-5293,blocks,Blocker,outward,Data can not be added to the Component entity,Data can not be added to the TenantComponent entity,0,0,0
+OFBIZ-4065,OFBIZ-4052,blocks,Blocker,outward,"bug in UtilIO.copy(Reader reader, boolean closeIn, Appendable out)",Update Docbook files and give a nice look to doc,0,0,0
+OFBIZ-4065,OFBIZ-4052,is blocked by,Blocker,inward,"bug in UtilIO.copy(Reader reader, boolean closeIn, Appendable out)",Update Docbook files and give a nice look to doc,0,0,0
+OFBIZ-2000,OFBIZ-3978,is blocked by,Blocker,inward,Added check availability functionality on new create profile page of e commerce.,Ecommerce Migration,0,0,0
+OFBIZ-3667,OFBIZ-3846,is blocked by,Blocker,inward,Calendar rendered position too low when you scroll in a layered lookup,Calendar issue in EditCategoryProducts screen,0,0,0
+OFBIZ-3790,OFBIZ-1984,blocks,Blocker,outward,email password broken,Adding forgot password feature in framework,0,0,0
+OFBIZ-3233,OFBIZ-3766,is blocked by,Blocker,inward,Implement FTL macro renderer for the menu widget,MacroScreenRenderer still uses HtmlFormRenderer (dependencies on html renderers),0,0,0
+OFBIZ-3667,OFBIZ-3846,blocks,Blocker,outward,Calendar rendered position too low when you scroll in a layered lookup,Calendar issue in EditCategoryProducts screen,0,0,0
+OFBIZ-3527,OFBIZ-3530,is blocked by,Blocker,inward,Color of links in retrieved list for Tomahawk theme,Litle quirks in Party component,0,0,0
+OFBIZ-3527,OFBIZ-3530,blocks,Blocker,outward,Color of links in retrieved list for Tomahawk theme,Litle quirks in Party component,0,0,0
+OFBIZ-3446,OFBIZ-3442,blocks,Blocker,outward,Allow to open a layer lookup from a layer lookup,Replace popup lookups by layer lookups,0,0,0
+OFBIZ-3446,OFBIZ-3442,is blocked by,Blocker,inward,Allow to open a layer lookup from a layer lookup,Replace popup lookups by layer lookups,0,0,0
+OFBIZ-3385,OFBIZ-3363,blocks,Blocker,outward,"Axis2 integration returns ""Unsupported Content-Type: text/html;charset=utf-8 Supported ones are: [text/xml]"" with .Net",Upgrading Axis V1 to V2 in OFbiz's Web Service and Complex Type Supported,0,0,0
+OFBIZ-3385,OFBIZ-3363,is blocked by,Blocker,inward,"Axis2 integration returns ""Unsupported Content-Type: text/html;charset=utf-8 Supported ones are: [text/xml]"" with .Net",Upgrading Axis V1 to V2 in OFbiz's Web Service and Complex Type Supported,0,0,0
+OFBIZ-3245,OFBIZ-3125,blocks,Blocker,outward,Sandbox: Integrating The New Conversion Framework Into The Entity Engine,"Add a duration field type to improve input and representation of durations: DurationField, allows to show and input *d *h *m *s *ms",0,0,0
+OFBIZ-3233,OFBIZ-3766,blocks,Blocker,outward,Implement FTL macro renderer for the menu widget,MacroScreenRenderer still uses HtmlFormRenderer (dependencies on html renderers),0,0,0
+OFBIZ-3245,OFBIZ-3125,is blocked by,Blocker,inward,Sandbox: Integrating The New Conversion Framework Into The Entity Engine,"Add a duration field type to improve input and representation of durations: DurationField, allows to show and input *d *h *m *s *ms",0,0,0
+OFBIZ-3026,OFBIZ-2534,blocks,Blocker,outward,Datafile does not catch lack of delimiter if at end of line.,Datafile  converts string decimal input to another number.in xml output,0,0,0
+OFBIZ-3006,OFBIZ-1151,blocks,Blocker,outward,entity encrypt columns not using encryption salt value?,Passwords are not salted,0,0,0
+OFBIZ-2904,OFBIZ-2129,blocks,Blocker,outward,"The ""ant load-admin-user-login -DuserLoginId=admin"" does not check for or create necessary admin roles",Moving definitively from MyPage to MyPortal / Home,0,0,0
+OFBIZ-2862,OFBIZ-2861,blocks,Blocker,outward,"Adding Germany (de_DE) Labels for ""Quote"" (!= ""Offerte"")",Add Danish and Frisian Locale Labels,0,0,0
+OFBIZ-2862,OFBIZ-2861,is blocked by,Blocker,inward,"Adding Germany (de_DE) Labels for ""Quote"" (!= ""Offerte"")",Add Danish and Frisian Locale Labels,0,0,0
+OFBIZ-3026,OFBIZ-2534,is blocked by,Blocker,inward,Datafile does not catch lack of delimiter if at end of line.,Datafile  converts string decimal input to another number.in xml output,0,0,0
+OFBIZ-2288,OFBIZ-2336,is blocked by,Blocker,inward,Update the image / content scroller on index.html,Add a style guide to ofbiz.apache.org so using styles are easier in the future,0,0,0
+OFBIZ-2288,OFBIZ-2335,is blocked by,Blocker,inward,Update the image / content scroller on index.html,Let's left align that footer text again on ofbiz.apache.org (and other sites),0,0,0
+OFBIZ-2288,OFBIZ-2334,is blocked by,Blocker,inward,Update the image / content scroller on index.html,Move feature list on homepage to a more prominent location,0,0,0
+OFBIZ-2288,OFBIZ-2334,blocks,Blocker,outward,Update the image / content scroller on index.html,Move feature list on homepage to a more prominent location,0,0,0
+OFBIZ-2288,OFBIZ-2335,blocks,Blocker,outward,Update the image / content scroller on index.html,Let's left align that footer text again on ofbiz.apache.org (and other sites),0,0,0
+OFBIZ-2288,OFBIZ-2336,blocks,Blocker,outward,Update the image / content scroller on index.html,Add a style guide to ofbiz.apache.org so using styles are easier in the future,0,0,0
+OFBIZ-2124,OFBIZ-2186,is blocked by,Blocker,inward,Ofbiz freeze,OutOfMemory provoked by Cache overflow,0,0,0
+OFBIZ-2904,OFBIZ-2129,is blocked by,Blocker,inward,"The ""ant load-admin-user-login -DuserLoginId=admin"" does not check for or create necessary admin roles",Moving definitively from MyPage to MyPortal / Home,0,0,0
+OFBIZ-2124,OFBIZ-2186,blocks,Blocker,outward,Ofbiz freeze,OutOfMemory provoked by Cache overflow,0,0,0
+OFBIZ-2068,OFBIZ-2067,blocks,Blocker,outward,Patch for applications/accounting/config/AccountingEntityLabels.xml (language order),More German translations,0,0,0
+OFBIZ-2068,OFBIZ-2067,is blocked by,Blocker,inward,Patch for applications/accounting/config/AccountingEntityLabels.xml (language order),More German translations,0,0,0
+OFBIZ-2025,OFBIZ-896,blocks,Blocker,outward,Exception on receiving purchase order,Important issue with rollbacks on payment processing,0,0,0
+OFBIZ-2025,OFBIZ-2001,blocks,Blocker,outward,Exception on receiving purchase order,Ship If Capture Fails option in productstore doesn't work,0,0,0
+OFBIZ-2025,OFBIZ-558,blocks,Blocker,outward,Exception on receiving purchase order,support rollback of shipping on failed credit card capture,0,0,0
+OFBIZ-2025,OFBIZ-2001,is blocked by,Blocker,inward,Exception on receiving purchase order,Ship If Capture Fails option in productstore doesn't work,0,0,0
+OFBIZ-2000,OFBIZ-3978,blocks,Blocker,outward,Added check availability functionality on new create profile page of e commerce.,Ecommerce Migration,0,0,0
+OFBIZ-3790,OFBIZ-1984,is blocked by,Blocker,inward,email password broken,Adding forgot password feature in framework,0,0,0
+OFBIZ-1706,OFBIZ-1663,blocks,Blocker,outward,Using a check in the POS causes an error in changing status, POS:  All payment types allow change to be made,0,0,0
+OFBIZ-1706,OFBIZ-1663,is blocked by,Blocker,inward,Using a check in the POS causes an error in changing status, POS:  All payment types allow change to be made,0,0,0
+OFBIZ-1630,OFBIZ-1631,is blocked by,Blocker,inward,Implement service to return an aggregated PartyAcctgPreference map containing information for all the preferences in a internal organization tree,Replace all the code that directly retrieves from the db a PartyAcctgPreference for an organizationPartyId with a call to the service implemented in OFBIZ-1630,0,0,0
+OFBIZ-1630,OFBIZ-1631,blocks,Blocker,outward,Implement service to return an aggregated PartyAcctgPreference map containing information for all the preferences in a internal organization tree,Replace all the code that directly retrieves from the db a PartyAcctgPreference for an organizationPartyId with a call to the service implemented in OFBIZ-1630,0,0,0
+OFBIZ-1580,OFBIZ-1581,is blocked by,Blocker,inward,XUI update to x3.2rc2b,Change ConfigureItem to use XPage instead of XDialog,0,0,0
+OFBIZ-1580,OFBIZ-1581,blocks,Blocker,outward,XUI update to x3.2rc2b,Change ConfigureItem to use XPage instead of XDialog,0,0,0
+OFBIZ-1442,OFBIZ-1425,blocks,Blocker,outward,Add ability to use XML property files for locale-specific properties,Improve the ModelField.getDescription method,0,0,0
+OFBIZ-1425,OFBIZ-1387,blocks,Blocker,outward,Improve the ModelField.getDescription method,comment Entities,0,0,0
+OFBIZ-1442,OFBIZ-1425,is blocked by,Blocker,inward,Add ability to use XML property files for locale-specific properties,Improve the ModelField.getDescription method,0,0,0
+OFBIZ-1393,OFBIZ-1109,blocks,Blocker,outward,Need a better way to specify the default item configuration,Ability to add items with modifiers,0,0,0
+OFBIZ-1425,OFBIZ-1387,is blocked by,Blocker,inward,Improve the ModelField.getDescription method,comment Entities,0,0,0
+OFBIZ-982,OFBIZ-1281,is blocked by,Blocker,inward,productStore mail system don't work for customer register,update Productstoreworker.java,0,0,0
+OFBIZ-982,OFBIZ-1274,is blocked by,Blocker,inward,productStore mail system don't work for customer register,does not send email password when new customer is created.,0,0,0
+OFBIZ-3006,OFBIZ-1151,is blocked by,Blocker,inward,entity encrypt columns not using encryption salt value?,Passwords are not salted,0,0,0
+OFBIZ-1130,OFBIZ-1124,blocks,Blocker,outward, Forms widget : <check ...> support incomplete,Replace Order List BSH/FTLs with forms.,0,0,0
+OFBIZ-1130,OFBIZ-1124,is blocked by,Blocker,inward, Forms widget : <check ...> support incomplete,Replace Order List BSH/FTLs with forms.,0,0,0
+OFBIZ-1393,OFBIZ-1109,is blocked by,Blocker,inward,Need a better way to specify the default item configuration,Ability to add items with modifiers,0,0,0
+OFBIZ-998,OFBIZ-854,blocks,Blocker,outward,"Implement RTL UI Layout, Step 2",implementing rtl in project,0,0,0
+OFBIZ-982,OFBIZ-1274,blocks,Blocker,outward,productStore mail system don't work for customer register,does not send email password when new customer is created.,0,0,0
+OFBIZ-982,OFBIZ-1281,blocks,Blocker,outward,productStore mail system don't work for customer register,update Productstoreworker.java,0,0,0
+OFBIZ-961,OFBIZ-100,blocks,Blocker,outward,Access to Directions field in Postal Addresses,Addressing Verification,0,0,0
+OFBIZ-2025,OFBIZ-896,is blocked by,Blocker,inward,Exception on receiving purchase order,Important issue with rollbacks on payment processing,0,0,0
+OFBIZ-998,OFBIZ-854,is blocked by,Blocker,inward,"Implement RTL UI Layout, Step 2",implementing rtl in project,0,0,0
+OFBIZ-782,OFBIZ-795,is blocked by,Blocker,inward,Layout bugs introduced with new style sheet,HtmlFormRenderer.java improvement,0,0,0
+OFBIZ-792,OFBIZ-791,blocks,Blocker,outward,Minilang error message handling fixes,Implementation of ServiceTest,0,0,0
+OFBIZ-792,OFBIZ-791,is blocked by,Blocker,inward,Minilang error message handling fixes,Implementation of ServiceTest,0,0,0
+OFBIZ-785,OFBIZ-791,is blocked by,Blocker,inward,Add isEmpty() and isNotEmpty() utility methods for Maps,Implementation of ServiceTest,0,0,0
+OFBIZ-782,OFBIZ-787,is blocked by,Blocker,inward,Layout bugs introduced with new style sheet,Improved tab bar for Party Manager component,0,0,0
+OFBIZ-785,OFBIZ-791,blocks,Blocker,outward,Add isEmpty() and isNotEmpty() utility methods for Maps,Implementation of ServiceTest,0,0,0
+OFBIZ-783,OFBIZ-771,blocks,Blocker,outward,Add ability to specify format template in UtilFormatOut.formatQuantity(),Refactor Webtools UI,0,0,0
+OFBIZ-782,OFBIZ-787,blocks,Blocker,outward,Layout bugs introduced with new style sheet,Improved tab bar for Party Manager component,0,0,0
+OFBIZ-782,OFBIZ-795,blocks,Blocker,outward,Layout bugs introduced with new style sheet,HtmlFormRenderer.java improvement,0,0,0
+OFBIZ-775,OFBIZ-771,blocks,Blocker,outward,Add method to UtilMisc.java - get Interator from Map,Refactor Webtools UI,0,0,0
+OFBIZ-775,OFBIZ-771,is blocked by,Blocker,inward,Add method to UtilMisc.java - get Interator from Map,Refactor Webtools UI,0,0,0
+OFBIZ-783,OFBIZ-771,is blocked by,Blocker,inward,Add ability to specify format template in UtilFormatOut.formatQuantity(),Refactor Webtools UI,0,0,0
+OFBIZ-671,OFBIZ-763,is blocked by,Blocker,inward,Remove HTML styling code from widgets,Refactor Party Manager UI,0,0,0
+OFBIZ-671,OFBIZ-763,blocks,Blocker,outward,Remove HTML styling code from widgets,Refactor Party Manager UI,0,0,0
+OFBIZ-431,OFBIZ-565,is blocked by,Blocker,inward,Editting Order goes recursive with promotions...,Load a sales order in POS,0,0,0
+OFBIZ-424,OFBIZ-565,is blocked by,Blocker,inward,Order edit items/add item blows away item adjustments,Load a sales order in POS,0,0,0
+OFBIZ-2025,OFBIZ-558,is blocked by,Blocker,inward,Exception on receiving purchase order,support rollback of shipping on failed credit card capture,0,0,0
+OFBIZ-431,OFBIZ-565,blocks,Blocker,outward,Editting Order goes recursive with promotions...,Load a sales order in POS,0,0,0
+OFBIZ-424,OFBIZ-565,blocks,Blocker,outward,Order edit items/add item blows away item adjustments,Load a sales order in POS,0,0,0
+OFBIZ-308,OFBIZ-210,blocks,Blocker,outward,the edit feature category features displays features table in a wrong place,Still some little problems with IE 6 in ecommerce,0,0,0
+OFBIZ-235,OFBIZ-237,is blocked by,Blocker,inward,Create Z report for webPOS component,POS Cash/Paid in and out of drawer,0,0,0
+OFBIZ-235,OFBIZ-237,blocks,Blocker,outward,Create Z report for webPOS component,POS Cash/Paid in and out of drawer,0,0,0
+OFBIZ-308,OFBIZ-210,is blocked by,Blocker,inward,the edit feature category features displays features table in a wrong place,Still some little problems with IE 6 in ecommerce,0,0,0
+OFBIZ-961,OFBIZ-100,is blocked by,Blocker,inward,Access to Directions field in Postal Addresses,Addressing Verification,0,0,0

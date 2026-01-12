@@ -2,6 +2,7 @@ import csv
 import os
 import argparse
 from collections import defaultdict, deque
+from pathlib import Path
 
 PROJECT_KEY = "ZOOKEEPER"
 
@@ -248,6 +249,10 @@ def main():
     links_path = os.path.abspath(args.links)
     out_nodes = os.path.abspath(args.out_nodes)
     out_edges = os.path.abspath(args.out_edges)
+    
+    # Tạo thư mục output nếu chưa tồn tại
+    Path(out_nodes).parent.mkdir(parents=True, exist_ok=True)
+    Path(out_edges).parent.mkdir(parents=True, exist_ok=True)
 
     # 1) Load issues
     issues = load_issues(issues_path, project_key=args.project_key)

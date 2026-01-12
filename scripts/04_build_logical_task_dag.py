@@ -1,6 +1,7 @@
 import os
 import argparse
 from collections import defaultdict
+from pathlib import Path
 
 import pandas as pd
 
@@ -43,6 +44,10 @@ def main():
     edges_path = os.path.abspath(args.edges)
     out_nodes = os.path.abspath(args.out_nodes)
     out_edges = os.path.abspath(args.out_edges)
+    
+    # Tạo thư mục output nếu chưa tồn tại
+    Path(out_nodes).parent.mkdir(parents=True, exist_ok=True)
+    Path(out_edges).parent.mkdir(parents=True, exist_ok=True)
 
     for p in [tasks_path, edges_path]:
         if not os.path.isfile(p):
@@ -134,7 +139,15 @@ def main():
             }
         )
 
-    edges_out = pd.DataFrame(edges_out)
+    edge_columns = [
+        "from_task_id",
+        "to_task_id",
+        "edge_count",
+        "link_types",
+        "example_from_issue",
+        "example_to_issue",
+    ]
+    edges_out = pd.DataFrame(edges_out, columns=edge_columns)
     if not edges_out.empty:
         edges_out = edges_out.sort_values(by=["from_task_id", "to_task_id"])
 

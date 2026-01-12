@@ -1,0 +1,7 @@
+from_issue_key,to_issue_key,link_type,raw_link_type,direction
+ZOOKEEPER-1987,ZOOKEEPER-1950,duplicates,Duplicate,outward
+ZOOKEEPER-1987,ZOOKEEPER-1950,is duplicated by,Duplicate,inward
+ZOOKEEPER-1576,ZOOKEEPER-1734,is related to,Reference,inward
+ZOOKEEPER-1576,ZOOKEEPER-1734,relates to,Reference,outward
+ZOOKEEPER-1030,ZOOKEEPER-1073,is related to,Reference,inward
+ZOOKEEPER-1030,ZOOKEEPER-1073,relates to,Reference,outward

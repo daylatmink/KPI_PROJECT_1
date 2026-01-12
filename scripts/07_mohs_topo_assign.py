@@ -3,9 +3,12 @@ import json
 import argparse
 from dataclasses import dataclass
 from typing import Dict, List, Tuple
+from pathlib import Path
 
 import numpy as np
 import pandas as pd
+
+from cost_utils import load_assignee_costs
 
 
 DEFAULT_TOPO = r"projects/ZOOKEEPER/logical_topo.csv"
@@ -33,6 +36,9 @@ class HSConfig:
     num_iterations: int = 200
     seed: int = 42
     archive_size: int = 30
+    max_skill_gap: int = 2
+    duration_penalty_per_gap: float = 0.25
+    hard_fail_on_zero_skill: bool = False
 
 
 @dataclass
@@ -102,10 +108,21 @@ def priority_to_level(p: str) -> int:
     return mapping.get(p, 2)
 
 
+def duration_multiplier(skill_gap: int, cfg: HSConfig) -> float:
+    if skill_gap <= 0:
+        return 1.0
+    gap_effective = min(skill_gap, cfg.max_skill_gap)
+    mult = 1.0 + (cfg.duration_penalty_per_gap * gap_effective)
+    if skill_gap > cfg.max_skill_gap:
+        mult += cfg.duration_penalty_per_gap * 2
+    return mult
+
+
 class BatchContext:
-    def __init__(self, tasks_df: pd.DataFrame, emp_skills: Dict[str, Dict[str, int]]):
+    def __init__(self, tasks_df: pd.DataFrame, emp_skills: Dict[str, Dict[str, int]], emp_costs: Dict[str, float] = None):
         self.tasks_df = tasks_df
         self.emp_skills = emp_skills
+        self.emp_costs = emp_costs or {}
         self.task_skills: Dict[str, List[Tuple[str, int]]] = {}
         self.task_info: Dict[str, Dict] = {}
         self._parse_tasks()
@@ -134,32 +151,40 @@ class BatchContext:
     def get_emp_skills(self, emp: str) -> Dict[str, int]:
         return self.emp_skills.get(emp, {})
 
+    def get_emp_cost(self, emp: str) -> float:
+        return self.emp_costs.get(emp, 50.0)  # Default $50/hr if not found
+
 
 class ObjectiveCalculator:
     def __init__(self, ctx: BatchContext):
         self.data = ctx
         self.weights = ObjectiveWeights()
         self.penalties = PenaltyFactors()
+        self.cfg = HSConfig()
 
     def score(self, assign: Dict[str, str]) -> Tuple[float, Dict]:
         s1 = self._skill_matching(assign)
         s2 = self._workload_balance(assign)
         s3 = self._priority_respect(assign)
         s4 = self._skill_dev(assign)
-
-        total = (
+        skill_kpi = (
             s1 * self.weights.skill_matching
             + s2 * self.weights.workload_balance
             + s3 * self.weights.priority_respect
             + s4 * self.weights.skill_development
         )
+        total_cost, total_time, invalid = self._cost_time(assign)
 
-        return total, {
+        return skill_kpi, {
             "skill_matching": s1,
             "workload_balance": s2,
             "priority_respect": s3,
             "skill_development": s4,
-            "total": total,
+            "skill_kpi": skill_kpi,
+            "total_cost_usd": total_cost,
+            "total_time_hours": total_time,
+            "invalid": invalid,
+            "total": skill_kpi,
         }
 
     def _skill_matching(self, assign):
@@ -169,10 +194,14 @@ class ObjectiveCalculator:
             emp_sk = self.data.get_emp_skills(emp)
             for tag, need in reqs:
                 have = emp_sk.get(tag, 0)
-                if have == 0:
+                gap = max(0, need - have)
+                if self.cfg.hard_fail_on_zero_skill and have <= 0:
+                    penalty += 1.0
+                elif gap > self.cfg.max_skill_gap:
+                    penalty += 1.0
+                elif have == 0:
                     penalty += self.penalties.skill_mismatch
                 else:
-                    gap = max(0, need - have)
                     penalty += gap * self.penalties.skill_gap / 100.0
 
         avg_penalty = penalty / len(assign)
@@ -217,22 +246,53 @@ class ObjectiveCalculator:
         avg = np.mean(vals)
         return min(1, avg / 10)
 
+    def _cost_time(self, assign):
+        total_cost = 0.0
+        total_time = 0.0
+        invalid = False
+        for tid, emp in assign.items():
+            info = self.data.get_task_info(tid)
+            duration = float(info.get("Duration_Hours", 0.0))
+            tag = str(info.get("Task_Tag", "")).strip()
+            need = priority_to_level(info.get("Priority", ""))
+            have = self.data.get_emp_skills(emp).get(tag, 0)
+            gap = max(0, need - have)
+            if self.cfg.hard_fail_on_zero_skill and have <= 0:
+                invalid = True
+            duration *= duration_multiplier(gap, self.cfg)
+            total_time += duration
+            total_cost += duration * self.data.get_emp_cost(emp)
+        return total_cost, total_time, invalid
+
 
 def dominates(a: Dict[str, float], b: Dict[str, float]) -> bool:
-    keys = ["skill_matching", "workload_balance", "priority_respect", "skill_development"]
-    not_worse = all(a[k] >= b[k] for k in keys)
-    better = any(a[k] > b[k] for k in keys)
+    if a.get("invalid") and not b.get("invalid"):
+        return False
+    if b.get("invalid") and not a.get("invalid"):
+        return True
+    not_worse = (
+        a["skill_kpi"] >= b["skill_kpi"]
+        and a["total_cost_usd"] <= b["total_cost_usd"]
+        and a["total_time_hours"] <= b["total_time_hours"]
+    )
+    better = (
+        a["skill_kpi"] > b["skill_kpi"]
+        or a["total_cost_usd"] < b["total_cost_usd"]
+        or a["total_time_hours"] < b["total_time_hours"]
+    )
     return not_worse and better
 
 
 def crowding_distance(objs: List[Dict[str, float]]) -> np.ndarray:
-    keys = ["skill_matching", "workload_balance", "priority_respect", "skill_development"]
+    keys = ["skill_kpi", "total_cost_usd", "total_time_hours"]
     n = len(objs)
     if n == 0:
         return np.array([])
     dist = np.zeros(n)
     for k in keys:
-        vals = np.array([o[k] for o in objs])
+        vals = np.array([o[k] for o in objs], dtype=float)
+        if k in ("total_cost_usd", "total_time_hours"):
+            vals = -vals
         order = np.argsort(vals)
         dist[order[0]] = np.inf
         dist[order[-1]] = np.inf
@@ -268,6 +328,8 @@ class HarmonySearchBatchMOHS:
         return {tid: emp for tid, emp in zip(self.tasks, picks)}
 
     def _update_archive(self, assign: Dict[str, str], obj: Dict[str, float]):
+        if obj.get("invalid"):
+            return
         dominated = []
         for i, sol in enumerate(self.archive):
             if dominates(sol["obj"], obj):
@@ -320,7 +382,7 @@ class HarmonySearchBatchMOHS:
             if self.log_every and i % self.log_every == 0:
                 print(f"  MOHS iter {i}/{self.cfg.num_iterations} archive={len(self.archive)}")
 
-            best_total = max(s["obj"]["total"] for s in self.archive)
+            best_total = max((s["obj"]["total"] for s in self.archive), default=0.0)
             history.append(
                 {
                     "iteration": i,
@@ -422,6 +484,7 @@ def main():
         topo["duration_hours"] = pd.to_numeric(topo["duration_hours"], errors="coerce").fillna(0.0)
 
     emp_skills = parse_assignee_skills(assignees_path)
+    emp_costs = load_assignee_costs(assignees_path)
     employees = sorted(emp_skills.keys())
     if not employees:
         raise ValueError("No employees found in assignees file.")
@@ -448,7 +511,7 @@ def main():
             batch_ids = tasks_list[i : i + batch_size]
             batch_df = level_tasks[level_tasks[TASK_ID_COL].astype(str).isin(batch_ids)]
 
-            ctx = BatchContext(batch_df, emp_skills)
+            ctx = BatchContext(batch_df, emp_skills, emp_costs)
             calc = ObjectiveCalculator(ctx)
             mohs = HarmonySearchBatchMOHS(
                 ctx.get_tasks(),
@@ -460,42 +523,53 @@ def main():
             )
 
             archive, _ = mohs.run()
-            # Choose a representative solution from Pareto archive
-            best_sol = max(archive, key=lambda s: s["obj"]["total"])
-            best = best_sol["assign"]
-            total, details = calc.score(best)
-
+            # Output all solutions from Pareto archive, not just the best one
+            
             wave_duration = float(batch_df["duration_hours"].max()) if not batch_df.empty else 0.0
             wave_start = level_start_time
             wave_end = level_start_time + wave_duration
 
-            for tid, emp in best.items():
-                info = ctx.get_task_info(tid)
-                match = 1 if emp_skills.get(emp, {}).get(info["Task_Tag"], 0) > 0 else 0
-                all_rows.append(
+            # For each solution in archive, create assignment record
+            for sol_idx, sol in enumerate(archive):
+                best = sol["assign"]
+                _, details = calc.score(best)
+                
+                for tid, emp in best.items():
+                    info = ctx.get_task_info(tid)
+                    need_level = priority_to_level(info["Priority"])
+                    have_level = emp_skills.get(emp, {}).get(info["Task_Tag"], 0)
+                    match = 1 if have_level >= need_level else 0
+                    gap = max(0, need_level - have_level)
+                    cfg_local = HSConfig()
+                    adj_duration = float(info["Duration_Hours"]) * duration_multiplier(gap, cfg_local)
+                    all_rows.append(
+                        {
+                            "Task_ID": tid,
+                            "Topo_Level": info["Topo_Level"],
+                            "Batch_Index": (i // batch_size) + 1,
+                            "Solution_Index": sol_idx + 1,  # New: which solution in archive
+                            "Summary": info["Summary"],
+                            "Task_Tag": info["Task_Tag"],
+                            "Priority": info["Priority"],
+                            "Duration_Hours": adj_duration,
+                            "Assigned_To": emp,
+                            "Start_Hour": wave_start,
+                            "End_Hour": wave_end,
+                            "Skill_Match": match,
+                        }
+                    )
+
+                # Score record for each solution
+                score_rows.append(
                     {
-                        "Task_ID": tid,
-                        "Topo_Level": info["Topo_Level"],
+                        "Topo_Level": int(level),
                         "Batch_Index": (i // batch_size) + 1,
-                        "Summary": info["Summary"],
-                        "Task_Tag": info["Task_Tag"],
-                        "Priority": info["Priority"],
-                        "Duration_Hours": info["Duration_Hours"],
-                        "Assigned_To": emp,
-                        "Start_Hour": wave_start,
-                        "End_Hour": wave_end,
-                        "Skill_Match": match,
+                        "Solution_Index": sol_idx + 1,  # New: which solution in archive
+                        "pareto_size": len(archive),
+                        **details,
                     }
                 )
-
-            score_rows.append(
-                {
-                    "Topo_Level": int(level),
-                    "Batch_Index": (i // batch_size) + 1,
-                    "pareto_size": len(archive),
-                    **details,
-                }
-            )
+            
             pareto_meta.append(
                 {
                     "Topo_Level": int(level),
@@ -560,8 +634,17 @@ def main():
         "skill_match_rate": skill_match_rate,
         "avg_total_score": float(np.mean([s["total"] for s in score_rows])) if score_rows else 0.0,
         "batch_scores": score_rows,
-        "pareto_fronts": pareto_meta,
+        # Cost KPIs
+        "total_project_cost_usd": round(sum(row.get("Duration_Hours", 0) * emp_costs.get(row.get("Assigned_To"), 50.0) for row in all_rows), 2),
+        "cost_per_task_usd": round(sum(row.get("Duration_Hours", 0) * emp_costs.get(row.get("Assigned_To"), 50.0) for row in all_rows) / len(all_rows), 2) if all_rows else 0,
+        "cost_per_hour_usd": round(sum(row.get("Duration_Hours", 0) * emp_costs.get(row.get("Assigned_To"), 50.0) for row in all_rows) / total_work_hours, 2) if total_work_hours > 0 else 0,
     }
+    
+    # Add efficiency metric
+    total_cost = summary["total_project_cost_usd"]
+    avg_score = summary["avg_total_score"]
+    summary["efficiency_score_per_1000_usd"] = round(avg_score / (total_cost / 1000), 4) if total_cost > 0 else 0
+    
     with open(args.output_score, "w", encoding="utf-8") as f:
         json.dump(summary, f, indent=2, ensure_ascii=False)
 

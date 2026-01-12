@@ -1,0 +1,36 @@
+{
+  "total_tasks": 150,
+  "levels": 1,
+  "batches": 1,
+  "makespan_hours": 17.6,
+  "total_work_hours": 531.1500000000001,
+  "avg_task_duration_hours": 3.541000000000001,
+  "p50_task_duration_hours": 3.3000000000000003,
+  "p90_task_duration_hours": 4.459999999999997,
+  "avg_batch_duration_hours": 17.6,
+  "p90_batch_duration_hours": 17.6,
+  "total_idle_hours": 6860.85,
+  "idle_ratio": 0.9281452922077922,
+  "utilization": 0.07185470779220779,
+  "skill_match_rate": 0.24666666666666667,
+  "avg_total_score": 0.6908543887573768,
+  "avg_quality_score": 0.6404718253968252,
+  "avg_cost_optimization": 0.7412369521179285,
+  "batch_scores": [
+    {
+      "Topo_Level": 1,
+      "Batch_Index": 1,
+      "skill_matching": 0.6779999999999997,
+      "workload_balance": 1.0,
+      "priority_respect": 0.19114550264550273,
+      "skill_development": 0.1,
+      "cost_optimization": 0.7412369521179285,
+      "quality_score": 0.6404718253968252,
+      "total": 0.6908543887573768
+    }
+  ],
+  "total_project_cost_usd": 19310.6,
+  "cost_per_task_usd": 128.74,
+  "cost_per_hour_usd": 36.36,
+  "efficiency_score_per_1000_usd": 0.0358
+}

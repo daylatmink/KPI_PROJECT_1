@@ -3,13 +3,17 @@ import json
 import argparse
 from dataclasses import dataclass
 from typing import Dict, List, Tuple
+from pathlib import Path
 
 import numpy as np
 import pandas as pd
 
+from cost_utils import load_assignee_costs
+
 
 DEFAULT_TOPO = r"projects/ZOOKEEPER/logical_topo.csv"
 DEFAULT_ASSIGNEES = r"projects/ZOOKEEPER/assignees.csv"
+DEFAULT_TASK_EDGES = r"projects/ZOOKEEPER/logical_dag_edges.csv"
 
 DEFAULT_OUTPUT_ASSIGNMENT = r"projects/ZOOKEEPER/ghs_assignment.csv"
 DEFAULT_OUTPUT_SCORE = r"projects/ZOOKEEPER/ghs_score.json"
@@ -32,6 +36,9 @@ class HSConfig:
     par: float = 0.15
     num_iterations: int = 200
     seed: int = 42
+    max_skill_gap: int = 2
+    duration_penalty_per_gap: float = 0.25
+    hard_fail_on_zero_skill: bool = False
 
 
 @dataclass
@@ -40,6 +47,7 @@ class ObjectiveWeights:
     workload_balance: float = 0.20
     priority_respect: float = 0.15
     skill_development: float = 0.05
+    cost_optimization: float = 0.50
 
 
 @dataclass
@@ -101,10 +109,22 @@ def priority_to_level(p: str) -> int:
     return mapping.get(p, 2)
 
 
+def duration_multiplier(skill_gap: int, cfg: HSConfig) -> float:
+    if skill_gap <= 0:
+        return 1.0
+    gap_effective = min(skill_gap, cfg.max_skill_gap)
+    mult = 1.0 + (cfg.duration_penalty_per_gap * gap_effective)
+    if skill_gap > cfg.max_skill_gap:
+        mult += cfg.duration_penalty_per_gap * 2
+    return mult
+
+
 class BatchContext:
-    def __init__(self, tasks_df: pd.DataFrame, emp_skills: Dict[str, Dict[str, int]]):
+    def __init__(self, tasks_df: pd.DataFrame, emp_skills: Dict[str, Dict[str, int]],
+                 emp_costs: Dict[str, float] = None):
         self.tasks_df = tasks_df
         self.emp_skills = emp_skills
+        self.emp_costs = emp_costs or {}
         self.task_skills: Dict[str, List[Tuple[str, int]]] = {}
         self.task_info: Dict[str, Dict] = {}
         self._parse_tasks()
@@ -123,6 +143,8 @@ class BatchContext:
                 "Duration_Hours": row["duration_hours"],
                 "Topo_Level": row[LEVEL_COL],
             }
+            if "topo_order" in self.tasks_df.columns:
+                self.task_info[tid]["topo_order"] = row["topo_order"]
 
     def get_tasks(self) -> List[str]:
         return list(self.task_skills.keys())
@@ -133,31 +155,39 @@ class BatchContext:
     def get_emp_skills(self, emp: str) -> Dict[str, int]:
         return self.emp_skills.get(emp, {})
 
+    def get_emp_cost(self, emp: str) -> float:
+        return self.emp_costs.get(emp, 50.0)
+
 
 class ObjectiveCalculator:
     def __init__(self, ctx: BatchContext):
         self.data = ctx
         self.weights = ObjectiveWeights()
         self.penalties = PenaltyFactors()
+        self.cfg = HSConfig()
 
     def score(self, assign: Dict[str, str]) -> Tuple[float, Dict]:
         s1 = self._skill_matching(assign)
         s2 = self._workload_balance(assign)
         s3 = self._priority_respect(assign)
         s4 = self._skill_dev(assign)
+        s5 = self._cost_optimization(assign)
 
-        total = (
+        quality = (
             s1 * self.weights.skill_matching
             + s2 * self.weights.workload_balance
             + s3 * self.weights.priority_respect
             + s4 * self.weights.skill_development
         )
+        total = 0.5 * quality + 0.5 * s5
 
         return total, {
             "skill_matching": s1,
             "workload_balance": s2,
             "priority_respect": s3,
             "skill_development": s4,
+            "cost_optimization": s5,
+            "quality_score": quality,
             "total": total,
         }
 
@@ -168,10 +198,14 @@ class ObjectiveCalculator:
             emp_sk = self.data.get_emp_skills(emp)
             for tag, need in reqs:
                 have = emp_sk.get(tag, 0)
-                if have == 0:
+                gap = max(0, need - have)
+                if self.cfg.hard_fail_on_zero_skill and have <= 0:
+                    penalty += 1.0
+                elif gap > self.cfg.max_skill_gap:
+                    penalty += 1.0
+                elif have == 0:
                     penalty += self.penalties.skill_mismatch
                 else:
-                    gap = max(0, need - have)
                     penalty += gap * self.penalties.skill_gap / 100.0
 
         avg_penalty = penalty / len(assign)
@@ -215,6 +249,32 @@ class ObjectiveCalculator:
         vals = [len(v) for v in diversity.values()]
         avg = np.mean(vals)
         return min(1, avg / 10)
+
+    def _cost_optimization(self, assign):
+        if not self.data.emp_costs:
+            return 0.5
+        max_cost = max(self.data.emp_costs.values()) if self.data.emp_costs else 0.0
+        if max_cost <= 0:
+            return 0.5
+
+        total_cost = 0.0
+        total_duration = 0.0
+        for tid, emp in assign.items():
+            info = self.data.get_task_info(tid)
+            duration = float(info.get("Duration_Hours", 0.0))
+            tag = str(info.get("Task_Tag", "")).strip()
+            need = priority_to_level(info.get("Priority", ""))
+            have = self.data.get_emp_skills(emp).get(tag, 0)
+            gap = max(0, need - have)
+            duration *= duration_multiplier(gap, self.cfg)
+            total_duration += duration
+            cost = self.data.emp_costs.get(emp, max_cost)
+            total_cost += duration * cost
+
+        if total_duration <= 0:
+            return 0.0
+        avg_cost = total_cost / total_duration
+        return max(0.0, 1.0 - (avg_cost / max_cost))
 
 
 class HarmonySearchBatchGHS:
@@ -351,6 +411,11 @@ def parse_args():
     )
     parser.add_argument("--topo", default=DEFAULT_TOPO)
     parser.add_argument("--assignees", default=DEFAULT_ASSIGNEES)
+    parser.add_argument(
+        "--task-edges",
+        default=DEFAULT_TASK_EDGES,
+        help="Logical task DAG edges (from_task_id,to_task_id).",
+    )
     parser.add_argument("--output-assignment", default=DEFAULT_OUTPUT_ASSIGNMENT)
     parser.add_argument("--output-score", default=DEFAULT_OUTPUT_SCORE)
     parser.add_argument(
@@ -375,11 +440,58 @@ def parse_args():
     return parser.parse_args()
 
 
+def load_task_edges(edges_path: str) -> dict[str, list[str]]:
+    if not edges_path or not os.path.isfile(edges_path):
+        return {}
+    edges_df = pd.read_csv(edges_path)
+    required = {"from_task_id", "to_task_id"}
+    if not required.issubset(edges_df.columns):
+        return {}
+    preds: dict[str, list[str]] = {}
+    for _, row in edges_df.iterrows():
+        u = str(row["from_task_id"])
+        v = str(row["to_task_id"])
+        preds.setdefault(v, []).append(u)
+    return preds
+
+
+def schedule_tasks(rows: list[dict], preds: dict[str, list[str]]):
+    if not rows:
+        return {}, {}
+    has_topo_order = "Topo_Order" in rows[0]
+
+    def sort_key(r):
+        if has_topo_order:
+            return (int(r.get("Topo_Order", 0)), int(r.get("Topo_Level", 0)), str(r.get("Task_ID")))
+        return (int(r.get("Topo_Level", 0)), str(r.get("Task_ID")))
+
+    ordered = sorted(rows, key=sort_key)
+    assignee_available: dict[str, float] = {}
+    task_end: dict[str, float] = {}
+    task_start: dict[str, float] = {}
+
+    for row in ordered:
+        tid = str(row["Task_ID"])
+        duration = float(row.get("Duration_Hours", 0.0))
+        emp = row.get("Assigned_To", "")
+        dep_ends = [task_end.get(p, 0.0) for p in preds.get(tid, [])]
+        deps_ready = max(dep_ends) if dep_ends else 0.0
+        avail = assignee_available.get(emp, 0.0)
+        start = max(deps_ready, avail)
+        end = start + duration
+        task_start[tid] = start
+        task_end[tid] = end
+        assignee_available[emp] = end
+
+    return task_start, task_end
+
+
 def main():
     args = parse_args()
 
     topo_path = os.path.abspath(args.topo)
     assignees_path = os.path.abspath(args.assignees)
+    task_edges_path = os.path.abspath(args.task_edges)
 
     for p in [topo_path, assignees_path]:
         if not os.path.isfile(p):
@@ -409,7 +521,13 @@ def main():
     else:
         topo["duration_hours"] = pd.to_numeric(topo["duration_hours"], errors="coerce").fillna(0.0)
 
+    topo_order_col = "topo_order" if "topo_order" in topo.columns else None
+
+    if not os.path.isfile(task_edges_path):
+        task_edges_path = str(Path(topo_path).with_name("logical_dag_edges.csv"))
+
     emp_skills = parse_assignee_skills(assignees_path)
+    emp_costs = load_assignee_costs(assignees_path)
     employees = sorted(emp_skills.keys())
     if not employees:
         raise ValueError("No employees found in assignees file.")
@@ -438,7 +556,7 @@ def main():
             batch_ids = tasks_list[i : i + batch_size]
             batch_df = level_tasks[level_tasks[TASK_ID_COL].astype(str).isin(batch_ids)]
 
-            ctx = BatchContext(batch_df, emp_skills)
+            ctx = BatchContext(batch_df, emp_skills, emp_costs)
             calc = ObjectiveCalculator(ctx)
             ghs = HarmonySearchBatchGHS(
                 ctx.get_tasks(),
@@ -458,7 +576,11 @@ def main():
 
             for tid, emp in best.items():
                 info = ctx.get_task_info(tid)
-                match = 1 if emp_skills.get(emp, {}).get(info["Task_Tag"], 0) > 0 else 0
+                need_level = priority_to_level(info["Priority"])
+                have_level = emp_skills.get(emp, {}).get(info["Task_Tag"], 0)
+                match = 1 if have_level >= need_level else 0
+                gap = max(0, need_level - have_level)
+                adj_duration = float(info["Duration_Hours"]) * duration_multiplier(gap, cfg)
                 all_rows.append(
                     {
                         "Task_ID": tid,
@@ -467,13 +589,15 @@ def main():
                         "Summary": info["Summary"],
                         "Task_Tag": info["Task_Tag"],
                         "Priority": info["Priority"],
-                        "Duration_Hours": info["Duration_Hours"],
+                        "Duration_Hours": adj_duration,
                         "Assigned_To": emp,
                         "Start_Hour": wave_start,
                         "End_Hour": wave_end,
                         "Skill_Match": match,
                     }
                 )
+                if topo_order_col and topo_order_col in info:
+                    all_rows[-1]["Topo_Order"] = int(info[topo_order_col])
 
             score_rows.append(
                 {
@@ -530,14 +654,24 @@ def main():
     os.makedirs(os.path.dirname(args.output_assignment), exist_ok=True)
     os.makedirs(os.path.dirname(args.output_score), exist_ok=True)
 
+    preds = load_task_edges(task_edges_path)
+    task_start, task_end = schedule_tasks(all_rows, preds)
+    if task_start and task_end:
+        for row in all_rows:
+            tid = str(row["Task_ID"])
+            if tid in task_start and tid in task_end:
+                row["Start_Hour"] = task_start[tid]
+                row["End_Hour"] = task_end[tid]
+
     pd.DataFrame(all_rows).to_csv(args.output_assignment, index=False, encoding="utf-8-sig")
 
     df_rows = pd.DataFrame(all_rows)
     total_work_hours = float(df_rows["Duration_Hours"].sum()) if not df_rows.empty else 0.0
     skill_match_rate = float(df_rows["Skill_Match"].mean()) if not df_rows.empty else 0.0
+    makespan_hours = float(df_rows["End_Hour"].max()) if not df_rows.empty else 0.0
     utilization = (
-        total_work_hours / (len(employees) * current_time)
-        if current_time > 0 and employees
+        total_work_hours / (len(employees) * makespan_hours)
+        if makespan_hours > 0 and employees
         else 0.0
     )
     if not df_rows.empty:
@@ -560,13 +694,13 @@ def main():
         avg_batch_duration = 0.0
         p90_batch_duration = 0.0
 
-    total_idle_hours = (len(employees) * current_time) - total_work_hours if current_time > 0 else 0.0
+    total_idle_hours = (len(employees) * makespan_hours) - total_work_hours if makespan_hours > 0 else 0.0
     idle_ratio = 1 - utilization if utilization > 0 else 0.0
     summary = {
         "total_tasks": len(all_rows),
         "levels": int(topo[LEVEL_COL].max()) if not topo.empty else 0,
         "batches": len(score_rows),
-        "makespan_hours": current_time,
+        "makespan_hours": makespan_hours,
         "total_work_hours": total_work_hours,
         "avg_task_duration_hours": avg_task_duration,
         "p50_task_duration_hours": p50_task_duration,
@@ -578,8 +712,19 @@ def main():
         "utilization": utilization,
         "skill_match_rate": skill_match_rate,
         "avg_total_score": float(np.mean([s["total"] for s in score_rows])) if score_rows else 0.0,
+        "avg_quality_score": float(np.mean([s.get("quality_score", 0.0) for s in score_rows])) if score_rows else 0.0,
+        "avg_cost_optimization": float(np.mean([s.get("cost_optimization", 0.0) for s in score_rows])) if score_rows else 0.0,
         "batch_scores": score_rows,
+        # Cost KPIs
+        "total_project_cost_usd": round(sum(row.get("Duration_Hours", 0) * emp_costs.get(row.get("Assigned_To"), 50.0) for row in all_rows), 2),
+        "cost_per_task_usd": round(sum(row.get("Duration_Hours", 0) * emp_costs.get(row.get("Assigned_To"), 50.0) for row in all_rows) / len(all_rows), 2) if all_rows else 0,
+        "cost_per_hour_usd": round(sum(row.get("Duration_Hours", 0) * emp_costs.get(row.get("Assigned_To"), 50.0) for row in all_rows) / total_work_hours, 2) if total_work_hours > 0 else 0,
     }
+    
+    # Add efficiency metric
+    total_cost = summary["total_project_cost_usd"]
+    avg_score = summary["avg_total_score"]
+    summary["efficiency_score_per_1000_usd"] = round(avg_score / (total_cost / 1000), 4) if total_cost > 0 else 0
     with open(args.output_score, "w", encoding="utf-8") as f:
         json.dump(summary, f, indent=2, ensure_ascii=False)
 

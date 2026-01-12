@@ -1,0 +1,142 @@
+from_issue_key,to_issue_key,link_type,raw_link_type,direction
+MJAR-282,MJAR-281,fixes,Completes,outward
+MJAR-282,MJAR-281,is fixed by,Completes,inward
+MJAR-281,MNG-7357,causes,Problem/Incident,outward
+MJAR-272,MJAR-271,duplicates,Duplicate,outward
+MJAR-272,MJAR-271,is duplicated by,Duplicate,inward
+MNG-5001,MJAR-264,is fixed by,Completes,inward
+MJAR-264,MJAR-217,relates to,Reference,outward
+MNG-6276,MJAR-263,Is contained by,Container,inward
+MSHADE-347,MJAR-263,is related to,Reference,inward
+MJAR-263,MJAR-257,supercedes,Supercedes,outward
+MNG-6789,MJAR-263,is depended upon by,dependent,inward
+MJAR-261,MJAR-259,relates to,Reference,outward
+MSHARED-773,MJAR-260,is blocked by,Blocker,inward
+MJAR-259,MSOURCES-119,relates to,Reference,outward
+MJAR-261,MJAR-259,is related to,Reference,inward
+MJAR-263,MJAR-257,is superceded by,Supercedes,inward
+MJAR-198,MJAR-254,is related to,Reference,inward
+MJAR-198,MJAR-253,is caused by,Problem/Incident,inward
+MJAR-241,MJAR-252,is depended upon by,dependent,inward
+MJAR-247,MJAR-221,duplicates,Duplicate,outward
+MJAR-237,MJAR-244,is duplicated by,Duplicate,inward
+MJAR-237,MJAR-244,is superceded by,Supercedes,inward
+MJAR-243,MJAR-241,blocks,Blocker,outward
+MJAR-243,MJAR-241,is blocked by,Blocker,inward
+MJAR-241,MJAR-252,depends upon,dependent,outward
+MJAR-237,MJAR-240,is superceded by,Supercedes,inward
+MJAR-237,MJAR-244,duplicates,Duplicate,outward
+MJAR-237,MJAR-244,supercedes,Supercedes,outward
+MJAR-237,MJAR-240,supercedes,Supercedes,outward
+MJAR-236,MJAR-235,depends upon,dependent,outward
+MJAR-236,MJAR-235,is depended upon by,dependent,inward
+MJAR-233,MJAR-217,relates to,Reference,outward
+MASSEMBLY-845,MJAR-233,is related to,Reference,inward
+MJAR-229,MJAR-223,blocks,Blocker,outward
+MJAR-229,MJAR-228,blocks,Blocker,outward
+MJAR-229,MJAR-228,is blocked by,Blocker,inward
+MSHARED-542,MJAR-226,is blocked by,Blocker,inward
+MJAR-229,MJAR-223,is blocked by,Blocker,inward
+MSHARED-551,MJAR-223,is blocked by,Blocker,inward
+MJAR-247,MJAR-221,is duplicated by,Duplicate,inward
+MSHARED-513,MJAR-218,is related to,Reference,inward
+MJAR-264,MJAR-217,is related to,Reference,inward
+MJAR-233,MJAR-217,is related to,Reference,inward
+MJAR-213,MSHARED-191,contains,Container,outward
+MEAR-228,MJAR-210,is related to,Reference,inward
+MJAR-205,MJAR-206,is duplicated by,Duplicate,inward
+MJAR-205,MJAR-206,duplicates,Duplicate,outward
+MJAR-199,MJAR-147,supercedes,Supercedes,outward
+MJAR-198,MJAR-253,causes,Problem/Incident,outward
+MJAR-198,MJAR-254,relates to,Reference,outward
+MJAR-193,MJAR-195,is related to,Reference,inward
+MJAR-193,MJAR-195,relates to,Reference,outward
+MJAR-192,MNG-5750,depends upon,dependent,outward
+MJAR-189,MJAR-187,relates to,Related,outward
+MJAR-189,MJAR-187,is related to,Related,inward
+MJAR-183,MNG-5697,blocks,Blocker,outward
+MNG-5474,MJAR-172,is related to,Reference,inward
+MPLUGIN-203,MJAR-158,is related to,Related,inward
+MASSEMBLY-634,MJAR-148,is related to,Related,inward
+MEAR-145,MJAR-148,is related to,Related,inward
+MEJB-56,MJAR-148,is related to,Related,inward
+MWAR-273,MJAR-148,is related to,Related,inward
+MJAVADOC-380,MJAR-148,is related to,Related,inward
+MSOURCES-68,MJAR-148,is related to,Related,inward
+MJAR-148,MSHARED-38,depends upon,dependent,outward
+MJAR-199,MJAR-147,is superceded by,Supercedes,inward
+MJAR-90,MJAR-138,is related to,Related,inward
+MJAR-137,MSHARED-148,depends upon,dependent,outward
+MJAR-131,MJAR-69,duplicates,Duplicate,outward
+MJAR-127,MJAR-130,is related to,Related,inward
+MJAR-127,MJAR-130,relates to,Related,outward
+MJAR-69,MJAR-111,is duplicated by,Duplicate,inward
+MJAR-69,MJAR-108,is duplicated by,Duplicate,inward
+MJAR-8,MJAR-105,is related to,Related,inward
+MJAR-20,MJAR-105,is related to,Related,inward
+MSHARED-135,MJAR-105,is related to,Related,inward
+MJAR-69,MJAR-97,is duplicated by,Duplicate,inward
+MJAR-90,MJAR-68,relates to,Related,outward
+MJAR-90,MJAR-138,relates to,Related,outward
+MJAR-51,MJAR-84,is duplicated by,Duplicate,inward
+MJAR-82,MSHARED-43,depends upon,dependent,outward
+MJAR-80,MJAR-30,duplicates,Duplicate,outward
+MNG-2045,MJAR-75,is depended upon by,dependent,inward
+MNG-2871,MJAR-75,is depended upon by,dependent,inward
+MNG-3043,MJAR-75,is depended upon by,dependent,inward
+MNG-3076,MJAR-75,is depended upon by,dependent,inward
+MNG-4248,MJAR-75,is depended upon by,dependent,inward
+MRELEASE-285,MJAR-75,is depended upon by,dependent,inward
+MJAR-74,MSHARED-35,depends upon,dependent,outward
+MJAR-73,MEAR-30,relates to,Related,outward
+MJAR-72,MJAR-30,relates to,Related,outward
+MJAR-69,MJAR-111,duplicates,Duplicate,outward
+MJAR-69,MJAR-97,duplicates,Duplicate,outward
+MJAR-69,MJAR-108,duplicates,Duplicate,outward
+MJAR-131,MJAR-69,is duplicated by,Duplicate,inward
+MJAR-69,MJAR-40,relates to,Related,outward
+MNG-2045,MJAR-68,is related to,Related,inward
+MJAR-90,MJAR-68,is related to,Related,inward
+MJAR-61,MSHARED-147,depends upon,dependent,outward
+MJAR-59,MSHARED-39,depends upon,dependent,outward
+MJAR-58,MSHARED-44,duplicates,Duplicate,outward
+MJAR-58,MJAR-48,relates to,Related,outward
+MJAR-55,MJAR-41,duplicates,Duplicate,outward
+MJAR-51,MJAR-84,duplicates,Duplicate,outward
+MJAR-49,MNG-2828,relates to,Related,outward
+MJAR-58,MJAR-48,is related to,Related,inward
+MJAR-42,MJAR-10,relates to,Related,outward
+MJAR-55,MJAR-41,is duplicated by,Duplicate,inward
+MJAR-69,MJAR-40,is related to,Related,inward
+MJAR-39,MJAR-38,relates to,Related,outward
+MWAR-34,MJAR-38,is related to,Related,inward
+MJAR-39,MJAR-38,is related to,Related,inward
+MJAR-34,MJAR-4,duplicates,Duplicate,outward
+MSHARED-34,MJAR-34,is related to,Related,inward
+MJAR-80,MJAR-30,is duplicated by,Duplicate,inward
+MJAR-30,MJAR-13,relates to,Related,outward
+MJAR-72,MJAR-30,is related to,Related,inward
+MJAR-29,MJAR-27,relates to,Related,outward
+MJAR-28,MDEPLOY-57,relates to,Related,outward
+MJAR-28,MASSEMBLY-67,relates to,Related,outward
+MASSEMBLY-211,MJAR-28,is related to,Related,inward
+MSHARED-36,MJAR-28,is related to,Related,inward
+MSHARED-32,MJAR-28,is related to,Related,inward
+MJAR-29,MJAR-27,is related to,Related,inward
+MJAR-20,MJAR-27,is related to,Related,inward
+MJARSIGNER-5,MJAR-26,is superceded by,Supercedes,inward
+MJAR-25,MJAR-7,duplicates,Duplicate,outward
+MJAR-20,MJAR-27,relates to,Related,outward
+MJAR-20,MJAR-105,relates to,Related,outward
+MJAR-15,MNG-1598,duplicates,Duplicate,outward
+MJAR-15,MNG-1650,depends upon,dependent,outward
+MNG-1715,MJAR-14,is duplicated by,Duplicate,inward
+MJAR-13,MNG-1330,relates to,Related,outward
+MJAR-30,MJAR-13,is related to,Related,inward
+SUREFIRE-180,MJAR-13,is related to,Related,inward
+MJAR-42,MJAR-10,is related to,Related,inward
+MJAR-8,MJAR-105,relates to,Related,outward
+MJAR-25,MJAR-7,is duplicated by,Duplicate,inward
+MJAR-7,MSOURCES-28,relates to,Related,outward
+MJAR-7,MASSEMBLY-402,relates to,Related,outward
+MJAR-34,MJAR-4,is duplicated by,Duplicate,inward

@@ -3,6 +3,7 @@ import argparse
 from datetime import datetime
 from heapq import heappush, heappop
 from collections import defaultdict
+from pathlib import Path
 
 import pandas as pd
 
@@ -63,6 +64,9 @@ def main():
     nodes_path = os.path.abspath(args.nodes)
     edges_path = os.path.abspath(args.edges)
     output_path = os.path.abspath(args.output)
+    
+    # Tạo thư mục output nếu chưa tồn tại
+    Path(output_path).parent.mkdir(parents=True, exist_ok=True)
 
     for p in [nodes_path, edges_path]:
         if not os.path.isfile(p):

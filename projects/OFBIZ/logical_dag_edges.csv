@@ -1,0 +1,29 @@
+﻿from_task_id,to_task_id,edge_count,link_types,example_from_issue,example_to_issue
+1103,1104,2,blocks;is blocked by,OFBIZ-1630,OFBIZ-1631
+1148,1120,2,blocks;is blocked by,OFBIZ-1706,OFBIZ-1663
+1374,1358,2,blocks;is blocked by,OFBIZ-2025,OFBIZ-2001
+1374,373,2,blocks;is blocked by,OFBIZ-2025,OFBIZ-558
+1374,589,2,blocks;is blocked by,OFBIZ-2025,OFBIZ-896
+1402,1387,2,blocks;is blocked by,OFBIZ-2068,OFBIZ-2067
+1568,1603,2,blocks;is blocked by,OFBIZ-2288,OFBIZ-2334
+1568,1604,2,blocks;is blocked by,OFBIZ-2288,OFBIZ-2335
+1568,1605,2,blocks;is blocked by,OFBIZ-2288,OFBIZ-2336
+2338,2335,2,blocks;is blocked by,OFBIZ-3446,OFBIZ-3442
+2688,2678,2,blocks;is blocked by,OFBIZ-4065,OFBIZ-4052
+3664,3614,2,blocks;is blocked by,OFBIZ-5800,OFBIZ-5760
+4224,4225,2,blocks;is blocked by,OFBIZ-6728,OFBIZ-6730
+439,504,2,blocks;is blocked by,OFBIZ-671,OFBIZ-763
+512,508,2,blocks;is blocked by,OFBIZ-775,OFBIZ-771
+517,522,2,blocks;is blocked by,OFBIZ-782,OFBIZ-787
+517,528,2,blocks;is blocked by,OFBIZ-782,OFBIZ-795
+518,508,2,blocks;is blocked by,OFBIZ-783,OFBIZ-771
+520,526,2,blocks;is blocked by,OFBIZ-785,OFBIZ-791
+527,526,2,blocks;is blocked by,OFBIZ-792,OFBIZ-791
+5313,3255,2,blocks;is blocked by,OFBIZ-9444,OFBIZ-9391
+5886,5830,2,Blocked,OFBIZ-10691,OFBIZ-10604
+6078,6076,2,blocks;is blocked by,OFBIZ-11022,OFBIZ-11018
+6080,6054,2,blocks;is blocked by,OFBIZ-11028,OFBIZ-10969
+6212,6211,2,blocks;is blocked by,OFBIZ-11266,OFBIZ-11265
+6741,6684,2,blocks;is blocked by,OFBIZ-12189,OFBIZ-12103
+947,727,2,blocks;is blocked by,OFBIZ-1393,OFBIZ-1109
+984,971,2,blocks;is blocked by,OFBIZ-1442,OFBIZ-1425

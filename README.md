@@ -1,123 +1,230 @@
-# Pipeline xử lý JIRA + gán assignee (HS/IHS/GHS/MOHS)
+# JIRA Task Assignment Pipeline (HS/IHS/GHS/MOHS)
 
-Repo này chứa pipeline xử lý issue JIRA và các thuật toán gán task (HS, IHS, GHS, MOHS)
-theo DAG/topo để phân công assignee.
+This repo contains a pipeline to build logical tasks from JIRA data and assign
+tasks to assignees using HS/IHS/GHS/MOHS. This README is written for a new
+environment and a first-time user.
 
-## Cấu trúc thư mục
+## 1) Requirements
+
+- Python 3.10+ (tested with 3.10+)
+- MongoDB with JIRA data (if you need to export issues/links)
+- Python packages:
+  - pandas
+  - numpy
+  - pymongo
+  - matplotlib
+
+Install packages:
+```bash
+pip install pandas numpy pymongo matplotlib
+```
+
+## 1.1) Get Raw Data into MongoDB (Zenodo)
+
+If you are starting from the raw Zenodo dataset:
+
+1) Download and extract the dataset from Zenodo.  
+2) Start MongoDB:
+```bash
+mongod
+```
+3) Import a JSON collection:
+```bash
+mongoimport --db zenodo_dataset --collection COLLECTION_NAME --file FILE.json --jsonArray
+```
+If the file is JSONL:
+```bash
+mongoimport --db zenodo_dataset --collection COLLECTION_NAME --file FILE.jsonl
+```
+4) Verify the data:
+```bash
+mongosh
+use zenodo_dataset
+show collections
+db.COLLECTION_NAME.findOne()
+```
+
+## 2) Repo Layout (important paths)
 
 ```
-configs/                 Cấu hình (tuỳ chọn)
-data/
-  raw/                  Dữ liệu thô (toàn bộ project)
-  interim/              Dữ liệu trung gian (toàn bộ project)
-  final/                Dự phòng output cuối
-logs/                   Log (tuỳ chọn)
-projects/
-  ZOOKEEPER/            Dữ liệu riêng theo project
-scripts/                Pipeline + thuật toán gán
+PythonProject4/
+  data/
+    raw/
+      all_issues.csv
+    interim/
+      all_issues_tagged.csv
+      assignee_mapping.csv
+      assignee_tag_count.csv
+      assignee_skill_profile.csv
+      assignee_cost_profile.csv
+  projects/
+    ZOOKEEPER/
+      issue_links.csv
+      logical_tasks.csv
+      logical_tasks_tagged.csv
+      issue_dag_nodes.csv
+      issue_dag_edges.csv
+      logical_dag_nodes.csv
+      logical_dag_edges.csv
+      logical_topo.csv
+      assignees.csv
+      hs_assignment.csv
+      hs_score.json
+      ihs_assignment.csv
+      ihs_score.json
+      ghs_assignment.csv
+      ghs_score.json
+      mohs_assignment.csv
+      mohs_score.json
+      hs_plots/
+      ihs_plots/
+      ghs_plots/
+      mohs_plots/
+  scripts/
+    00_all_projects_assignee_skills.py
+    01_group_tasks.py
+    02_tag_logical_tasks.py
+    03_build_issue_dag.py
+    04_build_logical_task_dag.py
+    05_topo_sort_logical_tasks.py
+    06_export_assignee_profiles.py
+    06b_assign_cost_to_assignees.py
+    07_hs_topo_assign.py
+    07_ihs_topo_assign.py
+    07_ghs_topo_assign.py
+    07_mohs_topo_assign.py
+    run_pipeline.py
+  tools/               # helper scripts (not part of pipeline)
 ```
 
-## Luồng xử lý tổng quan (bước 0–7)
+## 3) Data Inputs
 
-**Bước 0 (global export + skill):**
-- Script: `scripts/00_all_projects_assignee_skills.py`
-- Output:
-  - `data/raw/all_issues.csv`
-  - `data/interim/all_issues_tagged.csv`
-  - `data/interim/assignee_mapping.csv`
-  - `data/interim/assignee_tag_count.csv`
-  - `data/interim/assignee_skill_profile.csv`
+The pipeline expects these inputs:
 
-**Bước 1–7 (theo project):**
-1) Gom issue thành logical task  
-   Script: `scripts/01_group_tasks.py`  
-   Output: `projects/ZOOKEEPER/logical_tasks.csv`, `projects/ZOOKEEPER/issue_to_task_mapping.csv`
-2) Gán `Task_Tag` theo đa số issue trong task  
-   Script: `scripts/02_tag_logical_tasks.py`  
-   Output: `projects/ZOOKEEPER/logical_tasks_tagged.csv`
-3) Xây DAG issue  
-   Script: `scripts/03_build_issue_dag.py`  
-   Input: `projects/ZOOKEEPER/issue_links.csv`  
-   Output: `projects/ZOOKEEPER/issue_dag_nodes.csv`, `projects/ZOOKEEPER/issue_dag_edges.csv`
-4) Xây DAG logical task  
-   Script: `scripts/04_build_logical_task_dag.py`  
-   Output: `projects/ZOOKEEPER/logical_dag_nodes.csv`, `projects/ZOOKEEPER/logical_dag_edges.csv`
-5) Topo sort + duration  
-   Script: `scripts/05_topo_sort_logical_tasks.py`  
-   Output: `projects/ZOOKEEPER/logical_topo.csv` (có `topo_level` + `topo_order`)
-6) Xuất assignee cho project  
-   Script: `scripts/06_export_assignee_profiles.py`  
-   Output: `projects/ZOOKEEPER/assignees.csv`
-7) Gán task (HS family)  
-   Scripts:
-   - `scripts/07_hs_topo_assign.py`  -> `projects/ZOOKEEPER/hs_assignment.csv`, `hs_score.json`
-   - `scripts/07_ihs_topo_assign.py` -> `projects/ZOOKEEPER/ihs_assignment.csv`, `ihs_score.json`
-   - `scripts/07_ghs_topo_assign.py` -> `projects/ZOOKEEPER/ghs_assignment.csv`, `ghs_score.json`
-   - `scripts/07_mohs_topo_assign.py` -> `projects/ZOOKEEPER/mohs_assignment.csv`, `mohs_score.json`
+1) Global data (Step 0):
+   - Generated from MongoDB by `scripts/00_all_projects_assignee_skills.py`
+   - Outputs:
+     - `data/raw/all_issues.csv`
+     - `data/interim/all_issues_tagged.csv`
+     - `data/interim/assignee_mapping.csv`
+     - `data/interim/assignee_tag_count.csv`
+     - `data/interim/assignee_skill_profile.csv`
 
-## Cách chạy
+2) Project issue links:
+   - `projects/<PROJECT>/issue_links.csv`
+   - You can export this from MongoDB with:
+     - `tools/mongodata3.py` (edit PROJECT_KEY and output paths in that file)
 
-Yêu cầu:
-- Python 3.10+
-- Thư viện: `pandas`, `numpy`, `pymongo`, `matplotlib`
-- MongoDB cấu hình trong `scripts/mongodata3.py`
+Note:
+- `data/interim/all_issues_tagged.csv` is in `.gitignore`, so new users must regenerate it via Step 0.
 
-Chạy bước 0 (global):
+## 4) Quick Start (Recommended)
+
+Run full pipeline for a project:
+
+```bash
+# First-time run (includes Step 0)
+python scripts/run_pipeline.py --project-key ZOOKEEPER --with-step0
+
+# Next runs (skip Step 0 if data already exists)
+python scripts/run_pipeline.py --project-key ZOOKEEPER
 ```
+
+Optional flags:
+```bash
+python scripts/run_pipeline.py --project-key ZOOKEEPER --skip-mohs
+python scripts/run_pipeline.py --project-key ZOOKEEPER --only-assignment
+python scripts/run_pipeline.py --project-key ZOOKEEPER --verbose
+```
+
+## 5) Manual Run (Step-by-step)
+
+Step 0 (global data, run once unless data changes):
+```bash
 python scripts/00_all_projects_assignee_skills.py
 ```
 
-Chạy bước 1–7 (project):
-```
-python scripts/01_group_tasks.py
-python scripts/02_tag_logical_tasks.py
-python scripts/03_build_issue_dag.py
-python scripts/04_build_logical_task_dag.py
-python scripts/05_topo_sort_logical_tasks.py
-python scripts/06_export_assignee_profiles.py
-python scripts/07_hs_topo_assign.py
-```
-
-## Tuỳ chọn khi đổi project
-
-Để chạy project khác, bạn cần:
-- Tạo thư mục: `projects/<PROJECT_KEY>/`
-- Xuất links cho project đó bằng `scripts/mongodata3.py` (set `PROJECT_KEY`)
-- Chạy lại bước 1–7 với output trỏ vào `projects/<PROJECT_KEY>/`
-
-Các script đã có option để đổi project/key:
-```
-python scripts/01_group_tasks.py --project_key HBASE
-python scripts/02_tag_logical_tasks.py --project-key HBASE
-python scripts/03_build_issue_dag.py --project-key HBASE --links projects/HBASE/issue_links.csv
-python scripts/06_export_assignee_profiles.py --project-key HBASE --output projects/HBASE/assignees.csv
+Steps 1-7 (per project):
+```bash
+python scripts/01_group_tasks.py --project_key ZOOKEEPER
+python scripts/02_tag_logical_tasks.py --project-key ZOOKEEPER
+python scripts/03_build_issue_dag.py --project-key ZOOKEEPER
+python scripts/04_build_logical_task_dag.py --project-key ZOOKEEPER
+python scripts/05_topo_sort_logical_tasks.py --project-key ZOOKEEPER
+python scripts/06_export_assignee_profiles.py --project-key ZOOKEEPER
+python scripts/06b_assign_cost_to_assignees.py
+python scripts/07_hs_topo_assign.py --topo projects/ZOOKEEPER/logical_topo.csv --assignees projects/ZOOKEEPER/assignees.csv
+python scripts/07_ihs_topo_assign.py --topo projects/ZOOKEEPER/logical_topo.csv --assignees projects/ZOOKEEPER/assignees.csv
+python scripts/07_ghs_topo_assign.py --topo projects/ZOOKEEPER/logical_topo.csv --assignees projects/ZOOKEEPER/assignees.csv
+python scripts/07_mohs_topo_assign.py --topo projects/ZOOKEEPER/logical_topo.csv --assignees projects/ZOOKEEPER/assignees.csv
 ```
 
-Gợi ý: copy `projects/ZOOKEEPER/` thành `projects/HBASE/` để có sẵn cấu trúc file.
+## 6) Running on a New Project
 
-## Thuật toán gán task
+1) Export issue links for the project:
+   Option A (direct from MongoDB, per project):
+   - Open `tools/mongodata3.py` and set `PROJECT_KEY` + output paths
+   - Run:
+     ```bash
+     python tools/mongodata3.py
+     ```
+   Option B (export once, reuse without MongoDB queries):
+   ```bash
+   python tools/export_all_issue_links.py --mongo-uri mongodb://localhost:27017 --db JiraReposAnon --collection Apache --out data/raw/all_issue_links.csv
+   python tools/extract_issue_links.py --input data/raw/all_issue_links.csv --project-key YOUR_PROJECT
+   ```
 
-- **HS**: phiên bản cơ bản
-- **IHS**: PAR, BW thay đổi theo iteration
-- **GHS**: kéo theo best harmony (không dùng BW)
-- **MOHS**: đa mục tiêu, Pareto archive
+2) Run the pipeline:
+   ```bash
+   python scripts/run_pipeline.py --project-key YOUR_PROJECT
+   ```
 
-## Visualize
+## 6.1) Rebuilding Global Data (when files are missing)
 
-HS/IHS/GHS plots:
-- `projects/ZOOKEEPER/hs_plots/`
-- `projects/ZOOKEEPER/ihs_plots/`
-- `projects/ZOOKEEPER/ghs_plots/`
-
-MOHS plots:
+If `data/interim/all_issues_tagged.csv` (and other Step 0 outputs) are missing:
+```bash
+python scripts/00_all_projects_assignee_skills.py
 ```
-python scripts/visualize_mohs.py
+
+This will query MongoDB and regenerate:
+- `data/raw/all_issues.csv`
+- `data/interim/all_issues_tagged.csv`
+- `data/interim/assignee_mapping.csv`
+- `data/interim/assignee_tag_count.csv`
+- `data/interim/assignee_skill_profile.csv`
+
+## 7) Outputs
+
+For each project, you will get:
+- `logical_tasks.csv`, `logical_tasks_tagged.csv`
+- DAG files: `issue_dag_*.csv`, `logical_dag_*.csv`
+- `logical_topo.csv`
+- `assignees.csv`
+- Assignments + scores for each algorithm:
+  - `hs_assignment.csv`, `hs_score.json`
+  - `ihs_assignment.csv`, `ihs_score.json`
+  - `ghs_assignment.csv`, `ghs_score.json`
+  - `mohs_assignment.csv`, `mohs_score.json`
+
+## 8) Tools (Optional)
+
+Helper scripts are in `tools/` and are not part of the pipeline:
+- `tools/mongodata3.py`: export project issues/links from MongoDB
+- `tools/export_all_issue_links.py`: export all issue links to one CSV
+- `tools/extract_issue_links.py`: filter project links from a global links CSV/JSONL
+- `tools/compare_algorithms.py`: summarize algorithm metrics
+- `tools/visualize_gantt.py`: create Gantt charts (legacy, uses issue_links)
+- `tools/render_gantt_from_assignment.py`: create Gantt charts from assignment (Start_Hour/End_Hour)
+- `tools/visualize_mohs.py`: Pareto plots for MOHS
+
+Example (dense label style is now default):
+```bash
+python tools/render_gantt_from_assignment.py --assignment projects/WODEN/ihs_assignment.csv --label-fontsize 6 --ytick-fontsize 6
 ```
-Output:
-- `projects/ZOOKEEPER/mohs_plots/mohs_pareto_scatter.png`
-- `projects/ZOOKEEPER/mohs_plots/mohs_parallel_coordinates.png`
 
-## Ghi chú
+## 9) Troubleshooting
 
-- `scripts/mongodata3.py` xuất `projects/ZOOKEEPER/issue_links.csv`.
-- Bước 7 dùng `topo_level` để gom batch theo DAG.
+- `ModuleNotFoundError: pandas` -> run `pip install pandas numpy pymongo matplotlib`
+- `ConnectionRefused` to MongoDB -> check MongoDB is running and connection string
+- Missing `issue_links.csv` -> run `tools/mongodata3.py`
+- Empty output files -> verify input data exists in `data/` and `projects/<PROJECT>/`
