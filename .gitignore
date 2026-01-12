@@ -1,2 +1,4 @@
 data/raw/all_issues.csv
 data/interim/all_issues_tagged.csv
+scripts/data/raw/all_issues.csv
+scripts/data/interim/all_issues_tagged.csv
