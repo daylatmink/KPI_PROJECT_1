@@ -1,3 +1,0 @@
-from_issue_key,to_issue_key,link_type,raw_link_type,direction,from_summary,to_summary,same_group,same_component,same_release
-WODEN-215,WODEN-190,blocks,Blocker,outward,Infinite loop with wsdl viewer,Create a Durable URL for WSDL Viewer Stylesheet and Autopublish from Build,0,0,0
-WODEN-215,WODEN-190,is blocked by,Blocker,inward,Infinite loop with wsdl viewer,Create a Durable URL for WSDL Viewer Stylesheet and Autopublish from Build,0,0,0
