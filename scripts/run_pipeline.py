@@ -17,6 +17,7 @@ from pathlib import Path
 # Get the scripts directory
 SCRIPTS_DIR = Path(__file__).parent
 PROJECT_ROOT = SCRIPTS_DIR.parent
+TOOLS_DIR = PROJECT_ROOT / "tools"
 
 # Define the pipeline steps
 PIPELINE_STEPS = [
@@ -320,6 +321,14 @@ def check_project_issue_links(project_key):
     return links_file.exists()
 
 
+def check_cost_profile():
+    """
+    Check if assignee cost profile exists.
+    """
+    cost_file = PROJECT_ROOT / "data/interim/assignee_cost_profile.csv"
+    return cost_file.exists()
+
+
 def run_pipeline(args):
     """Run pipeline with parsed args"""
     project_key = args.project_key.upper()
@@ -398,6 +407,19 @@ def run_pipeline(args):
     print(f"\n🚀 Bắt đầu chạy pipeline ({len(steps)} bước)...\n")
     
     for step_info in steps:
+        if step_info["script"] in {
+            "07_hs_topo_assign.py",
+            "07_ihs_topo_assign.py",
+            "07_ghs_topo_assign.py",
+        }:
+            if not check_cost_profile():
+                print(
+                    "\nCost profile is required for HS/IHS/GHS. "
+                    "Run step 6b to generate it: "
+                    "python scripts/06b_assign_cost_to_assignees.py"
+                )
+                return 1
+
         script_path = SCRIPTS_DIR / step_info["script"]
         
         if not script_path.exists():
@@ -457,6 +479,45 @@ def run_pipeline(args):
 
 
 
+def run_tool_script(script_name, args_list=None):
+    args_list = args_list or []
+    script_path = TOOLS_DIR / script_name
+    if not script_path.exists():
+        print(f"Tool not found: {script_path}")
+        return 1
+
+    cmd = [sys.executable, str(script_path)] + args_list
+    print("\n" + "=" * 70)
+    print(f"[Tool] {script_name}")
+    print("=" * 70)
+    try:
+        result = subprocess.run(
+            cmd,
+            cwd=PROJECT_ROOT,
+            check=False,
+            capture_output=False,
+        )
+        return result.returncode
+    except Exception as e:
+        print(f"Error running tool {script_name}: {e}")
+        return 1
+
+
+
+
+
+def _prompt_int(prompt, default=None):
+    suffix = f" [{default}]" if default is not None else ""
+    raw = input(f"{prompt}{suffix}: ").strip()
+    if not raw:
+        return default
+    try:
+        return int(raw)
+    except ValueError:
+        print("Invalid number. Using default.")
+        return default
+
+
 def _prompt_bool(prompt, default=False):
     while True:
         suffix = "Y/n" if default else "y/N"
@@ -483,11 +544,52 @@ def interactive_menu():
         print("3) Run only assignment (Step 7)")
         print("4) Run pipeline without MOHS")
         print("5) Run with verbose logs")
+        print("6) Tool: Compare algorithms")
+        print("7) Tool: Render Gantt from assignment")
+        print("8) Tool: Visualize MOHS (Pareto plots)")
+        print("9) Tool: Legacy Gantt (uses issue links)")
         print("0) Exit")
 
         choice = input("Choose an option: ").strip()
         if choice == "0":
             return 0
+
+        if choice in {"6", "7", "8", "9"}:
+            project_key = _prompt_text("Project key", "ZOOKEEPER").upper()
+            if choice == "6":
+                out_csv = _prompt_text("Output CSV (optional)", "").strip()
+                args = ["--project", project_key]
+                if out_csv:
+                    args += ["--out", out_csv]
+                return run_tool_script("compare_algorithms.py", args)
+
+            if choice == "7":
+                default_assign = f"projects/{project_key}/ihs_assignment.csv"
+                assignment = _prompt_text("Assignment CSV", default_assign)
+                output = _prompt_text("Output file (optional)", "")
+                max_tasks = _prompt_int("Max tasks (0 = all)", 0)
+                args = ["--assignment", assignment]
+                if output:
+                    args += ["--output", output]
+                if max_tasks and max_tasks > 0:
+                    args += ["--max-tasks", str(max_tasks)]
+                return run_tool_script("render_gantt_from_assignment.py", args)
+
+            if choice == "8":
+                score = _prompt_text("Score JSON", f"projects/{project_key}/mohs_score.json")
+                out_dir = _prompt_text("Output dir", f"projects/{project_key}/mohs_plots")
+                args = ["--score", score, "--out-dir", out_dir]
+                return run_tool_script("visualize_mohs.py", args)
+
+            if choice == "9":
+                assignment = _prompt_text("Assignment CSV", f"projects/{project_key}/hs_assignment.csv")
+                links = _prompt_text("Issue links CSV", f"projects/{project_key}/issue_links.csv")
+                out_dir = _prompt_text("Output dir", f"projects/{project_key}/gantt_legacy")
+                max_tasks = _prompt_int("Max tasks (default 200)", 200)
+                args = ["--assignment", assignment, "--links", links, "--output-dir", out_dir]
+                if max_tasks is not None:
+                    args += ["--max-tasks", str(max_tasks)]
+                return run_tool_script("visualize_gantt.py", args)
 
         project_key = _prompt_text("Project key", "ZOOKEEPER").upper()
 
@@ -520,6 +622,7 @@ def interactive_menu():
             args.verbose = _prompt_bool("Verbose logs?", False)
 
         return run_pipeline(args)
+
 
 
 def main():

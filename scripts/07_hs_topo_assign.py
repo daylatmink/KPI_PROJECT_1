@@ -41,10 +41,11 @@ class HSConfig:
 
 @dataclass
 class ObjectiveWeights:
-    skill_matching: float = 0.60
+    skill_matching: float = 0.30
     workload_balance: float = 0.20
     priority_respect: float = 0.15
-    skill_development: float = 0.05
+    skill_development: float = 0.10
+    cost_optimization: float = 0.25
 
 
 @dataclass
@@ -152,12 +153,14 @@ class ObjectiveCalculator:
         s2 = self._workload_balance(assign)
         s3 = self._priority_respect(assign)
         s4 = self._skill_dev(assign)
+        s5 = self._cost_optimization(assign)
 
         total = (
             s1 * self.weights.skill_matching
             + s2 * self.weights.workload_balance
             + s3 * self.weights.priority_respect
             + s4 * self.weights.skill_development
+            + s5 * self.weights.cost_optimization
         )
 
         return total, {
@@ -165,6 +168,7 @@ class ObjectiveCalculator:
             "workload_balance": s2,
             "priority_respect": s3,
             "skill_development": s4,
+            "cost_optimization": s5,
             "total": total,
         }
 
@@ -222,6 +226,34 @@ class ObjectiveCalculator:
         vals = [len(v) for v in diversity.values()]
         avg = np.mean(vals)
         return min(1, avg / 10)
+
+    def _cost_optimization(self, assign):
+        default_rate = 50.0
+        total_hours = 0.0
+        total_cost = 0.0
+        for tid, emp in assign.items():
+            info = self.data.get_task_info(tid)
+            duration = float(info.get("Duration_Hours", 0) or 0)
+            rate = self.data.emp_costs.get(emp, default_rate)
+            total_hours += duration
+            total_cost += duration * rate
+
+        if total_hours <= 0:
+            return 1.0
+
+        avg_rate = total_cost / total_hours
+        if self.data.emp_costs:
+            min_rate = min(self.data.emp_costs.values())
+            max_rate = max(self.data.emp_costs.values())
+        else:
+            min_rate = default_rate
+            max_rate = default_rate
+
+        if max_rate > min_rate:
+            score = 1.0 - ((avg_rate - min_rate) / (max_rate - min_rate))
+        else:
+            score = 1.0
+        return max(0.0, min(1.0, score))
 
 
 class HarmonySearchBatch:
@@ -298,6 +330,7 @@ class HarmonySearchBatch:
                     "workload_balance": best_details["workload_balance"],
                     "priority_respect": best_details["priority_respect"],
                     "skill_development": best_details["skill_development"],
+                    "cost_optimization": best_details["cost_optimization"],
                     "total": best_details["total"],
                     "current_score": s,
                     "best_score": best_score,
@@ -510,7 +543,8 @@ def main():
         
         print(f"  Best score for level: {total:.4f}")
         print(f"  Details: skill={details['skill_matching']:.3f}, balance={details['workload_balance']:.3f}, "
-              f"priority={details['priority_respect']:.3f}, dev={details['skill_development']:.3f}")
+              f"priority={details['priority_respect']:.3f}, dev={details['skill_development']:.3f}, "
+              f"cost={details['cost_optimization']:.3f}")
 
         # Plot history for this level
         if history:
@@ -524,6 +558,7 @@ def main():
                     "workload_balance",
                     "priority_respect",
                     "skill_development",
+                    "cost_optimization",
                     "total",
                 ]:
                     plt.plot(hist_df["iteration"], hist_df[col], label=col)
@@ -650,8 +685,20 @@ def main():
     total_idle_hours = (len(employees) * makespan_hours) - total_work_hours if makespan_hours > 0 else 0.0
     idle_ratio = 1 - utilization if utilization > 0 else 0.0
     
-    # Calculate global cost KPIs
-    total_project_cost = sum(row.get("Duration_Hours", 0) * emp_costs.get(row.get("Assigned_To"), 50.0) for row in all_rows)
+    # Calculate global cost KPIs (pre-compute cost bounds)
+    default_rate = 50.0
+    total_project_cost = sum(
+        row.get("Duration_Hours", 0) * emp_costs.get(row.get("Assigned_To"), default_rate)
+        for row in all_rows
+    )
+    if emp_costs:
+        min_rate = min(emp_costs.values())
+        max_rate = max(emp_costs.values())
+    else:
+        min_rate = default_rate
+        max_rate = default_rate
+    min_possible_cost = total_work_hours * min_rate
+    max_possible_cost = total_work_hours * max_rate
     
     # Calculate global quality scores
     global_details = {
@@ -669,16 +716,32 @@ def main():
         level_task_count = len(level_sol["tasks_df"])
         weight = level_task_count / len(all_rows) if len(all_rows) > 0 else 0
         
-        for key in global_details.keys():
+        for key in (
+            "skill_matching",
+            "workload_balance",
+            "priority_respect",
+            "skill_development",
+        ):
             if key in level_detail:
                 global_details[key] += level_detail[key] * weight
     
     global_total_score = (
-        global_details["skill_matching"] * 0.60 +
+        global_details["skill_matching"] * 0.30 +
         global_details["workload_balance"] * 0.20 +
         global_details["priority_respect"] * 0.15 +
-        global_details["skill_development"] * 0.05
+        global_details["skill_development"] * 0.10 +
+        global_details["cost_optimization"] * 0.25
     )
+    if max_possible_cost > min_possible_cost:
+        cost_optimization = 1.0 - (
+            (total_project_cost - min_possible_cost)
+            / (max_possible_cost - min_possible_cost)
+        )
+    else:
+        cost_optimization = 1.0
+    cost_efficiency = (global_total_score / total_project_cost) if total_project_cost > 0 else 0.0
+    global_details["cost_optimization"] = cost_optimization
+    global_details["cost_efficiency"] = cost_efficiency
     
     # Level scores for output
     level_scores = []
@@ -716,6 +779,10 @@ def main():
         "total_project_cost_usd": round(total_project_cost, 2),
         "cost_per_task_usd": round(total_project_cost / len(all_rows), 2) if all_rows else 0,
         "cost_per_hour_usd": round(total_project_cost / total_work_hours, 2) if total_work_hours > 0 else 0,
+        "min_possible_cost_usd": round(min_possible_cost, 2),
+        "max_possible_cost_usd": round(max_possible_cost, 2),
+        "cost_optimization": round(cost_optimization, 4),
+        "cost_efficiency_score_per_usd": round(cost_efficiency, 8),
         "efficiency_score_per_1000_usd": round(global_total_score / (total_project_cost / 1000), 4) if total_project_cost > 0 else 0,
         # Per-level breakdown
         "level_scores": level_scores,
@@ -737,6 +804,8 @@ def main():
     print(f"  Total Cost: ${total_project_cost:,.2f}")
     print(f"  Cost per Task: ${total_project_cost / len(all_rows):.2f}")
     print(f"  Cost per Hour: ${total_project_cost / total_work_hours:.2f}")
+    print(f"  Cost Optimization: {cost_optimization:.4f}")
+    print(f"  Cost Efficiency (score/usd): {cost_efficiency:.8f}")
     print(f"  Utilization: {utilization:.2%}")
 
 

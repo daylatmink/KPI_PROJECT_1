@@ -43,11 +43,11 @@ class HSConfig:
 
 @dataclass
 class ObjectiveWeights:
-    skill_matching: float = 0.60
+    skill_matching: float = 0.30
     workload_balance: float = 0.20
     priority_respect: float = 0.15
-    skill_development: float = 0.05
-    cost_optimization: float = 0.50
+    skill_development: float = 0.10
+    cost_optimization: float = 0.25
 
 
 @dataclass
@@ -179,7 +179,7 @@ class ObjectiveCalculator:
             + s3 * self.weights.priority_respect
             + s4 * self.weights.skill_development
         )
-        total = 0.5 * quality + 0.5 * s5
+        total = quality + (s5 * self.weights.cost_optimization)
 
         return total, {
             "skill_matching": s1,
@@ -251,12 +251,7 @@ class ObjectiveCalculator:
         return min(1, avg / 10)
 
     def _cost_optimization(self, assign):
-        if not self.data.emp_costs:
-            return 0.5
-        max_cost = max(self.data.emp_costs.values()) if self.data.emp_costs else 0.0
-        if max_cost <= 0:
-            return 0.5
-
+        default_rate = 50.0
         total_cost = 0.0
         total_duration = 0.0
         for tid, emp in assign.items():
@@ -268,13 +263,25 @@ class ObjectiveCalculator:
             gap = max(0, need - have)
             duration *= duration_multiplier(gap, self.cfg)
             total_duration += duration
-            cost = self.data.emp_costs.get(emp, max_cost)
+            cost = self.data.emp_costs.get(emp, default_rate)
             total_cost += duration * cost
 
         if total_duration <= 0:
-            return 0.0
+            return 1.0
+
         avg_cost = total_cost / total_duration
-        return max(0.0, 1.0 - (avg_cost / max_cost))
+        if self.data.emp_costs:
+            min_rate = min(self.data.emp_costs.values())
+            max_rate = max(self.data.emp_costs.values())
+        else:
+            min_rate = default_rate
+            max_rate = default_rate
+
+        if max_rate > min_rate:
+            score = 1.0 - ((avg_cost - min_rate) / (max_rate - min_rate))
+        else:
+            score = 1.0
+        return max(0.0, min(1.0, score))
 
 
 class HarmonySearchBatchGHS:
@@ -362,6 +369,7 @@ class HarmonySearchBatchGHS:
                     "workload_balance": best_details["workload_balance"],
                     "priority_respect": best_details["priority_respect"],
                     "skill_development": best_details["skill_development"],
+                    "cost_optimization": best_details["cost_optimization"],
                     "total": best_details["total"],
                     "current_score": s,
                     "best_score": best_score,
@@ -619,6 +627,7 @@ def main():
                         "workload_balance",
                         "priority_respect",
                         "skill_development",
+                        "cost_optimization",
                         "total",
                     ]:
                         plt.plot(hist_df["iteration"], hist_df[col], label=col)
