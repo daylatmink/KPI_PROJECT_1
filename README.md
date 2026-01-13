@@ -116,14 +116,16 @@ The pipeline expects these inputs:
      - `tools/mongodata3.py` (edit PROJECT_KEY and output paths in that file)
 
 Note:
-- `data/interim/all_issues_tagged.csv` is in `.gitignore`, so new users must regenerate it via Step 0.
-- A Vietnamese guide to the ignored data pack is in `DATA_FILES_VI.md`.
+- If the global data files are missing, regenerate them via Step 0.
 
 ## 4) Quick Start (Recommended)
 
 Run full pipeline for a project:
 
 ```bash
+# Menu mode (no args)
+python scripts/run_pipeline.py
+
 # First-time run (includes Step 0)
 python scripts/run_pipeline.py --project-key ZOOKEEPER --with-step0
 
@@ -236,7 +238,6 @@ python tools/render_gantt_from_assignment.py --assignment projects/WODEN/ihs_ass
 
 Tài liệu này mô tả quy trình tạo logical tasks từ dữ liệu JIRA và gán task cho assignee bằng HS/IHS/GHS/MOHS. Các bước dưới đây dành cho người dùng mới clone repo.
 
-Tài liệu riêng về bộ dữ liệu bị gitignore (cách đặt file, tải về) nằm tại `DATA_FILES_VI.md`.
 
 ## 1) Yêu cầu
 
@@ -305,6 +306,9 @@ Pipeline cần các đầu vào:
 Chạy toàn bộ pipeline cho một project:
 
 ```bash
+# Chế độ menu (không tham số)
+python scripts/run_pipeline.py
+
 # Lần đầu (bao gồm Step 0)
 python scripts/run_pipeline.py --project-key ZOOKEEPER --with-step0
 
@@ -376,23 +380,7 @@ File sẽ được tạo lại:
 - `data/interim/assignee_skill_profile.csv`
 - `data/interim/assignee_cost_profile.csv`
 
-## 7) Các file bị gitignore (cần tự tạo/lấy)
-
-Những file sau KHÔNG được đẩy lên GitHub. Khi clone repo, bạn cần tự tạo/lấy:
-
-- Dữ liệu toàn cục:
-  - `data/raw/all_issues.csv`
-  - `data/interim/all_issues_tagged.csv`
-  - `data/interim/assignee_mapping.csv`
-  - `data/interim/assignee_tag_count.csv`
-  - `data/interim/assignee_skill_profile.csv`
-  - `data/interim/assignee_cost_profile.csv`
-- Dữ liệu issue links:
-  - `data/raw/all_issue_links.csv` (nếu dùng Cách B ở mục 6)
-- Môi trường ảo:
-  - `.venv/` (nên tự tạo lại bằng Python venv)
-
-## 8) Outputs
+## 7) Outputs
 
 Sau khi chạy, mỗi project sẽ có:
 - `logical_tasks.csv`, `logical_tasks_tagged.csv`
@@ -405,7 +393,7 @@ Sau khi chạy, mỗi project sẽ có:
   - `ghs_assignment.csv`, `ghs_score.json`
   - `mohs_assignment.csv`, `mohs_score.json`
 
-## 9) Công cụ (tùy chọn)
+## 8) C?ng c? (t?y ch?n)
 
 Công cụ trong `tools/` (không nằm trong pipeline chính):
 - `tools/mongodata3.py`: export issues/links tu MongoDB
@@ -416,7 +404,7 @@ Công cụ trong `tools/` (không nằm trong pipeline chính):
 - `tools/render_gantt_from_assignment.py`: tao Gantt tu assignment
 - `tools/visualize_mohs.py`: bieu do Pareto cho MOHS
 
-## 10) Khắc phục lỗi
+## 9) Kh?c ph?c l?i
 
 - `ModuleNotFoundError: pandas` -> chạy `pip install pandas numpy pymongo matplotlib`
 - Không kết nối được MongoDB -> kiểm tra MongoDB đang chạy và connection string

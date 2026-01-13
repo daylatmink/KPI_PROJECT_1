@@ -320,9 +320,8 @@ def check_project_issue_links(project_key):
     return links_file.exists()
 
 
-def main():
-    """Main entry point"""
-    args = parse_args()
+def run_pipeline(args):
+    """Run pipeline with parsed args"""
     project_key = args.project_key.upper()
     
     print(f"""
@@ -454,6 +453,82 @@ def main():
     else:
         print(f"\n⚠️  Pipeline hoàn tất với {len(failed_steps)} lỗi")
         return 1
+
+
+
+
+def _prompt_bool(prompt, default=False):
+    while True:
+        suffix = "Y/n" if default else "y/N"
+        raw = input(f"{prompt} ({suffix}): ").strip().lower()
+        if not raw:
+            return default
+        if raw in ("y", "yes"):
+            return True
+        if raw in ("n", "no"):
+            return False
+        print("Please enter y or n.")
+
+
+def _prompt_text(prompt, default=None):
+    raw = input(f"{prompt}{' [' + default + ']' if default else ''}: ").strip()
+    return raw or (default or "")
+
+
+def interactive_menu():
+    while True:
+        print("\n=== JIRA PIPELINE MENU ===")
+        print("1) Run pipeline (Step 1-7)")
+        print("2) Run pipeline with Step 0")
+        print("3) Run only assignment (Step 7)")
+        print("4) Run pipeline without MOHS")
+        print("5) Run with verbose logs")
+        print("0) Exit")
+
+        choice = input("Choose an option: ").strip()
+        if choice == "0":
+            return 0
+
+        project_key = _prompt_text("Project key", "ZOOKEEPER").upper()
+
+        args = argparse.Namespace(
+            project_key=project_key,
+            with_step0=False,
+            skip_mohs=False,
+            only_assignment=False,
+            verbose=False,
+        )
+
+        if choice == "1":
+            pass
+        elif choice == "2":
+            args.with_step0 = True
+        elif choice == "3":
+            args.only_assignment = True
+        elif choice == "4":
+            args.skip_mohs = True
+        elif choice == "5":
+            args.verbose = True
+        else:
+            print("Invalid option. Try again.")
+            continue
+
+        if choice not in ("2", "3", "4", "5"):
+            args.with_step0 = _prompt_bool("Include Step 0?", False)
+            args.skip_mohs = _prompt_bool("Skip MOHS?", False)
+            args.only_assignment = _prompt_bool("Only assignment (Step 7)?", False)
+            args.verbose = _prompt_bool("Verbose logs?", False)
+
+        return run_pipeline(args)
+
+
+def main():
+    """Main entry point"""
+    if len(sys.argv) == 1:
+        return interactive_menu()
+
+    args = parse_args()
+    return run_pipeline(args)
 
 
 if __name__ == "__main__":
