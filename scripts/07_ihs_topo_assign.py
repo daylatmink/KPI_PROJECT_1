@@ -37,7 +37,7 @@ class HSConfig:
     par_max: float = 0.50
     bw_min: float = 1.0
     bw_max: float = 5.0
-    num_iterations: int = 200
+    num_iterations: int = 1000
     seed: int = 42
     max_skill_gap: int = 2
     duration_penalty_per_gap: float = 0.25
@@ -46,11 +46,13 @@ class HSConfig:
 
 @dataclass
 class ObjectiveWeights:
-    skill_matching: float = 0.30
-    workload_balance: float = 0.20
-    priority_respect: float = 0.15
-    skill_development: float = 0.10
-    cost_optimization: float = 0.25
+    skill_matching: float = 0.25
+    workload_balance: float = 0.15
+    priority_respect: float = 0.10
+    skill_development: float = 0.05
+    cost_optimization: float = 0.20
+    makespan_score: float = 0.15
+    utilization_score: float = 0.10
 
 
 @dataclass
@@ -175,12 +177,16 @@ class ObjectiveCalculator:
         s3 = self._priority_respect(assign)
         s4 = self._skill_dev(assign)
         s5 = self._cost_optimization(assign)
+        s6 = self._makespan_score(assign)
+        s7 = self._utilization_score(assign)
 
         quality = (
             s1 * self.weights.skill_matching
             + s2 * self.weights.workload_balance
             + s3 * self.weights.priority_respect
             + s4 * self.weights.skill_development
+            + s6 * self.weights.makespan_score
+            + s7 * self.weights.utilization_score
         )
         total = quality + (s5 * self.weights.cost_optimization)
 
@@ -190,6 +196,8 @@ class ObjectiveCalculator:
             "priority_respect": s3,
             "skill_development": s4,
             "cost_optimization": s5,
+            "makespan_score": s6,
+            "utilization_score": s7,
             "quality_score": quality,
             "total": total,
         }
@@ -201,14 +209,10 @@ class ObjectiveCalculator:
             emp_sk = self.data.get_emp_skills(emp)
             for tag, need in reqs:
                 have = emp_sk.get(tag, 0)
-                gap = max(0, need - have)
-                if self.cfg.hard_fail_on_zero_skill and have <= 0:
-                    penalty += 1.0
-                elif gap > self.cfg.max_skill_gap:
-                    penalty += 1.0
-                elif have == 0:
+                if have == 0:
                     penalty += self.penalties.skill_mismatch
                 else:
+                    gap = max(0, need - have)
                     penalty += gap * self.penalties.skill_gap / 100.0
 
         avg_penalty = penalty / len(assign)
@@ -255,24 +259,19 @@ class ObjectiveCalculator:
 
     def _cost_optimization(self, assign):
         default_rate = 50.0
+        total_hours = 0.0
         total_cost = 0.0
-        total_duration = 0.0
         for tid, emp in assign.items():
             info = self.data.get_task_info(tid)
-            duration = float(info.get("Duration_Hours", 0.0))
-            tag = str(info.get("Task_Tag", "")).strip()
-            need = priority_to_level(info.get("Priority", ""))
-            have = self.data.get_emp_skills(emp).get(tag, 0)
-            gap = max(0, need - have)
-            duration *= duration_multiplier(gap, self.cfg)
-            total_duration += duration
-            cost = self.data.emp_costs.get(emp, default_rate)
-            total_cost += duration * cost
+            duration = float(info.get("Duration_Hours", 0) or 0)
+            rate = self.data.emp_costs.get(emp, default_rate)
+            total_hours += duration
+            total_cost += duration * rate
 
-        if total_duration <= 0:
+        if total_hours <= 0:
             return 1.0
 
-        avg_cost = total_cost / total_duration
+        avg_rate = total_cost / total_hours
         if self.data.emp_costs:
             min_rate = min(self.data.emp_costs.values())
             max_rate = max(self.data.emp_costs.values())
@@ -281,10 +280,42 @@ class ObjectiveCalculator:
             max_rate = default_rate
 
         if max_rate > min_rate:
-            score = 1.0 - ((avg_cost - min_rate) / (max_rate - min_rate))
+            score = 1.0 - ((avg_rate - min_rate) / (max_rate - min_rate))
         else:
             score = 1.0
         return max(0.0, min(1.0, score))
+
+    def _makespan_score(self, assign):
+        if not assign:
+            return 1.0
+        per_emp = {}
+        total_hours = 0.0
+        for tid, emp in assign.items():
+            info = self.data.get_task_info(tid)
+            duration = float(info.get("Duration_Hours", 0.0))
+            per_emp[emp] = per_emp.get(emp, 0.0) + duration
+            total_hours += duration
+        if not per_emp or total_hours <= 0:
+            return 1.0
+        makespan = max(per_emp.values())
+        ideal = total_hours / max(1, len(per_emp))
+        return max(0.0, min(1.0, ideal / makespan if makespan > 0 else 1.0))
+
+    def _utilization_score(self, assign):
+        if not assign:
+            return 1.0
+        per_emp = {}
+        total_hours = 0.0
+        for tid, emp in assign.items():
+            info = self.data.get_task_info(tid)
+            duration = float(info.get("Duration_Hours", 0.0))
+            per_emp[emp] = per_emp.get(emp, 0.0) + duration
+            total_hours += duration
+        if not per_emp or total_hours <= 0:
+            return 1.0
+        makespan = max(per_emp.values())
+        total_emps = max(1, len(self.data.emp_skills))
+        return max(0.0, min(1.0, total_hours / (total_emps * makespan) if makespan > 0 else 1.0))
 
 
 class HarmonySearchBatchIHS:
@@ -311,7 +342,7 @@ class HarmonySearchBatchIHS:
         self.best_score = -1
 
     def random_assign(self):
-        picks = np.random.choice(self.emps, size=len(self.tasks), replace=False)
+        picks = np.random.choice(self.emps, size=len(self.tasks), replace=True)
         return {tid: emp for tid, emp in zip(self.tasks, picks)}
 
     def _par(self, i: int) -> float:
@@ -325,16 +356,12 @@ class HarmonySearchBatchIHS:
         bw = int(max(1, round(bw)))
         return min(bw, max(1, len(self.emps) - 1))
 
-    def _neighbor_pick(self, emp: str, bw: int, used: set) -> str:
+    def _neighbor_pick(self, emp: str, bw: int) -> str:
         idx = self.emp_index[emp]
         lo = max(0, idx - bw)
         hi = min(len(self.emps) - 1, idx + bw)
-        candidates = [self.emps[i] for i in range(lo, hi + 1) if self.emps[i] not in used]
-        if candidates:
-            return np.random.choice(candidates)
-        # fallback to any remaining
-        remaining = [e for e in self.emps if e not in used]
-        return np.random.choice(remaining)
+        candidates = [self.emps[i] for i in range(lo, hi + 1)]
+        return np.random.choice(candidates) if candidates else np.random.choice(self.emps)
 
     def run(self):
         history = []
@@ -355,20 +382,15 @@ class HarmonySearchBatchIHS:
             bw = self._bw(i)
 
             new = {}
-            used = set()
             for tid in self.tasks:
                 if np.random.rand() < self.cfg.hmcr:
                     h, _ = self.hm[np.random.randint(len(self.hm))]
                     val = h[tid]
-                    if val in used:
-                        val = self._neighbor_pick(val, bw, used)
-                    elif np.random.rand() < par:
-                        val = self._neighbor_pick(val, bw, used)
+                    if np.random.rand() < par:
+                        val = self._neighbor_pick(val, bw)
                 else:
-                    remaining = [e for e in self.emps if e not in used]
-                    val = np.random.choice(remaining)
+                    val = np.random.choice(self.emps)
                 new[tid] = val
-                used.add(val)
 
             s, _ = self.calc.score(new)
 
@@ -393,6 +415,8 @@ class HarmonySearchBatchIHS:
                     "priority_respect": best_details["priority_respect"],
                     "skill_development": best_details["skill_development"],
                     "cost_optimization": best_details["cost_optimization"],
+                    "makespan_score": best_details["makespan_score"],
+                    "utilization_score": best_details["utilization_score"],
                     "total": best_details["total"],
                     "par": par,
                     "bw": bw,
@@ -440,7 +464,7 @@ def parse_assignee_skills(path: str) -> Dict[str, Dict[str, int]]:
 
 def parse_args():
     parser = argparse.ArgumentParser(
-        description="IHS assignment by topo levels (one assignee per task per batch).",
+        description="IHS assignment by topo levels (global objective, HS-style schedule).",
     )
     parser.add_argument("--topo", default=DEFAULT_TOPO)
     parser.add_argument("--assignees", default=DEFAULT_ASSIGNEES)
@@ -578,9 +602,10 @@ def main():
     os.makedirs(plot_dir, exist_ok=True)
 
     all_rows = []
-    score_rows = []
+    level_solutions = {}
     current_time = 0.0
 
+    print("\n=== STEP 1: Running IHS per Topo Level ===")
     for level in sorted(topo[LEVEL_COL].dropna().unique()):
         level_tasks = topo[topo[LEVEL_COL] == level].copy()
         asc = args.tie_break == "shortest"
@@ -590,107 +615,123 @@ def main():
         if not tasks_list:
             continue
 
-        batch_size = len(employees)
-        level_start_time = current_time
-        for i in range(0, len(tasks_list), batch_size):
-            batch_ids = tasks_list[i : i + batch_size]
-            batch_df = level_tasks[level_tasks[TASK_ID_COL].astype(str).isin(batch_ids)]
+        print(f"\nLevel {int(level)}: {len(tasks_list)} tasks")
 
-            ctx = BatchContext(batch_df, emp_skills, emp_costs)
-            calc = ObjectiveCalculator(ctx)
-            ihs = HarmonySearchBatchIHS(
-                ctx.get_tasks(),
-                employees,
-                calc,
-                cfg,
-                seed_offset=int(level) * 1000 + i,
-                log_every=args.log_every,
-            )
+        ctx = BatchContext(level_tasks, emp_skills, emp_costs)
+        calc = ObjectiveCalculator(ctx)
+        ihs = HarmonySearchBatchIHS(
+            ctx.get_tasks(),
+            employees,
+            calc,
+            cfg,
+            seed_offset=int(level) * 1000,
+            log_every=args.log_every,
+        )
 
-            best, _, history = ihs.run()
-            total, details = calc.score(best)
+        best, best_score, history = ihs.run()
+        total, details = calc.score(best)
 
-            wave_duration = float(batch_df["duration_hours"].max()) if not batch_df.empty else 0.0
-            wave_start = level_start_time
-            wave_end = level_start_time + wave_duration
+        level_solutions[level] = {
+            "assignment": best,
+            "score_details": details,
+            "total_score": total,
+            "tasks_df": level_tasks,
+            "history": history,
+        }
 
-            for tid, emp in best.items():
-                info = ctx.get_task_info(tid)
-                need_level = priority_to_level(info["Priority"])
-                have_level = emp_skills.get(emp, {}).get(info["Task_Tag"], 0)
-                match = 1 if have_level >= need_level else 0
-                gap = max(0, need_level - have_level)
-                adj_duration = float(info["Duration_Hours"]) * duration_multiplier(gap, cfg)
-                all_rows.append(
-                    {
-                        "Task_ID": tid,
-                        "Topo_Level": info["Topo_Level"],
-                        "Batch_Index": (i // batch_size) + 1,
-                        "Summary": info["Summary"],
-                        "Task_Tag": info["Task_Tag"],
-                        "Priority": info["Priority"],
-                        "Duration_Hours": adj_duration,
-                        "Assigned_To": emp,
-                        "Start_Hour": wave_start,
-                        "End_Hour": wave_end,
-                        "Skill_Match": match,
-                    }
-                )
-                if topo_order_col and topo_order_col in info:
-                    all_rows[-1]["Topo_Order"] = int(info[topo_order_col])
+        print(f"  Best score for level: {total:.4f}")
+        print(
+            f"  Details: skill={details['skill_matching']:.3f}, balance={details['workload_balance']:.3f}, "
+            f"priority={details['priority_respect']:.3f}, dev={details['skill_development']:.3f}, "
+            f"cost={details['cost_optimization']:.3f}, ms={details['makespan_score']:.3f}, "
+            f"util={details['utilization_score']:.3f}"
+        )
 
-            score_rows.append(
-                {
-                    "Topo_Level": int(level),
-                    "Batch_Index": (i // batch_size) + 1,
-                    **details,
-                }
-            )
-            level_start_time = wave_end
+        if history:
+            try:
+                import matplotlib.pyplot as plt
 
-            if history:
-                try:
-                    import matplotlib.pyplot as plt
+                hist_df = pd.DataFrame(history)
+                plt.figure(figsize=(8, 4))
+                for col in [
+                    "skill_matching",
+                    "workload_balance",
+                    "priority_respect",
+                    "skill_development",
+                    "cost_optimization",
+                    "makespan_score",
+                    "utilization_score",
+                    "total",
+                ]:
+                    plt.plot(hist_df["iteration"], hist_df[col], label=col)
 
-                    hist_df = pd.DataFrame(history)
-                    plt.figure(figsize=(8, 4))
-                    for col in [
-                        "skill_matching",
-                        "workload_balance",
-                        "priority_respect",
-                        "skill_development",
-                        "cost_optimization",
-                        "total",
-                    ]:
-                        plt.plot(hist_df["iteration"], hist_df[col], label=col)
+                plt.title(f"IHS Objectives - Level {int(level)}")
+                plt.xlabel("Iteration")
+                plt.ylabel("Score")
+                plt.legend(loc="best", fontsize=8)
+                plt.tight_layout()
+                out_name = f"ihs_objectives_L{int(level)}.png"
+                plt.savefig(os.path.join(plot_dir, out_name), dpi=150)
+                plt.close()
 
-                    plt.title(f"IHS Objectives - Level {int(level)} Batch {(i // batch_size) + 1}")
-                    plt.xlabel("Iteration")
-                    plt.ylabel("Score")
-                    plt.legend(loc="best", fontsize=8)
-                    plt.tight_layout()
-                    out_name = f"ihs_objectives_L{int(level)}_B{(i // batch_size) + 1}.png"
-                    plt.savefig(os.path.join(plot_dir, out_name), dpi=150)
-                    plt.close()
+                plt.figure(figsize=(8, 4))
+                plt.plot(hist_df["iteration"], hist_df["current_score"], label="current_score", alpha=0.6)
+                plt.plot(hist_df["iteration"], hist_df["best_score"], label="best_score", linewidth=2)
+                if len(hist_df) >= 10:
+                    hist_df["current_ma10"] = hist_df["current_score"].rolling(10).mean()
+                    plt.plot(hist_df["iteration"], hist_df["current_ma10"], label="current_ma10", linewidth=2)
+                plt.title(f"IHS Scores - Level {int(level)}")
+                plt.xlabel("Iteration")
+                plt.ylabel("Score")
+                plt.legend(loc="best", fontsize=8)
+                plt.tight_layout()
+                out_name = f"ihs_scores_L{int(level)}.png"
+                plt.savefig(os.path.join(plot_dir, out_name), dpi=150)
+                plt.close()
+            except Exception as exc:
+                print("Warning: plot skipped:", exc)
 
-                    plt.figure(figsize=(8, 4))
-                    plt.plot(hist_df["iteration"], hist_df["current_score"], label="current_score", alpha=0.6)
-                    plt.plot(hist_df["iteration"], hist_df["best_score"], label="best_score", linewidth=2)
-                    if len(hist_df) >= 10:
-                        hist_df["current_ma10"] = hist_df["current_score"].rolling(10).mean()
-                        plt.plot(hist_df["iteration"], hist_df["current_ma10"], label="current_ma10", linewidth=2)
-                    plt.title(f"IHS Scores - Level {int(level)} Batch {(i // batch_size) + 1}")
-                    plt.xlabel("Iteration")
-                    plt.ylabel("Score")
-                    plt.legend(loc="best", fontsize=8)
-                    plt.tight_layout()
-                    out_name = f"ihs_scores_L{int(level)}_B{(i // batch_size) + 1}.png"
-                    plt.savefig(os.path.join(plot_dir, out_name), dpi=150)
-                    plt.close()
-                except Exception as exc:
-                    print("Warning: plot skipped:", exc)
+    print("\n=== STEP 2: Combining Level Solutions into Global Assignment ===")
+    all_rows = []
+    level_times = {}
+    current_time = 0.0
 
-        current_time = level_start_time
+    for level in sorted(level_solutions.keys()):
+        level_sol = level_solutions[level]
+        level_tasks = level_sol["tasks_df"]
+        best_assignment = level_sol["assignment"]
+
+        level_duration = float(level_tasks["duration_hours"].max()) if not level_tasks.empty else 0.0
+        level_start = current_time
+        level_end = current_time + level_duration
+        level_times[level] = {"start": level_start, "end": level_end}
+
+        for tid, emp in best_assignment.items():
+            task_row = level_tasks[level_tasks[TASK_ID_COL].astype(str) == str(tid)]
+            if task_row.empty:
+                continue
+            info_dict = task_row.iloc[0].to_dict()
+
+            match = 1 if emp_skills.get(emp, {}).get(info_dict.get(TASK_TAG_COL, ""), 0) > 0 else 0
+            row = {
+                "Task_ID": tid,
+                "Topo_Level": int(level),
+                "Summary": info_dict.get(SUMMARY_COL, ""),
+                "Task_Tag": info_dict.get(TASK_TAG_COL, ""),
+                "Priority": info_dict.get(PRIORITY_COL, ""),
+                "Duration_Hours": float(info_dict.get("duration_hours", 0)),
+                "Assigned_To": emp,
+                "Start_Hour": level_start,
+                "End_Hour": level_end,
+                "Skill_Match": match,
+            }
+            if topo_order_col:
+                row["Topo_Order"] = int(info_dict.get(topo_order_col, 0))
+            all_rows.append(row)
+
+        current_time = level_end
+
+    print(f"Total tasks assigned: {len(all_rows)}")
 
     os.makedirs(os.path.dirname(args.output_assignment), exist_ok=True)
     os.makedirs(os.path.dirname(args.output_score), exist_ok=True)
@@ -709,69 +750,164 @@ def main():
     df_rows = pd.DataFrame(all_rows)
     total_work_hours = float(df_rows["Duration_Hours"].sum()) if not df_rows.empty else 0.0
     skill_match_rate = float(df_rows["Skill_Match"].mean()) if not df_rows.empty else 0.0
+
     makespan_hours = float(df_rows["End_Hour"].max()) if not df_rows.empty else 0.0
     utilization = (
         total_work_hours / (len(employees) * makespan_hours)
         if makespan_hours > 0 and employees
         else 0.0
     )
+
     if not df_rows.empty:
         task_durations = df_rows["Duration_Hours"].astype(float)
         avg_task_duration = float(task_durations.mean())
         p50_task_duration = float(np.percentile(task_durations, 50))
         p90_task_duration = float(np.percentile(task_durations, 90))
 
-        batch_stats = (
-            df_rows.groupby(["Topo_Level", "Batch_Index"])
+        level_stats = (
+            df_rows.groupby(["Topo_Level"])
             .agg(end_hour=("End_Hour", "max"), start_hour=("Start_Hour", "min"))
         )
-        batch_durations = (batch_stats["end_hour"] - batch_stats["start_hour"]).values
-        avg_batch_duration = float(np.mean(batch_durations)) if len(batch_durations) else 0.0
-        p90_batch_duration = float(np.percentile(batch_durations, 90)) if len(batch_durations) else 0.0
+        level_durations = (level_stats["end_hour"] - level_stats["start_hour"]).values
+        avg_level_duration = float(np.mean(level_durations)) if len(level_durations) else 0.0
+        p90_level_duration = float(np.percentile(level_durations, 90)) if len(level_durations) else 0.0
     else:
         avg_task_duration = 0.0
         p50_task_duration = 0.0
         p90_task_duration = 0.0
-        avg_batch_duration = 0.0
-        p90_batch_duration = 0.0
+        avg_level_duration = 0.0
+        p90_level_duration = 0.0
 
     total_idle_hours = (len(employees) * makespan_hours) - total_work_hours if makespan_hours > 0 else 0.0
     idle_ratio = 1 - utilization if utilization > 0 else 0.0
+
+    default_rate = 50.0
+    total_project_cost = sum(
+        row.get("Duration_Hours", 0) * emp_costs.get(row.get("Assigned_To"), default_rate)
+        for row in all_rows
+    )
+    if emp_costs:
+        min_rate = min(emp_costs.values())
+        max_rate = max(emp_costs.values())
+    else:
+        min_rate = default_rate
+        max_rate = default_rate
+    min_possible_cost = total_work_hours * min_rate
+    max_possible_cost = total_work_hours * max_rate
+
+    global_details = {
+        "skill_matching": 0.0,
+        "workload_balance": 0.0,
+        "priority_respect": 0.0,
+        "skill_development": 0.0,
+        "cost_optimization": 0.0,
+        "cost_efficiency": 0.0,
+        "makespan_score": 0.0,
+        "utilization_score": 0.0,
+    }
+
+    for level, level_sol in level_solutions.items():
+        level_detail = level_sol["score_details"]
+        level_task_count = len(level_sol["tasks_df"])
+        weight = level_task_count / len(all_rows) if len(all_rows) > 0 else 0
+
+        for key in (
+            "skill_matching",
+            "workload_balance",
+            "priority_respect",
+            "skill_development",
+            "makespan_score",
+            "utilization_score",
+        ):
+            if key in level_detail:
+                global_details[key] += level_detail[key] * weight
+
+    global_total_score = (
+        global_details["skill_matching"] * 0.25
+        + global_details["workload_balance"] * 0.15
+        + global_details["priority_respect"] * 0.10
+        + global_details["skill_development"] * 0.05
+        + global_details["cost_optimization"] * 0.20
+        + global_details["makespan_score"] * 0.15
+        + global_details["utilization_score"] * 0.10
+    )
+    if max_possible_cost > min_possible_cost:
+        cost_optimization = 1.0 - (
+            (total_project_cost - min_possible_cost)
+            / (max_possible_cost - min_possible_cost)
+        )
+    else:
+        cost_optimization = 1.0
+    cost_efficiency = (global_total_score / total_project_cost) if total_project_cost > 0 else 0.0
+    global_details["cost_optimization"] = cost_optimization
+    global_details["cost_efficiency"] = cost_efficiency
+
+    level_scores = []
+    for level in sorted(level_solutions.keys()):
+        level_sol = level_solutions[level]
+        level_scores.append(
+            {
+                "Topo_Level": int(level),
+                "num_tasks": len(level_sol["tasks_df"]),
+                **level_sol["score_details"],
+            }
+        )
+
     summary = {
         "total_tasks": len(all_rows),
-        "levels": int(topo[LEVEL_COL].max()) if not topo.empty else 0,
-        "batches": len(score_rows),
+        "num_levels": len(level_solutions),
         "makespan_hours": makespan_hours,
         "total_work_hours": total_work_hours,
         "avg_task_duration_hours": avg_task_duration,
         "p50_task_duration_hours": p50_task_duration,
         "p90_task_duration_hours": p90_task_duration,
-        "avg_batch_duration_hours": avg_batch_duration,
-        "p90_batch_duration_hours": p90_batch_duration,
+        "avg_level_duration_hours": avg_level_duration,
+        "p90_level_duration_hours": p90_level_duration,
         "total_idle_hours": total_idle_hours,
         "idle_ratio": idle_ratio,
         "utilization": utilization,
         "skill_match_rate": skill_match_rate,
-        "avg_total_score": float(np.mean([s["total"] for s in score_rows])) if score_rows else 0.0,
-        "avg_quality_score": float(np.mean([s.get("quality_score", 0.0) for s in score_rows])) if score_rows else 0.0,
-        "avg_cost_optimization": float(np.mean([s.get("cost_optimization", 0.0) for s in score_rows])) if score_rows else 0.0,
-        "batch_scores": score_rows,
-        # Cost KPIs
-        "total_project_cost_usd": round(sum(row.get("Duration_Hours", 0) * emp_costs.get(row.get("Assigned_To"), 50.0) for row in all_rows), 2),
-        "cost_per_task_usd": round(sum(row.get("Duration_Hours", 0) * emp_costs.get(row.get("Assigned_To"), 50.0) for row in all_rows) / len(all_rows), 2) if all_rows else 0,
-        "cost_per_hour_usd": round(sum(row.get("Duration_Hours", 0) * emp_costs.get(row.get("Assigned_To"), 50.0) for row in all_rows) / total_work_hours, 2) if total_work_hours > 0 else 0,
+        "global_skill_matching": float(global_details["skill_matching"]),
+        "global_workload_balance": float(global_details["workload_balance"]),
+        "global_priority_respect": float(global_details["priority_respect"]),
+        "global_skill_development": float(global_details["skill_development"]),
+        "global_cost_optimization": float(global_details["cost_optimization"]),
+        "global_cost_efficiency": float(global_details["cost_efficiency"]),
+        "makespan_score": float(global_details["makespan_score"]),
+        "utilization_score": float(global_details["utilization_score"]),
+        "global_total_score": float(global_total_score),
+        "total_project_cost_usd": round(total_project_cost, 2),
+        "cost_per_task_usd": round(total_project_cost / len(all_rows), 2) if all_rows else 0,
+        "cost_per_hour_usd": round(total_project_cost / total_work_hours, 2) if total_work_hours > 0 else 0,
+        "min_possible_cost_usd": round(min_possible_cost, 2),
+        "max_possible_cost_usd": round(max_possible_cost, 2),
+        "cost_optimization": round(cost_optimization, 4),
+        "cost_efficiency_score_per_usd": round(cost_efficiency, 8),
+        "efficiency_score_per_1000_usd": round(global_total_score / (total_project_cost / 1000), 4)
+        if total_project_cost > 0
+        else 0,
+        "level_scores": level_scores,
     }
-    
-    # Add efficiency metric
-    total_cost = summary["total_project_cost_usd"]
-    avg_score = summary["avg_total_score"]
-    summary["efficiency_score_per_1000_usd"] = round(avg_score / (total_cost / 1000), 4) if total_cost > 0 else 0
     
     with open(args.output_score, "w", encoding="utf-8") as f:
         json.dump(summary, f, indent=2, ensure_ascii=False)
 
-    print("Assignment saved ->", args.output_assignment)
-    print("Score saved ->", args.output_score)
+    print("\n=== STEP 3: Global Results ===")
+    print(f"Assignment saved -> {args.output_assignment}")
+    print(f"Score saved -> {args.output_score}")
+    print(f"\nGlobal Quality Scores:")
+    print(f"  Skill Matching: {global_details['skill_matching']:.4f}")
+    print(f"  Workload Balance: {global_details['workload_balance']:.4f}")
+    print(f"  Priority Respect: {global_details['priority_respect']:.4f}")
+    print(f"  Skill Development: {global_details['skill_development']:.4f}")
+    print(f"  Total Score: {global_total_score:.4f}")
+    print(f"\nGlobal Cost KPIs:")
+    print(f"  Total Cost: ${total_project_cost:,.2f}")
+    print(f"  Cost per Task: ${total_project_cost / len(all_rows):.2f}")
+    print(f"  Cost per Hour: ${total_project_cost / total_work_hours:.2f}")
+    print(f"  Cost Optimization: {cost_optimization:.4f}")
+    print(f"  Cost Efficiency (score/usd): {cost_efficiency:.8f}")
+    print(f"  Utilization: {utilization:.2%}")
 
 
 if __name__ == "__main__":

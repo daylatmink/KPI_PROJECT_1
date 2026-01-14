@@ -83,6 +83,12 @@ PIPELINE_STEPS = [
     },
     {
         "step": 7,
+        "script": "07_greedy_assign.py",
+        "args": ["--project-key"],
+        "description": "GÀn cA'ng vi ¯Øc (Greedy baseline)"
+    },
+    {
+        "step": 7,
         "script": "07_mohs_topo_assign.py",
         "args": ["--project-key"],
         "description": "Gán công việc (MOHS)"
@@ -224,6 +230,13 @@ def run_script(script_path, project_key, args_flags, step_num, description, verb
             "--output-assignment", f"projects/{project_key}/ghs_assignment.csv",
             "--output-score", f"projects/{project_key}/ghs_score.json",
             "--plot-dir", f"projects/{project_key}/ghs_plots"
+        ])
+    elif script_name == "07_greedy_assign.py":
+        cmd.extend([
+            "--topo", f"projects/{project_key}/logical_topo.csv",
+            "--assignees", f"projects/{project_key}/assignees.csv",
+            "--output-assignment", f"projects/{project_key}/greedy_assignment.csv",
+            "--output-score", f"projects/{project_key}/greedy_score.json",
         ])
     elif script_name == "07_mohs_topo_assign.py":
         cmd.extend([
@@ -411,6 +424,7 @@ def run_pipeline(args):
             "07_hs_topo_assign.py",
             "07_ihs_topo_assign.py",
             "07_ghs_topo_assign.py",
+            "07_greedy_assign.py",
         }:
             if not check_cost_profile():
                 print(

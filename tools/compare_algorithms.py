@@ -11,6 +11,7 @@ ALGO_FILES = {
     "HS": ("hs_assignment.csv", "hs_score.json"),
     "IHS": ("ihs_assignment.csv", "ihs_score.json"),
     "GHS": ("ghs_assignment.csv", "ghs_score.json"),
+    "GREEDY": ("greedy_assignment.csv", "greedy_score.json"),
     "MOHS": ("mohs_assignment.csv", "mohs_score.json"),
 }
 

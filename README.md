@@ -393,7 +393,7 @@ Sau khi chạy, mỗi project sẽ có:
   - `ghs_assignment.csv`, `ghs_score.json`
   - `mohs_assignment.csv`, `mohs_score.json`
 
-## 8) C?ng c? (t?y ch?n)
+## 8) Công cụ (tùy chọn)
 
 Công cụ trong `tools/` (không nằm trong pipeline chính):
 - `tools/mongodata3.py`: export issues/links tu MongoDB
@@ -404,7 +404,7 @@ Công cụ trong `tools/` (không nằm trong pipeline chính):
 - `tools/render_gantt_from_assignment.py`: tao Gantt tu assignment
 - `tools/visualize_mohs.py`: bieu do Pareto cho MOHS
 
-## 9) Kh?c ph?c l?i
+## 9) Khắc phục lỗi
 
 - `ModuleNotFoundError: pandas` -> chạy `pip install pandas numpy pymongo matplotlib`
 - Không kết nối được MongoDB -> kiểm tra MongoDB đang chạy và connection string

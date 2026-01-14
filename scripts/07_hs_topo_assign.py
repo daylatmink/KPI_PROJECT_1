@@ -35,17 +35,19 @@ class HSConfig:
     harmony_memory_size: int = 15
     hmcr: float = 0.85
     par: float = 0.15
-    num_iterations: int = 200
+    num_iterations: int = 1000
     seed: int = 42
 
 
 @dataclass
 class ObjectiveWeights:
-    skill_matching: float = 0.30
-    workload_balance: float = 0.20
-    priority_respect: float = 0.15
-    skill_development: float = 0.10
-    cost_optimization: float = 0.25
+    skill_matching: float = 0.25
+    workload_balance: float = 0.15
+    priority_respect: float = 0.10
+    skill_development: float = 0.05
+    cost_optimization: float = 0.20
+    makespan_score: float = 0.15
+    utilization_score: float = 0.10
 
 
 @dataclass
@@ -154,6 +156,8 @@ class ObjectiveCalculator:
         s3 = self._priority_respect(assign)
         s4 = self._skill_dev(assign)
         s5 = self._cost_optimization(assign)
+        s6 = self._makespan_score(assign)
+        s7 = self._utilization_score(assign)
 
         total = (
             s1 * self.weights.skill_matching
@@ -161,6 +165,8 @@ class ObjectiveCalculator:
             + s3 * self.weights.priority_respect
             + s4 * self.weights.skill_development
             + s5 * self.weights.cost_optimization
+            + s6 * self.weights.makespan_score
+            + s7 * self.weights.utilization_score
         )
 
         return total, {
@@ -169,6 +175,8 @@ class ObjectiveCalculator:
             "priority_respect": s3,
             "skill_development": s4,
             "cost_optimization": s5,
+            "makespan_score": s6,
+            "utilization_score": s7,
             "total": total,
         }
 
@@ -255,6 +263,36 @@ class ObjectiveCalculator:
             score = 1.0
         return max(0.0, min(1.0, score))
 
+    def _makespan_score(self, assign):
+        if not assign:
+            return 1.0
+        per_emp = {}
+        total_hours = 0.0
+        for tid, emp in assign.items():
+            duration = float(self.data.get_task_info(tid).get("Duration_Hours", 0) or 0)
+            per_emp[emp] = per_emp.get(emp, 0.0) + duration
+            total_hours += duration
+        if not per_emp or total_hours <= 0:
+            return 1.0
+        makespan = max(per_emp.values())
+        ideal = total_hours / max(1, len(per_emp))
+        return max(0.0, min(1.0, ideal / makespan if makespan > 0 else 1.0))
+
+    def _utilization_score(self, assign):
+        if not assign:
+            return 1.0
+        per_emp = {}
+        total_hours = 0.0
+        for tid, emp in assign.items():
+            duration = float(self.data.get_task_info(tid).get("Duration_Hours", 0) or 0)
+            per_emp[emp] = per_emp.get(emp, 0.0) + duration
+            total_hours += duration
+        if not per_emp or total_hours <= 0:
+            return 1.0
+        makespan = max(per_emp.values())
+        total_emps = max(1, len(self.data.emp_skills))
+        return max(0.0, min(1.0, total_hours / (total_emps * makespan) if makespan > 0 else 1.0))
+
 
 class HarmonySearchBatch:
     def __init__(
@@ -331,6 +369,8 @@ class HarmonySearchBatch:
                     "priority_respect": best_details["priority_respect"],
                     "skill_development": best_details["skill_development"],
                     "cost_optimization": best_details["cost_optimization"],
+                    "makespan_score": best_details["makespan_score"],
+                    "utilization_score": best_details["utilization_score"],
                     "total": best_details["total"],
                     "current_score": s,
                     "best_score": best_score,
@@ -544,7 +584,8 @@ def main():
         print(f"  Best score for level: {total:.4f}")
         print(f"  Details: skill={details['skill_matching']:.3f}, balance={details['workload_balance']:.3f}, "
               f"priority={details['priority_respect']:.3f}, dev={details['skill_development']:.3f}, "
-              f"cost={details['cost_optimization']:.3f}")
+              f"cost={details['cost_optimization']:.3f}, ms={details['makespan_score']:.3f}, "
+              f"util={details['utilization_score']:.3f}")
 
         # Plot history for this level
         if history:
@@ -559,6 +600,8 @@ def main():
                     "priority_respect",
                     "skill_development",
                     "cost_optimization",
+                    "makespan_score",
+                    "utilization_score",
                     "total",
                 ]:
                     plt.plot(hist_df["iteration"], hist_df[col], label=col)
@@ -708,6 +751,8 @@ def main():
         "skill_development": 0.0,
         "cost_optimization": 0.0,
         "cost_efficiency": 0.0,
+        "makespan_score": 0.0,
+        "utilization_score": 0.0,
     }
     
     # Average scores from each level (weighted by number of tasks)
@@ -721,16 +766,20 @@ def main():
             "workload_balance",
             "priority_respect",
             "skill_development",
+            "makespan_score",
+            "utilization_score",
         ):
             if key in level_detail:
                 global_details[key] += level_detail[key] * weight
     
     global_total_score = (
-        global_details["skill_matching"] * 0.30 +
-        global_details["workload_balance"] * 0.20 +
-        global_details["priority_respect"] * 0.15 +
-        global_details["skill_development"] * 0.10 +
-        global_details["cost_optimization"] * 0.25
+        global_details["skill_matching"] * 0.25 +
+        global_details["workload_balance"] * 0.15 +
+        global_details["priority_respect"] * 0.10 +
+        global_details["skill_development"] * 0.05 +
+        global_details["cost_optimization"] * 0.20 +
+        global_details["makespan_score"] * 0.15 +
+        global_details["utilization_score"] * 0.10
     )
     if max_possible_cost > min_possible_cost:
         cost_optimization = 1.0 - (
@@ -774,6 +823,8 @@ def main():
         "global_skill_development": float(global_details["skill_development"]),
         "global_cost_optimization": float(global_details["cost_optimization"]),
         "global_cost_efficiency": float(global_details["cost_efficiency"]),
+        "makespan_score": float(global_details["makespan_score"]),
+        "utilization_score": float(global_details["utilization_score"]),
         "global_total_score": float(global_total_score),
         # Cost KPIs
         "total_project_cost_usd": round(total_project_cost, 2),
