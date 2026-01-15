@@ -380,8 +380,8 @@ def run_pipeline(args):
     if not issue_links_exists:
         print(f"\n⚠️  File issue_links.csv chưa được tạo cho project {project_key}!")
         print(f"📌 Cách khắc phục:")
-        print(f"   • Chạy: python scripts/mongodata3.py")
-        print(f"   • Sửa PROJECT_KEY trong script nếu cần")
+        print(f"   ? Ch?y: python tools/export_all_issue_links.py")
+        print(f"   ? N?u c?n l?c theo project: python tools/extract_raw_project.py {project_key}")
         print(f"   • File sẽ được tạo tại: projects/{project_key}/issue_links.csv")
         return 1
     else:

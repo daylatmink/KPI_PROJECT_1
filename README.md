@@ -112,8 +112,11 @@ The pipeline expects these inputs:
 
 2) Project issue links:
    - `projects/<PROJECT>/issue_links.csv`
-   - You can export this from MongoDB with:
-     - `tools/mongodata3.py` (edit PROJECT_KEY and output paths in that file)
+   - Recommended flow (first-time run):
+     - Export all links once: `tools/export_all_issue_links.py`
+     - Filter by project prefix: `tools/extract_issue_links.py`
+   - The project file is created by filtering the global links using
+     `from_issue_key`/`to_issue_key` that start with `<PROJECT>-`.
 
 Note:
 - If the global data files are missing, regenerate them via Step 0.
@@ -165,15 +168,10 @@ python scripts/07_mohs_topo_assign.py --topo projects/ZOOKEEPER/logical_topo.csv
 ## 6) Running on a New Project
 
 1) Export issue links for the project:
-   Option A (direct from MongoDB, per project):
-   - Open `tools/mongodata3.py` and set `PROJECT_KEY` + output paths
-   - Run:
-     ```bash
-     python tools/mongodata3.py
-     ```
-   Option B (export once, reuse without MongoDB queries):
    ```bash
+   # Export all links once (global file)
    python tools/export_all_issue_links.py --mongo-uri mongodb://localhost:27017 --db JiraReposAnon --collection Apache --out data/raw/all_issue_links.csv
+   # Filter per project (prefix match: <PROJECT>-)
    python tools/extract_issue_links.py --input data/raw/all_issue_links.csv --project-key YOUR_PROJECT
    ```
 
@@ -212,7 +210,6 @@ For each project, you will get:
 ## 8) Tools (Optional)
 
 Helper scripts are in `tools/` and are not part of the pipeline:
-- `tools/mongodata3.py`: export project issues/links from MongoDB
 - `tools/export_all_issue_links.py`: export all issue links to one CSV
 - `tools/extract_issue_links.py`: filter project links from a global links CSV/JSONL
 - `tools/compare_algorithms.py`: summarize algorithm metrics
@@ -229,7 +226,7 @@ python tools/render_gantt_from_assignment.py --assignment projects/WODEN/ihs_ass
 
 - `ModuleNotFoundError: pandas` -> run `pip install pandas numpy pymongo matplotlib`
 - `ConnectionRefused` to MongoDB -> check MongoDB is running and connection string
-- Missing `issue_links.csv` -> run `tools/mongodata3.py`
+- Missing `issue_links.csv` -> run `tools/export_all_issue_links.py` then `tools/extract_issue_links.py`
 - Empty output files -> verify input data exists in `data/` and `projects/<PROJECT>/`
 
 ---
@@ -299,7 +296,7 @@ Pipeline cần các đầu vào:
 
 2) Issue links theo project:
    - `projects/<PROJECT>/issue_links.csv`
-   - Có thể export từ MongoDB qua `tools/mongodata3.py` (sửa PROJECT_KEY và đường dẫn output)
+   - N?n export link t?ng b?ng `tools/export_all_issue_links.py`, sau ?? l?c theo project b?ng `tools/extract_issue_links.py`.
 
 ## 4) Chạy nhanh (khuyến dùng)
 
@@ -347,12 +344,17 @@ python scripts/07_mohs_topo_assign.py --topo projects/ZOOKEEPER/logical_topo.csv
 
 ## 6) Chạy cho project mới
 
+
+Luu y: Issue links theo tung project nen duoc tao tu file tong.
+- Buoc 1: python tools/export_all_issue_links.py --out data/raw/all_issue_links.csv
+- Buoc 2: python tools/extract_issue_links.py --input data/raw/all_issue_links.csv --project-key YOUR_PROJECT
+
 1) Export issue links:
    - Cách A (từ MongoDB, theo từng project):
-     - Mở `tools/mongodata3.py`, sửa `PROJECT_KEY` và đường dẫn output
+   - Nên export link  `tools/export_all_issue_links.py`, sau đó lọc theo project b?ng `tools/extract_issue_links.py`.
      - Chạy:
        ```bash
-       python tools/mongodata3.py
+       python tools/extract_issue_links.py --input data/raw/all_issue_links.csv --project-key YOUR_PROJECT
        ```
    - Cách B (export 1 lần, dùng lại):
      ```bash
@@ -396,7 +398,6 @@ Sau khi chạy, mỗi project sẽ có:
 ## 8) Công cụ (tùy chọn)
 
 Công cụ trong `tools/` (không nằm trong pipeline chính):
-- `tools/mongodata3.py`: export issues/links tu MongoDB
 - `tools/export_all_issue_links.py`: export toan bo issue links
 - `tools/extract_issue_links.py`: loc issue links theo project
 - `tools/compare_algorithms.py`: tong hop metrics
@@ -408,5 +409,5 @@ Công cụ trong `tools/` (không nằm trong pipeline chính):
 
 - `ModuleNotFoundError: pandas` -> chạy `pip install pandas numpy pymongo matplotlib`
 - Không kết nối được MongoDB -> kiểm tra MongoDB đang chạy và connection string
-- Thiếu `issue_links.csv` -> chạy `tools/mongodata3.py`
+- Thiếu `issue_links.csv` -> chạy `tools/export_all_issue_links.py` rồi `tools/extract_issue_links.py`
 - File output trống -> kiểm tra input trong `data/` và `projects/<PROJECT>/`
