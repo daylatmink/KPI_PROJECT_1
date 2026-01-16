@@ -217,9 +217,14 @@ Helper scripts are in `tools/` and are not part of the pipeline:
 - `tools/render_gantt_from_assignment.py`: create Gantt charts from assignment (Start_Hour/End_Hour)
 - `tools/visualize_mohs.py`: Pareto plots for MOHS
 
-Example (dense label style is now default):
+One-line test commands (one per tool):
 ```bash
-python tools/render_gantt_from_assignment.py --assignment projects/WODEN/ihs_assignment.csv --label-fontsize 6 --ytick-fontsize 6
+python tools/export_all_issue_links.py --mongo-uri mongodb://localhost:27017 --db JiraReposAnon --collection Apache --out data/raw/all_issue_links.csv
+python tools/extract_issue_links.py --input data/raw/all_issue_links.csv --project-key WODEN
+python tools/compare_algorithms.py --project WODEN
+python tools/visualize_gantt.py --assignment projects/WODEN/hs_assignment.csv --links projects/WODEN/issue_links.csv --output-dir projects/WODEN/gantt_legacy
+python tools/render_gantt_from_assignment.py --assignment projects/WODEN/hs_assignment.csv --title "Gantt - WODEN HS"
+python tools/visualize_mohs.py --score projects/WODEN/mohs_score.json --out-dir projects/WODEN/mohs_plots
 ```
 
 ## 9) Troubleshooting
