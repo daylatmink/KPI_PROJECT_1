@@ -23,19 +23,11 @@ def load_score(path: str) -> Dict:
 
 def pick_metrics(score: Dict) -> Dict[str, float]:
     keys = [
-        "total_tasks",
-        "batches",
+        # Objective-focused metrics only
+        "global_total_score",
+        "total_project_cost_usd",
         "makespan_hours",
-        "total_work_hours",
         "utilization",
-        "skill_match_rate",
-        "avg_total_score",
-        "avg_task_duration_hours",
-        "p90_task_duration_hours",
-        "avg_batch_duration_hours",
-        "p90_batch_duration_hours",
-        "total_idle_hours",
-        "idle_ratio",
     ]
     out = {}
     for k in keys:

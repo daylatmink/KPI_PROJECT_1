@@ -134,6 +134,27 @@ Ví dụ:
     )
     
     parser.add_argument(
+        "--hs-objective",
+        choices=["primary", "cost", "makespan", "utilization"],
+        default="primary",
+        help="Mục tiêu tối ưu cho HS (primary/cost/makespan/utilization)"
+    )
+
+    parser.add_argument(
+        "--ihs-objective",
+        choices=["primary", "cost", "makespan", "utilization"],
+        default="primary",
+        help="Mục tiêu tối ưu cho IHS (primary/cost/makespan/utilization)"
+    )
+
+    parser.add_argument(
+        "--ghs-objective",
+        choices=["primary", "cost", "makespan", "utilization"],
+        default="primary",
+        help="Mục tiêu tối ưu cho GHS (primary/cost/makespan/utilization)"
+    )
+
+    parser.add_argument(
         "--verbose",
         action="store_true",
         help="In chi tiết thông tin chạy"
@@ -142,7 +163,17 @@ Ví dụ:
     return parser.parse_args()
 
 
-def run_script(script_path, project_key, args_flags, step_num, description, verbose=False):
+def run_script(
+    script_path,
+    project_key,
+    args_flags,
+    step_num,
+    description,
+    verbose=False,
+    hs_objective="primary",
+    ihs_objective="primary",
+    ghs_objective="primary",
+):
     """
     Chạy một script với project key
     
@@ -213,7 +244,8 @@ def run_script(script_path, project_key, args_flags, step_num, description, verb
             "--assignees", f"projects/{project_key}/assignees.csv",
             "--output-assignment", f"projects/{project_key}/hs_assignment.csv",
             "--output-score", f"projects/{project_key}/hs_score.json",
-            "--plot-dir", f"projects/{project_key}/hs_plots"
+            "--plot-dir", f"projects/{project_key}/hs_plots",
+            "--objective", hs_objective,
         ])
     elif script_name == "07_ihs_topo_assign.py":
         cmd.extend([
@@ -221,7 +253,8 @@ def run_script(script_path, project_key, args_flags, step_num, description, verb
             "--assignees", f"projects/{project_key}/assignees.csv",
             "--output-assignment", f"projects/{project_key}/ihs_assignment.csv",
             "--output-score", f"projects/{project_key}/ihs_score.json",
-            "--plot-dir", f"projects/{project_key}/ihs_plots"
+            "--plot-dir", f"projects/{project_key}/ihs_plots",
+            "--objective", ihs_objective,
         ])
     elif script_name == "07_ghs_topo_assign.py":
         cmd.extend([
@@ -229,7 +262,8 @@ def run_script(script_path, project_key, args_flags, step_num, description, verb
             "--assignees", f"projects/{project_key}/assignees.csv",
             "--output-assignment", f"projects/{project_key}/ghs_assignment.csv",
             "--output-score", f"projects/{project_key}/ghs_score.json",
-            "--plot-dir", f"projects/{project_key}/ghs_plots"
+            "--plot-dir", f"projects/{project_key}/ghs_plots",
+            "--objective", ghs_objective,
         ])
     elif script_name == "07_greedy_assign.py":
         cmd.extend([
@@ -358,6 +392,9 @@ def run_pipeline(args):
     print(f"  With Step 0: {args.with_step0}")
     print(f"  Skip MOHS: {args.skip_mohs}")
     print(f"  Only Assignment: {args.only_assignment}")
+    print(f"  HS Objective: {args.hs_objective}")
+    print(f"  IHS Objective: {args.ihs_objective}")
+    print(f"  GHS Objective: {args.ghs_objective}")
     print(f"  Verbose: {args.verbose}")
     
     # Kiểm tra dữ liệu toàn cục (step 0)
@@ -380,8 +417,8 @@ def run_pipeline(args):
     if not issue_links_exists:
         print(f"\n⚠️  File issue_links.csv chưa được tạo cho project {project_key}!")
         print(f"📌 Cách khắc phục:")
-        print(f"   ? Ch?y: python tools/export_all_issue_links.py")
-        print(f"   ? N?u c?n l?c theo project: python tools/extract_raw_project.py {project_key}")
+        print(f"   • Chạy: python tools/export_all_issue_links.py")
+        print(f"   • Nếu cần lọc theo project: python tools/extract_raw_project.py {project_key}")
         print(f"   • File sẽ được tạo tại: projects/{project_key}/issue_links.csv")
         return 1
     else:
@@ -447,7 +484,10 @@ def run_pipeline(args):
             step_info["args"],
             step_info["step"],
             step_info["description"],
-            verbose=args.verbose
+            verbose=args.verbose,
+            hs_objective=args.hs_objective,
+            ihs_objective=args.ihs_objective,
+            ghs_objective=args.ghs_objective,
         )
         
         if success:
@@ -612,6 +652,9 @@ def interactive_menu():
             with_step0=False,
             skip_mohs=False,
             only_assignment=False,
+            hs_objective="primary",
+            ihs_objective="primary",
+            ghs_objective="primary",
             verbose=False,
         )
 
@@ -633,6 +676,21 @@ def interactive_menu():
             args.with_step0 = _prompt_bool("Include Step 0?", False)
             args.skip_mohs = _prompt_bool("Skip MOHS?", False)
             args.only_assignment = _prompt_bool("Only assignment (Step 7)?", False)
+            hs_obj = _prompt_text("HS objective (primary/cost/makespan/utilization)", "primary").strip()
+            if hs_obj not in ("primary", "cost", "makespan", "utilization"):
+                print("Invalid HS objective, using primary.")
+                hs_obj = "primary"
+            args.hs_objective = hs_obj
+            ihs_obj = _prompt_text("IHS objective (primary/cost/makespan/utilization)", "primary").strip()
+            if ihs_obj not in ("primary", "cost", "makespan", "utilization"):
+                print("Invalid IHS objective, using primary.")
+                ihs_obj = "primary"
+            args.ihs_objective = ihs_obj
+            ghs_obj = _prompt_text("GHS objective (primary/cost/makespan/utilization)", "primary").strip()
+            if ghs_obj not in ("primary", "cost", "makespan", "utilization"):
+                print("Invalid GHS objective, using primary.")
+                ghs_obj = "primary"
+            args.ghs_objective = ghs_obj
             args.verbose = _prompt_bool("Verbose logs?", False)
 
         return run_pipeline(args)

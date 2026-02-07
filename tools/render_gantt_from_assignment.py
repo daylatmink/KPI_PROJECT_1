@@ -36,7 +36,7 @@ def render_gantt(
 
     df = df.copy()
     df["Duration"] = df["End_Hour"] - df["Start_Hour"]
-    df = df.sort_values(["Start_Hour", "Assigned_To", "Task_ID"]).reset_index(drop=True)
+    df = df.sort_values(["Assigned_To", "Start_Hour", "Task_ID"]).reset_index(drop=True)
 
     if max_tasks and len(df) > max_tasks:
         rng = np.random.default_rng(seed)
@@ -47,19 +47,27 @@ def render_gantt(
     matplotlib.use("Agg")
     import matplotlib.pyplot as plt
 
-    row_count = len(df)
+    assignees = sorted(df["Assigned_To"].dropna().unique())
+    assignee_idx = {a: i for i, a in enumerate(assignees)}
+    row_count = len(assignees)
     fig_height = max(10, min(120, row_count * row_height))
     fig, ax = plt.subplots(figsize=(fig_width, fig_height))
 
-    assignees = sorted(df["Assigned_To"].dropna().unique())
-    colors = plt.cm.tab20(np.linspace(0, 1, max(1, len(assignees))))
-    assignee_colors = {a: colors[i % len(colors)] for i, a in enumerate(assignees)}
+    priority_colors = {
+        "Blocker": (0.6, 0.0, 0.0, 0.9),
+        "Critical": (0.85, 0.1, 0.1, 0.9),
+        "Major": (0.95, 0.5, 0.1, 0.9),
+        "Minor": (0.98, 0.8, 0.2, 0.9),
+        "Trivial": (0.2, 0.7, 0.2, 0.9),
+    }
+    fallback_color = (0.6, 0.6, 0.6, 0.8)
 
     for i, row in df.iterrows():
         assignee = row["Assigned_To"]
-        color = assignee_colors.get(assignee, (0.6, 0.6, 0.6, 0.8))
+        y = assignee_idx.get(assignee, 0)
+        color = priority_colors.get(row.get("Priority"), fallback_color)
         ax.barh(
-            i,
+            y,
             row["Duration"],
             left=row["Start_Hour"],
             height=bar_height,
@@ -72,7 +80,7 @@ def render_gantt(
             label = f"{row['Task_ID']}:{assignee}"
             ax.text(
                 row["Start_Hour"] + (row["Duration"] / 2 if row["Duration"] else 0),
-                i,
+                y,
                 label,
                 ha="center",
                 va="center",
@@ -81,13 +89,22 @@ def render_gantt(
             )
 
     if show_ylabels:
-        ax.set_yticks(np.arange(len(df)))
-        ax.set_yticklabels([str(tid) for tid in df["Task_ID"]], fontsize=ytick_fontsize)
+        ax.set_yticks(np.arange(len(assignees)))
+        ax.set_yticklabels([str(a) for a in assignees], fontsize=ytick_fontsize)
     else:
         ax.set_yticks([])
     ax.set_xlabel("Time (Hours)", fontsize=11, weight="bold")
     ax.set_title(title, fontsize=13, weight="bold", pad=16)
     ax.grid(True, axis="x", alpha=0.3, linestyle="--")
+    if priority_colors:
+        import matplotlib.patches as mpatches
+        legend_items = [
+            mpatches.Patch(color=priority_colors[p], label=p)
+            for p in ["Blocker", "Critical", "Major", "Minor", "Trivial"]
+            if p in df["Priority"].unique()
+        ]
+        if legend_items:
+            ax.legend(handles=legend_items, loc="upper right", fontsize=8, frameon=False)
 
     plt.tight_layout()
     output_path.parent.mkdir(parents=True, exist_ok=True)
@@ -125,7 +142,7 @@ def main():
     parser.add_argument("--bar-height", type=float, default=0.6)
     parser.add_argument("--line-width", type=float, default=0.2)
     args = parser.parse_args()
-    show_labels = True if "--show-labels" not in sys.argv else args.show_labels
+    show_labels = False if "--show-labels" not in sys.argv else args.show_labels
     show_ylabels = True if "--show-ylabels" not in sys.argv else args.show_ylabels
 
     assignment_path = Path(args.assignment)

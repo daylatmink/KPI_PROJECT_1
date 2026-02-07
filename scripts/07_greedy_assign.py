@@ -58,6 +58,16 @@ PRIORITY_MULTIPLIER = {
     "Minor": 1.0,
     "Trivial": 0.8,
 }
+PRIORITY_DURATION_HOURS = {
+    "critical": 32.0,
+    "high": 16.0,
+    "major": 16.0,
+    "medium": 8.0,
+    "minor": 8.0,
+    "low": 4.0,
+    "trivial": 4.0,
+    "blocker": 32.0,
+}
 
 
 def clamp(val: float, lo: float, hi: float) -> float:
@@ -146,34 +156,24 @@ class ObjectiveCalculator:
         self.weights = ObjectiveWeights()
         self.penalties = PenaltyFactors()
 
-    def score(self, assign: Dict[str, str]) -> Tuple[float, Dict]:
+    def evaluate(self, assign: Dict[str, str]) -> Dict:
         s1 = self._skill_matching(assign)
         s2 = self._workload_balance(assign)
         s3 = self._priority_respect(assign)
         s4 = self._skill_dev(assign)
-        s5 = self._cost_optimization(assign)
-        s6 = self._makespan_score(assign)
-        s7 = self._utilization_score(assign)
+        total_cost, makespan = self._assignment_cost_makespan(assign)
+        utilization = self._utilization_ratio(assign, makespan)
+        primary_score = float(np.mean([s2, s3, s4])) if assign else 0.0
 
-        total = (
-            s1 * self.weights.skill_matching
-            + s2 * self.weights.workload_balance
-            + s3 * self.weights.priority_respect
-            + s4 * self.weights.skill_development
-            + s5 * self.weights.cost_optimization
-            + s6 * self.weights.makespan_score
-            + s7 * self.weights.utilization_score
-        )
-
-        return total, {
+        return {
             "skill_matching": s1,
             "workload_balance": s2,
             "priority_respect": s3,
             "skill_development": s4,
-            "cost_optimization": s5,
-            "makespan_score": s6,
-            "utilization_score": s7,
-            "total": total,
+            "primary_score": primary_score,
+            "total_cost_usd": total_cost,
+            "makespan_hours": makespan,
+            "utilization_ratio": utilization,
         }
 
     def _skill_matching(self, assign):
@@ -193,13 +193,29 @@ class ObjectiveCalculator:
         return max(0.0, 1.0 - avg_penalty)
 
     def _workload_balance(self, assign):
-        counts = {}
+        totals = {}
         for _, emp in assign.items():
-            counts[emp] = counts.get(emp, 0) + 1
-        vals = list(counts.values())
-        std = np.std(vals) if vals else 0.0
-        max_std = len(assign) / 2 if assign else 1.0
-        return 1 / (1 + std / max_std)
+            totals.setdefault(emp, 0.0)
+        for tid, emp in assign.items():
+            info = self.data.get_task_info(tid)
+            duration = info.get("Duration_Hours", 0)
+            try:
+                duration = float(duration)
+            except Exception:
+                duration = 0.0
+            if duration <= 0:
+                pr = str(info.get("Priority", "")).strip().lower()
+                duration = PRIORITY_DURATION_HOURS.get(pr, 8.0)
+            totals[emp] += duration
+        vals = list(totals.values())
+        if not vals:
+            return 1.0
+        mean = float(np.mean(vals))
+        if mean <= 0:
+            return 1.0
+        std = float(np.std(vals))
+        cv = std / mean
+        return 1 / (1 + cv)
 
     def _priority_respect(self, assign):
         weights = {
@@ -230,6 +246,27 @@ class ObjectiveCalculator:
         vals = [len(v) for v in diversity.values()]
         avg = np.mean(vals) if vals else 0.0
         return min(1.0, avg / 10)
+
+    def _assignment_cost_makespan(self, assign: Dict[str, str]) -> Tuple[float, float]:
+        total_cost = 0.0
+        per_emp = {}
+        for tid, emp in assign.items():
+            info = self.data.get_task_info(tid)
+            duration = float(info.get("Duration_Hours", 0) or 0)
+            per_emp[emp] = per_emp.get(emp, 0.0) + duration
+            total_cost += duration * self.data.emp_costs.get(emp, 50.0)
+        makespan = max(per_emp.values()) if per_emp else 0.0
+        return total_cost, makespan
+
+    def _utilization_ratio(self, assign: Dict[str, str], makespan: float) -> float:
+        if not assign or makespan <= 0:
+            return 0.0
+        total_hours = 0.0
+        for tid in assign:
+            duration = float(self.data.get_task_info(tid).get("Duration_Hours", 0) or 0)
+            total_hours += duration
+        total_emps = max(1, len(self.data.emp_skills))
+        return total_hours / (total_emps * makespan)
 
     def _cost_optimization(self, assign):
         default_rate = 50.0
@@ -351,6 +388,12 @@ def parse_args():
         default=0.20,
         help="Weight for load balancing term in heuristic.",
     )
+    parser.add_argument(
+        "--pick-mode",
+        choices=["least-load", "most-load", "first", "random"],
+        default="least-load",
+        help="Greedy pick strategy among eligible assignees.",
+    )
     return parser.parse_args()
 
 
@@ -410,13 +453,10 @@ def greedy_fast_assign(
     employees: List[str],
     top_k: int,
     load_weight: float,
+    pick_mode: str,
 ) -> Dict[str, str]:
     assignment: Dict[str, str] = {}
     loads = {emp: 0.0 for emp in employees}
-    costs = ctx.emp_costs if ctx.emp_costs else {}
-    default_rate = 50.0
-    min_rate = min(costs.values()) if costs else default_rate
-    max_rate = max(costs.values()) if costs else default_rate
 
     for tid in tasks_list:
         info = ctx.get_task_info(tid)
@@ -424,41 +464,41 @@ def greedy_fast_assign(
         need = priority_to_level(info.get("Priority", ""))
         duration = float(info.get("Duration_Hours", 0) or 0)
 
-        scored = []
+        chosen = None
+        chosen_load = None
+        eligible = []
         for emp in employees:
             have = ctx.get_emp_skills(emp).get(tag, 0)
-            gap = max(0, need - have)
-            if have == 0:
-                skill_score = 0.0
-            else:
-                skill_score = max(0.0, 1.0 - (gap * PenaltyFactors().skill_gap / 100.0))
+            if have < need:
+                continue
+            eligible.append(emp)
 
-            rate = costs.get(emp, default_rate)
-            if max_rate > min_rate:
-                cost_score = 1.0 - ((rate - min_rate) / (max_rate - min_rate))
-            else:
-                cost_score = 1.0
+        if not eligible:
+            raise ValueError(f"No eligible assignees for task {tid} with tag {tag} need {need}")
 
-            load_score = 1.0 / (1.0 + loads[emp])
-            local_score = (
-                0.55 * skill_score
-                + 0.25 * cost_score
-                + load_weight * load_score
-            )
-            scored.append((local_score, emp))
+        if pick_mode == "first":
+            chosen = eligible[0]
+        elif pick_mode == "random":
+            chosen = np.random.choice(eligible)
+        else:
+            for emp in eligible:
+                load = loads[emp]
+                if chosen_load is None:
+                    chosen = emp
+                    chosen_load = load
+                    continue
+                if pick_mode == "most-load":
+                    if load > chosen_load:
+                        chosen = emp
+                        chosen_load = load
+                else:
+                    if load < chosen_load:
+                        chosen = emp
+                        chosen_load = load
 
-        scored.sort(reverse=True)
-        candidates = [emp for _, emp in scored[: max(1, top_k)]]
+        if chosen is None:
+            raise ValueError(f"No eligible assignees for task {tid} with tag {tag} need {need}")
 
-        best_emp = None
-        best_proj = None
-        for emp in candidates:
-            projected = loads[emp] + duration
-            if best_proj is None or projected < best_proj:
-                best_proj = projected
-                best_emp = emp
-
-        chosen = best_emp or candidates[0]
         assignment[tid] = chosen
         loads[chosen] += duration
 
@@ -519,23 +559,26 @@ def main():
             employees,
             top_k=args.top_k,
             load_weight=args.load_weight,
+            pick_mode=args.pick_mode,
         )
-        total, details = ObjectiveCalculator(ctx).score(assignment)
+        details = ObjectiveCalculator(ctx).evaluate(assignment)
 
         level_solutions[level] = {
             "assignment": assignment,
             "score_details": details,
-            "total_score": total,
+            "total_score": details["primary_score"],
             "tasks_df": level_tasks,
         }
 
-        print(f"  Score for level: {total:.4f}")
+        print(f"  Score for level: {details['primary_score']:.4f}")
         print(
             f"  Details: skill={details['skill_matching']:.3f}, "
             f"balance={details['workload_balance']:.3f}, "
             f"priority={details['priority_respect']:.3f}, "
             f"dev={details['skill_development']:.3f}, "
-            f"cost={details['cost_optimization']:.3f}"
+            f"cost_usd={details['total_cost_usd']:.2f}, "
+            f"makespan_h={details['makespan_hours']:.2f}, "
+            f"util={details['utilization_ratio']:.3f}"
         )
 
     # STEP 2: Combine all level solutions into global assignment
@@ -631,23 +674,11 @@ def main():
         row.get("Duration_Hours", 0) * emp_costs.get(row.get("Assigned_To"), default_rate)
         for row in all_rows
     )
-    if emp_costs:
-        min_rate = min(emp_costs.values())
-        max_rate = max(emp_costs.values())
-    else:
-        min_rate = default_rate
-        max_rate = default_rate
-    min_possible_cost = total_work_hours * min_rate
-    max_possible_cost = total_work_hours * max_rate
-
     global_details = {
         "skill_matching": 0.0,
         "workload_balance": 0.0,
         "priority_respect": 0.0,
         "skill_development": 0.0,
-        "cost_optimization": 0.0,
-        "makespan_score": 0.0,
-        "utilization_score": 0.0,
     }
 
     for level, level_sol in level_solutions.items():
@@ -660,36 +691,18 @@ def main():
             "workload_balance",
             "priority_respect",
             "skill_development",
-            "makespan_score",
-            "utilization_score",
         ):
             if key in level_detail:
                 global_details[key] += level_detail[key] * weight
 
-    if max_possible_cost > min_possible_cost:
-        cost_optimization = 1.0 - (
-            (total_project_cost - min_possible_cost)
-            / (max_possible_cost - min_possible_cost)
+    global_total_score = float(
+        np.mean(
+            [
+                global_details["workload_balance"],
+                global_details["priority_respect"],
+                global_details["skill_development"],
+            ]
         )
-    else:
-        cost_optimization = 1.0
-    cost_efficiency = (global_details["skill_matching"] * 0.30 +
-                       global_details["workload_balance"] * 0.15 +
-                       global_details["priority_respect"] * 0.10 +
-                       global_details["skill_development"] * 0.05 +
-                       cost_optimization * 0.20 +
-                       global_details["makespan_score"] * 0.15 +
-                       global_details["utilization_score"] * 0.10) / total_project_cost if total_project_cost > 0 else 0.0
-    global_details["cost_optimization"] = cost_optimization
-
-    global_total_score = (
-        global_details["skill_matching"] * 0.25 +
-        global_details["workload_balance"] * 0.15 +
-        global_details["priority_respect"] * 0.10 +
-        global_details["skill_development"] * 0.05 +
-        global_details["cost_optimization"] * 0.20 +
-        global_details["makespan_score"] * 0.15 +
-        global_details["utilization_score"] * 0.10
     )
 
     level_scores = []
@@ -719,17 +732,10 @@ def main():
         "global_workload_balance": float(global_details["workload_balance"]),
         "global_priority_respect": float(global_details["priority_respect"]),
         "global_skill_development": float(global_details["skill_development"]),
-        "global_cost_optimization": float(global_details["cost_optimization"]),
-        "makespan_score": float(global_details["makespan_score"]),
-        "utilization_score": float(global_details["utilization_score"]),
         "global_total_score": float(global_total_score),
         "total_project_cost_usd": round(total_project_cost, 2),
         "cost_per_task_usd": round(total_project_cost / len(all_rows), 2) if all_rows else 0,
         "cost_per_hour_usd": round(total_project_cost / total_work_hours, 2) if total_work_hours > 0 else 0,
-        "min_possible_cost_usd": round(min_possible_cost, 2),
-        "max_possible_cost_usd": round(max_possible_cost, 2),
-        "cost_optimization": round(cost_optimization, 4),
-        "cost_efficiency_score_per_usd": round(cost_efficiency, 8),
         "efficiency_score_per_1000_usd": round(global_total_score / (total_project_cost / 1000), 4) if total_project_cost > 0 else 0,
         "level_scores": level_scores,
     }
@@ -750,8 +756,6 @@ def main():
     print(f"  Total Cost: ${total_project_cost:,.2f}")
     print(f"  Cost per Task: ${total_project_cost / len(all_rows):.2f}")
     print(f"  Cost per Hour: ${total_project_cost / total_work_hours:.2f}")
-    print(f"  Cost Optimization: {cost_optimization:.4f}")
-    print(f"  Cost Efficiency (score/usd): {cost_efficiency:.8f}")
     print(f"  Utilization: {utilization:.2%}")
 
 
