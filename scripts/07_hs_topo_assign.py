@@ -35,7 +35,7 @@ class HSConfig:
     harmony_memory_size: int = 15
     hmcr: float = 0.85
     par: float = 0.15
-    num_iterations: int = 1000
+    num_iterations: int = 5000
     seed: int = 42
 
 

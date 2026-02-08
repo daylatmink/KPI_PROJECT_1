@@ -391,7 +391,7 @@ def parse_args():
     parser.add_argument(
         "--pick-mode",
         choices=["least-load", "most-load", "first", "random"],
-        default="least-load",
+        default="random",
         help="Greedy pick strategy among eligible assignees.",
     )
     return parser.parse_args()

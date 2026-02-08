@@ -37,7 +37,7 @@ class HSConfig:
     par_max: float = 0.50
     bw_min: float = 1.0
     bw_max: float = 5.0
-    num_iterations: int = 1000
+    num_iterations: int = 5000
     seed: int = 42
     max_skill_gap: int = 2
     duration_penalty_per_gap: float = 0.25
